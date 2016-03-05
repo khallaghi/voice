@@ -15,6 +15,8 @@ def register_blueprints(app):
     app.register_blueprint(add)
     from app.search import search
     app.register_blueprint(search)
+    from app.start import home
+    app.register_blueprint(home)
     # app.register_blueprint(admin)
 
 
