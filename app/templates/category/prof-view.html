@@ -1,0 +1,8 @@
+<html>
+	<body>
+		{% for prof in professors %}
+			<a href={{url_for('category.profile', prof=prof.id) }}> {{prof.name}}</a>
+			<br>
+		{% endfor %}
+	</body>
+</html>

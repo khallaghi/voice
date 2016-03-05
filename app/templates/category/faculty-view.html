@@ -1,0 +1,7 @@
+<html>
+	<body>
+		{% for faculty in faculties %}
+			<a href={{url_for('category.professor', fac=faculty.id)}}>{{faculty.name}}</a>
+		{% endfor %}
+	</body>
+</html>

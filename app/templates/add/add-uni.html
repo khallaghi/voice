@@ -1,0 +1,11 @@
+{% import '_forms.html' as forms %}
+	{% for uni in unis %}
+		<p> {{uni.name}}
+	{% endfor %}
+	<h2>Add a comment</h2>
+	<form action="?{{ request.query_string }}" method="post">
+	  {{ forms.render(form) }}
+	  <div class="actions">
+	    <input  type="submit" class="btn primary" value="comment">
+	  </div>
+	</form>

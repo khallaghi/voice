@@ -1,0 +1,27 @@
+<html>
+	<body>
+		<h1> Personal info</h1>
+		<p>name : {{professor.name}}</p>
+		<p>family : {{professor.family}}</p>
+		<p>faculty: {{professor.faculty.name}}</p>
+		<p>email : {{professor.email}}</p>
+		<p>website : {{professor.website}}</p>
+		<h1> Personal Rate </h1>
+		<p> attr1: {{professor.attr1}} in count of {{professor.attr1_count}}</p>
+		<p> attr2: {{professor.attr2}} in count of {{professor.attr2_count}}</p>
+		<p> attr3: {{professor.attr3}} in count of {{professor.attr3_count}}</p>
+		<h1>Studies</h1>
+		{% for study in professor.studies %}
+			<p>study name: {{study.name}}</p>
+			<p>year: {{study.year}}</p>
+			<p>term: {{study.term}}</p>
+			<br>
+			<h1>Rate of this study</h1>
+			<p>attr1: {{study.attr1}} in count of {{study.attr1_count}}</p>
+			<p>attr2: {{study.attr2}} in count of {{study.attr2_count}}</p>
+			<p>attr3: {{study.attr3}} in count of {{study.attr3_count}}</p>
+		{% endfor %}
+
+
+	</body>
+</html>

@@ -1,0 +1,25 @@
+{% import '_forms.html' as forms %}
+	<form action="?{{ request.query_string }}" method="post">
+	  {{ forms.render(form)}}
+	  <div class="actions">
+	    <input  type="submit" class="btn primary" value="submit">
+	  </div>
+	  {% if profs %}
+	  	{% for prof in profs %}
+	  		<div> 
+	  			<p>professor name : {{prof.name}}</p>
+	  			<p>professor family : {{prof.family}}</p>
+	  		</div>
+	  		<br>
+	  	{% endfor %}
+	  {% endif %}
+
+	  {% if faculties %}
+	  	{% for fac in faculties %}
+	  		<div> 
+	  			<p>faculty name : {{fac.name}}</p>
+	  		</div>
+	  	{% endfor %}
+	  {% endif %}
+
+	</form>
