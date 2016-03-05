@@ -6,6 +6,8 @@ from app.forms import SearchForm
 from mongoengine import Q
 
 class ProfessorProfile(MethodView):
+	def get_context(self):
+		return
 	def get(self,id):
 		context = self.get_context()
 		return render_template('profile/professor.html', **context)
