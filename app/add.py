@@ -3,9 +3,11 @@ from flask.views import MethodView
 from app.models import University, Professor, Faculty
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import FacultyForm, ProfessorForm
+from app.auth import requires_auth
 add = Blueprint('add', __name__, template_folder='templates/add')
 
 class AddUni(MethodView):
+	decorators = [requires_auth]
 	form = model_form(University, exclude=['faculties'])
 	def get_context(self):
 		unis = University.objects.all()
@@ -33,6 +35,7 @@ add.add_url_rule('/add/uni', view_func=AddUni.as_view('adduni'))
 
 
 class AddFaculty(MethodView):
+	decorators = [requires_auth]
 	def get_context(self):
 		form = FacultyForm(request.form)
 		form.uni.choices = [(uni.id, uni.name) for uni in University.objects.all() ]
@@ -69,6 +72,7 @@ add.add_url_rule('/add/fac', view_func=AddFaculty.as_view('addfac'))
 
 
 class AddProf(MethodView):
+	decorators = [requires_auth]
 	def get_context(self):
 		form = ProfessorForm(request.form)		
 		form.faculty.choices = [(str(f.id), f.name) for f in Faculty.objects.all()]
