@@ -2,6 +2,7 @@
 	{% for prof in profs %}
 		 {{prof.name+" "}}
 	{% endfor %}
+	<p> number of professors: {{profs.count()}}
 	<h2>Add a comment</h2>
 	<form action="?{{ request.query_string }}" method="post">
 	  {{ forms.render(form)}}
