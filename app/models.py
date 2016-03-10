@@ -11,6 +11,10 @@ class Faculty(db.Document):
     uni = db.ReferenceField('University')
     professors = db.ListField(db.ReferenceField('Professor'))
 
+    # @prof_count:
+    def prof_count(self):
+        return len(self.professors)
+
 class Professor(db.Document):
     ''' Personal Attributes '''
     name = db.StringField(max_length=500, required=True)
