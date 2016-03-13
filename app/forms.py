@@ -14,5 +14,7 @@ class ProfessorForm(Form):
 	# uni = SelectField('University')
 class SearchForm(Form):
 	search = TextField('search it')
+class RateForm(Form):
+	
 
 	

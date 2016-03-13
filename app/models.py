@@ -40,6 +40,10 @@ class Professor(db.Document):
     ''' comments '''
     comments = db.EmbeddedDocumentListField('Comment')
 
+    ''' tags '''
+    personal_tags = db.EmbeddedDocumentListField('Tag')
+    class_tags = db.EmbeddedDocumentListField('Tag')
+    
 
 class Study(db.EmbeddedDocument):
     ''' default attributes '''
@@ -54,6 +58,10 @@ class Study(db.EmbeddedDocument):
     attr2_count = db.IntField()
     attr3 = db.IntField()
     attr3_count = db.IntField()
+
+class Tag(db.EmbeddedDocument):
+    name = db.StringField(max_length=30)
+    count = db.IntField()
 
 
 class Comment(db.EmbeddedDocument):
