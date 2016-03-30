@@ -1,0 +1,388 @@
+#main-result {
+	/*width: auto;*/
+	height: 350px;
+}
+
+.study-result {
+	height: 200px;
+	width: 200px;
+	margin: 3% 3% 3% 3%;
+	float: left;
+	text-align: center;
+}
+.box {
+	/*border: 2px solid #ddd;*/
+	border-radius: 3px;
+	padding: 2% 2% 2% 2%;
+	margin: 25px auto auto auto;
+	text-align: center;
+}
+.info {
+	padding: 10% 2% 2% 5%;
+	margin-top: 40px;
+	min-height: 400px;
+	max-height: 400px;
+	overflow-y: auto;
+}
+.chart {
+	margin-top: 40px;	
+	min-height: 400px;
+	max-height: 400px;
+}
+.tags {
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.classes {
+	margin-bottom: 40px;
+	max-height: 300px;
+	min-height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;  
+	text-align: center;
+}
+
+.bg {
+	background-color: #0091EA;
+}
+.bg-gray {
+	background-color: #EEEEEE;
+}
+.row {
+	margin: 0 , auto;
+    width: 100%;
+    /*border: 3px solid #73AD21;*/
+    /*padding: 10px;*/
+	vertical-align: center;
+}
+
+#profile-pic {
+	width: 50%; 
+	height: 50%;
+	/*border: 2px solid #ddd;*/
+}
+
+/*.chart{
+	margin-left: 10px;
+}*/
+@font-face {
+ font-family: 'BYekan';
+ src: url('fonts/BYekan.eot');
+ src: local('b BYekan'), url('fonts/BYekan.woff') format('woff'), url('fonts/BYekan.ttf') format('truetype'), url('fonts/BYekan.svg') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+
+#profile {
+	line-height: 10px;
+	font: 13px BYekan, Tahoma, Geneva, sans-serif;
+	/*letter-spacing: .3px;*/
+	/*margin: 10px 0 10px 0;*/
+	font-size: 20px;
+	/*clear: both;*/
+}
+
+#tag{
+	float: right;
+	line-height: 10px;
+	font: 15px BYekan, Tahoma, Geneva, sans-serif;
+	/*letter-spacing: .3px;*/
+	/*margin: 10px 0 10px 0;*/
+	font-size: 15px;
+	margin: 5px 5px 5px 5px;
+	/*clear: both;*/
+}
+#rate{
+	float: right;
+}
+.rate-form{
+	text-align: right;
+	margin-right: 7%;
+	margin-left: 10%;
+	/*float: right;*/
+}
+.rate-form label{
+	/*font-size: 15px;*/
+	margin-left: 10px;
+	/*float:right;*/
+}
+.tag-handler{
+	margin-top: 20px;
+	margin-bottom: 5%;
+	display: block;
+	float: right;
+	margin-right: 2em;
+	/*font-size: 17px;*/
+}
+.tag-handler a{
+	background: #b8b8b3 none repeat scroll 0 0;
+	color: #fff;
+	display: block;
+	margin-bottom: 6px;
+	margin-right: 6px;
+	padding: 5px 7px;
+	text-decoration: none;
+	/*width: auto;*/
+	float: right;
+	font-size:7;
+	outline: none;
+}
+.tag-handler a:hover{
+	background: #2196f3 none repeat scroll 0 0;
+	
+}
+.tag-handler a.active{
+	background: #2196f3 none repeat scroll 0 0;
+
+}
+.input{
+	/*margin-top: 20px;*/
+	/*margin-bottom: 5%;*/
+	display: block;
+	float: left;
+	margin-right: 2em;
+}
+.active {
+	background: ##00adee none repeat scroll 0 0;
+}
+.input a{
+	background: #b8b8b3 none repeat scroll 0 0;
+	color: #fff;
+	display: block;
+	margin-bottom: 6px;
+	margin-right: 6px;
+	padding: 5px 7px;
+	text-decoration: none;
+	width: auto;
+	float: right;
+	font-size:7;
+}
+.submit-score{
+	margin-top: 5%;
+	text-align: center;
+}
+#yes-or-no{
+	float: right;
+	margin-bottom: 1em;
+}
+#yes-or-no a{
+	/*z-index: 30;*/
+	outline:none;
+	background: #b8b8b3 none repeat scroll 0 0;
+	color: #fff;
+	display: block;
+	margin-bottom: 6px;
+	margin-right: 6px;
+	padding: 5px 20px;
+	text-decoration: none;
+	width: auto;
+	/*float: right;*/
+	font-size:11;
+	border-radius: 100px;
+	font-size: 14px;
+	/*width: 20%;*/
+	/*float: left;*/
+}
+#yes-or-no a.active#sel1 {
+	background: #B71C1C none repeat scroll 0 0;
+}
+#yes-or-no a.active#sel2 {
+	background: #E65100 none repeat scroll 0 0;
+}
+#yes-or-no a.active#sel3 {
+	background: #9E9D24 none repeat scroll 0 0;
+}
+#yes-or-no a.active#sel4 {
+	background: #558B2F none repeat scroll 0 0;
+}
+#yes-or-no a.active#sel5 {
+	background: #33691E none repeat scroll 0 0;
+}
+
+#yes-or-no a:hover#sel1{
+	background: #B71C1C none repeat scroll 0 0;
+}
+#yes-or-no a:hover#sel2{
+	background: #E65100 none repeat scroll 0 0;
+}
+#yes-or-no a:hover#sel3{
+	background: #9E9D24 none repeat scroll 0 0;
+}
+#yes-or-no a:hover#sel4{
+	background: #558B2F none repeat scroll 0 0;
+}
+#yes-or-no a:hover#sel5{
+	/*z-index: 20;*/
+	background: #33691E none repeat scroll 0 0;
+}
+
+#yes-or-no a:hover#negative{
+	background: #D50000 none repeat scroll 0 0;
+}
+#yes-or-no a:hover#positive{
+	background: #3f51b5 none repeat scroll 0 0;
+}
+#yes-or-no a:hover#so-so{
+	background: #EF6C00 none repeat scroll 0 0;
+}
+
+#yes-or-no a.active#positive{
+	background: #3f51b5 none repeat scroll 0 0;
+
+}
+#yes-or-no a.active#negative{
+	background: #D50000 none repeat scroll 0 0;
+
+}
+#yes-or-no a.active#so-so{
+	background: #EF6C00 none repeat scroll 0 0;
+}
+/*.input {
+	float:left;
+}*/
+#score a{
+	padding: 5px 12px;
+	/*:left;*/
+}
+#score a:hover{
+	background: #e53935 none repeat scroll 0 0;
+
+	padding: 5px 12px;
+}
+.form-group{
+	margin-bottom: 20px;
+	/*width:400px;*/
+}
+.question{
+	/*float: right;*/
+}
+
+.form-group-tag {
+	/*height: 300px;*/
+	margin-top: 20px;
+	margin-bottom: 20px;
+	/*border-bottom: 1px solid #000;*/
+	/*border-top: 1px solid #000;*/
+	padding-bottom: 20px;
+	padding-top: 20px;
+	/*border-bottom: 1px solid #000;
+	padding-bottom: 10px;
+*/
+}
+#with-border{
+	border-top: 1px solid #e5e5e5;
+	padding-top: 10px;
+}
+#what-about-class{
+	margin-top: 20px;
+	color: #345;
+	/*border-top: 1px solid #000;*/
+	/*margin-top: 10px;*/
+	/*padding-top: 10px;*/
+}
+.select-option{
+	font-size: 12px;
+	/*float: right;*/
+	/*max-width: 200px;*/
+}
+.text {
+	/*max-width: 50%;*/
+	float: right;
+	margin-left: 1em;
+}
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.rate-label {
+	float: left;
+}
+.val {
+	float: left;
+}
+.rating {
+	overflow: auto;
+}
+
+/*.c-rating {
+	display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}*/
+#vote {
+	/*margin-bottom: 5%;*/
+	padding: 2% 2% 2% 2%;
+}
+a.hideDisplay{
+  position: relative; /* This makes everything work.*/
+  /* Allows you to layer overlapping elements. */
+  z-index: 20; 
+  color: #000;
+  text-decoration: none
+}
+  
+a.hideDisplay:hover{
+  /* Allows you to layer overlapping elements. */
+  z-index: 30; 
+}
+
+a.hideDisplay span.showDisplayOnHover{
+  display: none
+}
+
+/* This will only display itself when the
+ * user hovers the mouse over the anchor. */
+a.hideDisplay:hover span.showDisplayOnHover{ 
+  display: block;
+  position: absolute;
+  font-size: 18px;
+  
+  /* This sets the height of a line of text in the box. */
+  line-height: 25px;
+  
+  /* These position the box where it needs to go. */
+  top: 5px; 
+  left: 20px; 
+  
+  /* These adjust the size of the box when it appears. */
+  width: auto;
+  padding: 10px;
+  
+  border: 1px solid #666666;
+  background-color: #c0cedd; 
+  
+  /* text color */
+  color: #000000;
+  text-align: left;
+}
+
+span.showBodyOfDisplayOnHover {
+  font-size: 16px; 
+  font-weight: normal;
+  color: #444;
+  line-height: 18px; 
+}
+
+/*    .classes {
+      overflow-x:hidden;
+      overflow-y:scroll; // manage scrollbar content overflow settings
+    }
+    .classes::-webkit-scrollbar {
+      width:30px; // manage scrollbar width here
+    }
+    .classes::-webkit-scrollbar * {
+      background:transparent; // manage scrollbar background color here
+    }
+    .classes::-webkit-scrollbar-thumb {
+      background:rgba(255,0,0,0.1) !important; // manage scrollbar thumb background color here
+    }
+
+
+*/

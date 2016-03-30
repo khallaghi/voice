@@ -4,9 +4,56 @@ from app.models import University, Professor, Faculty
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import SearchForm
 from mongoengine import Q
+from flask import jsonify
 
 # from app.forms import FacultyForm, ProfessorForm
+def ret_prof(profs):
+	
+	for prof in profs:
+		ret_prof = {}	
+		if prof.id:
+			ret_prof['id'] = str(prof.id)
+		if prof.name:
+			ret_prof['name'] = prof.name
+		if prof.faculty:
+			ret_prof['faculty'] = prof.faculty.name
+		if prof.faculty and prof.faculty.uni:
+			ret_prof['uni'] = prof.faculty.uni.name
+		yield ret_prof
+
+def ret_faculty(faculties):
+	for faculty in faculties:
+		ret_faculty = {}
+
+		ret_faculty['name'] = faculty.name
+		ret_faculty['uni'] = faculty.uni.name
+		yield ret_faculty
+
+def ret_uni(unis):
+	for uni in unis:
+		ret_uni = {}
+		ret_uni['name'] = uni.name
+		yield ret_uni
+
 search = Blueprint('search', __name__, template_folder='templates/search')
+class Asghar(MethodView):
+	def search_result(self,keyword):
+		profs = Professor.objects(Q(name__icontains=keyword))
+		faculties = Faculty.objects(name__icontains=keyword)
+		unis = University.objects(name__icontains=keyword)
+		
+		return {
+			"profs" : [p for p in ret_prof(profs)],
+			"faculties" : [f for f in ret_faculty(faculties)],
+			"unis" : [u for u in ret_uni(unis)]
+		}
+	def get(self, keyword):
+		print "SSSSSSSSSSSSSSS"
+		print keyword
+		results = self.search_result(keyword)
+		return jsonify(**results)
+
+search.add_url_rule('/search/asghar/<keyword>', view_func=Asghar.as_view('Asghar'))
 
 class Search(MethodView):
 	def search_result(self,keyword):

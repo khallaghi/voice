@@ -1,25 +1,62 @@
-{% import '_forms.html' as forms %}
-	<form action="?{{ request.query_string }}" method="post">
-	  {{ forms.render(form)}}
-	  <div class="actions">
-	    <input  type="submit" class="btn primary" value="submit">
-	  </div>
-	  {% if profs %}
-	  	{% for prof in profs %}
-	  		<div> 
-	  			<p>professor name : {{prof.name}}</p>
-	  			<p>professor family : {{prof.family}}</p>
-	  		</div>
-	  		<br>
-	  	{% endfor %}
-	  {% endif %}
+%%  JSGlue.include() %%
+<html>
+<head>
+<title>search!</title>
+<script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
+<script src="%% url_for('static', filename='search/search.js')%%"></script>
+<link rel="stylesheet" href="%%url_for('static', filename='search/search.css')%%">
+<link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.css')%%" >
 
-	  {% if faculties %}
-	  	{% for fac in faculties %}
-	  		<div> 
-	  			<p>faculty name : {{fac.name}}</p>
-	  		</div>
-	  	{% endfor %}
-	  {% endif %}
+<!-- <script src="http://ajax.goog8leapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+</head>
+<body>
 
-	</form>
+<div class="box" ng-app="search" ng-controller="searchBox as box">
+  <div class="container-1 row">
+      <!-- <span class="glyphicon glyphicon-search"></span> -->
+      <input type="search" id="search" 
+       style="font-size: 20px;"
+        placeholder="... جستجو" 
+      ng-model="keyword" 
+      ng-change="search()" 
+      ng-focus="box.setFocusTrue()"
+      />
+      <!-- <button ng-click="search()">search</button>   -->
+  </div>
+  <!-- <div class="result" ng-hide="search_result">
+  <div class="well" id="search"> نتیجه‌ای یافت نشد</div>
+  </div> -->
+  <div class="result" ng-show="search_result && box.focus">
+  	<div class="well" >
+		  <!-- <p>Professors:</p> -->
+		  <div class="well" ng-repeat="prof in search_result.data.profs">
+
+		  <p><a href="{{ box.prof_url_for(prof.id)}}">{{prof.name}}</a></p>
+		  <p style="font-size: 10px;"><a href="">{{prof.faculty}}</a></p>
+		  <p style="font-size: 10px;"><a href="">{{prof.uni}}</a></p>
+		
+		  </div>
+	</div>
+
+	<div class="well">
+		  <!-- <p>faculties:</p> -->
+		  <div class="well" ng-repeat="faculty in search_result.data.faculties">
+		  		<a href="#">{{faculty.name}}</a>
+		  </div> 
+	</div>
+
+	<div class="well">
+	 <!-- <p>University:</p> -->
+		 <div class="well" ng-repeat="uni in search_result.data.unis">
+		 	<a href="#">{{uni.name}}</a>
+		 </div>
+	</div>
+	</div>
+	
+		
+		
+
+</div>
+	 
+	</body>
+	</html>

@@ -1,0 +1,48 @@
+ <div ng-controller="MainCtrl as rate">
+                      
+                      <!-- <button ng-click="toggleModal()" class="btn btn-primary" id="vote">امتیاز دهید</button>
+                        <modal title="امتیاز به %% prof.name%%"  visible="showModal"> -->
+                            <!-- <form role="form"> -->
+                                <!-- <div class="container"> -->
+                                    <!-- <div class="form-control"> -->
+                                  
+                                        <div class="rating">
+                                            <div class="option">
+                                                    <select ng-model="rate.data.course" id="js-example-data-array">
+                                                    </select>
+                                                    <p> چه درسی باهاش داشتی؟ </p>
+                                            </div>
+                                            <div class="option">
+                                                    <div class="val"  ng-controller="rating">
+                                                        <div id="el" class="c-rating"></div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="rate-label">
+                                                        <p>دلسوز هست؟</p>
+                                                    </div>
+                                                </div>                                            
+                                                <div class="option">
+                                                    <div class="val" ng-controller="rating">
+                                                        <div id="el" class="c-rating"></div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="rate-label">
+                                                    <p>آسون می‌گیره؟ </p>
+                                                    </div>
+                                                </div>
+                                            <div class="option">
+                                                    <div class="val" ng-controller="rating">
+                                                        <div id="el" class="c-rating"></div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="rate-label">
+                                                    <p>راحت می‌فهمی حرف‌هاش رو؟</p>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    <!-- </div> -->
+                                <!-- </div> -->
+                                <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" ng-click="rate.submitRate()">ثبت امتیاز</button>
+                            <!-- </form> -->
+                        </modal>
+                    </div>
