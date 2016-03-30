@@ -10,6 +10,17 @@ import json
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
 parser = reqparse.RequestParser()
 class ProfessorRate(MethodView):
+	def average_rate(self, old_av, count, score):
+		return ((old_av*count)+score)/(count+1)
+	def apply_rate(self, prof, helpfulness, easiness, clarity):
+		prof.attr1 = self.average_rate(prof.attr1, prof.attr1_count, helpfulness)
+		prof.attr1_count+=1
+		prof.attr2 = self.average_rate(prof.attr2, prof.attr2_count, easiness)
+		prof.attr2_count += 1
+		prof.attr3 = self.average_rate(prof.attr3, prof.attr3_count, clarity)
+		prof.attr3_count += 1
+		prof.save()
+
 	def post(self):
 		data = json.loads(request.data)
 		print data
@@ -20,10 +31,8 @@ class ProfessorRate(MethodView):
 			return "there is no Professor"
 		if data['helpfulness']==0 or data['easiness']==0 or data['clarity']==0:
 			return "invalid data"
-		apply_rate(prof, data['helpfulness'], data['easiness'], data['clarity'])
-		# prof.attr1 = data['helpfulness']
-		# prof.attr2 = data['easiness']
-		# prof.attr3 = data['clarity']
+		self.apply_rate(prof, data['helpfulness'], data['easiness'], data['clarity'])
+		
 		for tag in data['tags']:
 			in_tags = False
 			for prof_tag in prof.personal_tags:
