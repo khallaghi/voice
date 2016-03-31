@@ -33,6 +33,9 @@
 
                 <div class="box info bg-gray">
                     <div><img class="img-circle media-objectc" id="profile-pic" src="https://5shanbe.cafebazaar.ir/static/media/images/Khosravi_t3QrzjI.jpg"></div>
+                    <% if prof.rank %>
+                        <div class="label">%% prof.rank %%</div>
+                    <% endif %>
                     <h2><div>%% prof.name %%</div></h2>
                     <h4><div>%% prof.email %%</div></h4>
 
