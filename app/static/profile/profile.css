@@ -14,7 +14,7 @@
 	/*border: 2px solid #ddd;*/
 	border-radius: 3px;
 	padding: 2% 2% 2% 2%;
-	margin: 25px auto auto auto;
+	margin: 15px auto 15px auto;
 	text-align: center;
 }
 .info {
@@ -24,10 +24,25 @@
 	max-height: 400px;
 	overflow-y: auto;
 }
+#each-comment{
+	border-bottom: 1px solid #BDBDBD;
+	margin: 10px 10px 10px 10px; 
+	padding-bottom: 5px;
+}
 .chart {
 	margin-top: 40px;	
 	min-height: 400px;
 	max-height: 400px;
+}
+.comment-body{
+	float:right;
+}
+.comments {
+	/*float: right;*/
+	font: 13px BYekan, Tahoma, Geneva, sans-serif;
+	font-size: 1em;
+	margin-top: auto;
+	margin-bottom: 40px;
 }
 .tags {
 	max-height: 200px;
@@ -83,6 +98,21 @@
 	/*clear: both;*/
 }
 
+#leave-comment {
+	direction: rtl;
+	background-color: #EEEEEE;
+	border:1px solid #EEEEEE;
+	border-radius: 5px;
+	font-size: 0.8em;
+	width: 450px;
+	height: 130px;
+	padding: 12px;
+	color: #505050 ;
+	margin-top:5px;
+	line-height: 21px;
+	display: inline-block;
+	text-shadow:none;
+}
 #tag{
 	float: right;
 	line-height: 10px;
@@ -362,6 +392,7 @@ a.hideDisplay:hover span.showDisplayOnHover{
   color: #000000;
   text-align: left;
 }
+
 
 span.showBodyOfDisplayOnHover {
   font-size: 16px; 

@@ -76,6 +76,7 @@ class ProfProfile(MethodView):
 		prof = self.get_context(id)
 		tags = self.most_choosen_tags(prof)
 		# rate_form = SearchForm(request.form)
+
 		return render_template('profile/profile.html',prof=prof, tags=tags)
 
 class ProfResult(MethodView):

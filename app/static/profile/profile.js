@@ -12,6 +12,35 @@ app.controller('rating', function(){
 
     var myRating = rating(el, currentRating, maxRating, callback);
 });
+app.controller('Comment', function($scope){
+    var dict = {
+        "coolness":{
+            1:"آره",
+            2:"نه"
+        },
+        "useTextbook":{
+            1:"آره",
+            2:"نه"
+        },
+        "attendance":{
+            1:"آره همیشه",
+            2:"بعضی وقتا",
+            3:"نه اصلا"
+        }
+    }
+    $scope.result_gen = function(key, id){
+        // console.log(id)
+        // console.log(key + " is : ")
+        // console.log(dict[key][id.toString()])
+        return dict[key][id.toString()];
+    };
+    $scope.calcPercent = function(val){
+        var maximum = 5;
+        return val/maximum*100;
+    }
+});
+
+
 app.controller('mainResult', function(myService,$scope){
     var results = undefined;
 
@@ -181,6 +210,7 @@ app.controller('mainResult', function(myService,$scope){
 app.controller('MainCtrl', function ($scope,$http) {
     $scope.init = function(id){
         $scope.id = id;
+        // $scope.comment = "";
     };
     // $scope.id = undefined;
     $scope.submit = false;
@@ -197,6 +227,8 @@ app.controller('MainCtrl', function ($scope,$http) {
             console.log($scope.helpfulness);
         }
     };
+
+    // $scope.comment = "";
     $scope.easiness = 0;
     $scope.setEasiness = function(score){
         console.log("easiness");
@@ -216,20 +248,20 @@ app.controller('MainCtrl', function ($scope,$http) {
         }
     };
 
-    $scope.coolness = undefined;
+    $scope.coolness = 0;
     $scope.setCoolness = function(score){
         console.log("coolness");
-
-        $scope.coolness = score;
+        if(score<=2 && score>=0)
+            $scope.coolness = score;
         console.log(score);
         console.log($scope.coolness);
     };
 
-    $scope.useTextbook = undefined;
+    $scope.useTextbook = 0;
     $scope.setUseTextbook = function(score){
         console.log("textbook");
-
-        $scope.useTextbook = score;
+        if(score<=2 && score>=0)
+            $scope.useTextbook = score;
         console.log($scope.useTextbook);
     };
 
@@ -288,7 +320,16 @@ app.controller('MainCtrl', function ($scope,$http) {
             return 'ثبت امتیاز';
         return 'شما رای داده‌اید';
     };
-    $scope.submitRate = function(){
+
+    $scope.comment = "";
+    $scope.applyComment = function(cmt){
+        console.log(cmt);
+        $scope.comment = cmt;
+        console.log("this is applyComment");
+    };
+
+    $scope.submitRate = function(cmt){
+        $scope.applyComment(cmt);
         if($scope.submit === false){
             $scope.submit = true;
         var rateData = {
@@ -299,6 +340,7 @@ app.controller('MainCtrl', function ($scope,$http) {
             'coolness':$scope.coolness,
             'useTextbook':$scope.useTextbook,
             'attendance':$scope.attendance,
+            'comment': $scope.comment,
             'tags':getTags(),
         };
         $http.post("/rate", rateData).success(function(data){
