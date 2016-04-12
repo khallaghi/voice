@@ -32,18 +32,18 @@ def get_studies_result(prof):
 		for study in prof.studies:
 			study_result = {}
 			study_result['name'] = study.name
-			study_result['id'] = study.id
+			# study_result['id'] = study.id
 			temp = {}
-			temp['value'] = get_val(study.attr1)
-			temp['color'] = get_color(study.attr1)
+			temp['value'] = get_val(study.helpfulness)
+			temp['color'] = get_color(study.helpfulness)
 			study_result['helpfulness'] = temp
 			temp = {}
-			temp['value'] = get_val(study.attr2)
-			temp['color'] = get_color(study.attr2)
+			temp['value'] = get_val(study.easiness)
+			temp['color'] = get_color(study.easiness)
 			study_result['easiness'] = temp
 			temp = {}
-			temp['value'] = get_val(study.attr3)
-			temp['color'] = get_color(study.attr3)
+			temp['value'] = get_val(study.clarity)
+			temp['color'] = get_color(study.clarity)
 			study_result['clarity'] = temp
 			yield study_result
 

@@ -438,7 +438,7 @@ var getCourses = function(data){
     console.log(data);
     var select2_data = [];
     for(i = 0; i < data.length; i++){
-        var temp = {id:data[i].id, text:data[i].name};
+        var temp = {id:data[i].name, text:data[i].name};
         select2_data.push(temp);
     }
     $("#js-example-data-array").select2({

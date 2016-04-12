@@ -97,7 +97,9 @@ class ProfessorRate(MethodView):
 	def create_course(self, prof, data):
 		study = Study()
 		study.name = data['courseName']
+
 		self.update_course(study, data)
+		prof.studies.append(study)
 		prof.save()
 		return True
 
