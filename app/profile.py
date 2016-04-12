@@ -32,6 +32,7 @@ def get_studies_result(prof):
 		for study in prof.studies:
 			study_result = {}
 			study_result['name'] = study.name
+			study_result['id'] = study.id
 			temp = {}
 			temp['value'] = get_val(study.attr1)
 			temp['color'] = get_color(study.attr1)
@@ -115,6 +116,7 @@ class ProfResult(MethodView):
 
 		result['main_result'] = main_result
 		result['studies_result'] = [stdy_res for stdy_res in get_studies_result(prof)]
+
 		return result
 	
 	def get(self, id):

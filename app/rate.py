@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, render_template, url_for
 from flask.views import MethodView
-from app.models import University, Professor, Faculty, Tag, Comment
+from app.models import University, Professor, Faculty, Tag, Comment, Study
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import SearchForm
 from mongoengine import Q
@@ -15,12 +15,12 @@ class ProfessorRate(MethodView):
 		return ((old_av*count)+score)/(count+1)
 
 	def apply_rate(self, prof, data):
-		prof.attr1 = self.average_rate(prof.attr1, prof.attr1_count, data['helpfulness'])
 		prof.attr1_count+=1
-		prof.attr2 = self.average_rate(prof.attr2, prof.attr2_count, data['easiness'])
+		prof.attr1 = self.average_rate(prof.attr1, prof.attr1_count, data['helpfulness'])
 		prof.attr2_count += 1
-		prof.attr3 = self.average_rate(prof.attr3, prof.attr3_count, data['clarity'])
+		prof.attr2 = self.average_rate(prof.attr2, prof.attr2_count, data['easiness'])
 		prof.attr3_count += 1
+		prof.attr3 = self.average_rate(prof.attr3, prof.attr3_count, data['clarity'])
 		prof.save()
 
 	def apply_tags(self, prof, data):
@@ -72,6 +72,45 @@ class ProfessorRate(MethodView):
 
 	# def apply_class(self, prof, data):
 	# 	if data['study'] != None:
+	def update_course(self, study, data):
+		study.helpfulness = self.average_rate(study.helpfulness, 
+												study.helpfulness_count,
+												data['helpfulness'])
+		study.helpfulness_count += 1
+		study.easiness = self.average_rate(study.easiness,
+											study.easiness_count,
+											data['easiness'])
+		study.easiness_count += 1
+		study.clarity = self.average_rate(study.clarity,
+											study.clarity_count,
+											data['clarity'])
+		study.clarity_count += 1 
+
+	def find_and_update_course(self, prof, data):
+		for study in prof.studies:
+			if study.id == data['selectedCourse']:
+				self.update_course(study, data)
+				prof.save()
+				return True
+		return False
+
+	def create_course(self, prof, data):
+		study = Study()
+		study.name = data['courseName']
+		self.update_course(study, data)
+		prof.save()
+		return True
+
+	def apply_course(self, prof, data):
+		if data['findCourse']:
+			if 'selectedCourse' in data.keys() and data['selectedCourse'] != None:
+				if self.find_and_update_course(prof, data):
+					return True
+		else:
+			if 'courseName' in data.keys() and data['courseName'] != None:
+				if self.create_course(prof, data):
+					return True
+		return False
 
 	def post(self):
 		data = json.loads(request.data)
@@ -79,10 +118,11 @@ class ProfessorRate(MethodView):
 		prof = Professor.objects(id=data['id']).first()
 		if not self.validate(prof, data):
 			return "invalid data -- 404"
+		if not self.apply_course(prof, data):
+			return "invalid course -- 404"
 		self.apply_rate(prof, data)
 		self.apply_tags(prof, data)
-		# self.apply_class(prof, data)
-
 		self.apply_comment(prof, data)
 		return "salam"
+
 rate.add_url_rule('/rate', view_func=ProfessorRate.as_view('professorRate'))

@@ -328,10 +328,20 @@ app.controller('MainCtrl', function ($scope,$http) {
         console.log("this is applyComment");
     };
 
-    $scope.submitRate = function(cmt){
+    $scope.findCourse = true;
+    $scope.canFindCourse = function(){
+        $scope.findCourse = !$scope.findCourse;
+    }
+
+    $scope.submitRate = function(cmt, course_name, selected_course){
         $scope.applyComment(cmt);
         if($scope.submit === false){
             $scope.submit = true;
+        console.log("course name");
+        console.log(course_name);
+        console.log("find course");
+        console.log($scope.findCourse);
+        console.log("selected course -->" + selected_course);
         var rateData = {
             'id':$scope.id,
             'helpfulness':$scope.helpfulness,
@@ -342,6 +352,9 @@ app.controller('MainCtrl', function ($scope,$http) {
             'attendance':$scope.attendance,
             'comment': $scope.comment,
             'tags':getTags(),
+            'findCourse':$scope.findCourse,
+            'courseName':course_name,
+            'selectedCourse':selected_course
         };
         $http.post("/rate", rateData).success(function(data){
             console.log(data);
@@ -355,15 +368,7 @@ app.controller('MainCtrl', function ($scope,$http) {
     $scope.toggleModal = function(){
         $scope.showModal = !$scope.showModal;
     };
-    // this.submitRate = function(){
-    //     console.log("submitRate");
-    //     console.log(this.data);
-    //     var data = $.param(this.data);
-    //     $http.post("/rate", this.data).success(function(data){
-    //         $scope.hello = data;
-    //         console.log("inja too post");
-    //     });
-    // };
+
   });
 
 app.directive('modal', function () {
@@ -433,12 +438,14 @@ var getCourses = function(data){
     console.log(data);
     var select2_data = [];
     for(i = 0; i < data.length; i++){
-        var temp = {id:data[i].clarity.value, text:data[i].clarity.color};
+        var temp = {id:data[i].id, text:data[i].name};
         select2_data.push(temp);
     }
     $("#js-example-data-array").select2({
-        placeholder: "Select a state",
+        // placeholder: "Select a state",
+        placeholder: "انتخاب کنید",
         allowClear: true,
+        // allowClear: true,
         data: select2_data
     });
 };

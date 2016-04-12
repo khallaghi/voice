@@ -27,12 +27,12 @@ class Professor(db.Document):
     # avatar = db.ImageField()
 
     ''' Personality rate '''
-    attr1 = db.IntField()
-    attr1_count = db.IntField()
-    attr2 = db.IntField()
-    attr2_count = db.IntField()
-    attr3 = db.IntField()
-    attr3_count = db.IntField()
+    attr1 = db.IntField(default=0)
+    attr1_count = db.IntField(default=0)
+    attr2 = db.IntField(default=0)
+    attr2_count = db.IntField(default=0)
+    attr3 = db.IntField(default=0)
+    attr3_count = db.IntField(default=0)
 
     ''' Studies '''
     studies = db.EmbeddedDocumentListField('Study')
@@ -52,12 +52,12 @@ class Study(db.EmbeddedDocument):
     term = db.IntField()
 
     ''' rating options '''
-    attr1 = db.IntField()
-    attr1_count = db.IntField()
-    attr2 = db.IntField()
-    attr2_count = db.IntField()
-    attr3 = db.IntField()
-    attr3_count = db.IntField()
+    helpfulness = db.IntField(default=0)
+    helpfulness_count = db.IntField(default=0)
+    easiness = db.IntField(default=0)
+    easiness_count = db.IntField(default=0)
+    clarity = db.IntField(default=0)
+    clarity_count = db.IntField(default=0)
 
 class Tag(db.EmbeddedDocument):
     name = db.StringField(max_length=30)
@@ -69,9 +69,9 @@ class Comment(db.EmbeddedDocument):
     # author = db.StringField(verbose_name="Name", max_length=255, required=True)
 
     body = db.StringField(verbose_name="Comment", required=True, max_length=300)
-    helpfulness = db.IntField()
-    easiness = db.IntField()
-    clarity = db.IntField()
+    helpfulness = db.IntField(default=0)
+    easiness = db.IntField(default=0)
+    clarity = db.IntField(default=0)
     class_tags = db.EmbeddedDocumentListField('Tag')
     personal_tags = db.EmbeddedDocumentListField('Tag')
     study = db.EmbeddedDocumentField('Study')
