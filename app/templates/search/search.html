@@ -10,7 +10,13 @@
 <!-- <script src="http://ajax.goog8leapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
 </head>
 <body>
-
+<div class="row" id="logo">
+	<div class="col-md-3 col-md-offset-7">
+		<img src="%% url_for('static', filename='search/logo.png') %%"/>
+	</div>
+</div>
+<div class="row" id="search-box">
+<div class="col-md-3 col-md-offset-7">
 <div class="box" ng-app="search" ng-controller="searchBox as box">
   <div class="container-1 row">
       <!-- <span class="glyphicon glyphicon-search"></span> -->
@@ -26,37 +32,24 @@
   <!-- <div class="result" ng-hide="search_result">
   <div class="well" id="search"> نتیجه‌ای یافت نشد</div>
   </div> -->
+  
   <div class="result" ng-show="search_result && box.focus">
-  	<div class="well" >
+  
+  	
 		  <!-- <p>Professors:</p> -->
-		  <div class="well" ng-repeat="prof in search_result.data.profs">
+		  
+		  <ul ng-repeat="prof in search_result.data.profs">
+			 <li>
+				<p><a href="{{ box.prof_url_for(prof.id)}}">{{prof.name}}</a></p>
+				<p style="font-size: 10px;">{{prof.faculty}}</p>
+				<p style="font-size: 10px;">{{prof.uni}}</p>
+			</li>
+		  
+		  </ul>
 
-		  <p><a href="{{ box.prof_url_for(prof.id)}}">{{prof.name}}</a></p>
-		  <p style="font-size: 10px;"><a href="">{{prof.faculty}}</a></p>
-		  <p style="font-size: 10px;"><a href="">{{prof.uni}}</a></p>
-		
-		  </div>
-	</div>
-
-	<div class="well">
-		  <!-- <p>faculties:</p> -->
-		  <div class="well" ng-repeat="faculty in search_result.data.faculties">
-		  		<a href="#">{{faculty.name}}</a>
-		  </div> 
-	</div>
-
-	<div class="well">
-	 <!-- <p>University:</p> -->
-		 <div class="well" ng-repeat="uni in search_result.data.unis">
-		 	<a href="#">{{uni.name}}</a>
-		 </div>
 	</div>
 	</div>
-	
-		
-		
-
 </div>
-	 
+	 </div>
 	</body>
 	</html>
