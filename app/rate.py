@@ -88,7 +88,7 @@ class ProfessorRate(MethodView):
 
 	def find_and_update_course(self, prof, data):
 		for study in prof.studies:
-			if study.id == data['selectedCourse']:
+			if study.name == data['selectedCourse']:
 				self.update_course(study, data)
 				prof.save()
 				return True
