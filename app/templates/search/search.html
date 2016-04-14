@@ -34,15 +34,14 @@
   </div> -->
   
   <div class="result" ng-show="search_result && box.focus">
-  
+   
   	
 		  <!-- <p>Professors:</p> -->
 		  
-		  <ul ng-repeat="prof in search_result.data.profs">
-			 <li>
+		  <ul class="results-place" ng-repeat="prof in search_result.data.profs">
+			 <li class="each-result">
 				<p><a href="{{ box.prof_url_for(prof.id)}}">{{prof.name}}</a></p>
-				<p style="font-size: 10px;">{{prof.faculty}}</p>
-				<p style="font-size: 10px;">{{prof.uni}}</p>
+				<p style="font-size: 10px;">{{prof.faculty}} - {{prof.uni}}</p>
 			</li>
 		  
 		  </ul>

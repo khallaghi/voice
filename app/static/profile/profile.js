@@ -70,6 +70,8 @@ app.controller('mainResult', function(myService,$scope){
                 lineColor: 'transparent',
             },
             yAxis: {
+                min: 0,
+                max: 5,
                 // gridLineWidth: 0,
                 // minorGridLineWidth: 0,
                 labels: {
@@ -95,6 +97,7 @@ app.controller('mainResult', function(myService,$scope){
             credits: {
                 enabled: false
             },
+            tooltip: { enabled: false },
             series: [{    
                 data: [{
                         
@@ -141,6 +144,8 @@ app.controller('mainResult', function(myService,$scope){
                 lineColor: 'transparent',
             },
             yAxis: {
+                min: 0,
+                max: 5,
                 labels: {
                     enabled: false
                 },
@@ -158,6 +163,8 @@ app.controller('mainResult', function(myService,$scope){
                 borderWidth: 0 // < set this option
                 },
             },
+            tooltip: { enabled: false },
+            
             legend:{
                 enabled: false,
             },
@@ -276,21 +283,57 @@ app.controller('MainCtrl', function ($scope,$http) {
     };
     $scope.selectedTagsCount = 0;
     $scope.allTags = [{ 
-                            name:'باحاله',
+                            name:'انگیزه‌دهنده',
                             status: 0
                         },
                         {   
-                            name:'سر کلاسش نری بدبختی' , 
+                            name:'ایده‌پرداز' , 
                             status: 0
                         },
                         {
-                            name:'جزوه می‌ده مثل بنز', 
+                            name:'تدریس کاربردی', 
                             status: 0
                         },
                         {
-                            name:'کلا نمی‌شه تحملش کرد',
+                            name:'پر‌انرژی',
                             status: 0
-                        }];
+                        },
+                        {
+                            name:'غیر قابل پیش بینی', 
+                            status: 0
+                        },
+                        {
+                            name:'به فکر پیشرفت و دلسوز', 
+                            status: 0
+                        },
+                        {
+                            name:'دو بار وردار تا پاس شی', 
+                            status: 0
+                        },
+                        {
+                            name:'سخت نمره میده', 
+                            status: 0
+                        },
+                        {
+                            name:'کوییزهای رگباری', 
+                            status: 0
+                        },
+                        {
+                            name:'سر کلاس نری افتادی', 
+                            status: 0
+                        },
+                        {
+                            name:'کم حجم و مقوی', 
+                            status: 0
+                        },
+                        {
+                            name:'انتظار مشارکت در کلاس دارد', 
+                            status: 0
+                        },
+                        {
+                            name:'کلاس‌های بلند', 
+                            status: 0
+                        },];
     // $scope.selectedTags = {};
 
     $scope.addTag = function(i){
