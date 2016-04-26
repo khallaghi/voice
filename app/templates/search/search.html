@@ -10,45 +10,72 @@
 <!-- <script src="http://ajax.goog8leapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
 </head>
 <body>
-<div class="row" id="logo">
-	<div class="col-md-3 col-md-offset-7">
-		<img src="%% url_for('static', filename='search/logo.png') %%"/>
-	</div>
-</div>
-<div class="row" id="search-box">
-<div class="col-md-3 col-md-offset-7">
-<div class="box" ng-app="search" ng-controller="searchBox as box">
-  <div class="container-1 row">
-      <!-- <span class="glyphicon glyphicon-search"></span> -->
-      <input type="search" id="search" 
-       style="font-size: 20px;"
-        placeholder="... جستجو" 
-      ng-model="keyword" 
-      ng-change="search()" 
-      ng-focus="box.setFocusTrue()"
-      />
-      <!-- <button ng-click="search()">search</button>   -->
-  </div>
-  <!-- <div class="result" ng-hide="search_result">
-  <div class="well" id="search"> نتیجه‌ای یافت نشد</div>
-  </div> -->
-  
-  <div class="result" ng-show="search_result && box.focus">
-   
-  	
-		  <!-- <p>Professors:</p> -->
-		  
-		  <ul class="results-place" ng-repeat="prof in search_result.data.profs">
-			 <li class="each-result">
-				<p><a href="{{ box.prof_url_for(prof.id)}}">{{prof.name}}</a></p>
-				<p style="font-size: 10px;">{{prof.faculty}} - {{prof.uni}}</p>
-			</li>
-		  
-		  </ul>
+<div calss="row" style="float: right;width: 100%;">
+    <div class="col-md-8"></div>
+    <div class="col-md-4 " >
 
-	</div>
-	</div>
+
+        <a href="#" class="action-button shadow animate gray">کمک</a>
+        <a href="#" class="action-button shadow animate gray">درباره ما</a>
+        <a href="#" class="action-button shadow animate gray">تماس با ما</a>
+
+    </div>
 </div>
-	 </div>
-	</body>
-	</html>
+
+
+
+
+
+
+
+
+
+<!--<div class="row" id="logo">-->
+	<!--<div class="col-md-3 col-md-offset-7">-->
+		<!--<p>sldlsdkld1</p>-->
+		<!--<p>sldlsdkld1</p>-->
+		<!--<p>sldlsdkld1</p>-->
+	<!--</div>-->
+<!--</div>-->
+<!--<div class="row" id="logo">-->
+	<!--<div class="col-md-3 col-md-offset-7">-->
+		<!--<img src="%% url_for('static', filename='search/logo.png') %%"/>-->
+	<!--</div>-->
+<!--</div>-->
+<!--<div class="row" id="search-box">-->
+<!--<div class="col-md-3 col-md-offset-7">-->
+<!--<div class="box" ng-app="search" ng-controller="searchBox as box">-->
+  <!--<div class="container-1 row">-->
+      <!--&lt;!&ndash; <span class="glyphicon glyphicon-search"></span> &ndash;&gt;-->
+      <!--<input type="search" id="search"-->
+       <!--style="font-size: 20px;"-->
+        <!--placeholder="... جستجو"-->
+      <!--ng-model="keyword"-->
+      <!--ng-change="search()"-->
+      <!--ng-focus="box.setFocusTrue()"-->
+      <!--/>-->
+      <!--&lt;!&ndash; <button ng-click="search()">search</button>   &ndash;&gt;-->
+  <!--</div>-->
+  <!--&lt;!&ndash; <div class="result" ng-hide="search_result">-->
+  <!--<div class="well" id="search"> نتیجه‌ای یافت نشد</div>-->
+  <!--</div> &ndash;&gt;-->
+
+  <!--<div class="result" ng-show="search_result && box.focus">-->
+   <!---->
+
+		  <!--&lt;!&ndash; <p>Professors:</p> &ndash;&gt;-->
+
+		  <!--<ul class="results-place" ng-repeat="prof in search_result.data.profs">-->
+			 <!--<li class="each-result">-->
+				<!--<p><a href="{{ box.prof_url_for(prof.id)}}">{{prof.name}}</a></p>-->
+				<!--<p style="font-size: 10px;">{{prof.faculty}} - {{prof.uni}}</p>-->
+			<!--</li>-->
+
+		  <!--</ul>-->
+
+	<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+	 <!--</div>-->
+</body>
+</html>
