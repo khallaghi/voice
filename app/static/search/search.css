@@ -2,6 +2,8 @@
 body{
   background: #2196F3;
   background-image: url("left.png"), url("hole-back.png");
+  /*background-size: 50%;*/
+  /*background-size: 1400px 900px;*/
   /*background-position: left, right;*/
   background-repeat: no-repeat, no-repeat;
 
