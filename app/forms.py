@@ -1,4 +1,4 @@
-from wtforms import Form, BooleanField, TextField, PasswordField,SelectField,RadioField,validators, IntegerField
+from wtforms import Form, BooleanField, TextField, PasswordField,SelectField,RadioField,validators, IntegerField, FileField
 class FacultyForm(Form):
 	name = TextField('Faculty name', [validators.Length(min=4, max=25)])
 	uni = SelectField('University')
@@ -11,6 +11,7 @@ class ProfessorForm(Form):
 	faculty = RadioField(' faculty ',coerce=unicode)
 	room_no = TextField('room number')
 	rank = RadioField('rank')
+	# pic = FileField(u'Image File', [validators.regexp(u'^[^/\\]\.jpg$')])
 	# uni = SelectField('University')
 class SearchForm(Form):
 	search = TextField('search it')

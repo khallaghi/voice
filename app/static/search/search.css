@@ -1,14 +1,56 @@
-
 body{
   background: #2196F3;
-  background-image: url("left.png"), url("hole-back.png");
-  /*background-size: 50%;*/
-  /*background-size: 1400px 900px;*/
+  /*background-image: url("left.png"), url("hole-back.png");*/
   /*background-position: left, right;*/
+    background-image: url("background.png");
   background-repeat: no-repeat, no-repeat;
-
+    background-size: cover  ;
 }
- 
+@media only screen and (max-width: 767px) {
+    body {
+        /* The file size of this background image is 93% smaller
+         * to improve page load speed on mobile internet connections */
+        background-image: url("mobile.png");
+    }
+}
+/*body img{*/
+    /*width: 100%;*/
+/*}*/
+
+.animate
+{
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
+
+.action-button
+{
+    position: relative;
+    padding: 10px 40px;
+    margin: 10px 10px 10px 0px;
+    float: right;
+    border-radius: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 90%;
+    color: #FFF;
+    /*text-decoration: none;*/
+}
+
+.gray
+{
+    background-color: #555;
+    border-bottom: 5px solid #103A56;
+    text-shadow: 0px -2px #103A56;
+}
+
+
+.action-button:active
+{
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+}
+/*ermia*/
 .box{
   margin: 2% auto auto 5%;
   width: 400px;
@@ -118,12 +160,17 @@ body{
  font-style: normal;
 }
 
-#search  {line-height: 20px;
+#search  {
+    line-height: 20px;
  font: 20px BYekan, Tahoma, Geneva, sans-serif;
  letter-spacing: .3px;
  margin: 10px 0 10px 0;
  font-size: 30px;
  clear: both;}
- /* * Copyright (c) 2012 Thibaut Courouble
- * Licensed under the MIT License
-   ================================================== */
+
+/*@media (min-height: 360px) {*/
+    /*body img{*/
+        /*width: 20%;*/
+        /*height: 20%;*/
+    /*}*/
+/*}*/
