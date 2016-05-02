@@ -1,0 +1,8 @@
+pip install flask-restful
+pip install flask
+pip install flask-script
+pip install WTForms
+pip install mongoengine
+pip install flask_mongoengine
+pip install Flask-WTF
+pip install Flask-JSGlue
