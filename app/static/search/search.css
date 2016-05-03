@@ -1,3 +1,4 @@
+
 body{
   background: #2196F3;
   /*background-image: url("left.png"), url("hole-back.png");*/
@@ -6,6 +7,7 @@ body{
   background-repeat: no-repeat, no-repeat;
     background-size: cover  ;
 }
+
 @media only screen and (max-width: 767px) {
     body {
         /* The file size of this background image is 93% smaller
@@ -13,10 +15,12 @@ body{
         background-image: url("mobile.png");
     }
 }
-/*body img{*/
-    /*width: 100%;*/
-/*}*/
 
+.topbuttum{
+    float: right;
+    width: 100%;
+
+}
 .animate
 {
     transition: all 0.1s;
@@ -25,6 +29,7 @@ body{
 
 .action-button
 {
+
     position: relative;
     padding: 10px 40px;
     margin: 10px 10px 10px 0px;
@@ -38,61 +43,63 @@ body{
 
 .gray
 {
-    background-color: #555;
+    /*background-color: #555;*/
     border-bottom: 5px solid #103A56;
     text-shadow: 0px -2px #103A56;
+
 }
 
 
 .action-button:active
 {
+
     transform: translate(0px,5px);
     -webkit-transform: translate(0px,5px);
     border-bottom: 1px solid;
 }
 /*ermia*/
 .box{
-  margin: 2% auto auto 5%;
-  width: 400px;
-  height: 50px;
-}
-.row {
-  
-  /*margin-bottom: 50%;*/
+  /*margin: 2% auto auto 5%;*/
+  width: 100%;
+  height: 10%;
 }
 .container-1{
-  width: 400px;
+  width: 90%;
+
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
+
 }
 .container-1 input#search{
-  width: 400px;
+  width: 100%;
   height: 50px;
+    margin-bottom: 4%;
   background: #FFFFFF;
   border: none;
   font-size: 10pt;
   float: left;
-  color: #63717f;
+  color: #080808;
   padding-right: 45px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+    direction: rtl;
 }
 .container-1 input#search::-webkit-input-placeholder {
    color: #65737e;
 }
- 
+
 .container-1 input#search:-moz-placeholder { /* Firefox 18- */
-   color: #65737e;  
+   color: #65737e;
 }
- 
+
 .container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
-   color: #65737e;  
+   color: #65737e;
 }
- 
-.container-1 input#search:-ms-input-placeholder {  
-   color: #65737e;  
+
+.container-1 input#search:-ms-input-placeholder {
+   color: #65737e;
 }
 .container-1 .icon{
   position: absolute;
@@ -104,41 +111,55 @@ body{
 }
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
     outline:none;
-    background: #E3F2FD;
+    background : rgba(16, 58, 86, 0.68);
   }
 #search {
 	text-align: right;
 }
 #logo {
-  margin-top: 4%;
+    /*margin-right: 730%;*/
+  padding-top: 10%;
+  text-align: center;
+    width: 100%;
+}
+#logo {
+
 }
 .each-result{
-  margin-bottom: 3px;
+  /*margin-bottom: 3px;*/
   display: block;
   /*background-color: #2196F3;*/
+    padding-right: 4%;
   border-bottom: 1px solid #BDBDBD;
 }
+.each-result:hover{
+    background-color: #080808;
+
+}
 .results-place{
+    padding-top: 2%;
   padding-right: 5px;
-  margin-top: 5px;
+  /*margin-top: 5px;*/
 }
 .result ,li ,ul{
   padding: 0;
   list-style: none;
+    /*background-color:#8c8c8c;*/
 }
 .result {
 	font: 10px BYekan, Tahoma, Geneva, sans-serif;
-	margin: auto auto auto auto;
+	/*margin: auto auto auto auto;*/
   box-sizing: border-box;
-  padding-right: 20px;
+  /*padding-right: 20px;*/
+
   display: block;
 	font-size: 15px;
 	clear: both;
-  float: right;
-	width: 400px;
-	max-height: 290px;
+  /*float: right;*/
+	width: 90%;
+	max-height: 350%;
 	overflow: auto;
-	background-color: #FFFFFF;
+	background-color: rgba(0, 0, 0, 0.77);
 	vertical-align: middle;
   	white-space: nowrap;
   	position: relative;
@@ -149,9 +170,12 @@ body{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
   	text-align: right;
-  	padding-left: 45px;
-  	margin-right: 45px;
+  	padding-left:2%;
+  	/*margin-right: 45px;*/
 }
+
+
+
 @font-face {
  font-family: 'BYekan';
  src: url('fonts/BYekan.eot');
@@ -164,7 +188,7 @@ body{
     line-height: 20px;
  font: 20px BYekan, Tahoma, Geneva, sans-serif;
  letter-spacing: .3px;
- margin: 10px 0 10px 0;
+ /*margin: 10px 0 10px 0;*/
  font-size: 30px;
  clear: both;}
 
@@ -174,3 +198,24 @@ body{
         /*height: 20%;*/
     /*}*/
 /*}*/
+@media only screen and (max-width: 767px) {
+    #logo{
+        width: 10%;
+    }
+
+
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius:20px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}

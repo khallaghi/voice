@@ -20,6 +20,8 @@
     
     <title>%% prof.name %%</title>
 </head>
+
+
 <body class="bg" ng-controller="mainResult as main" ng-init="init('%% prof.id %%');">
     <div class="container">
         <div class="row">
@@ -31,7 +33,30 @@
             </div>
             <div class="col-xs-6 col-md-4" id="profile">
 
-                <div class="box info bg-gray">
+                <div class="content">
+                    <div class="data">
+                        <ul>
+                            <li>
+                                2,934
+                                <span>Tweets</span>
+                            </li>
+                            <li>
+                                1,119
+                                <span>Followers</span>
+                            </li>
+                            <li>
+                                530
+                                <span>Following</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="follow"> <div class="icon-twitter"></div> Follow</div>
+                </div>
+
+            </div>
+
+            <div class="box info bg-gray">
                     <div><img class="img-circle media-objectc" id="profile-pic" src="https://5shanbe.cafebazaar.ir/static/media/images/Khosravi_t3QrzjI.jpg"></div>
                     <% if prof.rank %>
                         <div class="badge">%% prof.rank %%</div>
@@ -215,7 +240,6 @@
         </div>
 
         <!-- Modal -->
-        
 
         <div class="row">
             <div class = " col-md-12">
