@@ -130,7 +130,7 @@ body{
   display: block;
   /*background-color: #2196F3;*/
     padding-right: 4%;
-  border-bottom: 1px solid #BDBDBD;
+  /*border-bottom: 1px solid #BDBDBD;*/
 }
 .each-result:hover{
     background-color: #080808;
