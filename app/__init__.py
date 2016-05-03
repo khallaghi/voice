@@ -1,6 +1,12 @@
 from flask import Flask
 from flask.ext.mongoengine import MongoEngine
 from flask_jsglue import JSGlue
+from werkzeug import secure_filename
+import os
+
+UPLOAD_FOLDER = '/path/to/the/uploads'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
 app = Flask(__name__)
 jsglue = JSGlue(app)
 jinja_options = app.jinja_options.copy()
@@ -16,6 +22,7 @@ app.jinja_options = jinja_options
 
 app.config["MONGODB_SETTINGS"] = {'DB': "rate"}
 app.config["SECRET_KEY"] = "KeepThisS3cr3t"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 db = MongoEngine(app)
 def register_blueprints(app):

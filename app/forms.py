@@ -11,7 +11,7 @@ class ProfessorForm(Form):
 	faculty = RadioField(' faculty ',coerce=unicode)
 	room_no = TextField('room number')
 	rank = RadioField('rank')
-	# pic = FileField(u'Image File', [validators.regexp(u'^[^/\\]\.jpg$')])
+	pic = FileField(u'Image File')
 	# uni = SelectField('University')
 class SearchForm(Form):
 	search = TextField('search it')
