@@ -11,7 +11,7 @@
 </head>
 
 
-<body>
+<body >
 <!--buttom on top of box-->
 <div calss="row" class="topbuttum" >
     <div class="col-md-8"></div>
@@ -52,7 +52,24 @@
 			<!--<div class="result" ng-hide="search_result">-->
 			<!--<div class="well" id="search"> نتیجه‌ای یافت نشد</div>-->
 			<!--</div>-->
+			<div class="result" ng-hide="search_result || !keyword">
+	  			<div id="search" ng-if="keyword.length < 3">
+	  				<p style="font-size: 15px;"> حرف دیگر تایپ کنید {{3 - keyword.length}}</p>
+	  			</div>
+	  			<div id="search" ng-if="keyword.length >= 3">
+	  				<p style="font-size: 15px; flow:left;">
+	  				 ... در حال جستجوی {{keyword}} 
+	  				<img src="http://www.bba-reman.com/images/fbloader.gif" />
+	  				</p>
+	  			</div>
+  			</div>
+  			
 			<div class="result" ng-show="search_result && box.focus">
+			<div ng-if="!search_result.data.profs.length">
+	  			<p>
+	  				نتیجه‌ای یافت نشد.
+	  			</p>
+	  		</div>
 				<!-- <p>Professors:</p> -->
 				<ul class="results-place" ng-repeat="prof in search_result.data.profs">
 					<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
