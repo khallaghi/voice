@@ -430,8 +430,8 @@ span.showBodyOfDisplayOnHover {
 	right: 0;
 	left: 0;
 	margin: auto;
-	width: 100px;
-	height: 1000px;
+	width: 70px;
+	height: 70px;
 	display: block; }
 .avatarcontainer:hover > .hover {
 	opacity: 1; }
@@ -447,8 +447,8 @@ span.showBodyOfDisplayOnHover {
 	overflow: hidden;
 	position: relative; }
 .avatar img {
-	width: 90px;
-	height: 95px; }
+	width: 65px;
+	height: 65px; }
 .avatar:hover + .hover {
 	opacity: 1;
 	cursor: pointer; }

@@ -76,6 +76,7 @@ body{
   height: 50px;
     margin-bottom: 2%;
   background: #FFFFFF;
+    opacity: 0.7;
   border: none;
   font-size: 10pt;
   float: left;
@@ -111,8 +112,7 @@ body{
 }
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
     outline:none;
-    background : #EEEEEE;
-
+    background : rgba(153, 153, 153, 0.73);
   }
 #search {
 	text-align: right;
