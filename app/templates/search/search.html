@@ -1,25 +1,25 @@
 %%  JSGlue.include() %%
 <html>
 <head>
-<title>search!</title>
-<script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
-<script src="%% url_for('static', filename='search/search.js')%%"></script>
-<link rel="stylesheet" href="%%url_for('static', filename='search/search.css')%%">
-<link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.css')%%" >
+	<title>search!</title>
+	<script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
+	<script src="%% url_for('static', filename='search/search.js')%%"></script>
+	<link rel="stylesheet" href="%%url_for('static', filename='search/search.css')%%">
+	<link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.css')%%" >
 
-<!-- <script src="http://ajax.goog8leapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+	<!-- <script src="http://ajax.goog8leapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
 </head>
 
 
 <body>
 <!--buttom on top of box-->
 <div calss="row" class="topbuttum" >
-    <div class="col-md-8"></div>
-    <div class="col-md-4 " >
-<!--         <a href="#" class="action-button shadow animate gray" style="text-decoration: none;">کمک</a>
-        <a href="#" class="action-button shadow animate gray"style="text-decoration: none;">درباره ما</a>
-        <a href="#" class="action-button shadow animate gray"style="text-decoration: none;">تماس با ما</a> -->
-    </div>
+	<div class="col-md-8"></div>
+	<div class="col-md-4 " >
+		<a href="#" class="action-button shadow animate gray" style="text-decoration: none;">کمک</a>
+		<a href="#" class="action-button shadow animate gray"style="text-decoration: none;">درباره ما</a>
+		<a href="#" class="action-button shadow animate gray"style="text-decoration: none;">تماس با ما</a>
+	</div>
 </div>
 <!--buttom on top of box-->
 
@@ -33,41 +33,41 @@
 <!--logo of web site-->
 
 <!--search box-->
-	<div class="row" id="search-box" style="margin-top: 2%;">
-		<div class="col-md-7"></div>
+<div class="row" id="search-box" style="margin-top: 2%;">
+	<div class="col-md-7"></div>
 
-		<div class="col-md-4" >
-			<div class="box" ng-app="search" ng-controller="searchBox as box" style="text-align: -webkit-center;">
-  				<div class="container-1 ">
-       <!--<span	 class="glyphicon glyphicon-search"></span>-->
-      				<input  type="search" id="search"
+	<div class="col-md-4" >
+		<div class="box" ng-app="search" ng-controller="searchBox as box" style="text-align: -webkit-center;">
+			<div class="container-1 ">
+				<!--<span	 class="glyphicon glyphicon-search"></span>-->
+				<input  type="search" id="search"
 
-        				placeholder="جستجو ..."
-      					ng-model="keyword"
-      					ng-change="search()"
-      					ng-focus="box.setFocusTrue()"
-      				/>
-      <!-- <button ng-click="se2arch()">search</button>   -->
-  				</div>
-   		<!--<div class="result" ng-hide="search_result">-->
-  			<!--<div class="well" id="search"> نتیجه‌ای یافت نشد</div>-->
-  		<!--</div>-->
-  				<div class="result" ng-show="search_result && box.focus">
-	  <!-- <p>Professors:</p> -->
-		  			<ul class="results-place" ng-repeat="prof in search_result.data.profs">
-						<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
-                            <li class="each-result">
-								<p style=" padding-top: 10px;">{{prof.name}}</p>
-								<p >{{prof.faculty}} - {{prof.uni}}</p>
-			 				</li>
-						</a>
-					</ul>
-				</div>
-
-				</div>
+						placeholder="جستجو ..."
+						ng-model="keyword"
+						ng-change="search()"
+						ng-focus="box.setFocusTrue()"
+				/>
+				<!-- <button ng-click="se2arch()">search</button>   -->
 			</div>
+			<!--<div class="result" ng-hide="search_result">-->
+			<!--<div class="well" id="search"> نتیجه‌ای یافت نشد</div>-->
+			<!--</div>-->
+			<div class="result" ng-show="search_result && box.focus">
+				<!-- <p>Professors:</p> -->
+				<ul class="results-place" ng-repeat="prof in search_result.data.profs">
+					<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
+						<li class="each-result">
+							<p style=" padding-top: 10px;">{{prof.name}}</p>
+							<p >{{prof.faculty}} - {{prof.uni}}</p>
+						</li>
+					</a>
+				</ul>
+			</div>
+
 		</div>
-	 </div>
+	</div>
+</div>
+</div>
 <!--search box-->
 </body>
 </html>
