@@ -15,6 +15,10 @@ app.controller('searchBox',function($scope, $http, $timeout){
 		// console.log("id"+id);
 		return Flask.url_for("profile.prof", {"id":id});
 	}
+	$scope.checkResult = function(profs, faculties, unis){
+		console.log()
+		return !profs && !faculties && !unis;
+	}
 	$scope.search = function() {
 		if($scope.keyword.length == 0)
 			$scope.search_result = null;
