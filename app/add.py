@@ -4,7 +4,8 @@ from app.models import University, Professor, Faculty
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import FacultyForm, ProfessorForm
 from app.auth import requires_auth
-# from PIL import Image
+from PIL import Image
+from werkzeug import secure_filename
 add = Blueprint('add', __name__, template_folder='templates/add')
 
 class AddUni(MethodView):
@@ -102,7 +103,9 @@ class AddProf(MethodView):
 			prof.website = form.website.data
 			faculty = Faculty.objects(id=form.faculty.data).first()
 			prof.faculty = faculty
-			fileName = secure_filename(form.pic.file.filename)
+			print form.pic.data
+			fileName = secure_filename(form.pic.data.filename)
+			# file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 			image = Image.open(fileName)
 			prof.pic = image
 			prof.save()
