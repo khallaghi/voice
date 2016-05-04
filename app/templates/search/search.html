@@ -41,7 +41,7 @@
   				<div class="container-1 ">
        <!--<span	 class="glyphicon glyphicon-search"></span>-->
       				<input  type="search" id="search"
-       					style="font-size: 20px;"
+
         				placeholder="جستجو ..."
       					ng-model="keyword"
       					ng-change="search()"
@@ -58,7 +58,7 @@
 						<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
                             <li class="each-result">
 								<p style=" padding-top: 10px;">{{prof.name}}</p>
-								<p style="font-size: 10px;">{{prof.faculty}} - {{prof.uni}}</p>
+								<p >{{prof.faculty}} - {{prof.uni}}</p>
 			 				</li>
 						</a>
 					</ul>

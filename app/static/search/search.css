@@ -8,13 +8,13 @@ body{
     background-size: cover  ;
 }
 
-@media only screen and (max-width: 767px) {
-    body {
-        /* The file size of this background image is 93% smaller
-         * to improve page load speed on mobile internet connections */
-        background-image: url("mobile.png");
-    }
-}
+/*@media only screen and (max-width: 767px) {*/
+    /*!*body {*!*/
+        /*!*!* The file size of this background image is 93% smaller*!*/
+         /*!** to improve page load speed on mobile internet connections *!*!*/
+        /*!*background-image: url("mobile.png");*!*/
+    /*!*}*!*/
+/*}*/
 
 .topbuttum{
     float: right;
@@ -76,9 +76,9 @@ body{
   height: 50px;
     margin-bottom: 2%;
   background: #FFFFFF;
-    opacity: 0.7;
+    opacity: 0.9;
   border: none;
-  font-size: 10pt;
+  font-size: 15pt;
   float: left;
   color: #080808;
   padding-right: 45px;
@@ -112,7 +112,7 @@ body{
 }
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
     outline:none;
-    background : #EEEEEE;
+    background : #0277BD;
   } 
 #search {
 	text-align: right;
@@ -153,7 +153,7 @@ body{
     color:black;
 }
 .result {
-	font: 10px BYekan, Tahoma, Geneva, sans-serif;
+	font: 20px BYekan, Tahoma, Geneva, sans-serif;
 	/*margin: auto auto auto auto;*/
   box-sizing: border-box;
   /*padding-right: 20px;*/
@@ -181,7 +181,9 @@ body{
 }
 
 
-
+.result,p{
+   font-size: 15px;
+}
 @font-face {
  font-family: 'BYekan';
  src: url('fonts/BYekan.eot');
@@ -224,4 +226,55 @@ body{
 ::-webkit-scrollbar-thumb {
     border-radius:20px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+@media only screen and (max-width:414px) and (max-height: 736px) {
+
+
+}
+
+@media only screen and (max-device-width: 414px) and (max-device-height: 736px){
+    body {
+        /* The file size of this background image is 93% smaller
+         * to improve page load speed on mobile internet connections */
+        background-image: url("mobile.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        opacity: 0.8;
+    }
+    #logo img{
+        margin-top: 25%;
+        width: 90%;
+        height: 40%;
+    }
+
+    #search-box img{
+        width: 80%;
+        height: 50%;
+    }
+    .container-1{
+        height:150px;
+    }
+    .container-1 input#search{
+        height: 150px;
+        font-size: 50px;
+    }
+    .result{
+        height: 250%;
+        opacity: 1;
+    }
+    .result,p{
+        font-size:40px;
+    }
+    .each-result{
+        height: 100px;
+
+    }
+    .each-result:hover{
+        height: 120px;
+    }
+    .results-place{
+        height: 100px;
+        padding-top: 15px;
+    }
 }
