@@ -112,7 +112,7 @@ body{
 }
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
     outline:none;
-    background : rgba(153, 153, 153, 0.73);
+    background : #EEEEEE;
   }
 #search {
 	text-align: right;
