@@ -140,6 +140,7 @@ body{
     background-color:#0277BD;
     height: 60px;
     color: white;
+    border-radius: 10px;
 }
 .results-place{
     padding-top: 2%;
