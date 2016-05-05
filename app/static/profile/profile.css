@@ -65,7 +65,7 @@
 	background-color: #EEEEEE;
 }
 .row {
-	margin: 0 , auto;
+	margin: 0   auto;
     width: 100%;
     /*border: 3px solid #73AD21;*/
     /*padding: 10px;*/
@@ -155,7 +155,7 @@
 	text-decoration: none;
 	/*width: auto;*/
 	float: right;
-	font-size:7;
+	font-size: 7px;
 	outline: none;
 }
 .tag-handler a:hover{
@@ -174,7 +174,7 @@
 	margin-right: 2em;
 }
 .active {
-	background: ##00adee none repeat scroll 0 0;
+	background:#00adee none repeat scroll 0 0;
 }
 .input a{
 	background: #b8b8b3 none repeat scroll 0 0;
@@ -186,7 +186,7 @@
 	text-decoration: none;
 	width: auto;
 	float: right;
-	font-size:7;
+	font-size:7px;
 }
 .submit-score{
 	margin-top: 5%;
@@ -418,7 +418,8 @@ span.showBodyOfDisplayOnHover {
 
 */
 .bg {
-	border-bottom: 8px solid #5cc0ff; }
+	border-bottom: 8px solid #5cc0ff;
+}
 
 .bio:hover > .desc {
 	cursor: pointer;
