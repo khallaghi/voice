@@ -21,8 +21,7 @@ body{
     width: 100%;
 
 }
-.animate
-{
+.animate{
     transition: all 0.1s;
     -webkit-transition: all 0.1s;
 }
