@@ -4,7 +4,7 @@ from app.models import University, Professor, Faculty
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import FacultyForm, ProfessorForm
 from app.auth import requires_auth
-from PIL import Image
+# from PIL import Image
 from werkzeug import secure_filename
 add = Blueprint('add', __name__, template_folder='templates/add')
 
