@@ -212,6 +212,92 @@
                        </div>
                </div>
             </div>
-        </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class = "box classes bg-gray">
+                      <!-- <div ng-repeat="i in study_count"> -->
+                      <% for i in range(0,prof.studies|length) %>
+                        <span class="study-result" id="study-result-%% i %%" >
+                            Loading ...
+                        </span>
+                      <% endfor %>
+
+                      <!-- </div> -->
+                  </div>
+              </div>
+          </div>
+          <div class="row box1" ng-controller="Comment">
+              <div class="col-md-12">
+
+                  <div class=" bg-gray comments">
+                      <%  for cmt in prof.comments %>
+                      <div class="row" id="each-comment">
+                          <div class="col-md-3">
+                              <div class="body" >
+                                  <p> %% cmt.body %% </p>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <div class="comment-body">
+                                  <div class="tags" >
+                                      <% for tag in cmt.personal_tags %>
+                                      <div class="label label-success">%% tag.name %%</div>
+                                      <% endfor %>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <p>
+                                  حضور غیاب؟
+                                  {{result_gen('attendance', %% cmt.attendance %%)}}
+                              </p>
+                              <p>
+                                  باحاله؟
+                                  {{result_gen('coolness', %% cmt.coolness %% )}}
+                              </p>
+                              <p>
+                                  کتاب استفاده می‌کنه؟
+                                  {{result_gen('useTextbook', %% cmt.use_textbook %%)}}
+                              </p>
+                          </div>
+
+                          <div class="col-md-3">
+                              <p>
+
+                              <div class="progress">
+                                  <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.helpfulness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.helpfulness %%)}}%; display: block; float: right;">
+                                      دلسوزی
+                                  </div>
+                              </div>
+
+                              </p>
+                              <p>
+
+                              <div class="progress">
+                                  <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.easiness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.easiness %%)}}%; display: block; float: right;">
+                                      آسون‌ بودن
+                                  </div>
+                              </div>
+
+                              </p>
+                              <p>
+                              <div class="progress">
+                                  <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.clarity %%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.clarity %%)}}%; display: block; float: right;">
+                                      قابل فهم بودن
+                                  </div>
+                              </div>
+
+
+                              </p>
+
+                          </div>
+                      </div>
+                      <br>
+                      <% endfor %>
+                  </div>
+              </div>
+
+          </div>
+      </div>
     </body>
 </html>
