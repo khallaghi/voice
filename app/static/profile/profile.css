@@ -7,6 +7,7 @@
     height: 400px;
     margin-top: 5%;
     border-radius: 10px;
+    position: relative;
 
 }
 
@@ -222,7 +223,7 @@
     padding-bottom: 5px;
 }
 .chart {
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     min-height: 400px;
     max-height: 400px;
 }
@@ -239,6 +240,9 @@
 .tags {
     max-height: 200px;
     overflow-y: auto;
+    position: absolute;
+    bottom: 15px;
+    right: 0;
 }
 
 .classes {
@@ -270,6 +274,8 @@
     font: 15px BYekan, Tahoma, Geneva, sans-serif;
     /*letter-spacing: .3px;*/
     /*margin: 10px 0 10px 0;*/
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     font-size: 15px;
     margin: 5px 5px 5px 5px;
     /*clear: both;*/
