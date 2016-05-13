@@ -235,8 +235,12 @@
 }
 .chart {
     /*margin-top: 40px;*/
-    min-height: 400px;
-    max-height: 400px;
+    /*min-height: 300px;*/
+    /*max-height: 300px;*/
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
 }
 .comment-body{
     float:right;

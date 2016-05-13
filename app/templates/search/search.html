@@ -52,7 +52,7 @@
 			<!--<div class="result" ng-hide="search_result">-->
 			<!--<div class="well" id="search"> نتیجه‌ای یافت نشد</div>-->
 			<!--</div>-->
-			<div class="result" ng-hide="search_result || !keyword">
+			<div class="result " ng-hide="search_result || !keyword">
 	  			<div id="search" ng-if="keyword.length < 3">
 	  				<p style="font-size: 15px;"> حرف دیگر تایپ کنید {{3 - keyword.length}}</p>
 	  			</div>
@@ -64,7 +64,7 @@
 	  			</div>
   			</div>
   			
-			<div class="result" ng-show="search_result && box.focus">
+			<div class="result " ng-show="search_result && box.focus">
 			<div ng-if="!search_result.data.profs.length">
 	  			<p>
 	  				نتیجه‌ای یافت نشد.
