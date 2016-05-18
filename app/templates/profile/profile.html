@@ -26,8 +26,8 @@
       <div class="container">
           <div class="row">
                <div class="col-md-9">
-                   <div class="row box">
-                       <div class="col-md-7">
+                   <div class="row box" >
+                       <div class="col-md-7" >
                            <div class="chart bg-gray">
                                <div id="main-result">Loading ...</div>
                            </div>
@@ -43,9 +43,8 @@
                            <% endfor %>
                        </div>
                    </div>
-
-            </div>
-               <div class="col-md-3" id="profile" >
+                </div>
+                <div class="col-md-3" id="profile" >
                        <div class="profile-top">
                            <div class="bio">
                                <img src="%%url_for('static', filename='img/uni/fanni.jpg')%%"  alt="background" class="bg1" style="opacity: 0.8;">
@@ -227,17 +226,12 @@
               </div>
           </div>
           <div class="row box1" ng-controller="Comment">
-              <div class="col-md-12">
+              <div class="col-md-12 col-xs-offset-right-0" style="padding: 10px;">
 
                   <div class=" bg-gray comments">
                       <%  for cmt in prof.comments %>
                       <div class="row" id="each-comment">
-                          <div class="col-md-3">
-                              <div class="body" >
-                                  <p> %% cmt.body %% </p>
-                              </div>
-                          </div>
-                          <div class="col-md-3">
+                          <div class="col-md-6">
                               <div class="comment-body">
                                   <div class="tags" >
                                       <% for tag in cmt.personal_tags %>
@@ -245,8 +239,14 @@
                                       <% endfor %>
                                   </div>
                               </div>
+                              <div class="" >
+                                  <textarea  style="direction: rtl;"rows="5" cols="50">
+                                        %% cmt.body %%
+                                   </textarea>
+
+                              </div>
                           </div>
-                          <div class="col-md-3">
+                          <div class="col-md-2">
                               <p>
                                   حضور غیاب؟
                                   {{result_gen('attendance', %% cmt.attendance %%)}}
@@ -290,6 +290,9 @@
 
                               </p>
 
+                          </div>
+                          <div class="col-md-1">
+                                <img style="width: 100%;" src="%%url_for('static', filename='img/cool/4.png')%%">
                           </div>
                       </div>
                       <br>

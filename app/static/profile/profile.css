@@ -12,7 +12,7 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 .bg{
-    background-color: #0091EA;
+    background-color: rgba(59, 59, 59, 0.79);
 }
 .box{
     background-color: #EEEEEE;
@@ -20,6 +20,7 @@
     margin-top: 5%;
     border-radius: 10px;
     position: relative;
+    box-shadow:#0A1015 0 10px 4px;
 }
 
 #profile{
@@ -33,9 +34,9 @@
     border-radius: 10px;
     padding-bottom: 1.5em;
     background-color: #EEEEEE;
-    -webkit-box-shadow: #bdc3c7 0 5px 5px;
+    -webkit-box-shadow: #0f0f0f 0 5px 5px;
     -moz-box-shadow: #bdc3c7 0 5px 5px;
-    box-shadow: #bdc3c7 0 5px 5px;
+    box-shadow:#0A1015 0 10px 4px;
 }
 
 .profile-top {
@@ -231,7 +232,7 @@
 #each-comment{
     border-bottom: 1px solid #BDBDBD;
     margin: 10px 10px 10px 10px;
-    padding-bottom: 5px;
+    padding-bottom: 40px;
 }
 .chart {
     /*margin-top: 40px;*/
@@ -240,6 +241,7 @@
     height: 100%;
     width: 100%;
     text-align: center;
+
 
 }
 .comment-body{
@@ -250,15 +252,16 @@
     font: 13px BYekan, Tahoma, Geneva, sans-serif;
     font-size: 1em;
     margin-top: auto;
-    margin-bottom: 40px;
+
 }
 .tags {
     height: 100%;
     /*overflow-y: auto;*/
-    position: absolute;
+    position: relative;
     /*bottom: 0;*/
     right: 0;
-    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 18px;
 }
 
 .classes {
@@ -582,4 +585,6 @@ span.showBodyOfDisplayOnHover {
     margin-bottom: 5%;
     border-radius: 10px;
     position: relative;
+    text-align: right;
+    box-shadow:#0A1015 0 10px 4px;
 }
