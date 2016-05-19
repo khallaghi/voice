@@ -32,7 +32,7 @@
                                <div id="main-result">Loading ...</div>
                            </div>
                        </div>
-                       <div class="col-md-4 tags">
+                       <div class="col-md-5 pull-right tags" style="padding-top: 20px;">
                            <% for tag in tags %>
                            <div class="label label-success" id="tag">
                                <!-- <span > -->
@@ -88,105 +88,144 @@
                                            <div class="text"> چه درسی باهاش داشتی؟ </div>
 
                                        </div>
-                                       <div class="form-group">
-                                           <a ng-click="canFindCourse()" class="text">
-                                               درس مورد نظر رو پیدا نکردی؟
-                                           </a>
-                                       </div>
-                                       <div class="form-group" ng-hide="findCourse">
-                                           <div class="text">
-                                               اسم درس رو وارد کن:
+                                       <div class="row" style="direction: rtl; margin-bottom: 10px;">
+                                           <div class="col-md-7" style="padding: 0;">
+                                               <div ng-hide="findCourse">
+                                                   <div class="text">
+                                                       اسم درس رو وارد کن:
+                                                   </div>
+                                                   <div class="">
+                                                       <input type="text" ng-model="course_name">
+                                                   </div>
+
+                                               </div>
                                            </div>
-                                           <div class="input">
-                                               <input type="text" ng-model="course_name">
-                                           </div>
-
-                                       </div>
-
-                                       <div class="form-group" id="yes-or-no">
-
-                                           <div class="text">چقدر دلسوزه؟</div>
-                                           <div class="input" id="score">
-                                               <a href="#" ng-click="setHelpfulness(1)" id="sel1" ng-class="{'active':helpfulness===1}">1</a>
-                                               <!-- <a class="hideDisplay">
-                                                 <img src="images/sphere.png" width="20" height="20" alt="symbol">
-                                                 <span class="showDisplayOnHover">
-                                                   Heading
-                                                   <span class="showBodyOfDisplayOnHover">
-                                                     Description goes here.
-                                                   </span>
-                                                 </span>
-                                               </a> -->
-                                               <a href="#" ng-click="setHelpfulness(2)" id="sel2" ng-class="{'active':helpfulness===2}">2</a>
-                                               <a href="#" ng-click="setHelpfulness(3)" id="sel3" ng-class="{'active':helpfulness===3}">3</a>
-                                               <a href="#" ng-click="setHelpfulness(4)" id="sel4" ng-class="{'active':helpfulness===4}">4</a>
-                                               <a href="#" ng-click="setHelpfulness(5)" id="sel5" ng-class="{'active':helpfulness===5}">5</a>
+                                           <div class="col-md-5 pull-right" style="margin-left: -10px; cursor: pointer;">
+                                               <div class="form-group">
+                                                   <a ng-click="canFindCourse()" class="text" style="text-decoration: none;">
+                                                       درس مورد نظر رو پیدا نکردی؟
+                                                   </a>
+                                               </div>
                                            </div>
                                        </div>
-                                       <div class="form-group" id="yes-or-no">
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                               <div  id="yes-or-no">
+                                                   <div class="input" id="score">
+                                                       <a href="#"title="خدا صبر بده!"  ng-click="setHelpfulness(1)" id="sel1" ng-class="{'active':helpfulness===1}">1</a>
 
-
-                                           <div class="text">چقدر آسون می‌گیره؟</div>
-                                           <div class="input" id="score">
-                                               <a href="#" ng-click="setEasiness(1)" id="sel1" ng-class="{'active':easiness===1}">1</a>
-                                               <a href="#" ng-click="setEasiness(2)" id="sel2" ng-class="{'active':easiness===2}">2</a>
-                                               <a href="#" ng-click="setEasiness(3)" id="sel3" ng-class="{'active':easiness===3}">3</a>
-                                               <a href="#" ng-click="setEasiness(4)" id="sel4" ng-class="{'active':easiness===4}">4</a>
-                                               <a href="#" ng-click="setEasiness(5)" id="sel5" ng-class="{'active':easiness===5}">5</a>
+                                                       <a href="#" title="این کاره نیست!" ng-click="setHelpfulness(2)" id="sel2" ng-class="{'active':helpfulness===2}">2</a>
+                                                       <a href="#" title="بدک نیست!" ng-click="setHelpfulness(3)" id="sel3" ng-class="{'active':helpfulness===3}">3</a>
+                                                       <a href="#" title="خوبه!" ng-click="setHelpfulness(4)" id="sel4" ng-class="{'active':helpfulness===4}">4</a>
+                                                       <a href="#" title="عالیه" ng-click="setHelpfulness(5)" id="sel5" ng-class="{'active':helpfulness===5}">5</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6 pull-right">
+                                               <div class="text">چقدر دلسوزه؟</div>
                                            </div>
                                        </div>
-                                       <div class="form-group" id="yes-or-no">
-
-
-                                           <div class="text">چقدر حرف‌هاش رو می‌فهمی؟</div>
-                                           <div class="input" id="score">
-                                               <a href="#" ng-click="setClarity(1)" id="sel1" ng-class="{'active':clarity===1}">1</a>
-                                               <a href="#" ng-click="setClarity(2)" id="sel2" ng-class="{'active':clarity===2}">2</a>
-                                               <a href="#" ng-click="setClarity(3)" id="sel3" ng-class="{'active':clarity===3}">3</a>
-                                               <a href="#" ng-click="setClarity(4)" id="sel4" ng-class="{'active':clarity===4}">4</a>
-                                               <a href="#" ng-click="setClarity(5)" id="sel5" ng-class="{'active':clarity===5}">5</a>
-
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                               <div id="yes-or-no">
+                                                   <div class="input" id="score">
+                                                       <a href="#" title="خدا صبر بده!"  ng-click="setEasiness(1)" id="sel1" ng-class="{'active':easiness===1}">1</a>
+                                                       <a href="#" title="این کاره نیست!" ng-click="setEasiness(2)" id="sel2" ng-class="{'active':easiness===2}">2</a>
+                                                       <a href="#" title="بدک نیست!" ng-click="setEasiness(3)" id="sel3" ng-class="{'active':easiness===3}">3</a>
+                                                       <a href="#" title="خوبه!" ng-click="setEasiness(4)" id="sel4" ng-class="{'active':easiness===4}">4</a>
+                                                       <a href="#" title="عالیه" ng-click="setEasiness(5)" id="sel5" ng-class="{'active':easiness===5}">5</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6">
+                                               <div class="text">چقدر آسون می‌گیره؟</div>
                                            </div>
                                        </div>
-                                       <div class="form-group" id="yes-or-no">
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                               <div class="form-group" id="yes-or-no">
+                                                   <div class="input" id="score">
+                                                       <a href="#" title="خدا صبر بده!" ng-click="setClarity(1)" id="sel1" ng-class="{'active':clarity===1}">1</a>
+                                                       <a href="#" title="این کاره نیست!" ng-click="setClarity(2)" id="sel2" ng-class="{'active':clarity===2}">2</a>
+                                                       <a href="#" title="بدک نیست!" ng-click="setClarity(3)" id="sel3" ng-class="{'active':clarity===3}">3</a>
+                                                       <a href="#"  title="خوبه!" ng-click="setClarity(4)" id="sel4" ng-class="{'active':clarity===4}">4</a>
+                                                       <a href="#" title="عالیه" ng-click="setClarity(5)" id="sel5" ng-class="{'active':clarity===5}">5</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6">
+                                               <div class="text">چقدر حرف‌هاش رو می‌فهمی؟</div>
+                                           </div>
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                               <div class="form-group" id="yes-or-no">
+                                                   <div class="input" id="score">
+                                                       <a href="#" title="خدا صبر بده!" ng-click="setClarity(1)" id="sel1" ng-class="{'active':clarity===1}">1</a>
+                                                       <a href="#" title="این کاره نیست!" ng-click="setClarity(2)" id="sel2" ng-class="{'active':clarity===2}">2</a>
+                                                       <a href="#" title="بدک نیست" ng-click="setClarity(3)" id="sel3" ng-class="{'active':clarity===3}">3</a>
+                                                       <a href="#" title="خوبه!" ng-click="setClarity(4)" id="sel4" ng-class="{'active':clarity===4}">4</a>
+                                                       <a href="#" title="عالیه" ng-click="setClarity(5)" id="sel5" ng-class="{'active':clarity===5}">5</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6">
+                                               <div class="text">کول هست؟</div>
+                                           </div>
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-md-12">
+                                               <div class="text">سه‌تا از تگ‌های زیر رو انتخاب کن</div>
+                                           </div>
+                                           <div class="col-md-12">
+                                               <div class="tag-handler" id="select-tag" >
+                                                   <!-- <div  class="select-option" id="yes-or-no"> -->
+                                                   <a ng-repeat="tag in allTags track by $index"
+                                                      ng-click="addTag($index)"
+                                                      ng-class="{'active':tag.status===1}"
+                                                      href="#">{{tag.name}}</a>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-md-9 pull-left" style="text-align: left;">
+                                               <div class="form-group" id="yes-or-no">
 
-                                           <div class="text">کول هست؟</div>
-                                           <div  class="input" >
-                                               <a href="#" id="positive" ng-click="setCoolness(1)" ng-class="{'active':coolness===1}">آره</a>
-                                               <a href="#" id="negative" ng-click="setCoolness(2)" ng-class="{'active':coolness===2}">نه اصلا</a>
+                                                   <div  class="input" >
+                                                       <a href="" id="negative" ng-click="setAttendance(1)" ng-class="{'active':attendance===1}">آره هر جلسه</a>
+                                                       <a href="" id="so-so"    ng-click="setAttendance(2)" ng-class="{'active':attendance===2}">بعضی وقتا</a>
+                                                       <a href="" id="positive" ng-click="setAttendance(3)" ng-class="{'active':attendance===3}">نه اصلا</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-3">
+                                               <div class="text" >حضور غیاب؟</div>
                                            </div>
                                        </div>
-                                       <div class="form-group-tag" >
-                                            <div class="text">سه‌تا از تگ‌های زیر رو انتخاب کن</div>
-                                            <div class="tag-handler" id="select-tag" >
-                                               <!-- <div  class="select-option" id="yes-or-no"> -->
-                                               <a ng-repeat="tag in allTags track by $index"
-                                                  ng-click="addTag($index)"
-                                                  ng-class="{'active':tag.status===1}"
-                                                  href="#">{{tag.name}}</a>
-                                            </div>
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                               <div  id="yes-or-no">
+
+                                                   <div class="input">
+                                                       <a href="" id="positive" ng-click="setUseTextbook(1)" ng-class="{'active':useTextbook===1}">آره</a>
+                                                       <a href="" id="positive" ng-click="setUseTextbook(2)" ng-class="{'active':useTextbook===2}">نه</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6">
+                                               <div class="text">کتاب استفاده می‌کنه
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="row">
+                                           <div class="col-md-6">
+                                           </div>
+                                           <div class="col-md-6">
+                                           </div>
                                        </div>
 
 
-                                       <!-- <div class="form-group" id="yes-or-no">
-                                           <label>کلاس چطور بود؟</label>
-                                       </div> -->
-                                       <div clas="form-group" id="yes-or-no">
-                                           <div class="text">کتاب استفاده می‌کنه
-                                           </div>
-                                           <div class="input">
-                                               <a href="" id="positive" ng-click="setUseTextbook(1)" ng-class="{'active':useTextbook===1}">آره</a>
-                                               <a href="" id="positive" ng-click="setUseTextbook(2)" ng-class="{'active':useTextbook===2}">نه</a>
-                                           </div>
-                                       </div>
-                                       <div class="form-group" id="yes-or-no">
-                                           <div class="text" >حضور غیاب؟</div>
-                                           <div  class="input" >
-                                               <a href="" id="negative" ng-click="setAttendance(1)" ng-class="{'active':attendance===1}">آره هر جلسه</a>
-                                               <a href="" id="so-so"    ng-click="setAttendance(2)" ng-class="{'active':attendance===2}">بعضی وقتا</a>
-                                               <a href="" id="positive" ng-click="setAttendance(3)" ng-class="{'active':attendance===3}">نه اصلا</a>
-                                           </div>
-                                       </div>
+
 
                                        <div class="form-group" id="yes-or-no">
                                            <div class="text"> نظرت رو درموردش بگو </div>
