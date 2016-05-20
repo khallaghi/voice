@@ -27,7 +27,7 @@ body{
     margin-top: 5%;
     border-radius: 10px;
     position: relative;
-    box-shadow:#0A1015 0 10px 4px;
+    box-shadow:#0A1015 0 7px 4px;
 }
 
 #profile{
@@ -43,7 +43,7 @@ body{
     background-color: #EEEEEE;
     -webkit-box-shadow: #0f0f0f 0 5px 5px;
     -moz-box-shadow: #bdc3c7 0 5px 5px;
-    box-shadow:#0A1015 0 10px 4px;
+    box-shadow:#0A1015 0 7px 4px;
 }
 
 .profile-top {
@@ -595,5 +595,5 @@ span.showBodyOfDisplayOnHover {
     border-radius: 10px;
     position: relative;
     text-align: right;
-    box-shadow:#0A1015 0 10px 4px;
+    box-shadow:#0A1015 0 7px 4px;
 }

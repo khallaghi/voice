@@ -32,7 +32,9 @@
                                <div id="main-result">Loading ...</div>
                            </div>
                        </div>
+
                        <div class="col-md-5 pull-right tags" style="padding-top: 20px;">
+                           <div style="width: 2px;background-color: #0f0f0f;height: 90%; position: absolute;"></div>
                            <% for tag in tags %>
                            <div class="label label-success" id="tag">
                                <!-- <span > -->
@@ -177,7 +179,7 @@
                                            <div class="col-md-12">
                                                <div class="text">سه‌تا از تگ‌های زیر رو انتخاب کن</div>
                                            </div>
-                                           <div class="col-md-12">
+                                           <div class="col-md-12  pull-right">
                                                <div class="tag-handler" id="select-tag" >
                                                    <!-- <div  class="select-option" id="yes-or-no"> -->
                                                    <a ng-repeat="tag in allTags track by $index"
@@ -217,16 +219,6 @@
                                                </div>
                                            </div>
                                        </div>
-                                       <div class="row">
-                                           <div class="col-md-6">
-                                           </div>
-                                           <div class="col-md-6">
-                                           </div>
-                                       </div>
-
-
-
-
                                        <div class="form-group" id="yes-or-no">
                                            <div class="text"> نظرت رو درموردش بگو </div>
                                            <div class="text">
