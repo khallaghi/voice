@@ -13,6 +13,7 @@ class ProfessorForm(Form):
 	rank = RadioField('rank')
 	pic = FileField(u'Image File')
 	# uni = SelectField('University')
+
 class SearchForm(Form):
 	search = TextField('search it')
 

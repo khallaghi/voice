@@ -4,6 +4,7 @@ from flask_jsglue import JSGlue
 from werkzeug import secure_filename
 import os
 
+
 UPLOAD_FOLDER = '/path/to/the/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -20,6 +21,7 @@ jinja_options.update(dict(
 ))
 app.jinja_options = jinja_options
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config["MONGODB_SETTINGS"] = {'DB': "rate"}
 app.config["SECRET_KEY"] = "KeepThisS3cr3t"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
