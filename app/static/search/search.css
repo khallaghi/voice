@@ -1,4 +1,10 @@
-
+@font-face {
+    font-family: IRANSansWeb;
+    src: url(../font/IRANSansWeb.ttf);
+}
+body{
+    font-family: IRANSansWeb;
+}
 body{
   background: #2196F3;
   /*background-image: url("left.png"), url("hole-back.png");*/
@@ -33,7 +39,7 @@ body{
     margin: 10px 10px 10px 0px;
     float: right;
     border-radius: 10px;
-    font-family: 'Pacifico', cursive;
+    /*font-family: 'Pacifico', cursive;*/
     font-size: 90%;
     color: #FFF;
     /*text-decoration: none;*/
@@ -107,7 +113,8 @@ body{
 }
 .container-1 input#search:hover, .container-1 input#search:focus, .container-1 input#search:active{
     outline:none;
-    background : #0277BD;
+    background : #8c8c8c;
+    text-decoration-color: #0f0f0f;
   }
 #search {
 	text-align: right;
@@ -137,6 +144,18 @@ body{
     color: white;
     border-radius: 10px;
 }
+.no-result{
+    direction: rtl;
+    height: 60px;
+    padding-top: 5%;
+    padding-right: 2%;
+}
+.no-result:hover{
+    background-color:#9C1A1C;
+    height: 60px;
+    color: white;
+    border-radius: 10px;
+}
 .results-place{
     line-height: 15px;
     padding-top: 2%;
@@ -150,7 +169,7 @@ body{
   color:black;
 }
 .one-result{
-    font: 20px BYekan, Tahoma, Geneva, sans-serif;
+    /*font: 20px BYekan, Tahoma, Geneva, sans-serif;*/
     box-sizing: border-box;
     /*padding-right: 20px;*/
     opacity: 0.85;
@@ -177,7 +196,7 @@ body{
     direction: rtl;
 }
 .result {
-	font: 20px BYekan, Tahoma, Geneva, sans-serif;
+	/*font: 20px BYekan, Tahoma, Geneva, sans-serif;*/
 	/*margin: auto auto auto auto;*/
     box-sizing: border-box;
   /*padding-right: 20px;*/
@@ -208,13 +227,7 @@ body{
 .result,p{
    font-size: 15px;
 }
-@font-face {
-    font-family: 'BYekan';
-    src: url('fonts/BYekan.eot');
-    src: local('b BYekan'), url('fonts/BYekan.woff') format('woff'), url('fonts/BYekan.ttf') format('truetype'), url('BYekan.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 #search  {
     line-height: 20px;
@@ -267,11 +280,17 @@ body{
         opacity: 0.8;
     }
     #logo img{
-        margin-top: 25%;
-        width: 90%;
-        height: 40%;
+        margin-top: 45%;
+        width: 70%;
+        height: 20%;
     }
-
+    .topbuttum{
+        font-size: 40px;
+        color: #9C1A1C;
+    }
+    .action-button{
+        color: #0f0f0f;
+    }
     #search-box img{
         width: 80%;
         height: 50%;
@@ -291,9 +310,15 @@ body{
     .result,p{
         font-size:40px;
     }
-    .each-result{
+    .each-result .no-result{
         height: 100px;
-
+        line-height: 20px;
+    }
+    .no-result{
+        height: 100px;
+    }
+    .each-result,p{
+        padding-bottom: 20px;
     }
     .each-result:hover{
         height: 120px;
