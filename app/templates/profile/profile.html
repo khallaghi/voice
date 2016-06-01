@@ -2,6 +2,7 @@
 <% import '_forms.html' as forms %>
 <html ng-app="profile">
 <head>
+    <meta name=viewport content='width=700'>
     <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -50,8 +51,8 @@
                            <div class="bio">
                                <img src="%%url_for('static', filename='img/uni/fanni.jpg')%%"  alt="background" class="bg1" style="opacity: 0.8;">
                                <div class="desc">
-                                   <h3>@carlf</h3>
-                                   <p>Carl Fredricksen is the protagonist in Up. He also appeared in Dug's Special Mission as a minor character.</p>
+                                   <h3 style="direction: rtl;">@ %% prof.name %%</h3>
+                                   <!--<p></p>-->
                                </div>
                            </div>
 
@@ -84,7 +85,7 @@
                                <modal  title="امتیاز به %% prof.name%%" visible="showModal">
                                    <div class="rate-form">
                                        <div  class="form-group">
-                                           <select id="js-example-data-array"  ng-model="selected_course">
+                                           <select id="js-example-data-array"  style="width: 150px;">
                                            </select>
                                            <div class="text"> چه درسی باهاش داشتی؟ </div>
 
@@ -96,7 +97,7 @@
                                                </div>
                                            </div>
                                            <div class="col-md-5 pull-right" style="margin-left: -10px; cursor: pointer;">
-                                               <div class="form-group">
+                                               <div class="no-course">
                                                    <a ng-click="canFindCourse()" class="text" style="text-decoration: none;">
                                                        درس مورد نظر رو پیدا نکردی؟
                                                    </a>
@@ -215,7 +216,7 @@
                                        </div>
                                        <div class="form-group" id="yes-or-no">
                                            <div class="text"> نظرت رو درموردش بگو </div>
-                                           <div class="text" style="padding-right: 20px;">
+                                           <div class="text" style="padding-right: 30px;">
                                                <textarea id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=350></textarea>
                                            </div>
 

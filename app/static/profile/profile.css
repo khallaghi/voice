@@ -336,6 +336,28 @@ body{
     font-size:13px;
     outline: none;
 }
+.no-course a{
+    background: #b8b8b3 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #fff;
+    display: block;
+    /*margin-bottom: 6px;*/
+    /*margin-right: 6px;*/
+    padding: 5px 7px;
+    text-decoration: none;
+    /*width: auto;*/
+    float: right;
+    font-size:13px;
+    outline: none;
+}
+.no-course :hover{
+    background: #afd9ee none repeat scroll 0 0;
+
+}
+.no-course .active{
+    background: #2196f3 none repeat scroll 0 0;
+}
+
 .tag-handler a:hover{
     background: #2196f3 none repeat scroll 0 0;
 
