@@ -23,12 +23,25 @@
 
 
     <body class="bg" ng-controller="mainResult as main" ng-init="init('%% prof.id %%');">
+    <!--header start-->
+    <header class="head-section" style="    margin-bottom: -26px;">
+        <div class="navbar navbar-default navbar-static-top" style="padding-left: 110px;padding-right: 10px;">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="height: 80px;"><input class="form-control search" style="direction: rtl;height: 45px;" placeholder=" جست و جو" type="text"></li>
+                </ul>
+                <a  style="padding-top:10px;padding-left:20px;float: right;"  href="????" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 65px;width: 120px;"  ></a>
+                <a class="navbar-brand" style="float: right;" href="?????">!دغدغه های <span>دانشجویی</span> خود را در این جا بجویید</a>
+            </div>
+        </div>
+    </header>
+    <!--header end-->
       <div class="container">
           <div class="row">
                <div class="col-md-9">
                    <div class="row box" >
-                       <div class="col-md-7">
-                           <div class="chart bg-gray">
+                       <div class="col-md-7" >
+                           <div class="chart bg-gray" style="width: 400px; padding-left: 10%;bottom: 50px">
                                <div id="main-result">Loading ...</div>
                            </div>
                        </div>
@@ -82,16 +95,20 @@
 
                                  <button ng-click="toggleModal()" class="btn btn-primary">امتیاز بده</button>
 
-                               <modal  title="امتیاز به %% prof.name%%" visible="showModal">
+                               <modal class="md-modal md-effect-18" id="modal-18"  title="امتیاز به %% prof.name%%" visible="showModal">
                                    <div class="rate-form">
-                                       <div  class="form-group">
-                                           <select id="js-example-data-array"  style="width: 150px;">
-                                           </select>
-                                           <div class="text"> چه درسی باهاش داشتی؟ </div>
+                                       <div  class="row" style="direction: rtl; margin-bottom: 10px;">
+                                           <div class="col-md-6" >
+                                                <select id="js-example-data-array"  style="width: 150px;">
+                                                </select>
+                                           </div>
+                                           <div class="col-md-6 " >
+                                                <div class="text" > چه درسی باهاش داشتی؟ </div>
+                                           </div>
 
                                        </div>
                                        <div class="row" style="direction: rtl; margin-bottom: 10px;">
-                                           <div class="col-md-6" sty le="padding: 0;">
+                                           <div class="col-md-6" style="padding-right: 13px;">
                                                <div ng-hide="findCourse">
                                                      <input type="text" placeholder="  اسم درس رو وارد کن  " ng-model="course_name" style="border-radius: 5px;">
                                                </div>
@@ -269,16 +286,18 @@
               <!--</div>-->
           <!--</div>-->
             <!--</div>-->
-          <div class="spqn11 box" style="overflow: auto;overflow-y: hidden;">
-              <div class="row-fluid" style="white-space: nowrap;">
+          <div class="box1" style="overflow: auto;overflow-y: hidden;padding-top: 2.5%;padding-bottom: 2.5%;">
+              <div class="" style="white-space: nowrap;">
                   <div class = " bg-gray" >
                       <!-- <div ng-repeat="i in study_count"> -->
 
                       <% for i in range(0,prof.studies|length) %>
-                        <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;" >
-                            <span id="study-result-%% i %%" >
+                        <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;border-right: 2px solid rgba(79, 91, 102, 0.14);" >
+                            <span id="study-result-%% i %%" style="width:20%;height: 80%;padding-top: 50px;">
                                   Loading ...
+
                             </span>
+
                         </div>
                       <% endfor %>
                       <!-- </div> -->
