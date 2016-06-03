@@ -56,7 +56,7 @@
                            </div>
 
                            <div class="avatarcontainer">
-                               <img src="%%url_for('static', filename='img/UT/ramtin-khosravi.jpg')%%"  alt="avatar" class="avatar">
+                               <img src="%%prof.pic.file_name%%"  alt="avatar" class="avatar">
                                <div class="hover">
                                    <div class="icon-twitter"></div>
                                </div>
@@ -66,6 +66,7 @@
 
                        <div class="content">
                            <div class="data">
+                              %%prof.pic%%
                                <% if prof.rank %>
                                <div class="badge">%% prof.rank %%</div>
                                <% endif %>
@@ -274,7 +275,8 @@
                       <!-- <div ng-repeat="i in study_count"> -->
 
                       <% for i in range(0,prof.studies|length) %>
-                        <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;" >
+
+                        <div class="" style="display: inline-block;width:50%;padding-right: 30px;padding-top:20px;padding-left: 30px;" >
                             <span id="study-result-%% i %%" >
                                   Loading ...
                             </span>

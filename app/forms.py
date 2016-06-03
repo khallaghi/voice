@@ -1,7 +1,11 @@
-from wtforms import Form, BooleanField, TextField, PasswordField,SelectField,RadioField,validators, IntegerField, FileField
+from wtforms import Form, BooleanField, TextField, PasswordField,SelectField,\
+RadioField,validators, IntegerField
+from flask_wtf.file import FileField
+# from flaskext.uploads import UploadSet, IMAGES
 class FacultyForm(Form):
 	name = TextField('Faculty name', [validators.Length(min=4, max=25)])
 	uni = SelectField('University')
+	pic = FileField('ImageField')
 
 class ProfessorForm(Form):
 	name = TextField('Professor name', [validators.Length(min=2, max=100)])
@@ -11,7 +15,7 @@ class ProfessorForm(Form):
 	faculty = RadioField(' faculty ',coerce=unicode)
 	room_no = TextField('room number')
 	rank = RadioField('rank')
-	pic = FileField(u'Image File')
+	pic = FileField('Image File')
 	# uni = SelectField('University')
 
 class SearchForm(Form):
