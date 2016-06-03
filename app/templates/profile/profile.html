@@ -24,13 +24,13 @@
 
     <body class="bg" ng-controller="mainResult as main" ng-init="init('%% prof.id %%');">
     <!--header start-->
-    <header class="head-section" style="    margin-bottom: -26px;">
-        <div class="navbar navbar-default navbar-static-top" style="padding-left: 110px;padding-right: 10px;">
+    <header class="head-section" style="margin-bottom: -2%;">
+        <div class="navbar navbar-default navbar-static-top" style="padding-left: 7.5%;padding-right:1%;">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li style="height: 80px;"><input class="form-control search" style="direction: rtl;height: 45px;" placeholder=" جست و جو" type="text"></li>
+                    <li style="height: 70%;"><input class="form-control search" style="direction: rtl;" placeholder=" جست و جو" type="text"></li>
                 </ul>
-                <a  style="padding-top:10px;padding-left:20px;float: right;"  href="????" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 65px;width: 120px;"  ></a>
+                <a  style="padding-top:10px;padding-left:20px;float: right;"  href="????" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
                 <a class="navbar-brand" style="float: right;" href="?????">!دغدغه های <span>دانشجویی</span> خود را در این جا بجویید</a>
             </div>
         </div>
@@ -38,16 +38,17 @@
     <!--header end-->
       <div class="container">
           <div class="row">
+              <div id="x1">
                <div class="col-md-9">
                    <div class="row box" >
-                       <div class="col-md-7" >
+                       <div class="col-md-6" >
                            <div class="chart bg-gray" style="width: 400px; padding-left: 10%;bottom: 50px">
-                               <div id="main-result">Loading ...</div>
+                               <div style="height: 350px;margin-bottom: 50px;" id="main-result">Loading ...</div>
                            </div>
                        </div>
 
                        <div class="col-md-5 pull-right tags" style="padding-top: 20px;padding-left: 20px;">
-                           <div style="width: 2px;background-color:rgba(79, 91, 102, 0.24);height: 90%;left: 10px;right: 10px; position: absolute;"></div>
+                           <div  class="linebetwaen"></div>
                            <% for tag in tags %>
                            <div class="label label-success" id="tag">
                                <!-- <span > -->
@@ -59,6 +60,8 @@
                        </div>
                    </div>
                 </div>
+              </div>
+              <div id="x2">
                 <div class="col-md-3" id="profile" >
                        <div class="profile-top">
                            <div class="bio">
@@ -252,6 +255,7 @@
                                </modal>
                            </div>
                        </div>
+                    </div>
                </div>
             </div>
           <!--<div class="row ">-->
@@ -286,14 +290,14 @@
               <!--</div>-->
           <!--</div>-->
             <!--</div>-->
-          <div class="box1" style="overflow: auto;overflow-y: hidden;padding-top: 2.5%;padding-bottom: 2.5%;">
+          <div class="box1" style="overflow: auto;overflow-y: hidden;padding-top: 20px;padding-bottom: 2.5%;height: 350px;">
               <div class="" style="white-space: nowrap;">
                   <div class = " bg-gray" >
                       <!-- <div ng-repeat="i in study_count"> -->
 
                       <% for i in range(0,prof.studies|length) %>
                         <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;border-right: 2px solid rgba(79, 91, 102, 0.14);" >
-                            <span id="study-result-%% i %%" style="width:20%;height: 80%;padding-top: 50px;">
+                            <span id="study-result-%% i %%" style="width:250px;height: 330px;padding-top: 50px;">
                                   Loading ...
 
                             </span>
@@ -307,7 +311,7 @@
           <div class="row box1" ng-controller="Comment">
               <div class="col-md-12 col-xs-offset-right-0" style="padding: 10px;">
 
-                  <div class=" bg-gray comments">
+                      <div class=" bg-gray comments">
                       <%  for cmt in prof.comments %>
                       <div class="row" id="each-comment">
                           <div class="col-md-7">
@@ -373,7 +377,7 @@
                           </div>
                           <div class="col-md-1 ">
                               <div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>
-                                <img style="width: 100%;margin-left: 10px;" src="%%url_for('static', filename='img/cool/4.png')%%">
+                                <img style="width: 50px;margin-left: 10%px;" src="%%url_for('static', filename='img/cool/4.png')%%">
                           </div>
                       </div>
                       <br>

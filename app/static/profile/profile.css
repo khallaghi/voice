@@ -35,9 +35,9 @@ body{
 }
 .navbar-brand span { color: #48cfad }
 .head-section .navbar-collapse  ul.navbar-nav {
-    float: left;
-    margin-right: 0;
-    z-index: 199;
+    /*float: left;*/
+    /*margin-right: 0;*/
+    /*z-index: 199;*/
 }
 .head-section .navbar-default { background-color: #fff }
 .head-section .nav li a,
@@ -160,13 +160,20 @@ ul.dropdown-menu { border: none }
 }
 .box{
     background-color: #EEEEEE;
-    height: 400px;
+    height: 100%;
     margin-top: 5%;
     border-radius: 10px;
     position: relative;
     box-shadow:rgba(10, 16, 21, 0.43) 0 7px 4px;
 }
-
+.linebetwaen{
+   width: 2px;
+    background-color:rgba(79, 91, 102, 0.24);
+    height: 300px;
+    left: 10px;
+    right: 10px;
+    position: absolute;
+}
 #profile{
     height: 400px;
     padding: 0;
@@ -280,7 +287,7 @@ ul.dropdown-menu { border: none }
 
 .content{
     text-align: center;
-    margin-top: 18%;
+    margin-top: 60px;
 }
 /*.data {*/
     /*margin-top: .6em;*/
@@ -787,4 +794,37 @@ span.showBodyOfDisplayOnHover {
 .multi-item-carousel .carouse-control.left,
 .multi-item-carousel .carouse-control.right {
     background-image: none;
+}
+
+
+
+@media only screen and (max-device-width: 443px) and (max-device-height: 773px){
+    /*#x1{*/
+        /*float: right;*/
+    /*}*/
+    /*#x2{*/
+        /*float: left;*/
+    /*}*/
+
+    .linebetwaen{
+        position: relative;
+    }
+    #profile{
+        width: 100%;
+    }
+    .navbar-static-top{
+        padding-left: 1%;
+    }
+    .collapse{
+        display: table;
+    }
+    /*#cool,img{*/
+        /*width: 100px;*/
+        /*height: 100px;*/
+
+    /*}*/
+    .bg-gray{
+        height: 200px;
+    }
+
 }
