@@ -818,11 +818,11 @@ span.showBodyOfDisplayOnHover {
     .collapse{
         display: table;
     }
-    /*#cool,img{*/
-        /*width: 100px;*/
-        /*height: 100px;*/
+    #cool img{
+        width: 100px;
+        height: 100px;
 
-    /*}*/
+    }
     .bg-gray{
         height: 200px;
     }

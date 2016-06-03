@@ -95,11 +95,10 @@
                                <% endif %>
                            </div>
                            <div ng-controller="MainCtrl as rate" ng-init="init('%% prof.id %%')">
-
                                  <button ng-click="toggleModal()" class="btn btn-primary">امتیاز بده</button>
 
-                               <modal class="md-modal md-effect-18" id="modal-18"  title="امتیاز به %% prof.name%%" visible="showModal">
-                                   <div class="rate-form">
+                               <modal title="امتیاز به %% prof.name%%" visible="showModal">
+                                   <div class="rate-form ">
                                        <div  class="row" style="direction: rtl; margin-bottom: 10px;">
                                            <div class="col-md-6" >
                                                 <select id="js-example-data-array"  style="width: 150px;">
@@ -390,6 +389,5 @@
 
 
       </div>
-      <script src="%%url_for('static', filename='profile/index.js')%%"></script>
     </body>
 </html>
