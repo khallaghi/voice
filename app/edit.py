@@ -11,7 +11,7 @@ from werkzeug import secure_filename
 from app import app
 import os
 import tempfile
-from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
+# from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
 # import file
 edit = Blueprint('edit', __name__, template_folder='templates/edit')
 
