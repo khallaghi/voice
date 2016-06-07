@@ -11,7 +11,7 @@ from app import app
 from app.edit import save_image
 import os
 import tempfile
-from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
+# from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
 # import file
 add = Blueprint('add', __name__, template_folder='templates/add')
 
