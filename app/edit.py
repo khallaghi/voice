@@ -43,7 +43,7 @@ def allowed_file(filename):
 		   filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 class ProfList(MethodView):
-	decorators = [requires_auth]
+	# decorators = [requires_auth]
 	def get(self):
 		profs = Professor.objects.all()
 		print "count of professors: " + str(profs.count()) 
@@ -88,7 +88,7 @@ class EditProf(MethodView):
 		return redirect(url_for('edit.professor_list'))
 
 class DeleteProf(MethodView):
-	decorators = [requires_auth]
+	# decorators = [requires_auth]
 	def get(self,id):
 		prof = Professor.objects(id=id).first()
 		if prof:
