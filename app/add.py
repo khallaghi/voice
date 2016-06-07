@@ -5,7 +5,7 @@ from app.models import University, Professor, Faculty
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import FacultyForm, ProfessorForm
 from app.auth import requires_auth
-from PIL import Image
+# from PIL import Image
 from werkzeug import secure_filename
 from app import app
 from app.edit import save_image
@@ -72,16 +72,6 @@ class AddFaculty(MethodView):
 
 			faculty = Faculty()
 			faculty.name = form.name.data
-			print app.config['UPLOAD_FOLDER']
-			print "***********************"
-			print form.pic
-			print "*************************"
-			# print form.pic.file.filename
-			image_data = request.files.get(form.pic.name)
-			print "+++++++++++++++++++++++++++++"
-			print image_data
-			open(os.path.join(app.config['UPLOAD_FOLDER'], form.pic.name), 'w').write(image_data)
-
 			print form.uni.data
 			uni = University.objects(id=form.uni.data).first()
 			faculty.uni = uni
@@ -165,9 +155,9 @@ class UploadFile(MethodView):
 			filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 			print "filename is : "
 			print filename
-			image = Image.open(filename)
+			# image = Image.open(filename)
 			print "image is : "
-			print image
+			# print image
 			for prof in Professor.objects():
 				# prof = Professor.objects().first()
 				if prof.pic:

@@ -6,7 +6,7 @@ from flask.ext.mongoengine.wtf import model_form
 from app.forms import FacultyForm, ProfessorForm, \
 									EditProfessorForm
 from app.auth import requires_auth
-from PIL import Image
+# from PIL import Image
 from werkzeug import secure_filename
 from app import app
 import os
