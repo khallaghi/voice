@@ -24,7 +24,7 @@ class Professor(db.Document):
     website = db.StringField()
     room_no = db.StringField()
     rank = db.StringField()
-    pic = db.ImageField()
+    # pic = db.ImageField()
     image_place = db.StringField()
     image_name = db.StringField()
     ''' Personality rate '''
