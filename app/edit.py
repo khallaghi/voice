@@ -46,11 +46,11 @@ class ProfList(MethodView):
 	# decorators = [requires_auth]
 	def get(self):
 		profs = Professor.objects.all()
-		print "count of professors: " + str(profs.count()) 
+		# print "count of professors: " + str(profs.count()) 
 		return render_template('edit/professor-list.html', profs=profs)
 
 class EditProf(MethodView):
-	decorators = [requires_auth]
+	# decorators = [requires_auth]
 	def init_form(self, form, prof):
 		form.name.data = prof.name
 		form.website.data = prof.website
