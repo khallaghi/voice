@@ -16,9 +16,9 @@
 <div calss="row" class="topbuttum" >
     <div class="col-md-8"></div>
     <div class="col-md-4 " >
-<!--         <a href="#" class="action-button shadow animate gray" style="text-decoration: none;">کمک</a>
+         <a href="#" class="action-button shadow animate gray" style="text-decoration: none;">کمک</a>
         <a href="#" class="action-button shadow animate gray"style="text-decoration: none;">درباره ما</a>
-        <a href="#" class="action-button shadow animate gray"style="text-decoration: none;">تماس با ما</a> -->
+        <a href="#" class="action-button shadow animate gray"style="text-decoration: none;">تماس با ما</a>
     </div>
 </div>
 <!--buttom on top of box-->
@@ -38,7 +38,7 @@
 
 	<div class="col-md-4" >
 		<div class="box" ng-app="search" ng-controller="searchBox as box" style="text-align: -webkit-center;">
-			<div class="container-1 ">
+			<div class="container-1" style="direction:rtl;">
 				<!--<span	 class="glyphicon glyphicon-search"></span>-->
 				<input  type="search" id="search"
 
@@ -52,21 +52,21 @@
 			<!--<div class="result" ng-hide="search_result">-->
 			<!--<div class="well" id="search"> نتیجه‌ای یافت نشد</div>-->
 			<!--</div>-->
-			<div class="result" ng-hide="search_result || !keyword">
+			<div class="one-result" ng-hide="search_result || !keyword">
 	  			<div id="search" ng-if="keyword.length < 3">
-	  				<p style="font-size: 15px;"> حرف دیگر تایپ کنید {{3 - keyword.length}}</p>
+	  				<p style="font-size: 15px; padding-right:3%;direction: rtl;">  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>
 	  			</div>
 	  			<div id="search" ng-if="keyword.length >= 3">
-	  				<p style="font-size: 15px; flow:left;">
-	  				 ... در حال جستجوی {{keyword}} 
+	  				<p style="font-size: 15px; flow:left;direction: rtl;">
+	  				  در حال جستجوی {{keyword}}
 	  				<img src="http://www.bba-reman.com/images/fbloader.gif" />
 	  				</p>
 	  			</div>
   			</div>
   			
-			<div class="result" ng-show="search_result && box.focus">
+			<div class="result " ng-show="search_result && box.focus">
 			<div ng-if="!search_result.data.profs.length">
-	  			<p>
+	  			<p  class="no-result">
 	  				نتیجه‌ای یافت نشد.
 	  			</p>
 	  		</div>
@@ -86,5 +86,32 @@
 </div>
 </div>
 <!--search box-->
+
+<!--adv-->
+	<div class="row" style="padding-top: 2%;">
+		<div class="col-md-6"></div>
+
+		<div class="col-md-6 text-center">
+			<a class="adv">
+
+					دغدغه های <span>دانشجویی</span> خود را در این جا بجویید
+			</a>
+		</div>
+	</div>
+	<div class="row" style="padding-top: 2%;">
+		<div class="col-md-6"></div>
+
+		<div class="col-md-2 text-right">
+			<a class="find">امتیازش <span> چنده</span></a>
+		</div>
+		<div class="col-md-2 text-center">
+			<a class="find">کُدام<span> دانشکده </span></a>
+		</div>
+		<div class="col-md-2 " >
+			<a class="find">کُدام <span> استاد </span></a>
+		</div>
+	</div>
+<!--adv-->
+
 </body>
 </html>
