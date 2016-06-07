@@ -8,6 +8,7 @@ from app.auth import requires_auth
 from PIL import Image
 from werkzeug import secure_filename
 from app import app
+from app.edit import save_image
 import os
 import tempfile
 from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
@@ -111,6 +112,7 @@ class AddProf(MethodView):
 	def get(self):
 		context = self.get_context()
 		return render_template('add/add-prof.html', **context)
+
 	def post(self):
 		context = self.get_context()
 		form = context.get('form')
@@ -121,27 +123,13 @@ class AddProf(MethodView):
 			# print form.faculty.data
 			prof = Professor()
 			prof.name = form.name.data
-			prof.family = form.family.data
+			# prof.family = form.family.data
 			prof.email = form.email.data
 			prof.website = form.website.data
 			faculty = Faculty.objects(id=form.faculty.data).first()
 			prof.faculty = faculty
-			# print "------------------"
-			# print form.pic.data
-			# fileName = secure_filename(form.pic.data)
-			# print "******"
-			# print fileName
-			filename = secure_filename(form.pic.data)
-			form.pic.data.save(filename)
-
-			# file = form.pic.data
-			# print file
-			# if file and allowed_file(file.filename):
-			# 	filename = secure_filename(file.filename)
-			# 	file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-			# fileName.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-			image = Image.open(filename)
-			prof.pic = image
+			prof.save()
+			save_image(request, prof)
 			prof.save()
 			faculty.professors.append(prof)
 			faculty.save()
@@ -150,7 +138,7 @@ class AddProf(MethodView):
 add.add_url_rule('/add/prof', view_func=AddProf.as_view('addprof'))
 
 
-app.config['UPLOAD_FOLDER'] = 'uploaded_images/'
+app.config['UPLOAD_FOLDER'] = 'app/static/img/uploaded_images/'
 # These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
@@ -173,19 +161,24 @@ class UploadFile(MethodView):
 		if file and allowed_file(file.filename):
 			print "in the if!"
 			filename = secure_filename(file.filename)
-			file.save(os.path.join("uploaded_images", filename))
-			filename = os.path.join("uploaded_images", filename)
+			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 			print "filename is : "
 			print filename
 			image = Image.open(filename)
 			print "image is : "
 			print image
-			# for prof in Professor.objects():
-			prof = Professor.objects().first()
-			if prof.pic:
-				prof.pic.delete()
-			prof.pic.put(filename)
-			prof.save()
+			for prof in Professor.objects():
+				# prof = Professor.objects().first()
+				if prof.pic:
+					prof.pic.delete()
+				prof.pic.put(filename)
+				# filename = filename[3:]
+				prof.image_place = filename[3:]
+
+				prof.save()
+				print " IMAGE PLACE"
+				print prof.image_place
 
 		return redirect(url_for('add.upload'))
 add.add_url_rule('/upload', view_func=UploadFile.as_view('upload'))

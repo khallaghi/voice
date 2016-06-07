@@ -2,6 +2,7 @@
 <% import '_forms.html' as forms %>
 <html ng-app="profile">
 <head>
+    <meta name=viewport content='width=700'>
     <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -22,18 +23,32 @@
 
 
     <body class="bg" ng-controller="mainResult as main" ng-init="init('%% prof.id %%');">
+    <!--header start-->
+    <header class="head-section" style="margin-bottom: -2%;">
+        <div class="navbar navbar-default navbar-static-top" style="padding-left: 7.5%;padding-right:1%;">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="height: 70%;"><input class="form-control search" style="direction: rtl;" placeholder=" جست و جو" type="text"></li>
+                </ul>
+                <a  style="padding-top:10px;padding-left:20px;float: right;"  href="????" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
+                <a class="navbar-brand" style="float: right;" href="?????">!دغدغه های <span>دانشجویی</span> خود را در این جا بجویید</a>
+            </div>
+        </div>
+    </header>
+    <!--header end-->
       <div class="container">
           <div class="row">
+              <div id="x1">
                <div class="col-md-9">
                    <div class="row box" >
-                       <div class="col-md-7">
-                           <div class="chart bg-gray">
-                               <div id="main-result">Loading ...</div>
+                       <div class="col-md-6" >
+                           <div class="chart bg-gray" style="width: 400px; padding-left: 10%;bottom: 50px">
+                               <div style="height: 350px;margin-bottom: 50px;" id="main-result">Loading ...</div>
                            </div>
                        </div>
 
                        <div class="col-md-5 pull-right tags" style="padding-top: 20px;padding-left: 20px;">
-                           <div style="width: 2px;background-color:rgba(79, 91, 102, 0.24);height: 90%;left: 10px;right: 10px; position: absolute;"></div>
+                           <div  class="linebetwaen"></div>
                            <% for tag in tags %>
                            <div class="label label-success" id="tag">
                                <!-- <span > -->
@@ -45,18 +60,20 @@
                        </div>
                    </div>
                 </div>
+              </div>
+              <div id="x2">
                 <div class="col-md-3" id="profile" >
                        <div class="profile-top">
                            <div class="bio">
                                <img src="%%url_for('static', filename='img/uni/fanni.jpg')%%"  alt="background" class="bg1" style="opacity: 0.8;">
                                <div class="desc">
-                                   <h3>@carlf</h3>
-                                   <p>Carl Fredricksen is the protagonist in Up. He also appeared in Dug's Special Mission as a minor character.</p>
+                                   <h3 style="direction: rtl;">@ %% prof.name %%</h3>
+                                   <!--<p></p>-->
                                </div>
                            </div>
 
                            <div class="avatarcontainer">
-                               <img src="%%prof.pic.file_name%%"  alt="avatar" class="avatar">
+                               <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
                                <div class="hover">
                                    <div class="icon-twitter"></div>
                                </div>
@@ -66,7 +83,7 @@
 
                        <div class="content">
                            <div class="data">
-                              %%prof.pic%%
+                            
                                <% if prof.rank %>
                                <div class="badge">%% prof.rank %%</div>
                                <% endif %>
@@ -79,25 +96,28 @@
                                <% endif %>
                            </div>
                            <div ng-controller="MainCtrl as rate" ng-init="init('%% prof.id %%')">
-
                                  <button ng-click="toggleModal()" class="btn btn-primary">امتیاز بده</button>
 
-                               <modal  title="امتیاز به %% prof.name%%" visible="showModal">
-                                   <div class="rate-form">
-                                       <div  class="form-group">
-                                           <select id="js-example-data-array"  ng-model="selected_course">
-                                           </select>
-                                           <div class="text"> چه درسی باهاش داشتی؟ </div>
+                               <modal title="امتیاز به %% prof.name%%" visible="showModal">
+                                   <div class="rate-form ">
+                                       <div  class="row" style="direction: rtl; margin-bottom: 10px;">
+                                           <div class="col-md-6" >
+                                                <select id="js-example-data-array"  style="width: 150px;">
+                                                </select>
+                                           </div>
+                                           <div class="col-md-6 " >
+                                                <div class="text" > چه درسی باهاش داشتی؟ </div>
+                                           </div>
 
                                        </div>
                                        <div class="row" style="direction: rtl; margin-bottom: 10px;">
-                                           <div class="col-md-6" sty le="padding: 0;">
+                                           <div class="col-md-6" style="padding-right: 13px;">
                                                <div ng-hide="findCourse">
                                                      <input type="text" placeholder="  اسم درس رو وارد کن  " ng-model="course_name" style="border-radius: 5px;">
                                                </div>
                                            </div>
                                            <div class="col-md-5 pull-right" style="margin-left: -10px; cursor: pointer;">
-                                               <div class="form-group">
+                                               <div class="no-course">
                                                    <a ng-click="canFindCourse()" class="text" style="text-decoration: none;">
                                                        درس مورد نظر رو پیدا نکردی؟
                                                    </a>
@@ -216,7 +236,7 @@
                                        </div>
                                        <div class="form-group" id="yes-or-no">
                                            <div class="text"> نظرت رو درموردش بگو </div>
-                                           <div class="text" style="padding-right: 20px;">
+                                           <div class="text" style="padding-right: 30px;">
                                                <textarea id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=350></textarea>
                                            </div>
 
@@ -235,6 +255,7 @@
                                </modal>
                            </div>
                        </div>
+                    </div>
                </div>
             </div>
           <!--<div class="row ">-->
@@ -269,17 +290,24 @@
               <!--</div>-->
           <!--</div>-->
             <!--</div>-->
-          <div class="spqn11 box" style="overflow: auto;overflow-y: hidden;">
-              <div class="row-fluid" style="white-space: nowrap;">
+          <div class="box1" style="overflow: auto;overflow-y: hidden;padding-top: 20px;padding-bottom: 2.5%;height: 350px;">
+              <div class="" style="white-space: nowrap;">
                   <div class = " bg-gray" >
                       <!-- <div ng-repeat="i in study_count"> -->
 
                       <% for i in range(0,prof.studies|length) %>
+<<<<<<< HEAD
 
                         <div class="" style="display: inline-block;width:50%;padding-right: 30px;padding-top:20px;padding-left: 30px;" >
                             <span id="study-result-%% i %%" >
+=======
+                        <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;border-right: 2px solid rgba(79, 91, 102, 0.14);" >
+                            <span id="study-result-%% i %%" style="width:250px;height: 330px;padding-top: 50px;">
+>>>>>>> a212f0a42e477fc57fc065f577d2a9c38bf0c2bc
                                   Loading ...
+
                             </span>
+
                         </div>
                       <% endfor %>
                       <!-- </div> -->
@@ -289,7 +317,7 @@
           <div class="row box1" ng-controller="Comment">
               <div class="col-md-12 col-xs-offset-right-0" style="padding: 10px;">
 
-                  <div class=" bg-gray comments">
+                      <div class=" bg-gray comments">
                       <%  for cmt in prof.comments %>
                       <div class="row" id="each-comment">
                           <div class="col-md-7">
@@ -355,7 +383,7 @@
                           </div>
                           <div class="col-md-1 ">
                               <div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>
-                                <img style="width: 100%;margin-left: 10px;" src="%%url_for('static', filename='img/cool/4.png')%%">
+                                <img style="width: 50px;margin-left: 10%px;" src="%%url_for('static', filename='img/cool/4.png')%%">
                           </div>
                       </div>
                       <br>
@@ -368,6 +396,5 @@
 
 
       </div>
-      <script src="%%url_for('static', filename='profile/index.js')%%"></script>
     </body>
 </html>
