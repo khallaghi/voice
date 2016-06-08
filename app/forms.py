@@ -5,7 +5,7 @@ from flask_wtf.file import FileField
 class FacultyForm(Form):
 	name = TextField('Faculty name', [validators.Length(min=4, max=25)])
 	uni = SelectField('University')
-	pic = FileField('ImageField')
+	# pic = FileField('ImageField')
 
 class ProfessorForm(Form):
 	name = TextField('Professor name', [validators.Length(min=2, max=100)])
