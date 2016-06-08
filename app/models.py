@@ -15,10 +15,10 @@ class Faculty(db.Document):
     def prof_count(self):
         return len(self.professors)
 
-class Professor(db.Document):
+class Professor(db.Document):   
     ''' Personal Attributes '''
     name = db.StringField(max_length=500, required=True)
-    family = db.StringField(max_length=500, required=True)
+    family = db.StringField(max_length=500)
     faculty = db.ReferenceField('Faculty')
     email = db.StringField(required=False)
     website = db.StringField()
@@ -27,13 +27,16 @@ class Professor(db.Document):
     pic = db.ImageField()
     image_place = db.StringField()
     image_name = db.StringField()
+    
     ''' Personality rate '''
-    attr1 = db.IntField(default=0)
-    attr1_count = db.IntField(default=0)
-    attr2 = db.IntField(default=0)
-    attr2_count = db.IntField(default=0)
-    attr3 = db.IntField(default=0)
-    attr3_count = db.IntField(default=0)
+    helpfulness = db.IntField(default=0)
+    helpfulness_count = db.IntField(default=0)
+    easiness = db.IntField(default=0)
+    easiness_count = db.IntField(default=0)
+    clarity = db.IntField(default=0)
+    clarity_count = db.IntField(default=0)
+    coolness = db.IntField(default=0)
+    coolness_count = db.IntField(default=0)
 
     ''' Studies '''
     studies = db.EmbeddedDocumentListField('Study')

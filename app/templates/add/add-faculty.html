@@ -3,7 +3,8 @@
 		<p> %%faculty.name%% --
 		%%faculty.prof_count()%%
 	<% endfor %>
-	<h2>Add a comment</h2>
+	<h2>Add a Faculty</h2>
+	<h2>%% msg %%</h2>
 	<form action="?%% request.query_string %%" method="post">
 	  %% forms.render(form) %%
 	  <div class="actions">
