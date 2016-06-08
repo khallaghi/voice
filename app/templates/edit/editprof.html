@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<% import '_forms.html' as forms %>
+<html lang="en">
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">ویرایش %% prof.name %% </h3>
+      </div>
+      <hr/>
+      <form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data">
+     %% forms.render(form)%%
+   
+    <div class="actions" style="top-margin:10px">
+    <hr>
+      <input  type="submit" class="btn primary" value="submit">
+    </div>
+    </form>
+    </div>
+
+  </body>
+</html>
+ 

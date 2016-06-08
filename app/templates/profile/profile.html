@@ -73,7 +73,7 @@
                            </div>
 
                            <div class="avatarcontainer">
-                               <img src="%%url_for('static', filename='img/UT/ramtin-khosravi.jpg')%%"  alt="avatar" class="avatar">
+                               <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
                                <div class="hover">
                                    <div class="icon-twitter"></div>
                                </div>
@@ -83,6 +83,7 @@
 
                        <div class="content">
                            <div class="data">
+                            
                                <% if prof.rank %>
                                <div class="badge">%% prof.rank %%</div>
                                <% endif %>
@@ -295,8 +296,14 @@
                       <!-- <div ng-repeat="i in study_count"> -->
 
                       <% for i in range(0,prof.studies|length) %>
+<<<<<<< HEAD
+
+                        <div class="" style="display: inline-block;width:50%;padding-right: 30px;padding-top:20px;padding-left: 30px;" >
+                            <span id="study-result-%% i %%" >
+=======
                         <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;border-right: 2px solid rgba(79, 91, 102, 0.14);" >
                             <span id="study-result-%% i %%" style="width:250px;height: 330px;padding-top: 50px;">
+>>>>>>> a212f0a42e477fc57fc065f577d2a9c38bf0c2bc
                                   Loading ...
 
                             </span>

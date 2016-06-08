@@ -4,8 +4,9 @@
 	<% endfor %>
 	<p> number of professors: %%profs.count()%%
 	<h2>Add a comment</h2>
-	<form action="?%% request.query_string %%" method="post">
-	  %% forms.render(form)%%
+	<form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data">
+     %% forms.render(form)%%
+	 
 	  <div class="actions">
 	    <input  type="submit" class="btn primary" value="submit">
 	  </div>

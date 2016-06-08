@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+          <title>list of professors</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">List of %% profs.count()%% professors</h3>
+
+      </div>
+      <hr/>
+
+      <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>name</th>
+          <th>faculty</th>
+          <th>uni</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% set count = 1%>
+        <% for prof in profs %>
+        <tr>
+          <td>%% count %%</td>
+          <% set count = count + 1%>
+          <td><a href="%%url_for('profile.prof', id=prof.id)%%">%% prof.name %%</a></td>
+          <% if prof.faculty %>
+          <td>%% prof.faculty.name %%</td>
+          <% if prof.faculty.uni %>
+          <td>%% prof.faculty.uni.name %%</td>
+          <% else %>
+            <td>NONE</td>
+          <% endif %>
+          <%else%>
+          <td>NONE</td>
+          <td>NONE</td>
+          <% endif %>
+          <td><a class="btn btn-primary" href="%%url_for('edit.edit_professor', id=prof.id)%%">edit</a></td>
+          <td><a class="btn btn-danger" href="%%url_for('edit.delete_professor', id=prof.id)%%">delete</a></td>
+
+          
+          
+        </tr>
+        <% endfor %>
+
+        </tbody>
+      </table>
+     
+    </div>
+  </body>
+</html>
+ 

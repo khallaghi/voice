@@ -25,7 +25,8 @@ class Professor(db.Document):
     room_no = db.StringField()
     rank = db.StringField()
     # pic = db.ImageField()
-
+    image_place = db.StringField()
+    image_name = db.StringField()
     ''' Personality rate '''
     attr1 = db.IntField(default=0)
     attr1_count = db.IntField(default=0)
@@ -43,6 +44,14 @@ class Professor(db.Document):
     ''' tags '''
     personal_tags = db.EmbeddedDocumentListField('Tag')
     class_tags = db.EmbeddedDocumentListField('Tag')
+    
+    @property
+    def profile_pic(self):
+        if self.image_name:
+            return "/static/img/uploaded_images/%s" % self.image_name
+        else:
+            return "/static/img/uploaded_images/default.png"
+         
     
 
 class Study(db.EmbeddedDocument):
