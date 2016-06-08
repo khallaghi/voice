@@ -64,7 +64,7 @@ app.controller('mainResult', function(myService,$scope){
                 text: '',
             },
             xAxis: {
-                categories: ['Helpfulness', 'Easiness', 'clarity'],
+                categories: ['مهربونی', 'خریت', 'حماقت'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',

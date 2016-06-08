@@ -38,6 +38,7 @@ body{
     float: right;
     border-radius: 10px;
     /*font-family: 'Pacifico', cursive;*/
+    font-family: IRANSansWeb;
     font-size: 90%;
     color: #FFF;
     /*text-decoration: none;*/
@@ -45,7 +46,7 @@ body{
 
 .gray
 {
-    /*background-color: #555;*/
+    background-color: #E1BEE7;
     border-bottom: 5px solid #103A56;
     text-shadow: 0px -2px #103A56;
 }
@@ -143,7 +144,7 @@ body{
     background-color:#0277BD;
     height: 60px;
     color: white;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 .no-result{
     direction: rtl;
@@ -171,6 +172,7 @@ body{
 }
 .one-result{
     /*font: 20px BYekan, Tahoma, Geneva, sans-serif;*/
+    font-family: IRANSansWeb;
     box-sizing: border-box;
     /*padding-right: 20px;*/
     opacity: 0.85;
@@ -234,7 +236,7 @@ body{
 
 #search  {
     line-height: 20px;
-    font: 20px BYekan, Tahoma, Geneva, sans-serif;
+    font-family: IRANSansWeb;
     /*letter-spacing: 0.3px;*/
     /*margin: 10px 0 10px 0;*/
     font-size: 30px;
@@ -285,7 +287,7 @@ body{
     text-decoration: none;
 }
 .adv span {
-    color: #48cfad ;
+    color: #9E9E9E ;
     text-decoration: none;ss
 }
 .find{
@@ -307,7 +309,12 @@ body{
 
 
 }
+.wait{
+    font-size: 15px;
+    padding-right:3%;
 
+    direction: rtl;
+}
 @media only screen and (max-device-width: 414px) and (max-device-height: 736px){
     body {
         /* The file size of this background image is 93% smaller
@@ -344,6 +351,15 @@ body{
     .result{
         height: 250%;
         opacity: 1;
+    }
+    .wait{
+        height: 100%;
+        opacity: 1;
+        padding-top: 50px;
+    }
+    .wait,p{
+        font-size:100px;
+
     }
     .result,p{
         font-size:40px;

@@ -16,8 +16,8 @@
 <div calss="row" class="topbuttum" >
     <div class="col-md-8"></div>
     <div class="col-md-4 " >
-         <a href="#" class="action-button shadow animate gray" style="text-decoration: none;">کمک</a>
-        <a href="#" class="action-button shadow animate gray"style="text-decoration: none;">درباره ما</a>
+         <a href="#" class="action-button" style="text-decoration: none;">راهنما</a>
+        <a href="#" class="action-button"style="text-decoration: none;">درباره ما</a>
         <a href="#" class="action-button shadow animate gray"style="text-decoration: none;">تماس با ما</a>
     </div>
 </div>
@@ -52,9 +52,9 @@
 			<!--<div class="result" ng-hide="search_result">-->
 			<!--<div class="well" id="search"> نتیجه‌ای یافت نشد</div>-->
 			<!--</div>-->
-			<div class="one-result" ng-hide="search_result || !keyword">
+			<div class="one-result wait" ng-hide="search_result || !keyword">
 	  			<div id="search" ng-if="keyword.length < 3">
-	  				<p style="font-size: 15px; padding-right:3%;direction: rtl;">  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>
+	  				<p >  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>
 	  			</div>
 	  			<div id="search" ng-if="keyword.length >= 3">
 	  				<p style="font-size: 15px; flow:left;direction: rtl;">
@@ -64,14 +64,14 @@
 	  			</div>
   			</div>
   			
-			<div class="result " ng-show="search_result && box.focus">
+			<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
 			<div ng-if="!search_result.data.profs.length">
 	  			<p  class="no-result">
 	  				نتیجه‌ای یافت نشد.
 	  			</p>
 	  		</div>
 				<!-- <p>Professors:</p> -->
-				<ul class="results-place" ng-repeat="prof in search_result.data.profs">
+				<ul class="results-place"  ng-repeat="prof in search_result.data.profs" >
 					<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
 						<li class="each-result">
 							<p style=" padding-top: 10px;">{{prof.name}}</p>
