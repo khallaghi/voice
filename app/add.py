@@ -128,7 +128,7 @@ class AddProf(MethodView):
 add.add_url_rule('/add/prof', view_func=AddProf.as_view('addprof'))
 
 
-app.config['UPLOAD_FOLDER'] = 'app/static/img/uploaded_images/'
+app.config['UPLOAD_FOLDER'] = 'rate/app/static/img/uploaded_images/'
 # These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 

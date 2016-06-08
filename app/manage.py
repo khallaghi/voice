@@ -17,6 +17,6 @@ from app import app
 # app.debug = True
 
 
-
+app.config['DEBUG'] = True
 if __name__ == "__main__":
     app.run()
