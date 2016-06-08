@@ -51,7 +51,7 @@ add.add_url_rule('/add/uni', view_func=AddUni.as_view('adduni'))
 class AddFaculty(MethodView):
 	decorators = [requires_auth]
 	def get_context(self):
-		form = FacultyForm()
+		form = FacultyForm(request.form)
 		form.uni.choices = [(uni.id, uni.name) for uni in University.objects.all() ]
 		faculties = Faculty.objects.all()
 		return {
@@ -66,22 +66,22 @@ class AddFaculty(MethodView):
 
 	def post(self):
 		context = self.get_context()
-		# form = context.get('form')
-		form = FacultyForm()
+		form = context.get('form')
+		# form = FacultyForm()
 		if form.validate:
-
+			msg = "every thing done successfully"
 			faculty = Faculty()
 			faculty.name = form.name.data
+			print 
+			print "in of UNI"
+			# print form.uni
 			print form.uni.data
 			uni = University.objects(id=form.uni.data).first()
-			faculty.uni = uni
-			faculty.save()
-			uni.faculties.append(faculty)
-			uni.save()
-			print faculty.uni
-			print uni.name
-			print len(uni.faculties)
-			return redirect(url_for('add.addfac'))
+			if uni:
+				faculty.uni = uni
+				faculty.save()
+				uni.faculties.append(faculty)
+				uni.save()
 		return render_template('add/add-faculty.html', **context)
 add.add_url_rule('/add/fac', view_func=AddFaculty.as_view('addfac'))
 
@@ -90,7 +90,7 @@ class AddProf(MethodView):
 	decorators = [requires_auth]
 	def get_context(self):
 		form = ProfessorForm(request.form)      
-		form.faculty.choices = [(str(f.id), f.name) for f in Faculty.objects.all()]
+		form.faculty.choices = [(str(f.id), f.name +" -- " + f.uni.name) for f in Faculty.objects.all()]
 		form.rank.choices = [('ostadYar','ostadYar'), ('daneshYar','daneshYar'),
 		 ('ostad tamam','ostad tamam'), ('ostad madov','ostad madov'),
 		  ('bazneshaste','bazneshaste'), ('sayer','sayer')]
