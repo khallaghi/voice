@@ -1,3 +1,4 @@
+
   
 var app = angular.module('profile', []);
 app.controller('rating', function(){
@@ -63,7 +64,7 @@ app.controller('mainResult', function(myService,$scope){
                 text: '',
             },
             xAxis: {
-                categories: ['قابل فهمه', 'آسون میگیره', 'هواتو داری'],
+                categories: ['Helpfulness', 'Easiness', 'clarity'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
@@ -137,7 +138,7 @@ app.controller('mainResult', function(myService,$scope){
                 text: result.name,
             },
             xAxis: {
-                 categories: ['قابل فهمه', 'آسون میگیره', 'هواتو داری'],
+                categories: ['Helpfulness', 'Easiness', 'clarity'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
@@ -257,7 +258,7 @@ app.controller('MainCtrl', function ($scope,$http) {
     $scope.coolness = 0;
     $scope.setCoolness = function(score){
         console.log("coolness");
-        if(validateScore(score))
+        if(score<=2 && score>=0)
             $scope.coolness = score;
         console.log(score);
         console.log($scope.coolness);
