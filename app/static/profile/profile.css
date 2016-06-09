@@ -802,7 +802,9 @@ span.showBodyOfDisplayOnHover {
     padding-right: 30px;
     margin-bottom: 50px;
 }
-
+.cm41{
+ word-wrap: break-word; padding-right: 30px;   
+}
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px){
 
     .headlogo{
@@ -857,5 +859,24 @@ span.showBodyOfDisplayOnHover {
     mdb{
         width:50%;
         float:left;
+    }
+    .cm1{
+        width:10%;
+        float:right;
+    }
+    .cm2{
+        width:45%;
+        float:right;
+    }
+    .cm3{
+        width:45%;
+        float:left;
+    }
+    .cm4{
+        margin-top:140px;
+    }
+    .cm41{
+        padding-right:0;
+        margin-top:40px;
     }
 }
