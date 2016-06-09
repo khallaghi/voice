@@ -46,7 +46,7 @@ def allowed_file(filename):
 class ProfList(MethodView):
 	# decorators = [requires_auth]
 	def get(self):
-		profs = Professor.objects.all()
+		profs = Professor.objects.order_by("faculty")
 		# print "count of professors: " + str(profs.count()) 
 		return render_template('edit/professor-list.html', profs=profs)
 
