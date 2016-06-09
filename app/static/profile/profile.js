@@ -1,4 +1,3 @@
-
   
 var app = angular.module('profile', []);
 app.controller('rating', function(){
@@ -64,7 +63,7 @@ app.controller('mainResult', function(myService,$scope){
                 text: '',
             },
             xAxis: {
-                categories: ['مهربونی', 'خریت', 'حماقت'],
+                categories: ['قابل فهمه', 'آسون میگیره', 'هواتو داری'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
