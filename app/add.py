@@ -51,7 +51,7 @@ add.add_url_rule('/add/uni', view_func=AddUni.as_view('adduni'))
 class AddFaculty(MethodView):
 	decorators = [requires_auth]
 	def get_context(self):
-		form = FacultyForm(request.form)
+		form = FacultyForm()
 		form.uni.choices = [(uni.id, uni.name) for uni in University.objects.all() ]
 		faculties = Faculty.objects.all()
 		return {
@@ -66,22 +66,22 @@ class AddFaculty(MethodView):
 
 	def post(self):
 		context = self.get_context()
-		form = context.get('form')
-		# form = FacultyForm()
+		# form = context.get('form')
+		form = FacultyForm()
 		if form.validate:
-			msg = "every thing done successfully"
+
 			faculty = Faculty()
 			faculty.name = form.name.data
-			print 
-			print "in of UNI"
-			# print form.uni
 			print form.uni.data
 			uni = University.objects(id=form.uni.data).first()
-			if uni:
-				faculty.uni = uni
-				faculty.save()
-				uni.faculties.append(faculty)
-				uni.save()
+			faculty.uni = uni
+			faculty.save()
+			uni.faculties.append(faculty)
+			uni.save()
+			print faculty.uni
+			print uni.name
+			print len(uni.faculties)
+			return redirect(url_for('add.addfac'))
 		return render_template('add/add-faculty.html', **context)
 add.add_url_rule('/add/fac', view_func=AddFaculty.as_view('addfac'))
 
@@ -90,7 +90,7 @@ class AddProf(MethodView):
 	decorators = [requires_auth]
 	def get_context(self):
 		form = ProfessorForm(request.form)      
-		form.faculty.choices = [(str(f.id), f.name +" -- " + f.uni.name) for f in Faculty.objects.all()]
+		form.faculty.choices = [(str(f.id), f.name) for f in Faculty.objects.all()]
 		form.rank.choices = [('ostadYar','ostadYar'), ('daneshYar','daneshYar'),
 		 ('ostad tamam','ostad tamam'), ('ostad madov','ostad madov'),
 		  ('bazneshaste','bazneshaste'), ('sayer','sayer')]
@@ -128,7 +128,7 @@ class AddProf(MethodView):
 add.add_url_rule('/add/prof', view_func=AddProf.as_view('addprof'))
 
 
-app.config['UPLOAD_FOLDER'] = "/root/rate/app/static/img/uploaded_images/"
+app.config['UPLOAD_FOLDER'] = 'app/static/img/uploaded_images/'
 # These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 

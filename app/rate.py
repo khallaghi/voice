@@ -15,14 +15,12 @@ class ProfessorRate(MethodView):
 		return ((old_av*count)+score)/(count+1)
 
 	def apply_rate(self, prof, data):
-		prof.helpfulness_count+=1
-		prof.helpfulness = self.average_rate(prof.helpfulness, prof.helpfulness_count, data['helpfulness'])
-		prof.easiness_count += 1
-		prof.easiness = self.average_rate(prof.easiness, prof.easiness_count, data['easiness'])
-		prof.clarity_count += 1
-		prof.clarity = self.average_rate(prof.clarity, prof.clarity_count, data['clarity'])
-		prof.coolness_count += 1
-		prof.coolness = self.average_rate(prof.coolness, prof.coolness_count, data['coolness'])
+		prof.attr1_count+=1
+		prof.attr1 = self.average_rate(prof.attr1, prof.attr1_count, data['helpfulness'])
+		prof.attr2_count += 1
+		prof.attr2 = self.average_rate(prof.attr2, prof.attr2_count, data['easiness'])
+		prof.attr3_count += 1
+		prof.attr3 = self.average_rate(prof.attr3, prof.attr3_count, data['clarity'])
 		prof.save()
 
 	def apply_tags(self, prof, data):

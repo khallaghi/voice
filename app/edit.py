@@ -27,7 +27,6 @@ def save_image(request, prof):
 			print "before saving file"
 			filename = str(prof.id) + '.' + filename.split('.')[-1]
 			print filename
-			app.config['UPLOAD_FOLDER'] = "/root/rate/app/static/img/uploaded_images/"
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename ))
 			filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 			print "filepath is : "
