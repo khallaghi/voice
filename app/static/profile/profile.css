@@ -828,12 +828,14 @@ span.showBodyOfDisplayOnHover {
     .mainchart{
         height: 80%;
     }
-    /*.linebetwaen{*/
-        /*position: relative;*/
-    /*}*/
+    .linebetwaen{
+        witdh:0;
+    }
+    
     #profile{
         width: 100%;
     }
+    
     .navbar-static-top{
         padding-left: 1%;
     }
@@ -848,5 +850,12 @@ span.showBodyOfDisplayOnHover {
     .bg-gray{
         height: 200px;
     }
-
+    mda{
+        width:50%;
+        float:right;
+    }
+    mdb{
+        width:50%;
+        float:left;
+    }
 }
