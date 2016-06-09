@@ -257,7 +257,7 @@ app.controller('MainCtrl', function ($scope,$http) {
     $scope.coolness = 0;
     $scope.setCoolness = function(score){
         console.log("coolness");
-        if(score<=2 && score>=0)
+        if(validateScore(score))
             $scope.coolness = score;
         console.log(score);
         console.log($scope.coolness);
