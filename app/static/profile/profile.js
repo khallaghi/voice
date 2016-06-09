@@ -14,8 +14,11 @@ app.controller('rating', function(){
 app.controller('Comment', function($scope){
     var dict = {
         "coolness":{
-            1:"آره",
-            2:"نه"
+            1:"نه اصلا",
+            2:"نه. معمولیه",
+            3:"ای یکمی",
+            4:"آره باحاله",
+            5:"خیلی زیاد"
         },
         "useTextbook":{
             1:"آره",
@@ -213,7 +216,7 @@ app.controller('mainResult', function(myService,$scope){
     };
 });
 
-app.controller('MainCtrl', function ($scope,$http) {
+app.controller('MainCtrl', function($scope,$http,$window) {
     $scope.init = function(id){
         $scope.id = id;
         // $scope.comment = "";
@@ -401,6 +404,8 @@ app.controller('MainCtrl', function ($scope,$http) {
         $http.post("/rate", rateData).success(function(data){
             console.log(data);
         });
+        // $route.reload();
+         $window.location.reload();
     }
 
     };
