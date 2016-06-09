@@ -90,23 +90,23 @@
                                <modal title="امتیاز به %% prof.name%%" visible="showModal">
                                    <div class="rate-form ">
                                        <div  class="row" style="direction: rtl; margin-bottom: 10px;">
-                                           <div class="col-md-6 " >
+                                           <div class="col-md-6 mda" >
                                                <div class="text" > چه درسی باهاش داشتی؟ </div>
                                            </div>
-                                           <div class="col-md-6" >
+                                           <div class="col-md-6 mdb" >
                                                 <select id="js-example-data-array"  style="width: 150px;">
                                                 </select>
                                            </div>
                                        </div>
                                        <div class="row" style="direction: rtl; margin-bottom: 10px;">
-                                           <div class="col-md-6 " style="margin-right: -10px; cursor: pointer;">
+                                           <div class="col-md-6 mda" style="margin-right: -10px; cursor: pointer;">
                                                <div class="no-course">
                                                    <a ng-click="canFindCourse()" class="text" style="text-decoration: none;">
                                                        درس مورد نظر رو پیدا نکردی؟
                                                    </a>
                                                </div>
                                            </div>
-                                           <div class="col-md-6" style="padding-right: 23px;">
+                                           <div class="col-md-6 mdb" style="padding-right: 23px;">
                                                <div ng-hide="findCourse">
                                                    <input type="text" placeholder="  اسم درس رو وارد کن  " ng-model="course_name" style="border-radius: 5px;">
                                                </div>
@@ -114,10 +114,10 @@
                                        </div>
 
                                        <div class="row">
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mda">
                                                <div class="text">چقدر دلسوزه؟</div>
                                            </div>
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mdb">
                                                <div id="yes-or-no">
                                                    <div class="input" id="score">
                                                        <a href="#" title="خدا صبر بده"  ng-click="setHelpfulness(1)" id="sel1" ng-class="{'active':helpfulness===1}">۱</a>
@@ -130,10 +130,10 @@
                                            </div>
                                        </div>
                                        <div class="row">
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mda">
                                                <div class="text">چقدر آسون می‌گیره؟</div>
                                            </div>
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mdb">
                                                <div id="yes-or-no">
                                                    <div class="input" id="score">
                                                        <a href="#" title="خدا صبر بده"  ng-click="setEasiness(1)" id="sel1" ng-class="{'active':easiness===1}">۱</a>
@@ -146,10 +146,10 @@
                                            </div>
                                        </div>
                                        <div class="row">
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mda">
                                                <div class="text">چقدر حرف‌هاش رو می‌فهمی؟</div>
                                            </div>
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mdb">
                                                <div class="form-group" id="yes-or-no">
                                                    <div class="input" id="score">
                                                        <a href="#" title="خدا صبر بده" ng-click="setClarity(1)" id="sel1" ng-class="{'active':clarity===1}">۱</a>
@@ -162,10 +162,10 @@
                                            </div>
                                        </div>
                                        <div class="row">
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mda">
                                                <div class="text">کول هست؟</div>
                                            </div>
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mdb">
                                                <div class="form-group" id="yes-or-no">
                                                    <div class="input" id="score">
                                                        <a href="#" title="خدا صبر بده" ng-click="setCoolness(1)" id="sel1" ng-class="{'active':coolness===1}">۱</a>
@@ -193,10 +193,10 @@
                                            </div>
                                        </div>
                                        <div class="row">
-                                           <div class="col-md-3">
+                                           <div class="col-md-3 mda">
                                                <div class="text" >حضور غیاب؟</div>
                                            </div>
-                                           <div class="col-md-9 pull-left" style="text-align: left;">
+                                           <div class="col-md-9 mdb pull-left" style="text-align: left;">
                                                <div class="form-group" id="yes-or-no">
 
                                                    <div  class="input" >
@@ -208,11 +208,11 @@
                                            </div>
                                        </div>
                                        <div class="row">
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mda">
                                                <div class="text">کتاب استفاده می‌کنه
                                                </div>
                                            </div>
-                                           <div class="col-md-6">
+                                           <div class="col-md-6 mdb">
                                                <div  id="yes-or-no">
 
                                                    <div class="input">
@@ -229,7 +229,7 @@
                                            </div>
 
                                        </div>
-                                       <div class="form-group" style="text-align: left;" >
+                                       <div class="form-group mdb" style="text-align: left;" >
                                            <label>(: مرسی که سوال‌ها رو جواب دادی </label>
                                        </div>
                                        <div class="submit-score" id="with-border">
