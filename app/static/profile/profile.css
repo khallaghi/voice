@@ -20,7 +20,7 @@ body{
 }
 
 /*header*/
-.head-section { border-bottom: 1px solid #eee }
+/*.head-section { border-bottom: 1px solid #eee }*/
 .head-section .navbar {
     margin-bottom: 0;
 }
@@ -39,7 +39,7 @@ body{
     /*margin-right: 0;*/
     /*z-index: 199;*/
 }
-.head-section .navbar-default { background-color: #fff }
+.head-section .navbar-default { background-color: #E3F2FD }
 .head-section .nav li a,
 .head-section .nav li.active ul.dropdown-menu li a {
     color: #999;
@@ -57,7 +57,7 @@ ul.dropdown-menu { border: none }
 .head-section .nav li.active ul.dropdown-menu li a:hover,
 .head-section .nav li.active ul.dropdown-menu li.active a {
     color: #fff;
-    background-color: #s;
+    /*background-color: ;*/
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -75,7 +75,7 @@ ul.dropdown-menu { border: none }
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-.head-section .navbar { min-height: 85px }
+.head-section .navbar { min-height: 100px }
 .head-section .navbar-nav > li {
 
     padding-top: 20px;
@@ -156,15 +156,15 @@ ul.dropdown-menu { border: none }
 }
 
 .bg{
-    background-color: rgba(4, 95, 105, 0.32);
+    background-color: #2196F3;
 }
 .box{
     background-color: #EEEEEE;
     height: 100%;
     margin-top: 5%;
     border-radius: 10px;
-    position: relative;
-    box-shadow:rgba(10, 16, 21, 0.43) 0 7px 4px;
+    /*position: relative;*/
+    box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;
 }
 .linebetwaen{
    width: 2px;
@@ -187,7 +187,7 @@ ul.dropdown-menu { border: none }
     background-color: #EEEEEE;
     -webkit-box-shadow: #0f0f0f 0 5px 5px;
     -moz-box-shadow: #bdc3c7 0 5px 5px;
-    box-shadow:rgba(10, 16, 21, 0.43) 0 7px 4px;
+    box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;
 }
 
 .profile-top {
@@ -227,17 +227,17 @@ ul.dropdown-menu { border: none }
 
 .avatarcontainer {
     position: absolute;
-    bottom: -28%;
+    bottom: 10%;
     right: 0;
     left: 0;
     margin: auto;
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     display: block; }
 
 .avatar {
     width: 100%;
-    border: 8px solid #0091EA;
+    border: 2px solid #0091EA;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -287,7 +287,7 @@ ul.dropdown-menu { border: none }
 
 .content{
     text-align: center;
-    margin-top: 60px;
+    /*margin-top: 60px;*/
 }
 /*.data {*/
     /*margin-top: .6em;*/
@@ -434,7 +434,8 @@ ul.dropdown-menu { border: none }
 #tag{
     float: right;
     line-height: 10px;
-    font: 15px BYekan, Tahoma, Geneva, sans-serif;
+    /*font: 15px BYekan, Tahoma, Geneva, sans-serif;*/
+    font-family: IRANSansWeb;
     /*letter-spacing: .3px;*/
     /*margin: 10px 0 10px 0;*/
     border-top-left-radius: 10px;
@@ -752,7 +753,7 @@ span.showBodyOfDisplayOnHover {
     border-radius: 10px;
     position: relative;
     text-align: right;
-    box-shadow:rgba(10, 16, 21, 0.43) 0 7px 4px;
+    box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;
 }
 
 .btn-circle {
@@ -796,22 +797,47 @@ span.showBodyOfDisplayOnHover {
     background-image: none;
 }
 
-
-
+.mainchart{
+    height:350px;
+    padding-right: 30px;
+    margin-bottom: 50px;
+}
+.cm41{
+ word-wrap: break-word; padding-right: 30px;   
+}
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px){
-    /*#x1{*/
-        /*float: right;*/
-    /*}*/
-    /*#x2{*/
-        /*float: left;*/
-    /*}*/
 
-    .linebetwaen{
-        position: relative;
+    .headlogo{
+        width: 20%;
     }
+    .headqouets{
+        width: 80%;
+
+    }
+    #x2{
+        width: 80%;
+        margin-left: 10%;
+
+    }
+    .x1-row5{
+        width: 40%;
+        height: 80%;
+        position: absolute;
+    }
+    .x1-row6{
+        width: 55%;
+    }
+    .mainchart{
+        height: 80%;
+    }
+    .linebetwaen{
+        witdh:0;
+    }
+    
     #profile{
         width: 100%;
     }
+    
     .navbar-static-top{
         padding-left: 1%;
     }
@@ -826,5 +852,31 @@ span.showBodyOfDisplayOnHover {
     .bg-gray{
         height: 200px;
     }
-
+    mda{
+        width:50%;
+        float:right;
+    }
+    mdb{
+        width:50%;
+        float:left;
+    }
+    .cm1{
+        width:10%;
+        float:right;
+    }
+    .cm2{
+        width:45%;
+        float:right;
+    }
+    .cm3{
+        width:45%;
+        float:left;
+    }
+    .cm4{
+        margin-top:140px;
+    }
+    .cm41{
+        padding-right:0;
+        margin-top:40px;
+    }
 }

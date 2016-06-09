@@ -34,7 +34,12 @@ body{
     margin: 10px 10px 10px 0px;
     float: right;
     border-radius: 10px;
+<<<<<<< HEAD
     font-family: 'Pacifico', cursive;
+=======
+    /*font-family: 'Pacifico', cursive;*/
+    font-family: IRANSansWeb;
+>>>>>>> 8b9584c8a4bb07a07170ced0646e2b891b3f17f4
     font-size: 90%;
     color: #FFF;
     /*text-decoration: none;*/
@@ -42,7 +47,7 @@ body{
 
 .gray
 {
-    /*background-color: #555;*/
+    background-color: #E1BEE7;
     border-bottom: 5px solid #103A56;
     text-shadow: 0px -2px #103A56;
 
@@ -139,7 +144,7 @@ body{
     background-color:#0277BD;
     height: 60px;
     color: white;
-    border-radius: 10px;
+    border-radius: 7px;
 }
 .results-place{
     padding-top: 2%;
@@ -150,7 +155,39 @@ body{
 .result ,li ,ul{
   padding: 0;
   list-style: none;
+<<<<<<< HEAD
     color:black;
+=======
+  color:black;
+}
+.one-result{
+    /*font: 20px BYekan, Tahoma, Geneva, sans-serif;*/
+    font-family: IRANSansWeb;
+    box-sizing: border-box;
+    /*padding-right: 20px;*/
+    opacity: 0.85;
+    display: block;
+    font-size: 15px;
+    clear: both;
+    width: 90%;
+    height: 50px;
+    padding-top: 20px;
+    padding-right: 10px;
+    max-height: 350%;
+    overflow: auto;
+    background-color: #FAFAFA;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    /*box-shadow: 5px 5px 15px #888888;*/
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    /*box-shadow: 0px 0px 37px 1px rgba(0, 0, 0, 0.75);*/
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-align: right;
+    direction: rtl;
+>>>>>>> 8b9584c8a4bb07a07170ced0646e2b891b3f17f4
 }
 .result {
 	font: 20px BYekan, Tahoma, Geneva, sans-serif;
@@ -194,11 +231,19 @@ body{
 
 #search  {
     line-height: 20px;
+<<<<<<< HEAD
  font: 20px BYekan, Tahoma, Geneva, sans-serif;
  letter-spacing: .3px;
  /*margin: 10px 0 10px 0;*/
  font-size: 30px;
  clear: both;}
+=======
+    font-family: IRANSansWeb;
+    /*letter-spacing: 0.3px;*/
+    /*margin: 10px 0 10px 0;*/
+    font-size: 30px;
+    clear: both;}
+>>>>>>> 8b9584c8a4bb07a07170ced0646e2b891b3f17f4
 
 /*@media (min-height: 360px) {*/
     /*body img{*/
@@ -228,11 +273,54 @@ body{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
+<<<<<<< HEAD
+=======
+.adv{
+    color: #0f0f0f;
+    font-family: IRANSansWeb;
+    src: url(../font/IRANSansWeb.ttf);
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 30px;
+    margin-top: 30px;
+    padding: 0;
+    text-decoration: none;
+    z-index: -1;
+    position: relative;
+}
+.adv a:link{
+    text-decoration: none;
+}
+.adv span {
+    color: #9E9E9E ;
+    text-decoration: none;ss
+}
+.find{
+    color: #0f0f0f;
+    font-family: IRANSansWeb;
+    src: url(../font/IRANSansWeb.ttf);
+    font-size: 25px;
+    font-weight: 100;
+    line-height: 30px;
+    margin-top: 30px;
+    padding: 0;
+    z-index: -1;
+    position: relative;
+}
+.find span {
+    color: #034F84;
+}
+>>>>>>> 8b9584c8a4bb07a07170ced0646e2b891b3f17f4
 @media only screen and (max-width:414px) and (max-height: 736px) {
 
 
 }
+.wait{
+    font-size: 15px;
+    padding-right:3%;
 
+    direction: rtl;
+}
 @media only screen and (max-device-width: 414px) and (max-device-height: 736px){
     body {
         /* The file size of this background image is 93% smaller
@@ -262,6 +350,15 @@ body{
     .result{
         height: 250%;
         opacity: 1;
+    }
+    .wait{
+        height: 100%;
+        opacity: 1;
+        padding-top: 50px;
+    }
+    .wait,p{
+        font-size:100px;
+
     }
     .result,p{
         font-size:40px;

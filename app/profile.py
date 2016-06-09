@@ -86,32 +86,32 @@ class ProfResult(MethodView):
 		if prof==None:
 			print "404"
 			return
-		if prof.attr1==None:
-			prof.attr1 = 0;
-		if prof.attr1_count==None:
-			prof.attr1_count=0;
-		if prof.attr2==None:
-			prof.attr2 = 0;
-		if prof.attr2_count==None:
-			prof.attr2_count=0;
-		if prof.attr3==None:
-			prof.attr3 = 0;
-		if prof.attr3_count==None:
-			prof.attr3_count=0;
+		if prof.helpfulness==None:
+			prof.helpfulness = 0;
+		if prof.helpfulness_count==None:
+			prof.helpfulness_count=0;
+		if prof.easiness==None:
+			prof.easiness = 0;
+		if prof.easiness_count==None:
+			prof.easiness_count=0;
+		if prof.clarity==None:
+			prof.clarity = 0;
+		if prof.clarity_count==None:
+			prof.clarity_count=0;
 		prof.save()
 		result = {}
 		main_result = {}
 		res = {}
-		res['value'] = get_val(prof.attr1)
-		res['color'] = get_color(prof.attr1)
+		res['value'] = get_val(prof.helpfulness)
+		res['color'] = get_color(prof.helpfulness)
 		main_result['helpfulness'] = res
 		res = {}
-		res['value'] = get_val(prof.attr2)
-		res['color'] = get_color(prof.attr2)
+		res['value'] = get_val(prof.easiness)
+		res['color'] = get_color(prof.easiness)
 		main_result['easiness'] = res
 		res = {}
-		res['value'] = get_val(prof.attr3)
-		res['color'] = get_color(prof.attr3)
+		res['value'] = get_val(prof.clarity)
+		res['color'] = get_color(prof.clarity)
 		main_result['clarity'] = res
 
 		result['main_result'] = main_result
