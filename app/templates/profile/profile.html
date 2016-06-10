@@ -23,6 +23,10 @@
 
 
 <body class="bg" ng-controller="mainResult as main" ng-init="init('%% prof.id %%');">
+<!-- PersianStat -->
+<!-- URL: http://genew.ir -->
+
+<!-- /PersianStat -->
 <!--header start-->
 <header class="head-section" style="margin-bottom: 1.5%;">
     <div class="navbar navbar-default navbar-static-top" style="padding-left: 7.5%;padding-right:1%;">
@@ -222,22 +226,32 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
                                 <div class="form-group" id="yes-or-no">
+                                    <div class="col-md-12">
                                     <div class="text"> نظرت رو درموردش بگو </div>
+                                        </div>
+                                    <div class="col-md-12">
                                     <div class="text" style="padding-right: 30px;">
                                         <textarea id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
                                     </div>
+                                        </div>
 
                                 </div>
-                                <div class="form-group mdb" style="text-align: left;" >
-                                    <label>(: مرسی که سوال‌ها رو جواب دادی </label>
-                                </div>
-                                <div class="submit-score" id="with-border">
+                                    <div class="row text-left">
+                                     <div class="form-group mdb" style="text-align: left;" >
+                                        <label>(: مرسی که سوال‌ها رو جواب دادی </label>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="submit-score" id="with-border">
                                     <button type="submit"
                                             class="btn btn-primary" ng-class="{'disabled':submit}"
                                             data-dismiss="modal"
                                             aria-hidden="true"
                                             ng-click="submitRate(cmt, course_name, selected_course);">{{getSubmitBtnTitle()}}</button>
+                                </div>
+                                </div>
                                 </div>
                             </div>
                         </modal>
@@ -355,7 +369,7 @@
                         </p>
                     </div>
                     <div class="col-md-2 cm2"style=" padding-left: 25px;">
-                        <div style="width: 2px;background-color:rgba(79, 91, 102, 0.14);height: 90%;left: 10px;right: 10px; position: absolute;"></div>
+
                         <p>
 
                         <div class="progress">
@@ -387,7 +401,8 @@
 
                     </div>
 
-                    <div class="col-md-7 cm3">
+                    <div class="col-md-7 cm3" style="border-right: 2px solid rgba(79, 91, 102, 0.14);">
+
                         <div class="col-md-12">
                             <div class="comment-body">
                                 <div class="tags" >
@@ -400,6 +415,7 @@
                         <div class="col-md-10" style=" word-wrap: break-word; padding-right: 30px;">
                             <p>%% cmt.body %%</p>
                         </div>
+
                     </div>
                 </div>
                 <br>
@@ -409,5 +425,9 @@
 
     </div>
 </div>
+<script language='javascript' type='text/javascript' src='http://www.persianstat.com/service/stat.js'></script>
+<script language='javascript' type='text/javascript'>
+    persianstat(10263757, 0);
+</script>
 </body>
 </html>

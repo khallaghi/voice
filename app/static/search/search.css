@@ -8,6 +8,7 @@ body{
   /*background-image: url("left.png"), url("hole-back.png");*/
   /*background-position: left, right;*/
     background-image: url("background.png");
+
   background-repeat: no-repeat, no-repeat;
     background-size: cover  ;
 }
