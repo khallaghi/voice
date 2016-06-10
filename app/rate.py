@@ -75,18 +75,19 @@ class ProfessorRate(MethodView):
 	# def apply_class(self, prof, data):
 	# 	if data['study'] != None:
 	def update_course(self, study, data):
+		study.helpfulness_count += 1
 		study.helpfulness = self.average_rate(study.helpfulness, 
 												study.helpfulness_count,
 												data['helpfulness'])
-		study.helpfulness_count += 1
+		study.easiness_count += 1
 		study.easiness = self.average_rate(study.easiness,
 											study.easiness_count,
 											data['easiness'])
-		study.easiness_count += 1
+		study.clarity_count += 1
 		study.clarity = self.average_rate(study.clarity,
 											study.clarity_count,
 											data['clarity'])
-		study.clarity_count += 1 
+		 
 
 	def find_and_update_course(self, prof, data):
 		for study in prof.studies:
