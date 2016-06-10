@@ -881,7 +881,9 @@ span.showBodyOfDisplayOnHover {
     .linebetwaen{
         width: 0;
     }
-    
+    .progress-bar{
+        font-size: 8px;
+    }
     #profile{
         width: 100%;
     }

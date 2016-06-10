@@ -351,9 +351,8 @@
                     <!--<div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>-->
                     <!--<img style="width: 50px;margin-left: 10%px;" src="%%url_for('static', filename='img/cool/4.png')%%">-->
                     <!--</div>-->
-                    <div class="col-md-2 cm1" >
+                    <div class="col-md-2 cm1" style="border-left: 2px solid rgba(79, 91, 102, 0.14);">
 
-                        <div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 0;right: 10px; position: absolute;"></div>
                         <!--class name-->
                         <div class="cmclass"> %% cmt.study.name %% </div>
                         <!--class name-->
@@ -373,13 +372,13 @@
                             {{result_gen('useTextbook', %% cmt.use_textbook %%)}}
                         </p>
                     </div>
-                    <div class="col-md-2 cm2"style=" padding-left: 25px;">
+                    <div class="col-md-2 cm2"style=" padding-left: 25px;border-left: 2px solid rgba(79, 91, 102, 0.14);border-right: 2px solid rgba(79, 91, 102, 0.14);">
 
                         <p>
 
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.helpfulness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.helpfulness %%)}}%; display: block; float: right;">
-                                دلسوزی
+                                هوا تو داره
                             </div>
                         </div>
 
@@ -388,7 +387,7 @@
 
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.easiness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.easiness %%)}}%; display: block; float: right;">
-                                آسون‌ بودن
+                                آسون مگیره
                             </div>
                         </div>
 
@@ -397,7 +396,7 @@
 
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.clarity %%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.clarity %%)}}%; display: block; float: right;">
-                                قابل فهم بودن
+                                قابل فهمه
                             </div>
                         </div>
 

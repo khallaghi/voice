@@ -66,7 +66,7 @@ app.controller('mainResult', function(myService,$scope){
                 text: '',
             },
             xAxis: {
-                categories: ['قابل فهمه', 'آسون میگیره', 'هواتو داری'],
+                categories: ['قابل فهمه', 'آسون میگیره', 'هوا تو داره'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
@@ -140,7 +140,7 @@ app.controller('mainResult', function(myService,$scope){
                 text: result.name,
             },
             xAxis: {
-                 categories: ['قابل فهمه', 'آسون میگیره', 'هواتو داری'],
+                 categories: ['قابل فهمه', 'آسون میگیره', 'هوا تو داره'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
