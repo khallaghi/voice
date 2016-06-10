@@ -75,7 +75,7 @@ ul.dropdown-menu { border: none }
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-.head-section .navbar { min-height: 100px }
+.head-section .navbar { min-height: 80px }
 .head-section .navbar-nav > li {
 
     padding-top: 20px;
@@ -156,12 +156,13 @@ ul.dropdown-menu { border: none }
 }
 
 .bg{
-    background-color: #2196F3;
+    /*background-color: #2196F3;*/
+    background-image: url("back.jpg") ;
 }
 .box{
     background-color: #EEEEEE;
     height: 100%;
-    margin-top: 5%;
+    margin-top: 5px;
     border-radius: 10px;
     /*position: relative;*/
     box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;
@@ -172,12 +173,13 @@ ul.dropdown-menu { border: none }
     height: 300px;
     left: 10px;
     right: 10px;
+    margin-top: 25px;
     position: absolute;
 }
 #profile{
     height: 400px;
     padding: 0;
-    margin: 3em auto 1em auto;
+    margin: 5px auto 1em auto;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
@@ -414,7 +416,24 @@ ul.dropdown-menu { border: none }
     padding-bottom: 5%;
     font-size: 18px;
 }
+.cmclass{
 
+    /*overflow-y: auto;*/
+    background-color: #FF5722;
+    color:#ffffff;
+    font-family: IRANSansWeb;
+    font-weight: bold;
+    max-width: 100%;
+    /*position: relative;*/
+    padding: .2em .6em .3em;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    /*bottom: 0;*/
+    right: 0;
+
+    font-size: 15px;
+}
 #leave-comment {
     direction: rtl;
     background-color: #EEEEEE;
@@ -748,8 +767,8 @@ span.showBodyOfDisplayOnHover {
 .box1{
     background-color: #EEEEEE;
     height: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 5px;
+    margin-bottom: 20px;
     border-radius: 10px;
     position: relative;
     text-align: right;
@@ -831,7 +850,7 @@ span.showBodyOfDisplayOnHover {
         height: 80%;
     }
     .linebetwaen{
-        witdh:0;
+        width: 0;
     }
     
     #profile{
@@ -852,28 +871,25 @@ span.showBodyOfDisplayOnHover {
     .bg-gray{
         height: 200px;
     }
-    mda{
+    .mda{
         width:50%;
         float:right;
     }
-    mdb{
+    .mdb{
         width:50%;
         float:left;
     }
     .cm1{
-        width:10%;
+        width:20%;
         float:right;
     }
     .cm2{
-        width:45%;
+        width:20%;
         float:right;
     }
     .cm3{
-        width:45%;
+        width:60%;
         float:left;
-    }
-    .cm4{
-        margin-top:140px;
     }
     .cm41{
         padding-right:0;
