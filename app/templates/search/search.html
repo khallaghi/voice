@@ -6,6 +6,7 @@
 	<script src="%% url_for('static', filename='search/search.js')%%"></script>
 	<link rel="stylesheet" href="%%url_for('static', filename='search/search.css')%%">
 	<link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.css')%%" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <!-- <script src="http://ajax.goog8leapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
 </head>
@@ -14,11 +15,12 @@
 <body >
 <!--buttom on top of box-->
 <div calss="row" class="topbuttum" >
-    <div class="col-md-8"></div>
-    <div class="col-md-4 " >
-        <a href="#"  class="action-button" style="text-decoration: none;font-size:35px;">راهنما</a>
-        <a href="#"  class="action-button" style="text-decoration: none;font-size:35px;">درباره ما</a>
-        <a href="#"  class="action-button" style="text-decoration: none;font-size:35px;">تماس با ما</a>
+    <div class="col-md-9"></div>
+    <div class="col-md-3 " >
+        <a href="#"  class="action-button" ng-click="toggleModal()" style="text-decoration: none;font-size:15px;">راهنما</a>
+		<modal visible="showModal"></modal>
+        <a href="#"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>
+        <a href="#"  class="action-button" style="text-decoration: none;font-size:15px;">تماس با ما</a>
     </div>
 </div>
 <!--buttom on top of box-->
