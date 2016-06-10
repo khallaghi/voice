@@ -66,7 +66,7 @@ body{
     /*margin-right: 0;*/
     /*z-index: 199;*/
 }
-.head-section .navbar-default { background-color: #E3F2FD }
+.head-section .navbar-default { background-color: #B0BEC5 }
 .head-section .nav li a,
 .head-section .nav li.active ul.dropdown-menu li a {
     color: #999;
@@ -183,8 +183,8 @@ ul.dropdown-menu { border: none }
 }
 
 .bg{
-    /*background-color: #2196F3;*/
-    background-image: url("back.jpg") ;
+    background-color: rgba(33, 150, 243, 0.77);
+    /*background-image: url("back.jpg") ;*/
 }
 .box{
     background-color: #EEEEEE;
@@ -851,6 +851,15 @@ span.showBodyOfDisplayOnHover {
 .cm41{
  word-wrap: break-word; padding-right: 30px;   
 }
+.h2{
+    padding-right: 55%;
+}
+.f2{
+    padding-right: 55%;
+}
+.fot{
+    width: 85%;margin-left: 7.5%;
+}
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px){
 
     .headlogo{
@@ -929,5 +938,27 @@ span.showBodyOfDisplayOnHover {
     .box{
         height: 350px;
         margin-bottom: 10px;
+    }
+    .h1{
+        width: 20%;
+        float: right;
+    }
+    .h2{
+        width: 70%;
+        padding-right: 0;
+        float: left;
+    }
+    .f1{
+        width: 20%;
+        float: right;
+    }
+    .f2{
+        width: 70%;
+        padding-right: 0;
+        float: left;
+    }
+    .fot{
+        width: 96%;
+        margin-left: 2%;
     }
 }
