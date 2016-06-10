@@ -44,14 +44,14 @@ def allowed_file(filename):
 		   filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 class ProfList(MethodView):
-	# decorators = [requires_auth]
+	decorators = [requires_auth]
 	def get(self):
 		profs = Professor.objects.order_by("faculty")
 		# print "count of professors: " + str(profs.count()) 
 		return render_template('edit/professor-list.html', profs=profs)
 
 class EditProf(MethodView):
-	# decorators = [requires_auth]
+	decorators = [requires_auth]
 	def init_form(self, form, prof):
 		form.name.data = prof.name
 		form.website.data = prof.website
@@ -89,7 +89,7 @@ class EditProf(MethodView):
 		return redirect(url_for('edit.professor_list'))
 
 class DeleteProf(MethodView):
-	# decorators = [requires_auth]
+	decorators = [requires_auth]
 	def get(self,id):
 		prof = Professor.objects(id=id).first()
 		if prof:

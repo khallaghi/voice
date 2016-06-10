@@ -80,7 +80,7 @@ class Comment(db.EmbeddedDocument):
     created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
     # author = db.StringField(verbose_name="Name", max_length=255, required=True)
 
-    body = db.StringField(verbose_name="Comment", required=True, max_length=300)
+    body = db.StringField(verbose_name="Comment")
     helpfulness = db.IntField(default=0)
     easiness = db.IntField(default=0)
     clarity = db.IntField(default=0)

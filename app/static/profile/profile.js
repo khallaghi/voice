@@ -148,6 +148,8 @@ app.controller('mainResult', function(myService,$scope){
             yAxis: {
                 min: 0,
                 max: 5,
+                // gridLineWidth: 0,
+                // minorGridLineWidth: 0,
                 labels: {
                     enabled: false
                 },
@@ -164,6 +166,12 @@ app.controller('mainResult', function(myService,$scope){
                 center: ['50%', '50%'],
                 borderWidth: 0 // < set this option
                 },
+            },
+            legend:{
+                enabled: false,
+            },
+            credits: {
+                enabled: false
             },
             tooltip: { enabled: false },
             
@@ -216,7 +224,7 @@ app.controller('mainResult', function(myService,$scope){
     };
 });
 
-app.controller('MainCtrl', function($scope,$http,$window) {
+app.controller('MainCtrl', function($scope,$http) {
     $scope.init = function(id){
         $scope.id = id;
         // $scope.comment = "";
@@ -404,8 +412,8 @@ app.controller('MainCtrl', function($scope,$http,$window) {
         $http.post("/rate", rateData).success(function(data){
             console.log(data);
         });
-        // $route.reload();
-         $window.location.reload();
+        $route.reload();
+         // $window.location.reload();
     }
 
     };
