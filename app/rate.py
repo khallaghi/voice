@@ -63,7 +63,7 @@ class ProfessorRate(MethodView):
 		cmt.coolness = data['coolness']
 		cmt.use_textbook = data['useTextbook']
 		cmt.attendance = data['attendance']
-
+		cmt.study = prof.studies[-1]
 		print "FIRST"
 		print cmt.personal_tags
 		self.append_tags(cmt, data)
