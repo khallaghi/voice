@@ -26,15 +26,15 @@
     <!--header start-->
     <header class="head-section" style="margin-bottom: 1.5%;">
         <div class="navbar navbar-default navbar-static-top" style="padding-left: 7.5%;padding-right:1%;">
-            <div class="navbar-collapse collapse row">
+            <div class="navbar-collapse collapse row" >
                 <!--logo-->
                 <div class="col-md-2 ">
                     <a  style="padding-top:10px;padding-left:20px;float: right;"  class="headlogo" href="????" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
                 </div>
                 <!--logo-->
                 <!--qouets-->
-                <div class="col-md-6 text-left ">
-                    <a class="navbar-brand headqouets"  href="?????">!دغدغه های <span>دانشجویی</span> خود را در این جا بجویید</a>
+                <div class="col-md-6">
+                    <a class="navbar-brand headqouets"  href="?????">This is the other side of our <span> freedom</span>!</a>
                 </div>
                 <!--qouets-->
                 <!--search box-->
@@ -76,7 +76,7 @@
                                <% if prof.rank %>
                                <div class="badge">%% prof.rank %%</div>
                                <% endif %>
-                               <h3><div>%% prof.name %%</div></h3>
+                               <h3 style="font-weight: bold;font-size: 20px;"><div>%% prof.name %%</div></h3>
                                <h4><div>%% prof.email %%</div></h4>
 
                                <% if prof.faculty %>
@@ -328,11 +328,33 @@
                       <% set count = count + 1%>
                      
                       <div class="row" id="each-comment">
-                          <div class="col-md-1 ">
-                              <div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>
-                              <img style="width: 50px;margin-left: 10%px;" src="%%url_for('static', filename='img/cool/4.png')%%">
+                          <!--<div class="col-md-1 ">-->
+                              <!--<div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>-->
+                              <!--<img style="width: 50px;margin-left: 10%px;" src="%%url_for('static', filename='img/cool/4.png')%%">-->
+                          <!--</div>-->
+                          <div class="col-md-2 cm1" >
+
+                              <div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 0;right: 10px; position: absolute;"></div>
+                              <!--class name-->
+                              <div class="cmclass"> %% cmt.study.name %% </div>
+                              <!--class name-->
+                              <% if count < prof.comments.count() %>
+
+                              <% endif %>
+                              <p>
+                                  حضور غیاب:
+                                  {{result_gen('attendance', %% cmt.attendance %%)}}
+                              </p>
+                              <p>
+                                  باحاله:
+                                  {{result_gen('coolness', %% cmt.coolness %% )}}
+                              </p>
+                              <p>
+                                  کتاب استفاده می‌کنه:
+                                  {{result_gen('useTextbook', %% cmt.use_textbook %%)}}
+                              </p>
                           </div>
-                          <div class="col-md-2"style=" padding-left: 40px;">
+                          <div class="col-md-2 cm2"style=" padding-left: 25px;">
                               <div style="width: 2px;background-color:rgba(79, 91, 102, 0.14);height: 90%;left: 10px;right: 10px; position: absolute;"></div>
                               <p>
 
@@ -364,26 +386,8 @@
                               </p>
 
                           </div>
-                          <div class="col-md-2" >
-                            
-                              <div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 130%;left: 10px;right: 10px; position: absolute;"></div>
-                              <% if count < prof.comments.count() %>
 
-                              <% endif %>
-                              <p>
-                                  حضور غیاب؟
-                                  {{result_gen('attendance', %% cmt.attendance %%)}}
-                              </p>
-                              <p>
-                                  باحاله؟
-                                  {{result_gen('coolness', %% cmt.coolness %% )}}
-                              </p>
-                              <p>
-                                  کتاب استفاده می‌کنه؟
-                                  {{result_gen('useTextbook', %% cmt.use_textbook %%)}}
-                              </p>
-                          </div>
-                          <div class="col-md-7">
+                          <div class="col-md-7 cm3">
                               <div class="col-md-12">
                                   <div class="comment-body">
                                       <div class="tags" >
