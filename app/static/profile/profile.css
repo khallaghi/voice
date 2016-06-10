@@ -860,6 +860,10 @@ span.showBodyOfDisplayOnHover {
 .fot{
     width: 85%;margin-left: 7.5%;
 }
+.mc{
+    width: 2px;
+    height: 100%;
+}
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px){
 
     .headlogo{
@@ -934,6 +938,9 @@ span.showBodyOfDisplayOnHover {
     .cm41{
         padding-right:0;
         margin-top:40px;
+    }
+    .cm5{
+        width: 2px;
     }
     .box{
         height: 350px;
