@@ -45,6 +45,9 @@ def register_blueprints(app):
 	
 	from app.edit import edit
 	app.register_blueprint(edit)
+
+	from app.content import content
+	app.register_blueprint(content)
 	# app.register_blueprint(admin)
 
 
