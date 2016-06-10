@@ -18,7 +18,34 @@
 body{
     font-family: IRANSansWeb;
 }
+.action-button
+{
+    position: relative;
+    padding: 10px 10px;
+    margin: 10px 10px 10px 0px;
+    float: right;
+    border-radius: 10px;
+    /*font-family: 'Pacifico', cursive;*/
+    font-family: IRANSansWeb;
+    font-size: 90%;
+    color: #0f0f0f;
+    /*text-decoration: none;*/
+}
 
+.gray
+{
+    background-color: #E1BEE7;
+    border-bottom: 5px solid #103A56;
+    text-shadow: 0px -2px #103A56;
+}
+
+
+.action-button:active
+{
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+}
 /*header*/
 /*.head-section { border-bottom: 1px solid #eee }*/
 .head-section .navbar {
