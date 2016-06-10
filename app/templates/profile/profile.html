@@ -5,7 +5,7 @@
     <meta name=viewport content='width=700'>
     <!-- // <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!-- // <script src="https://code.highcharts.com/modules/solid-gauge.js"></script> -->
     <!-- // <script src="https://code.highcharts.com/highcharts-more.js"></script> -->
     <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
@@ -22,392 +22,392 @@
 </head>
 
 
-    <body class="bg" ng-controller="mainResult as main" ng-init="init('%% prof.id %%');">
-    <!--header start-->
-    <header class="head-section" style="margin-bottom: 1.5%;">
-        <div class="navbar navbar-default navbar-static-top" style="padding-left: 7.5%;padding-right:1%;">
-            <div class="navbar-collapse collapse row" >
-                <!--logo-->
-                <div class="col-md-2 ">
-                    <a  style="padding-top:10px;padding-left:20px;float: right;"  class="headlogo" href="????" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
+<body class="bg" ng-controller="mainResult as main" ng-init="init('%% prof.id %%');">
+<!--header start-->
+<header class="head-section" style="margin-bottom: 1.5%;">
+    <div class="navbar navbar-default navbar-static-top" style="padding-left: 7.5%;padding-right:1%;">
+        <div class="navbar-collapse collapse row" >
+            <!--logo-->
+            <div class="col-md-2 ">
+                <a  style="padding-top:10px;padding-left:20px;float: right;"  class="headlogo" href="????" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
+            </div>
+            <!--logo-->
+            <!--qouets-->
+            <div class="col-md-6">
+                <a class="navbar-brand headqouets"  href="?????">This is the other side of our <span> freedom</span>!</a>
+            </div>
+            <!--qouets-->
+            <!--search box-->
+            <!--<div class="col-md-4 ">-->
+            <!--<ul class="nav navbar-nav">-->
+            <!--<li style="height: 70%;"><input class="form-control search" style="direction: rtl;" placeholder=" جست و جو" type="text"></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--search box-->
+        </div>
+    </div>
+</header>
+<!--header end-->
+<div class="container">
+    <div class="row">
+        <div id="x2">
+            <div class="col-md-3" id="profile" >
+                <div class="profile-top">
+                    <!--<div class="bio">-->
+                    <!--<img src="%%url_for('static', filename='img/uni/fanni.jpg')%%"  alt="background" class="bg1" style="opacity: 0.8;">-->
+                    <!--<div class="desc">-->
+                    <!--<h3 style="direction: rtl;">@ %% prof.name %%</h3>-->
+                    <!--&lt;!&ndash;<p></p>&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="avatarcontainer">
+                        <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
+                        <div class="hover">
+                            <div class="icon-twitter"></div>
+                        </div>
+                    </div>
+
                 </div>
-                <!--logo-->
-                <!--qouets-->
-                <div class="col-md-6">
-                    <a class="navbar-brand headqouets"  href="?????">This is the other side of our <span> freedom</span>!</a>
+
+                <div class="content">
+                    <div class="data">
+
+                        <% if prof.rank %>
+                        <div class="badge">%% prof.rank %%</div>
+                        <% endif %>
+                        <h3 style="font-weight: bold;font-size: 20px;"><div>%% prof.name %%</div></h3>
+                        <h4><div>%% prof.email %%</div></h4>
+
+                        <% if prof.faculty %>
+                        <h4><div>دانشکده%% " " + prof.faculty.name %% </div></h4>
+                        <h4><div>دانشگاه%% " " + prof.faculty.uni.name  %%</div></h4>
+                        <% endif %>
+                    </div>
+                    <div ng-controller="MainCtrl as rate" ng-init="init('%% prof.id %%')">
+                        <button style="border-radius: 20px;padding-left: 25px;padding-right: 25px;" ng-click="toggleModal()" class="btn btn-primary">امتیاز بده</button>
+
+                        <modal title="امتیاز به %% prof.name%%" visible="showModal">
+                            <div class="rate-form ">
+                                <div  class="row" style="direction: rtl; margin-bottom: 10px;">
+                                    <div class="col-md-6 mda" >
+                                        <div class="text" > چه درسی باهاش داشتی؟ </div>
+                                    </div>
+                                    <div class="col-md-6 mdb" >
+                                        <select id="js-example-data-array"  style="width: 150px;" ng-model="selected_course">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="direction: rtl; margin-bottom: 10px;">
+                                    <div class="col-md-6 mda" style="margin-right: -10px; cursor: pointer;">
+                                        <div class="no-course">
+                                            <a ng-click="canFindCourse()" class="text" style="text-decoration: none;">
+                                                درس مورد نظر رو پیدا نکردی؟
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mdb" style="padding-right: 23px;">
+                                        <div ng-hide="findCourse">
+                                            <input type="text" placeholder="  اسم درس رو وارد کن  " ng-model="course_name" style="border-radius: 5px;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mda">
+                                        <div class="text">چقدر دلسوزه؟</div>
+                                    </div>
+                                    <div class="col-md-6 mdb">
+                                        <div id="yes-or-no">
+                                            <div class="input" id="score">
+                                                <a href="#" title="خدا صبر بده"  ng-click="setHelpfulness(1)" id="sel1" ng-class="{'active':helpfulness===1}">۱</a>
+                                                <a href="#" title="این کاره نیست" ng-click="setHelpfulness(2)" id="sel2" ng-class="{'active':helpfulness===2}">۲</a>
+                                                <a href="#" title="بدک نیست" ng-click="setHelpfulness(3)" id="sel3" ng-class="{'active':helpfulness===3}">۳</a>
+                                                <a href="#" title="خوبه" ng-click="setHelpfulness(4)" id="sel4" ng-class="{'active':helpfulness===4}">۴</a>
+                                                <a href="#" title="عالیه" ng-click="setHelpfulness(5)" id="sel5" ng-class="{'active':helpfulness===5}">۵</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mda">
+                                        <div class="text">چقدر آسون می‌گیره؟</div>
+                                    </div>
+                                    <div class="col-md-6 mdb">
+                                        <div id="yes-or-no">
+                                            <div class="input" id="score">
+                                                <a href="#" title="خدا صبر بده"  ng-click="setEasiness(1)" id="sel1" ng-class="{'active':easiness===1}">۱</a>
+                                                <a href="#" title="این کاره نیست" ng-click="setEasiness(2)" id="sel2" ng-class="{'active':easiness===2}">۲</a>
+                                                <a href="#" title="بدک نیست" ng-click="setEasiness(3)" id="sel3" ng-class="{'active':easiness===3}">۳</a>
+                                                <a href="#" title="خوبه" ng-click="setEasiness(4)" id="sel4" ng-class="{'active':easiness===4}">۴</a>
+                                                <a href="#" title="عالیه" ng-click="setEasiness(5)" id="sel5" ng-class="{'active':easiness===5}">۵</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mda">
+                                        <div class="text">چقدر حرف‌هاش رو می‌فهمی؟</div>
+                                    </div>
+                                    <div class="col-md-6 mdb">
+                                        <div class="form-group" id="yes-or-no">
+                                            <div class="input" id="score">
+                                                <a href="#" title="خدا صبر بده" ng-click="setClarity(1)" id="sel1" ng-class="{'active':clarity===1}">۱</a>
+                                                <a href="#" title="این کاره نیست" ng-click="setClarity(2)" id="sel2" ng-class="{'active':clarity===2}">۲</a>
+                                                <a href="#" title="بدک نیست" ng-click="setClarity(3)" id="sel3" ng-class="{'active':clarity===3}">۳</a>
+                                                <a href="#"  title="خوبه" ng-click="setClarity(4)" id="sel4" ng-class="{'active':clarity===4}">۴</a>
+                                                <a href="#" title="عالیه" ng-click="setClarity(5)" id="sel5" ng-class="{'active':clarity===5}">۵</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mda">
+                                        <div class="text">کول هست؟</div>
+                                    </div>
+                                    <div class="col-md-6 mdb">
+                                        <div class="form-group" id="yes-or-no">
+                                            <div class="input" id="score">
+                                                <a href="#" title="خدا صبر بده" ng-click="setCoolness(1)" id="sel1" ng-class="{'active':coolness===1}">۱</a>
+                                                <a href="#" title="این کاره نیست" ng-click="setCoolness(2)" id="sel2" ng-class="{'active':coolness===2}">۲</a>
+                                                <a href="#" title="بدک نیست" ng-click="setCoolness(3)" id="sel3" ng-class="{'active':coolness===3}">۳</a>
+                                                <a href="#" title="خوبه" ng-click="setCoolness(4)" id="sel4" ng-class="{'active':coolness===4}">۴</a>
+                                                <a href="#" title="عالیه" ng-click="setCoolness(5)" id="sel5" ng-class="{'active':coolness===5}">۵</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text">سه‌تا از تگ‌های زیر رو انتخاب کن</div>
+                                    </div>
+                                    <div class="col-md-12  pull-right" style="left: 20px;">
+                                        <div class="tag-handler" id="select-tag" >
+                                            <!-- <div  class="select-option" id="yes-or-no"> -->
+                                            <a ng-repeat="tag in allTags track by $index"
+                                               ng-click="addTag($index)"
+                                               ng-class="{'active':tag.status===1}"
+                                               href="#">{{tag.name}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 mda">
+                                        <div class="text" >حضور غیاب؟</div>
+                                    </div>
+                                    <div class="col-md-9 mdb pull-left" style="text-align: left;">
+                                        <div class="form-group" id="yes-or-no">
+
+                                            <div  class="input" >
+                                                <a href="" id="negative" ng-click="setAttendance(1)" ng-class="{'active':attendance===1}">آره هر جلسه</a>
+                                                <a href="" id="so-so"    ng-click="setAttendance(2)" ng-class="{'active':attendance===2}">بعضی وقتا</a>
+                                                <a href="" id="positive" ng-click="setAttendance(3)" ng-class="{'active':attendance===3}">نه اصلا</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mda">
+                                        <div class="text">کتاب استفاده می‌کنه
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mdb">
+                                        <div  id="yes-or-no">
+
+                                            <div class="input">
+                                                <a href="" id="positive" ng-click="setUseTextbook(1)" ng-class="{'active':useTextbook===1}">آره</a>
+                                                <a href="" id="positive" ng-click="setUseTextbook(2)" ng-class="{'active':useTextbook===2}">نه</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="yes-or-no">
+                                    <div class="text"> نظرت رو درموردش بگو </div>
+                                    <div class="text" style="padding-right: 30px;">
+                                        <textarea id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="form-group mdb" style="text-align: left;" >
+                                    <label>(: مرسی که سوال‌ها رو جواب دادی </label>
+                                </div>
+                                <div class="submit-score" id="with-border">
+                                    <button type="submit"
+                                            class="btn btn-primary" ng-class="{'disabled':submit}"
+                                            data-dismiss="modal"
+                                            aria-hidden="true"
+                                            ng-click="submitRate(cmt, course_name, selected_course);">{{getSubmitBtnTitle()}}</button>
+                                </div>
+                            </div>
+                        </modal>
+                    </div>
                 </div>
-                <!--qouets-->
-                <!--search box-->
-                <!--<div class="col-md-4 ">-->
-                    <!--<ul class="nav navbar-nav">-->
-                        <!--<li style="height: 70%;"><input class="form-control search" style="direction: rtl;" placeholder=" جست و جو" type="text"></li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-                <!--search box-->
             </div>
         </div>
-    </header>
-    <!--header end-->
-      <div class="container">
-          <div class="row">
-              <div id="x2">
-                <div class="col-md-3" id="profile" >
-                       <div class="profile-top">
-                           <!--<div class="bio">-->
-                               <!--<img src="%%url_for('static', filename='img/uni/fanni.jpg')%%"  alt="background" class="bg1" style="opacity: 0.8;">-->
-                               <!--<div class="desc">-->
-                                   <!--<h3 style="direction: rtl;">@ %% prof.name %%</h3>-->
-                                   <!--&lt;!&ndash;<p></p>&ndash;&gt;-->
-                               <!--</div>-->
-                           <!--</div>-->
-
-                           <div class="avatarcontainer">
-                               <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
-                               <div class="hover">
-                                   <div class="icon-twitter"></div>
-                               </div>
-                           </div>
-
-                       </div>
-
-                       <div class="content">
-                           <div class="data">
-                            
-                               <% if prof.rank %>
-                               <div class="badge">%% prof.rank %%</div>
-                               <% endif %>
-                               <h3 style="font-weight: bold;font-size: 20px;"><div>%% prof.name %%</div></h3>
-                               <h4><div>%% prof.email %%</div></h4>
-
-                               <% if prof.faculty %>
-                               <h4><div>دانشکده%% " " + prof.faculty.name %% </div></h4>
-                               <h4><div>دانشگاه%% " " + prof.faculty.uni.name  %%</div></h4>
-                               <% endif %>
-                           </div>
-                           <div ng-controller="MainCtrl as rate" ng-init="init('%% prof.id %%')">
-                                 <button style="border-radius: 20px;padding-left: 25px;padding-right: 25px;" ng-click="toggleModal()" class="btn btn-primary">امتیاز بده</button>
-
-                               <modal title="امتیاز به %% prof.name%%" visible="showModal">
-                                   <div class="rate-form ">
-                                       <div  class="row" style="direction: rtl; margin-bottom: 10px;">
-                                           <div class="col-md-6 mda" >
-                                               <div class="text" > چه درسی باهاش داشتی؟ </div>
-                                           </div>
-                                           <div class="col-md-6 mdb" >
-                                                <select id="js-example-data-array"  style="width: 150px;" ng-model="selected_course">
-                                                </select>
-                                           </div>
-                                       </div>
-                                       <div class="row" style="direction: rtl; margin-bottom: 10px;">
-                                           <div class="col-md-6 mda" style="margin-right: -10px; cursor: pointer;">
-                                               <div class="no-course">
-                                                   <a ng-click="canFindCourse()" class="text" style="text-decoration: none;">
-                                                       درس مورد نظر رو پیدا نکردی؟
-                                                   </a>
-                                               </div>
-                                           </div>
-                                           <div class="col-md-6 mdb" style="padding-right: 23px;">
-                                               <div ng-hide="findCourse">
-                                                   <input type="text" placeholder="  اسم درس رو وارد کن  " ng-model="course_name" style="border-radius: 5px;">
-                                               </div>
-                                           </div>
-                                       </div>
-
-                                       <div class="row">
-                                           <div class="col-md-6 mda">
-                                               <div class="text">چقدر دلسوزه؟</div>
-                                           </div>
-                                           <div class="col-md-6 mdb">
-                                               <div id="yes-or-no">
-                                                   <div class="input" id="score">
-                                                       <a href="#" title="خدا صبر بده"  ng-click="setHelpfulness(1)" id="sel1" ng-class="{'active':helpfulness===1}">۱</a>
-                                                       <a href="#" title="این کاره نیست" ng-click="setHelpfulness(2)" id="sel2" ng-class="{'active':helpfulness===2}">۲</a>
-                                                       <a href="#" title="بدک نیست" ng-click="setHelpfulness(3)" id="sel3" ng-class="{'active':helpfulness===3}">۳</a>
-                                                       <a href="#" title="خوبه" ng-click="setHelpfulness(4)" id="sel4" ng-class="{'active':helpfulness===4}">۴</a>
-                                                       <a href="#" title="عالیه" ng-click="setHelpfulness(5)" id="sel5" ng-class="{'active':helpfulness===5}">۵</a>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <div class="row">
-                                           <div class="col-md-6 mda">
-                                               <div class="text">چقدر آسون می‌گیره؟</div>
-                                           </div>
-                                           <div class="col-md-6 mdb">
-                                               <div id="yes-or-no">
-                                                   <div class="input" id="score">
-                                                       <a href="#" title="خدا صبر بده"  ng-click="setEasiness(1)" id="sel1" ng-class="{'active':easiness===1}">۱</a>
-                                                       <a href="#" title="این کاره نیست" ng-click="setEasiness(2)" id="sel2" ng-class="{'active':easiness===2}">۲</a>
-                                                       <a href="#" title="بدک نیست" ng-click="setEasiness(3)" id="sel3" ng-class="{'active':easiness===3}">۳</a>
-                                                       <a href="#" title="خوبه" ng-click="setEasiness(4)" id="sel4" ng-class="{'active':easiness===4}">۴</a>
-                                                       <a href="#" title="عالیه" ng-click="setEasiness(5)" id="sel5" ng-class="{'active':easiness===5}">۵</a>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <div class="row">
-                                           <div class="col-md-6 mda">
-                                               <div class="text">چقدر حرف‌هاش رو می‌فهمی؟</div>
-                                           </div>
-                                           <div class="col-md-6 mdb">
-                                               <div class="form-group" id="yes-or-no">
-                                                   <div class="input" id="score">
-                                                       <a href="#" title="خدا صبر بده" ng-click="setClarity(1)" id="sel1" ng-class="{'active':clarity===1}">۱</a>
-                                                       <a href="#" title="این کاره نیست" ng-click="setClarity(2)" id="sel2" ng-class="{'active':clarity===2}">۲</a>
-                                                       <a href="#" title="بدک نیست" ng-click="setClarity(3)" id="sel3" ng-class="{'active':clarity===3}">۳</a>
-                                                       <a href="#"  title="خوبه" ng-click="setClarity(4)" id="sel4" ng-class="{'active':clarity===4}">۴</a>
-                                                       <a href="#" title="عالیه" ng-click="setClarity(5)" id="sel5" ng-class="{'active':clarity===5}">۵</a>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <div class="row">
-                                           <div class="col-md-6 mda">
-                                               <div class="text">کول هست؟</div>
-                                           </div>
-                                           <div class="col-md-6 mdb">
-                                               <div class="form-group" id="yes-or-no">
-                                                   <div class="input" id="score">
-                                                       <a href="#" title="خدا صبر بده" ng-click="setCoolness(1)" id="sel1" ng-class="{'active':coolness===1}">۱</a>
-                                                       <a href="#" title="این کاره نیست" ng-click="setCoolness(2)" id="sel2" ng-class="{'active':coolness===2}">۲</a>
-                                                       <a href="#" title="بدک نیست" ng-click="setCoolness(3)" id="sel3" ng-class="{'active':coolness===3}">۳</a>
-                                                       <a href="#" title="خوبه" ng-click="setCoolness(4)" id="sel4" ng-class="{'active':coolness===4}">۴</a>
-                                                       <a href="#" title="عالیه" ng-click="setCoolness(5)" id="sel5" ng-class="{'active':coolness===5}">۵</a>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-
-                                       <div class="row">
-                                           <div class="col-md-12">
-                                               <div class="text">سه‌تا از تگ‌های زیر رو انتخاب کن</div>
-                                           </div>
-                                           <div class="col-md-12  pull-right" style="left: 20px;">
-                                               <div class="tag-handler" id="select-tag" >
-                                                   <!-- <div  class="select-option" id="yes-or-no"> -->
-                                                   <a ng-repeat="tag in allTags track by $index"
-                                                      ng-click="addTag($index)"
-                                                      ng-class="{'active':tag.status===1}"
-                                                      href="#">{{tag.name}}</a>
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <div class="row">
-                                           <div class="col-md-3 mda">
-                                               <div class="text" >حضور غیاب؟</div>
-                                           </div>
-                                           <div class="col-md-9 mdb pull-left" style="text-align: left;">
-                                               <div class="form-group" id="yes-or-no">
-
-                                                   <div  class="input" >
-                                                       <a href="" id="negative" ng-click="setAttendance(1)" ng-class="{'active':attendance===1}">آره هر جلسه</a>
-                                                       <a href="" id="so-so"    ng-click="setAttendance(2)" ng-class="{'active':attendance===2}">بعضی وقتا</a>
-                                                       <a href="" id="positive" ng-click="setAttendance(3)" ng-class="{'active':attendance===3}">نه اصلا</a>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <div class="row">
-                                           <div class="col-md-6 mda">
-                                               <div class="text">کتاب استفاده می‌کنه
-                                               </div>
-                                           </div>
-                                           <div class="col-md-6 mdb">
-                                               <div  id="yes-or-no">
-
-                                                   <div class="input">
-                                                       <a href="" id="positive" ng-click="setUseTextbook(1)" ng-class="{'active':useTextbook===1}">آره</a>
-                                                       <a href="" id="positive" ng-click="setUseTextbook(2)" ng-class="{'active':useTextbook===2}">نه</a>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <div class="form-group" id="yes-or-no">
-                                           <div class="text"> نظرت رو درموردش بگو </div>
-                                           <div class="text" style="padding-right: 30px;">
-                                               <textarea id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
-                                           </div>
-
-                                       </div>
-                                       <div class="form-group mdb" style="text-align: left;" >
-                                           <label>(: مرسی که سوال‌ها رو جواب دادی </label>
-                                       </div>
-                                       <div class="submit-score" id="with-border">
-                                           <button type="submit"
-                                                   class="btn btn-primary" ng-class="{'disabled':submit}"
-                                                   data-dismiss="modal"
-                                                   aria-hidden="true"
-                                                   ng-click="submitRate(cmt, course_name, selected_course);">{{getSubmitBtnTitle()}}</button>
-                                       </div>
-                                   </div>
-                               </modal>
-                           </div>
-                       </div>
+        <div id="x1">
+            <div class="col-md-9 " style="padding-left: 0;">
+                <div class="row box" >
+                    <div class="col-md-5 tags x1-row5" style="padding-top: 20px;padding-left: 20px;">
+                        <div  class="linebetwaen"></div>
+                        <% for tag in tags %>
+                        <div class="label label-success" id="tag">
+                            <!-- <span > -->
+                            <span class="badge">%%tag.count%%</span>
+                            %%" "+tag.name+" "%%
+                            <!-- </span> -->
+                        </div>
+                        <% endfor %>
                     </div>
-               </div>
-              <div id="x1">
-                  <div class="col-md-9 " style="padding-left: 0;">
-                      <div class="row box" >
-                          <div class="col-md-5 tags x1-row5" style="padding-top: 20px;padding-left: 20px;">
-                              <div  class="linebetwaen"></div>
-                              <% for tag in tags %>
-                              <div class="label label-success" id="tag">
-                                  <!-- <span > -->
-                                  <span class="badge">%%tag.count%%</span>
-                                  %%" "+tag.name+" "%%
-                                  <!-- </span> -->
-                              </div>
-                              <% endfor %>
-                          </div>
-                          <div class="col-md-6 x1-row6" >
-                              <div class="chart bg-gray" >
-                                  <div class="mainchart" id="main-result">Loading ...</div>
-                              </div>
-                          </div>
+                    <div class="col-md-6 x1-row6" >
+                        <div class="chart bg-gray" >
+                            <div class="mainchart" id="main-result">Loading ...</div>
+                        </div>
+                    </div>
 
-                      </div>
-                  </div>
-              </div>
+                </div>
             </div>
-          <!--<div class="row ">-->
-                <!--<div class="container">-->
-              <!--<div class="row">-->
-                  <!--<div class="col-md-12">-->
-                      <!--<div class="carousel slide multi-item-carousel" id="theCarousel">-->
-                          <!--<div class="carousel-inner">-->
-                              <!--<% for i in range(0,prof.studies|length) %>-->
-                              <!--<div class="item ">-->
-                                <!--<div class="col-md-4">-->
-                                    <!--<span id="study-result-%% i %%" >-->
-                                        <!--Loading ...-->
-                                    <!--</span>-->
-                                <!--</div>-->
-                              <!--</div>-->
-                              <!--<% endfor %>-->
-                              <!--<% for i in range(0,prof.studies|length) %>-->
-                              <!--<div class="item ">-->
-                                  <!--<div class="col-md-4">-->
-                                    <!--<span id="study-result-%% i %%" >-->
-                                        <!--Loading ...-->
-                                    <!--</span>-->
-                                  <!--</div>-->
-                              <!--</div>-->
-                              <!--<% endfor %>-->
-                          <!--</div>-->
-                          <!--<a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>-->
-                          <!--<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>-->
-                      <!--</div>-->
-                  <!--</div>-->
-              <!--</div>-->
-          <!--</div>-->
-            <!--</div>-->
-          <div class="box1 row" style="overflow: auto;overflow-y: hidden;padding-top: 30px;padding-bottom: 2%;height: 350px;">
-              <div class="" style="white-space: nowrap;">
-                  <div class = " bg-gray" >
-                      <!-- <div ng-repeat="i in study_count"> -->
+        </div>
+    </div>
+    <!--<div class="row ">-->
+    <!--<div class="container">-->
+    <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+    <!--<div class="carousel slide multi-item-carousel" id="theCarousel">-->
+    <!--<div class="carousel-inner">-->
+    <!--<% for i in range(0,prof.studies|length) %>-->
+    <!--<div class="item ">-->
+    <!--<div class="col-md-4">-->
+    <!--<span id="study-result-%% i %%" >-->
+    <!--Loading ...-->
+    <!--</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<% endfor %>-->
+    <!--<% for i in range(0,prof.studies|length) %>-->
+    <!--<div class="item ">-->
+    <!--<div class="col-md-4">-->
+    <!--<span id="study-result-%% i %%" >-->
+    <!--Loading ...-->
+    <!--</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<% endfor %>-->
+    <!--</div>-->
+    <!--<a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>-->
+    <!--<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="box1 row" style="overflow: auto;overflow-y: hidden;padding-top: 30px;padding-bottom: 2%;height: 350px;">
+        <div class="" style="white-space: nowrap;">
+            <div class = " bg-gray" >
+                <!-- <div ng-repeat="i in study_count"> -->
 
-                      <% for i in range(0,prof.studies|length) %>
-                        <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;border-right: 2px solid rgba(79, 91, 102, 0.14);" >
+                <% for i in range(0,prof.studies|length) %>
+                <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;border-right: 2px solid rgba(79, 91, 102, 0.14);" >
                             <span id="study-result-%% i %%" style="width:250px;height: 330px;padding-top: 50px;">
                                   Loading ...
 
                             </span>
 
+                </div>
+                <% endfor %>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="row box1" ng-controller="Comment">
+        <div class="col-md-12 col-xs-offset-right-0" style="padding: 10px;">
+
+            <div class=" bg-gray comments">
+                <% set count = 0%>
+                <%  for cmt in prof.comments %>
+                <% set count = count + 1%>
+
+                <div class="row" id="each-comment">
+                    <!--<div class="col-md-1 ">-->
+                    <!--<div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>-->
+                    <!--<img style="width: 50px;margin-left: 10%px;" src="%%url_for('static', filename='img/cool/4.png')%%">-->
+                    <!--</div>-->
+                    <div class="col-md-2 cm1" >
+
+                        <div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 0;right: 10px; position: absolute;"></div>
+                        <!--class name-->
+                        <div class="cmclass"> %% cmt.study.name %% </div>
+                        <!--class name-->
+                        <% if count < prof.comments.count() %>
+
+                        <% endif %>
+                        <p>
+                            حضور غیاب:
+                            {{result_gen('attendance', %% cmt.attendance %%)}}
+                        </p>
+                        <p>
+                            باحاله:
+                            {{result_gen('coolness', %% cmt.coolness %% )}}
+                        </p>
+                        <p>
+                            کتاب استفاده می‌کنه:
+                            {{result_gen('useTextbook', %% cmt.use_textbook %%)}}
+                        </p>
+                    </div>
+                    <div class="col-md-2 cm2"style=" padding-left: 25px;">
+                        <div style="width: 2px;background-color:rgba(79, 91, 102, 0.14);height: 90%;left: 10px;right: 10px; position: absolute;"></div>
+                        <p>
+
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.helpfulness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.helpfulness %%)}}%; display: block; float: right;">
+                                دلسوزی
+                            </div>
                         </div>
-                      <% endfor %>
-                      <!-- </div> -->
-                  </div>
-              </div>
-          </div>
-          <div class="row box1" ng-controller="Comment">
-              <div class="col-md-12 col-xs-offset-right-0" style="padding: 10px;">
 
-                      <div class=" bg-gray comments">
-                      <% set count = 0%>
-                      <%  for cmt in prof.comments %>
-                      <% set count = count + 1%>
-                     
-                      <div class="row" id="each-comment">
-                          <!--<div class="col-md-1 ">-->
-                              <!--<div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>-->
-                              <!--<img style="width: 50px;margin-left: 10%px;" src="%%url_for('static', filename='img/cool/4.png')%%">-->
-                          <!--</div>-->
-                          <div class="col-md-2 cm1" >
+                        </p>
+                        <p>
 
-                              <div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 0;right: 10px; position: absolute;"></div>
-                              <!--class name-->
-                              <div class="cmclass"> %% cmt.study.name %% </div>
-                              <!--class name-->
-                              <% if count < prof.comments.count() %>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.easiness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.easiness %%)}}%; display: block; float: right;">
+                                آسون‌ بودن
+                            </div>
+                        </div>
 
-                              <% endif %>
-                              <p>
-                                  حضور غیاب:
-                                  {{result_gen('attendance', %% cmt.attendance %%)}}
-                              </p>
-                              <p>
-                                  باحاله:
-                                  {{result_gen('coolness', %% cmt.coolness %% )}}
-                              </p>
-                              <p>
-                                  کتاب استفاده می‌کنه:
-                                  {{result_gen('useTextbook', %% cmt.use_textbook %%)}}
-                              </p>
-                          </div>
-                          <div class="col-md-2 cm2"style=" padding-left: 25px;">
-                              <div style="width: 2px;background-color:rgba(79, 91, 102, 0.14);height: 90%;left: 10px;right: 10px; position: absolute;"></div>
-                              <p>
+                        </p>
+                        <p>
 
-                              <div class="progress">
-                                  <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.helpfulness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.helpfulness %%)}}%; display: block; float: right;">
-                                      دلسوزی
-                                  </div>
-                              </div>
-
-                              </p>
-                              <p>
-
-                              <div class="progress">
-                                  <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.easiness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.easiness %%)}}%; display: block; float: right;">
-                                      آسون‌ بودن
-                                  </div>
-                              </div>
-
-                              </p>
-                              <p>
-
-                              <div class="progress">
-                                  <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.clarity %%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.clarity %%)}}%; display: block; float: right;">
-                                      قابل فهم بودن
-                                  </div>
-                              </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.clarity %%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.clarity %%)}}%; display: block; float: right;">
+                                قابل فهم بودن
+                            </div>
+                        </div>
 
 
-                              </p>
+                        </p>
 
-                          </div>
+                    </div>
 
-                          <div class="col-md-7 cm3">
-                              <div class="col-md-12">
-                                  <div class="comment-body">
-                                      <div class="tags" >
-                                          <% for tag in cmt.personal_tags %>
-                                          <div class="label label-success">%% tag.name %%</div>
-                                          <% endfor %>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-md-10" style=" word-wrap: break-word; padding-right: 30px;">
-                                  <p>%% cmt.body %%</p>
-                              </div>
-                          </div>
-                      </div>
-                      <br>
-                      <% endfor %>
-                  </div>
-              </div>
+                    <div class="col-md-7 cm3">
+                        <div class="col-md-12">
+                            <div class="comment-body">
+                                <div class="tags" >
+                                    <% for tag in cmt.personal_tags %>
+                                    <div class="label label-success">%% tag.name %%</div>
+                                    <% endfor %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10" style=" word-wrap: break-word; padding-right: 30px;">
+                            <p>%% cmt.body %%</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <% endfor %>
+            </div>
+        </div>
 
-          </div>
-      </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>
