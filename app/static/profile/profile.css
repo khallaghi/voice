@@ -872,9 +872,10 @@ span.showBodyOfDisplayOnHover {
     }
     .x1-row6{
         width: 55%;
+        height: 300px;
     }
     .mainchart{
-        height: 80%;
+        height: 300px;
     }
     .linebetwaen{
         width: 0;
@@ -921,5 +922,9 @@ span.showBodyOfDisplayOnHover {
     .cm41{
         padding-right:0;
         margin-top:40px;
+    }
+    .box{
+        height: 350px;
+        margin-bottom: 10px;
     }
 }
