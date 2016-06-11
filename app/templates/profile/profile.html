@@ -36,7 +36,7 @@
             <div class="navbar-collapse collapse row" >
                 <!--logo-->
                 <div class="col-md-2 h1">
-                    <a  style="padding-top:10px;padding-left:20px;float: right;"  class="headlogo" href="%%url_for('search.search')%%" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
+                    <a  style="padding-left:20px;float: right;"  class="headlogo" href="%%url_for('search.search')%%" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
                 </div>
                 <!--logo-->
                 <!--qouets-->
@@ -410,7 +410,7 @@
                     <div class="col-md-7 cm3" >
                         <!--style="border-right: 2px solid rgba(79, 91, 102, 0.14);"-->
 
-                        <div class="col-md-12">
+                        <div class="col-md-12 cm31">
                             <div class="comment-body">
                                 <div class="tags" >
                                     <% for tag in cmt.personal_tags %>
@@ -419,7 +419,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-10" style=" word-wrap: break-word; padding-right: 30px;direction: rtl;">
+                        <div class="col-md-10 cm32" style=" word-wrap: break-word; padding-right: 30px;direction: rtl;">
                             <p>%% cmt.body %%</p>
                         </div>
 
