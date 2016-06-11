@@ -11,7 +11,7 @@ app.controller('rating', function(){
 
     var myRating = rating(el, currentRating, maxRating, callback);
 });
-app.controller('Comment', function($scope){
+app.controller('Comment', function(getComments,$scope){
     var dict = {
         "coolness":{
             1:"نه اصلا",
@@ -30,6 +30,9 @@ app.controller('Comment', function($scope){
             3:"نه اصلا"
         }
     }
+    $scope.comments =function(){
+        return getComments();
+    }; 
     $scope.result_gen = function(key, id){
         // console.log(id)
         // console.log(key + " is : ")
@@ -205,6 +208,10 @@ app.controller('mainResult', function(myService,$scope){
             }]
         });  
     };
+    app.service('getComments', function () {
+        // var property = 'First';
+        return $scope.comments; 
+    });
     $scope.get_comments =function(){
         return $scope.comments;
     }
