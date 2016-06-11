@@ -486,7 +486,7 @@ ul.dropdown-menu { border: none }
     /*margin: 10px 0 10px 0;*/
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    font-size: 15px;
+    font-size: 13px;
     margin: 5px 5px 5px 5px;
     /*clear: both;*/
 }
@@ -987,6 +987,9 @@ span.showBodyOfDisplayOnHover {
         width: 100px;
         height: 100px;
 
+    }
+    .tag{
+        font-size:18px;
     }
     .bg-gray{
         height: 200px;
