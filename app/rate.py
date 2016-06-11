@@ -12,10 +12,12 @@ rate = Blueprint('rate', __name__, template_folder='templates/rate')
 parser = reqparse.RequestParser()
 class ProfessorRate(MethodView):
 	def average_rate(self, old_av, count, score):
-		return ((old_av*count)+score)/(count+1)
+		print old_av, count, score
+		return (old_av*(count-1)+score)/(count)
 
 	def apply_rate(self, prof, data):
-		prof.helpfulness_count+=1
+		prof.helpfulness_count += 1
+
 		prof.helpfulness = self.average_rate(prof.helpfulness, prof.helpfulness_count, data['helpfulness'])
 		prof.easiness_count += 1
 		prof.easiness = self.average_rate(prof.easiness, prof.easiness_count, data['easiness'])
@@ -30,7 +32,7 @@ class ProfessorRate(MethodView):
 			in_tags = False
 			for prof_tag in prof.personal_tags:
 				if(prof_tag.name == tag):
-					prof_tag.count +=1
+					prof_tag.count += 1
 					in_tags = True
 			if not in_tags:
 				temp_tag = Tag(name=tag, count=1)
@@ -125,6 +127,7 @@ class ProfessorRate(MethodView):
 			return "invalid data -- 404"
 		if not self.apply_course(prof, data):
 			return "invalid course -- 404"
+		print "before apply_Rate"
 		self.apply_rate(prof, data)
 		self.apply_tags(prof, data)
 		self.apply_comment(prof, data)
