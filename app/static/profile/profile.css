@@ -66,7 +66,7 @@ body{
     /*margin-right: 0;*/
     /*z-index: 199;*/
 }
-.head-section .navbar-default { background-color: #E3F2FD }
+.head-section .navbar-default { background-color: #EEEEEE }
 .head-section .nav li a,
 .head-section .nav li.active ul.dropdown-menu li a {
     color: #999;
@@ -183,7 +183,7 @@ ul.dropdown-menu { border: none }
 }
 
 .bg{
-    /*background-color: #2196F3;*/
+    /*background-color: rgba(33, 150, 243, 0.77);*/
     background-image: url("back.jpg") ;
 }
 .box{
@@ -851,8 +851,23 @@ span.showBodyOfDisplayOnHover {
 .cm41{
  word-wrap: break-word; padding-right: 30px;   
 }
-@media only screen and (max-device-width: 443px) and (max-device-height: 773px){
-
+.h2{
+    padding-right: 62%;
+}
+.f2{
+    padding-right: 65%;
+}
+.fot{
+    width: 85%;margin-left: 7.5%;
+}
+.mc{
+    width: 2px;
+    height: 100%;
+}
+@media only screen and (max-device-width: 443px) and (max-device-height: 773px)  {
+    .navbar-collapse{
+        width: 80%;
+    }
     .headlogo{
         width: 20%;
     }
@@ -880,6 +895,9 @@ span.showBodyOfDisplayOnHover {
     }
     .linebetwaen{
         width: 0;
+    }
+    .tags{
+        line-height: 40px;
     }
     .progress-bar{
         font-size: 8px;
@@ -922,12 +940,43 @@ span.showBodyOfDisplayOnHover {
         width:60%;
         float:left;
     }
+    .cm31{
+        width: 100%;
+    }
+    .cm32{
+        width: 100%;
+    }
     .cm41{
         padding-right:0;
         margin-top:40px;
     }
+    .cm5{
+        width: 2px;
+    }
     .box{
         height: 350px;
         margin-bottom: 10px;
+    }
+    .h1{
+        width: 20%;
+        float: right;
+    }
+    .h2{
+        width: 45%;
+        padding-right: 0;
+        float: left;
+    }
+    .f1{
+        width: 20%;
+        float: right;
+    }
+    .f2{
+        width: 38%;
+        padding-right: 0;
+        float: left;
+    }
+    .fot{
+        width: 96%;
+        margin-left: 2%;
     }
 }
