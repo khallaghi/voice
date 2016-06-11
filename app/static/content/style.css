@@ -295,7 +295,7 @@ and (max-width : 1199px) {
 }
 
 .section-modal .close-modal:hover {
-    opacity: .3;
+    /*opacity: .3;*/
 }
 
 .section-modal .close-modal .lr {

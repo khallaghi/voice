@@ -289,38 +289,7 @@
             </div>
         </div>
     </div>
-    <!--<div class="row ">-->
-    <!--<div class="container">-->
-    <!--<div class="row">-->
-    <!--<div class="col-md-12">-->
-    <!--<div class="carousel slide multi-item-carousel" id="theCarousel">-->
-    <!--<div class="carousel-inner">-->
-    <!--<% for i in range(0,prof.studies|length) %>-->
-    <!--<div class="item ">-->
-    <!--<div class="col-md-4">-->
-    <!--<span id="study-result-%% i %%" >-->
-    <!--Loading ...-->
-    <!--</span>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<% endfor %>-->
-    <!--<% for i in range(0,prof.studies|length) %>-->
-    <!--<div class="item ">-->
-    <!--<div class="col-md-4">-->
-    <!--<span id="study-result-%% i %%" >-->
-    <!--Loading ...-->
-    <!--</span>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<% endfor %>-->
-    <!--</div>-->
-    <!--<a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>-->
-    <!--<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
+
     <div class="box1 row" style="overflow: auto;overflow-y: hidden;padding-top: 30px;padding-bottom: 2%;height: 350px;">
         <div class="" style="white-space: nowrap;">
             <div class = " bg-gray" >
@@ -465,6 +434,29 @@
     </div>
 
 </footer>
+    <a href="#0" class="cd-top">Top</a>
 
+    <div ng-controller="MainCtrl as rate" >
+        <div class="featuresug" ng-click="toggleModal()" >پیشنهادی داری</div>
+
+        <modal title="پیشنهادت رو بگو می شنویم" visible="showModal" style="text-align: center;">
+            <div class="row" style="text-align: right;;font-weight: bold;direction: rtl;padding-right: 10px;">
+                <h6 style="font-size:20px">نظرت رو لطفا بنویس:</h6>
+            </div>
+            <div class="row">
+                <div class="text" style="padding-right: 50px;">
+                    <textarea style="font-size: 15px;" id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
+                </div>
+            </div>
+
+            <div class="submit-score" id="with-border">
+                  <button type="submit"
+                          class="btn btn-primary" ng-class="???????"
+                          data-dismiss="modal"
+                          aria-hidden="true"
+                          ng-click="????????????????">???????????</button>
+                </div>
+        </modal>
+    </div>
 </body>
 </html>
