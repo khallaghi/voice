@@ -46,7 +46,30 @@ def get_studies_result(prof):
 			temp['color'] = get_color(study.clarity)
 			study_result['clarity'] = temp
 			yield study_result
+def get_tags(tags):
+	comment_list = []
+	for tag in tags:
+		comment_list.append(tag.name)
+	return comment_list
+def get_comments(prof):
+	for cmt in prof.comments:
+		comment_dict = {}
+		comment_dict['body'] = cmt.body
+		comment_dict['helpfulness'] = cmt.helpfulness
+		comment_dict['easiness'] = cmt.easiness
+		comment_dict['clarity'] = cmt.clarity
+		comment_dict['class_tags'] = get_tags(cmt.class_tags)
+		comment_dict['personal_tags'] = get_tags(cmt.personal_tags)
+		if cmt.study:
+			comment_dict['study'] = cmt.study.name
+		else:
+			comment_dict['study'] = ""
 
+		# comment_dict['study'] = cmt.study.name
+		comment_dict['coolness'] = cmt.coolness
+		comment_dict['use_textbook'] = cmt.use_textbook
+		comment_dict['attendance'] = cmt.attendance
+		yield comment_dict
 class ProfProfile(MethodView):
 
 	def get_context(self,id):
@@ -116,7 +139,7 @@ class ProfResult(MethodView):
 
 		result['main_result'] = main_result
 		result['studies_result'] = [stdy_res for stdy_res in get_studies_result(prof)]
-
+		result['comments'] = [comment for comment in get_comments(prof)]
 		return result
 	
 	def get(self, id):

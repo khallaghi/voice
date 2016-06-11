@@ -54,7 +54,10 @@ class ProfessorRate(MethodView):
 			cmt.personal_tags.append(tmp_tag)
 
 	def apply_comment(self, prof, data):
-		if len(data['comment']) > 600:
+		if not 'comment' in data:
+			print "comment is empty"
+			return
+		if len(data['comment']) > 1000:
 			return LEN_TOO_MUCH
 		# validate comment for informal comments
 		cmt = Comment()

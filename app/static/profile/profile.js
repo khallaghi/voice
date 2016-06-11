@@ -45,7 +45,8 @@ app.controller('Comment', function($scope){
 
 app.controller('mainResult', function(myService,$scope){
     var results = undefined;
-
+    $scope.comments = null;
+    var comments = null;
     var save_json = function(res){
         console.log("SaveJSON");
         this.result = res;
@@ -204,6 +205,9 @@ app.controller('mainResult', function(myService,$scope){
             }]
         });  
     };
+    $scope.get_comments =function(){
+        return $scope.comments;
+    }
     $scope.init = function(id){
         console.log("init");
         this.id = id;
@@ -212,7 +216,9 @@ app.controller('mainResult', function(myService,$scope){
             $scope.data = d;
             $scope.chart($scope.data);
             $scope.study_count = $scope.data.studies_result.length ;
-
+            comments = $scope.data.comments;
+            console.log("commmmmmmmments");
+            console.log($scope.data.comments);
             // $scope.study_chart($scope.data.studies_result[3],3)
             for(i = 0; i < $scope.data.studies_result.length; i++){
                 // console.log(i);
@@ -476,6 +482,7 @@ app.factory('myService', function($http) {
       var promise = $http.get('/prof/getResults/' + id).then(function (response) {
         // The then function here is an opportunity to modify the response
         console.log(response);
+        console.log(response.data.comments)
         // The return value gets picked up by the then in the controller.
         return response.data;
       });
