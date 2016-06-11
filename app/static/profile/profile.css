@@ -846,6 +846,7 @@ span.showBodyOfDisplayOnHover {
 .mainchart{
     height:350px;
     padding-right: 30px;
+    padding-top: 10px;
     margin-bottom: 50px;
 }
 .cm41{
@@ -956,7 +957,7 @@ span.showBodyOfDisplayOnHover {
         height: 300px;
     }
     .mainchart{
-        height: 300px;
+        height: 380px;
         padding-left: 25px;
     }
     .linebetwaen{
