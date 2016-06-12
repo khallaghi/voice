@@ -49,8 +49,12 @@ def get_studies_result(prof):
 def get_tags(tags):
 	comment_list = []
 	for tag in tags:
-		comment_list.append(tag.name)
+		tag_dict = {}
+		tag_dict['name'] = tag.name
+		tag_dict['count'] = tag.count
+		comment_list.append(tag_dict)
 	return comment_list
+
 def get_comments(prof):
 	for cmt in prof.comments:
 		comment_dict = {}
@@ -140,6 +144,7 @@ class ProfResult(MethodView):
 		result['main_result'] = main_result
 		result['studies_result'] = [stdy_res for stdy_res in get_studies_result(prof)]
 		result['comments'] = [comment for comment in get_comments(prof)]
+		result['personal_tags'] = [tag for tag in get_tags(prof.personal_tags)]
 		return result
 	
 	def get(self, id):

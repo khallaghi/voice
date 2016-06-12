@@ -48,6 +48,7 @@ app.controller('Comment', function(Scopes,$scope){
 
 app.controller('mainResult', function(myService, Scopes, $scope){
     var results = undefined;
+    $scope.study_count = 0;
     var save_json = function(res){
         console.log("SaveJSON");
         this.result = res;
@@ -175,8 +176,9 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             credits: {
                 enabled: false
             },
-            tooltip: { enabled: false },
-            
+            tooltip: {
+                enabled: false
+            },
             legend:{
                 enabled: false,
             },
@@ -209,28 +211,42 @@ app.controller('mainResult', function(myService, Scopes, $scope){
         
 
     $scope.init = function(id){
-        console.log("init");
         this.id = id;
-        console.log(this.id);
         myService.async(this.id).then(function(d) {
             $scope.data = d;
+            console.log("data");
+            console.log($scope.data);
             $scope.chart($scope.data);
-            $scope.study_count = $scope.data.studies_result.length ;
+            $scope.study_count = $scope.data.studies_result.length;
             var comments = $scope.data.comments;
             Scopes.store("comments", comments);
-            console.log("commmmmmmmments");
-            console.log($scope.data.comments);
-            // $scope.study_chart($scope.data.studies_result[3],3)
+            Scopes.store("personal_tags", $scope.data.personal_tags);
+            Scopes.store('study_count', $scope.study_count);
             for(i = 0; i < $scope.data.studies_result.length; i++){
-                // console.log(i);
-                $scope.study_chart($scope.data.studies_result[i],i)
+                $scope.study_chart($scope.data.studies_result[i],i);
+                console.log("study");
+                console.log(i);
             }
             getCourses($scope.data.studies_result);
 
         });
     };
 });
+app.controller('chart', function(Scopes, $scope){
+    $scope.chart_count = function(){
+        console.log("study count: ");
+        console.log(Scopes.get('study_count'));
+        return Scopes.get('study_count');
+    }
+});
 
+app.controller('TagCtrl', function(Scopes, $scope){
+    $scope.get_personal_tags = function(){
+        console.log('personal_tags');
+        console.log(Scopes.get('personal_tags'));
+        return Scopes.get('personal_tags');
+    };
+});
 app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $http, $controller) {
     $scope.init = function(id){
         $scope.id = id;
@@ -483,9 +499,13 @@ app.factory('Scopes', function ($rootScope) {
  
     return {
         store: function (key, value) {
+            console.log("store");
+            console.log(mem);
             mem[key] = value;
         },
         get: function (key) {
+            console.log("get");
+            console.log(mem);
             return mem[key];
         }
     };

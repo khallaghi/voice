@@ -269,16 +269,17 @@
         <div id="x1">
             <div class="col-md-9 " style="padding-left: 0;">
                 <div class="row box" >
-                    <div class="col-md-5 tags x1-row5" style="padding-top: 20px;padding-left: 20px;">
+                    <div ng-controller="TagCtrl"  class="col-md-5 tags x1-row5" style="padding-top: 20px;padding-left: 20px;">
                         <div  class="linebetwaen"></div>
-                        <% for tag in tags %>
-                        <div class="label label-success" id="tag">
+                        
+
+                        <div ng-repeat="tag in get_personal_tags()" class="label label-success" id="tag">
                             <!-- <span > -->
-                            <span class="badge" >%%tag.count%%</span>
-                            %%" "+tag.name+" "%%
+                            <span class="badge" >{{tag.count}}</span>
+                           {{tag.name}}
                             <!-- </span> -->
                         </div>
-                        <% endfor %>
+                        
                     </div>
                     <div class="col-md-6 x1-row6" >
                         <div class="chart bg-gray" >
@@ -296,7 +297,8 @@
             <div class = " bg-gray" >
                 <!-- <div ng-repeat="i in study_count"> -->
 
-                <% for i in range(0,prof.studies|length) %>
+                <% for i in range(0,prof.studies|length ) %>
+
                 <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;border-right: 2px solid rgba(79, 91, 102, 0.14);" >
                             <span id="study-result-%% i %%" style="width:250px;height: 330px;padding-top: 50px;">
                                   Loading ...
@@ -305,6 +307,13 @@
 
                 </div>
                 <% endfor %>
+                <div class="" style="display: inline-block; padding-right: 30px;padding-left: 30px;border-right: 2px solid rgba(79, 91, 102, 0.14);" >
+                            <span id="study-result-%% prof.studies|length %%" style="width:250px;height: 330px;padding-top: 50px;">
+                                  
+
+                            </span>
+
+                </div>
                 <!-- </div> -->
             </div>
         </div>
@@ -385,7 +394,7 @@
                                     <!-- < for tag in cmt.personal_tags > -->
                                    
                                     <div class="label label-success"  ng-repeat="tag in cmt.personal_tags" style="margin: 2px 2px 2px 2px;">
-                                     {{tag}} 
+                                     {{tag.name}} 
                                      </div>
                                     
                                     <!-- < endfor > -->
