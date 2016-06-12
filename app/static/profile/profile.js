@@ -11,7 +11,7 @@ app.controller('rating', function(){
 
     var myRating = rating(el, currentRating, maxRating, callback);
 });
-app.controller('Comment', function(getComments,$scope){
+app.controller('Comment', function(Scopes,$scope){
     var dict = {
         "coolness":{
             1:"نه اصلا",
@@ -30,9 +30,9 @@ app.controller('Comment', function(getComments,$scope){
             3:"نه اصلا"
         }
     }
-    $scope.comments =function(){
-        return getComments();
-    }; 
+    $scope.get_comments = function(){
+        return Scopes.get('comments');
+    };
     $scope.result_gen = function(key, id){
         // console.log(id)
         // console.log(key + " is : ")
@@ -46,10 +46,8 @@ app.controller('Comment', function(getComments,$scope){
 });
 
 
-app.controller('mainResult', function(myService,$scope){
+app.controller('mainResult', function(myService, Scopes, $scope){
     var results = undefined;
-    $scope.comments = null;
-    var comments = null;
     var save_json = function(res){
         console.log("SaveJSON");
         this.result = res;
@@ -208,13 +206,8 @@ app.controller('mainResult', function(myService,$scope){
             }]
         });  
     };
-    app.service('getComments', function () {
-        // var property = 'First';
-        return $scope.comments; 
-    });
-    $scope.get_comments =function(){
-        return $scope.comments;
-    }
+        
+
     $scope.init = function(id){
         console.log("init");
         this.id = id;
@@ -223,7 +216,8 @@ app.controller('mainResult', function(myService,$scope){
             $scope.data = d;
             $scope.chart($scope.data);
             $scope.study_count = $scope.data.studies_result.length ;
-            comments = $scope.data.comments;
+            var comments = $scope.data.comments;
+            Scopes.store("comments", comments);
             console.log("commmmmmmmments");
             console.log($scope.data.comments);
             // $scope.study_chart($scope.data.studies_result[3],3)
@@ -237,7 +231,7 @@ app.controller('mainResult', function(myService,$scope){
     };
 });
 
-app.controller('MainCtrl', function($scope,$http) {
+app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $http, $controller) {
     $scope.init = function(id){
         $scope.id = id;
         // $scope.comment = "";
@@ -425,8 +419,11 @@ app.controller('MainCtrl', function($scope,$http) {
         $http.post("/rate", rateData).success(function(data){
             console.log(data);
         });
-        $route.reload();
-         // $window.location.reload();
+        var main_result = $scope.$new();
+        console.log("before running init");
+
+        $controller('mainResult',{$scope : main_result });
+        main_result.init($scope.id);
     }
 
     };
@@ -437,7 +434,7 @@ app.controller('MainCtrl', function($scope,$http) {
         $scope.showModal = !$scope.showModal;
     };
 
-  });
+  }]);
 
 app.directive('modal', function () {
     return {
@@ -481,6 +478,18 @@ app.directive('modal', function () {
     };
   });
 
+app.factory('Scopes', function ($rootScope) {
+    var mem = {};
+ 
+    return {
+        store: function (key, value) {
+            mem[key] = value;
+        },
+        get: function (key) {
+            return mem[key];
+        }
+    };
+});
 
 app.factory('myService', function($http) {
   var myService = {

@@ -23,6 +23,7 @@
 
 
 <body class="bg" ng-controller="mainResult as main" ng-init="init('%% prof.id %%');">
+
 <!-- PersianStat -->
 <!-- URL: http://genew.ir -->
 
@@ -312,12 +313,10 @@
         <div class="col-md-12 col-xs-offset-right-0" style="padding: 30px;">
 
             <div class=" bg-gray comments">
-                <div ng-repeate="cmt in comments">
-                  {{main.comments}}
-                </div>
-                <% set count = 0%>
-                <%  for cmt in prof.comments %>
-                <% set count = count + 1%>
+               <div ng-repeat="cmt in get_comments()">
+
+               
+                <!-- start for -->
 
                 <div class="row" id="each-comment">
                     <!--<div class="col-md-1 ">-->
@@ -327,22 +326,20 @@
                     <div class="col-md-2 cm1" >
                         <!--style="border-left: 2px solid rgba(79, 91, 102, 0.14);"-->
                         <!--class name-->
-                        <div class="cmclass"> درس: %% cmt.study.name %% </div>
+                        <div class="cmclass"> درس: {{ cmt.study }} </div>
                         <!--class name-->
-                        <% if count < prof.comments.count() %>
-
-                        <% endif %>
+                        
                         <p>
                             حضور غیاب:
-                            {{result_gen('attendance', %% cmt.attendance %%)}}
+                            {{result_gen('attendance',  cmt.attendance)}}
                         </p>
                         <p>
                             باحاله:
-                            {{result_gen('coolness', %% cmt.coolness %% )}}
+                            {{result_gen('coolness',  cmt.coolness )}}
                         </p>
                         <p>
                             کتاب استفاده می‌کنه:
-                            {{result_gen('useTextbook', %% cmt.use_textbook %%)}}
+                            {{result_gen('useTextbook', cmt.use_textbook )}}
                         </p>
                     </div>
 
@@ -351,7 +348,7 @@
                         <p>
 
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.helpfulness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.helpfulness %%)}}%; display: block; float: right;">
+                            <div class="progress-bar" role="progressbar" aria-valuenow=" {{cmt.helpfulness}}" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent( cmt.helpfulness )}}%; display: block; float: right;">
                                 هوا تو داره
                             </div>
                         </div>
@@ -360,7 +357,7 @@
                         <p>
 
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.easiness%%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.easiness %%)}}%; display: block; float: right;">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{cmt.easiness}}" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(cmt.easiness)}}%; display: block; float: right;">
                                 آسون مگیره
                             </div>
                         </div>
@@ -369,7 +366,7 @@
                         <p>
 
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="%% cmt.clarity %%" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(%% cmt.clarity %%)}}%; display: block; float: right;">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{cmt.clarity}}" aria-valuemin="0" aria-valuemax="5" style="width: {{calcPercent(cmt.clarity)}}%; display: block; float: right;">
                                 قابل فهمه
                             </div>
                         </div>
@@ -385,20 +382,25 @@
                         <div class="col-md-12 cm31">
                             <div class="comment-body">
                                 <div class="tags" >
-                                    <% for tag in cmt.personal_tags %>
-                                    <div class="label label-success">%% tag.name %%</div>
-                                    <% endfor %>
+                                    <!-- < for tag in cmt.personal_tags > -->
+                                   
+                                    <div class="label label-success"  ng-repeat="tag in cmt.personal_tags">
+                                     {{tag}} 
+                                     </div>
+                                    
+                                    <!-- < endfor > -->
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-10 cm32" style=" word-wrap: break-word; padding-right: 30px;direction: rtl;">
-                            <p>%% cmt.body %%</p>
+                            <p>{{ cmt.body }}</p>
                         </div>
 
                     </div>
                 </div>
                 <br>
-                <% endfor %>
+                </div>
+                <!-- endfor -->
             </div>
         </div>
     </div>
