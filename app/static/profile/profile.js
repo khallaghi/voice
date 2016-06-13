@@ -246,6 +246,9 @@ app.controller('TagCtrl', function(Scopes, $scope){
         console.log(Scopes.get('personal_tags'));
         return Scopes.get('personal_tags');
     };
+    $scope.convert_num = function(num){
+        return num;
+    }
 });
 app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $http, $controller) {
     $scope.init = function(id){
@@ -407,17 +410,74 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
     $scope.findCourse = true;
     $scope.canFindCourse = function(){
         $scope.findCourse = !$scope.findCourse;
+        console.log($scope.findCourse);
     }
+    var pushAlert = function(error){
+        alert("هیچ گزینه‌ای برای " + error +" یافت نشد");
+    };
+    var pushCustomAlert = function(error){
+        alert(error);
+    };
+    var checkErrors = function(course_name, selected_course){
+         if($scope.findCourse == true){
+            if(selected_course == undefined){
+                pushCustomAlert("هیچ درسی انتخاب نکردی");
+                return false;
+            }
+        }
+        else{
+            if(course_name == undefined){
+                pushCustomAlert("هیچ درسی انتخاب نکردی");
+                return false;
+            }
+        }
+
+        if($scope.helpfulness == 0){
+            pushAlert("دلسوزی");
+            return false;
+        }
+        if($scope.easiness == 0){
+            pushAlert("آسونی");
+            return false;
+        }
+        if($scope.clarity == 0){
+            pushAlert("قابل فهم بودن");
+            return false;
+        }
+        if($scope.coolness == 0){
+            pushAlert("باحالی");
+            return false;
+        }
+        if($scope.useTextbook == 0){
+            pushAlert("استفاده از کتاب");
+            return false;
+        }
+        if($scope.attendance == 0){
+            pushAlert("حضور غیاب");
+            return false;
+        }
+        console.log("cmt");
+        console.log($scope.comment);
+        if($scope.comment == undefined || $scope.comment.length == 0){
+            pushAlert("نظری");
+            return false;
+        }
+        else if($scope.comment.length > 1000){
+            pushCustomAlert("کامنت شما بیش از هزار کلمه است \n یکم کمتر بنویس لطفا :)");
+            return false;
+        }
+       
+        return true;
+    };
 
     $scope.submitRate = function(cmt, course_name, selected_course){
         $scope.applyComment(cmt);
         if($scope.submit === false){
-            $scope.submit = true;
-        console.log("course name");
-        console.log(course_name);
-        console.log("find course");
-        console.log($scope.findCourse);
-        console.log("selected course -->" + selected_course);
+            
+        if(!checkErrors(course_name, selected_course)){
+            $scope.showModal = true;
+            return false;
+        }
         var rateData = {
             'id':$scope.id,
             'helpfulness':$scope.helpfulness,
@@ -434,18 +494,26 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
         };
         $http.post("/rate", rateData).success(function(data){
             console.log(data);
+            $scope.submit = true;
         });
         var main_result = $scope.$new();
         console.log("before running init");
 
         $controller('mainResult',{$scope : main_result });
         main_result.init($scope.id);
+        return true;
     }
 
     };
-
+    $scope.retVal = true;
+    $scope.handleModal = function(retVal){
+        console.log("injja handl Modal");
+        console.log(retVal);
+        if(retVal == false)
+            $scope.showModal = true;
+            retVal = true;
+    };
     $scope.showModal = false;
-    // this.data = {};
     $scope.toggleModal = function(){
         $scope.showModal = !$scope.showModal;
     };

@@ -257,7 +257,8 @@
                                             data-dismiss="modal"
                                             aria-hidden="true"
                                             ng-click="submitRate(cmt, course_name, selected_course);">{{getSubmitBtnTitle()}}</button>
-                                </div>
+                                            
+                                </div>  
                                 </div>
                                 </div>
                             </div>
@@ -275,7 +276,7 @@
 
                         <div ng-repeat="tag in get_personal_tags()" class="label label-success" id="tag">
                             <!-- <span > -->
-                            <span class="badge" >{{tag.count}}</span>
+                            <span class="badge" >{{(tag.count)}}</span>
                            {{tag.name}}
                             <!-- </span> -->
                         </div>
