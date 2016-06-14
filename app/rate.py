@@ -53,6 +53,12 @@ class ProfessorRate(MethodView):
 			tmp_tag = Tag(name = tag)
 			cmt.personal_tags.append(tmp_tag)
 
+	def set_id_for_comments(self, prof):
+		i = 0
+		for cmt in prof.comments:
+			cmt.id = i
+			i += 1
+		prof.save()
 	def apply_comment(self, prof, data):
 		if not 'comment' in data:
 			print "comment is empty"
@@ -69,11 +75,21 @@ class ProfessorRate(MethodView):
 		cmt.use_textbook = data['useTextbook']
 		cmt.attendance = data['attendance']
 		cmt.study = prof.studies[-1]
+
 		print "FIRST"
 		print cmt.personal_tags
 		self.append_tags(cmt, data)
 		print "SECOND"
 		print cmt.personal_tags
+		if len(prof.comments)>= 1:
+			if prof.comments[-1].id == -1 or prof.comments[-1] == None:
+				print "OVERRIDE ID OF COMMENT"
+				self.set_id_for_comments(prof)
+			cmt.id = prof.comments[-1].id + 1
+		else:
+			cmt.id = 0
+		print "CMT ID"
+		print cmt.id
 		prof.comments.append(cmt)
 		prof.save()
 
@@ -137,3 +153,28 @@ class ProfessorRate(MethodView):
 		return "salam"
 
 rate.add_url_rule('/rate', view_func=ProfessorRate.as_view('professorRate'))
+
+def find_cmt(prof, id):
+	for cmt in prof.comments:
+		print "ID"
+		print id
+		print cmt.id
+		if str(cmt.id) == id:
+			return cmt
+
+class ReportComment(MethodView):
+	def get(self, prof_id, cmt_id):
+		prof = Professor.objects(id = prof_id).first()
+		if prof:
+			print "BEFORE find_cmt"
+			cmt = find_cmt(prof, cmt_id)
+			print "ATER CMT"
+			print cmt
+			if cmt:
+				cmt.reported = 1
+				print "BEFORE SAVE"
+				prof.save()
+				print "IN THE REPORT COMMENT"
+				return "True"
+		return "False"
+rate.add_url_rule('/report/<prof_id>/<cmt_id>', view_func=ReportComment.as_view('reportComment'))

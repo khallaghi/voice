@@ -73,6 +73,8 @@ def get_comments(prof):
 		comment_dict['coolness'] = cmt.coolness
 		comment_dict['use_textbook'] = cmt.use_textbook
 		comment_dict['attendance'] = cmt.attendance
+		comment_dict['id'] = cmt.id
+		comment_dict['reported'] = cmt.reported
 		yield comment_dict
 class ProfProfile(MethodView):
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+%%  JSGlue.include() %%
 <% import '_forms.html' as forms %>
 <html ng-app="profile">
 <head>
@@ -323,12 +324,12 @@
         <div class="col-md-12 col-xs-offset-right-0" style="padding: 30px;">
 
             <div class=" bg-gray comments">
-               <div ng-repeat="cmt in get_comments()">
+               <div ng-repeat="cmt in get_comments()" >
 
                
-                <!-- start for -->
-
-                <div class="row" id="each-comment">
+               
+                <div class="row" id="each-comment" ng-hide="cmt.reported == 1">
+                  
                     <!--<div class="col-md-1 ">-->
                     <!--<div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>-->
                     <!--<img style="width: 50px;margin-left: 10%px;" src="%%url_for('static', filename='img/cool/4.png')%%">-->
@@ -407,7 +408,7 @@
                         <div class="col-md-10 cm32" style=" word-wrap: break-word; padding-right: 30px;direction: rtl;">
                             <p>{{ cmt.body }}</p>
                         </div>
-
+                      <a ng-click="report_cmt(cmt.id);">report</a>
                     </div>
                 </div>
                 <br>

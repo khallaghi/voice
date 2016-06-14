@@ -11,7 +11,7 @@ app.controller('rating', function(){
 
     var myRating = rating(el, currentRating, maxRating, callback);
 });
-app.controller('Comment', function(Scopes,$scope){
+app.controller('Comment', function(reportComment, Scopes, $scope){
     var dict = {
         "coolness":{
             1:"نه اصلا",
@@ -38,6 +38,20 @@ app.controller('Comment', function(Scopes,$scope){
         // console.log(key + " is : ")
         // console.log(dict[key][id.toString()])
         return dict[key][id.toString()];
+    };
+    $scope.report_cmt = function(cmt_id){
+        console.log("cmt id");
+        console.log(cmt_id);
+        prof_id = Scopes.get("prof_id");
+        console.log("prof id");
+        console.log(prof_id);
+        // return Flask.url_for("rate.reportComment", {"prof_id":prof_id,"cmt_id":cmt_id });
+        reportComment.async(prof_id, cmt_id).then(function(d){
+            if(d == "True")
+                alert("درخواست شما با موفقیت ثبت شد");
+            else
+                alert("ثبت درخواست شما با مشکل روبرو شد");
+        });
     };
     $scope.calcPercent = function(val){
         var maximum = 5;
@@ -212,6 +226,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
 
     $scope.init = function(id){
         this.id = id;
+        Scopes.store("prof_id", id);
         myService.async(this.id).then(function(d) {
             $scope.data = d;
             console.log("data");
@@ -567,13 +582,9 @@ app.factory('Scopes', function ($rootScope) {
  
     return {
         store: function (key, value) {
-            console.log("store");
-            console.log(mem);
             mem[key] = value;
         },
         get: function (key) {
-            console.log("get");
-            console.log(mem);
             return mem[key];
         }
     };
@@ -596,6 +607,24 @@ app.factory('myService', function($http) {
   };
   return myService;
 });
+
+app.factory('reportComment', function($http) {
+  var reportComment = {
+    async: function(prof_id, cmt_id) {
+      // $http returns a promise, which has a then function, which also returns a promise
+      var promise = $http.get('/report/' + prof_id + '/' + cmt_id).then(function (response) {
+        // The then function here is an opportunity to modify the response
+        
+        // The return value gets picked up by the then in the controller.
+        return response.data;
+      });
+      // Return the promise to the controller
+      return promise;
+    }
+  };
+  return reportComment;
+});
+
 
 
 var getCourses = function(data){

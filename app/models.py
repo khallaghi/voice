@@ -77,7 +77,9 @@ class Tag(db.EmbeddedDocument):
 
 
 class Comment(db.EmbeddedDocument):
+    id = db.IntField(default = -1)
     created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
+    reported = db.IntField(default = 0)
     # author = db.StringField(verbose_name="Name", max_length=255, required=True)
 
     body = db.StringField(verbose_name="Comment")
