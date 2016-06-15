@@ -442,6 +442,7 @@ ul.dropdown-menu { border: none }
     /*bottom: 0;*/
     right: 0;
     padding-bottom: 5%;
+
     font-size: 18px;
 }
 .cmclass{
@@ -500,7 +501,7 @@ ul.dropdown-menu { border: none }
     margin-left: 5%;
     /*float: right;*/
 }
-.rate-form label{
+.label{
     /*font-size: 15px;*/
     margin-left: 10px;
     /*float:right;*/
@@ -935,7 +936,16 @@ span.showBodyOfDisplayOnHover {
         bottom: 10px;
     }
 }
-
+a.reporting {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #D32F2F;
+    color: #9acfea;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: blink;
+}
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px)  {
     .navbar-collapse{
         width: 80%;
@@ -970,6 +980,11 @@ span.showBodyOfDisplayOnHover {
     }
     .tags{
         line-height: 40px;
+
+    }
+    .label{
+        padding: 8px;
+        display: inline-block;
     }
     .progress-bar{
         font-size: 8px;
