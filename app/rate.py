@@ -7,6 +7,7 @@ from mongoengine import Q
 from flask_restful import reqparse
 import json
 from app.auth import requires_auth
+from app import app
 LEN_TOO_MUCH = 1
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
@@ -114,6 +115,9 @@ class ProfessorRate(MethodView):
 	def find_and_update_course(self, prof, data):
 		for study in prof.studies:
 			if study.name == data['selectedCourse']:
+				app.logger.warning("STUDY NAME")
+				app.logger.warning(study.name.encode('utf-8'))
+				app.logger.warning(data['selectedCourse'].encode('utf-8'))
 				self.update_course(study, data)
 				prof.save()
 				return True

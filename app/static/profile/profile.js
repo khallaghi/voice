@@ -34,18 +34,10 @@ app.controller('Comment', function(reportComment, Scopes, $scope){
         return Scopes.get('comments');
     };
     $scope.result_gen = function(key, id){
-        // console.log(id)
-        // console.log(key + " is : ")
-        // console.log(dict[key][id.toString()])
         return dict[key][id.toString()];
     };
     $scope.report_cmt = function(cmt_id){
-        console.log("cmt id");
-        console.log(cmt_id);
         prof_id = Scopes.get("prof_id");
-        console.log("prof id");
-        console.log(prof_id);
-        // return Flask.url_for("rate.reportComment", {"prof_id":prof_id,"cmt_id":cmt_id });
         reportComment.async(prof_id, cmt_id).then(function(d){
             if(d == "True")
                 alert("درخواست شما با موفقیت ثبت شد");
@@ -64,7 +56,6 @@ app.controller('mainResult', function(myService, Scopes, $scope){
     var results = undefined;
     $scope.study_count = 0;
     var save_json = function(res){
-        console.log("SaveJSON");
         this.result = res;
     };
 
@@ -229,8 +220,6 @@ app.controller('mainResult', function(myService, Scopes, $scope){
         Scopes.store("prof_id", id);
         myService.async(this.id).then(function(d) {
             $scope.data = d;
-            console.log("data");
-            console.log($scope.data);
             $scope.chart($scope.data);
             $scope.study_count = $scope.data.studies_result.length;
             var comments = $scope.data.comments;
@@ -239,8 +228,6 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             Scopes.store('study_count', $scope.study_count);
             for(i = 0; i < $scope.data.studies_result.length; i++){
                 $scope.study_chart($scope.data.studies_result[i],i);
-                console.log("study");
-                console.log(i);
             }
             getCourses($scope.data.studies_result);
 
@@ -249,16 +236,12 @@ app.controller('mainResult', function(myService, Scopes, $scope){
 });
 app.controller('chart', function(Scopes, $scope){
     $scope.chart_count = function(){
-        console.log("study count: ");
-        console.log(Scopes.get('study_count'));
         return Scopes.get('study_count');
     }
 });
 
 app.controller('TagCtrl', function(Scopes, $scope){
     $scope.get_personal_tags = function(){
-        console.log('personal_tags');
-        console.log(Scopes.get('personal_tags'));
         return Scopes.get('personal_tags');
     };
     $scope.convert_num = function(num){
@@ -268,9 +251,7 @@ app.controller('TagCtrl', function(Scopes, $scope){
 app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $http, $controller) {
     $scope.init = function(id){
         $scope.id = id;
-        // $scope.comment = "";
     };
-    // $scope.id = undefined;
     $scope.submit = false;
     var validateScore = function(score){
         if(score <= 6 && score > 0)
@@ -279,57 +260,42 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
     };
     $scope.helpfulness = 0;
     $scope.setHelpfulness = function(score){
-        console.log("helpfulness");
         if(validateScore(score)){
             $scope.helpfulness = score;
-            console.log($scope.helpfulness);
         }
     };
 
     // $scope.comment = "";
     $scope.easiness = 0;
     $scope.setEasiness = function(score){
-        console.log("easiness");
-
         if(validateScore(score)){
             $scope.easiness = score;
-            console.log(score);
         }
     };
     $scope.clarity = 0;
     $scope.setClarity = function(score){
-        console.log("clarity");
-
         if(validateScore(score)){
             $scope.clarity = score;
-            console.log(score);
         }
     };
 
     $scope.coolness = 0;
     $scope.setCoolness = function(score){
-        console.log("coolness");
         if(validateScore(score))
             $scope.coolness = score;
-        console.log(score);
-        console.log($scope.coolness);
     };
 
     $scope.useTextbook = 0;
     $scope.setUseTextbook = function(score){
-        console.log("textbook");
         if(score<=2 && score>=0)
             $scope.useTextbook = score;
-        console.log($scope.useTextbook);
     };
 
     $scope.attendance = 0;
     $scope.setAttendance = function(score){
-        console.log("attendance");
 
         if(score<=3 && score>0){
             $scope.attendance = score;
-            console.log($scope.attendance);
         }
     };
     $scope.selectedTagsCount = 0;
@@ -396,7 +362,6 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
             $scope.allTags[i].status = 0;
             $scope.selectedTagsCount--;
         }
-        console.log($scope.allTags);
 
     };
     var getTags = function(){
@@ -406,7 +371,6 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
                 selectedTags.push($scope.allTags[i].name);
             }
         }
-        console.log(selectedTags);
         return selectedTags;
     };
     $scope.getSubmitBtnTitle = function(){
@@ -417,15 +381,12 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
 
     $scope.comment = "";
     $scope.applyComment = function(cmt){
-        console.log(cmt);
         $scope.comment = cmt;
-        console.log("this is applyComment");
     };
 
     $scope.findCourse = true;
     $scope.canFindCourse = function(){
         $scope.findCourse = !$scope.findCourse;
-        console.log($scope.findCourse);
     }
     var pushAlert = function(error){
         alert("هیچ گزینه‌ای برای " + error +" یافت نشد");
@@ -471,8 +432,6 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
             pushAlert("حضور غیاب");
             return false;
         }
-        console.log("cmt");
-        console.log($scope.comment);
         if($scope.comment == undefined || $scope.comment.length == 0){
             pushAlert("نظری");
             return false;
@@ -507,12 +466,12 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
             'courseName':course_name,
             'selectedCourse':selected_course
         };
+        console.log("RATE DATA");
+        console.log(rateData);
         $http.post("/rate", rateData).success(function(data){
-            console.log(data);
             $scope.submit = true;
         });
         var main_result = $scope.$new();
-        console.log("before running init");
 
         $controller('mainResult',{$scope : main_result });
         main_result.init($scope.id);
@@ -522,8 +481,6 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
     };
     $scope.retVal = true;
     $scope.handleModal = function(retVal){
-        console.log("injja handl Modal");
-        console.log(retVal);
         if(retVal == false)
             $scope.showModal = true;
             retVal = true;
@@ -596,8 +553,6 @@ app.factory('myService', function($http) {
       // $http returns a promise, which has a then function, which also returns a promise
       var promise = $http.get('/prof/getResults/' + id).then(function (response) {
         // The then function here is an opportunity to modify the response
-        console.log(response);
-        console.log(response.data.comments)
         // The return value gets picked up by the then in the controller.
         return response.data;
       });
@@ -629,8 +584,6 @@ app.factory('reportComment', function($http) {
 
 var getCourses = function(data){
     // var data = [ { id: 4, text: 'wontfix' }];
-    console.log("getCourses");
-    console.log(data);
     var select2_data = [];
     for(i = 0; i < data.length; i++){
         var temp = {id:data[i].name, text:data[i].name};
