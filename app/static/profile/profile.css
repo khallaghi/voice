@@ -804,7 +804,16 @@ span.showBodyOfDisplayOnHover {
     text-align: right;
     box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;
 }
-
+.box2{
+    background-color: #EEEEEE;
+    height: 100%;
+    /*margin-top: 5px;*/
+    /*margin-bottom: 20px;*/
+    /*border-radius: 10px;*/
+    position: relative;
+    text-align: right;
+    /*box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;*/
+}
 .btn-circle {
     /*width: 30px;*/
     /*height: 30px;*/
@@ -946,6 +955,16 @@ a.reporting {
     /*border-radius: 5px;*/
     cursor: pointer;
     text-decoration: blink;
+    /*visibility: hidden;*/
+}
+.hide {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+.this-will-not-be-read {
+    display: none !important;
 }
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px)  {
     .navbar-collapse{

@@ -1,1 +1,294 @@
-aboutus
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>-->
+    <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>-->
+
+    <script language='javascript' type='text/javascript' src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
+    <script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/conent.js')%%"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="%%url_for('static', filename='content/animate.css')%%" >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="%%url_for('static', filename='content/style.css')%%" >
+
+</head>
+<body>
+
+<!-- Start Logo Section -->
+<section id="logo-section" class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="logo text-center">
+                    <a  href="%%url_for('search.search')%%"><h1  >Genew StudentMatter</h1></a>
+                    <!-- <span>Your Business Field</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Logo Section -->
+
+
+
+<div ng-controller="ModalDemoCtrl">
+
+    <!-- Start Main Body Section -->
+    <div class="mainbody-section text-center">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <div class="menu-item blue">
+                        <a href="#feature-modal" ng-click="openModal('feature-modal.html')">
+                            <i class="fa fa-magic"></i>
+                            <p>امکانات</p>
+                        </a>
+                    </div>
+
+                    <!--<div class="menu-item green">-->
+                    <!--<a href="#portfolio-modal" data-toggle="modal">-->
+                    <!--<i class="fa fa-file-photo-o"></i>-->
+                    <!--<p>Portfolio</p>-->
+                    <!--</a>-->
+                    <!--</div>-->
+
+                    <div class="menu-item light-red">
+                        <a href="#about-modal" ng-click="openModal('about-modal.html')" >
+                            <i class="fa fa-user"></i>
+                            <p>در باره ما</p>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <!-- Start Carousel Section -->
+                    <div class="home-slider">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="padding-bottom: 30px;">
+                            <!-- Indicators -->
+                            <!--<ol class="carousel-indicators">-->
+                            <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
+                            <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
+                            <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+                            <!--</ol>-->
+
+                            <!-- Wrapper for slides -->
+                            <div class="">
+                                <video controls autoplay  controls width="400">
+                                    <source src="%%url_for('static', filename='content/video/t.mp4')%%" type="video/mp4">
+                                    <!--<source src="mov_bbb.ogg" type="video/ogg">-->
+                                    Your browser does not support HTML5 video.
+                                </video>
+                                <!--<div class="item">-->
+                                <!--<img src="%%url_for('static', filename='content/images/about-02.jpg')%%" class="img-responsive" alt="">-->
+                                <!--</div>-->
+                                <!--<div class="item">-->
+                                <!--<img src="%%url_for('static', filename='content/images/about-01.jpg')%%" class="img-responsive" alt="">-->
+                                <!--</div>-->
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Start Carousel Section -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="menu-item color responsive">
+                                <a href="#service-modal" ng-click="openModal('service-modal.html')">
+                                    <i class="fa fa-area-chart"></i>
+                                    <p>خدمات</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="menu-item light-orange responsive-2">
+                                <a href="#team-modal" ng-click="openModal('team-modal.html')">
+                                    <i class="fa fa-users"></i>
+                                    <p> همکاری با ما</p>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="menu-item light-red">
+                        <a href="#contact-modal" ng-click="openModal('contact-modal.html')">
+                            <i class="fa fa-envelope-o"></i>
+                            <p>راه های ارتباطی</p>
+                        </a>
+                    </div>
+
+                    <!--<div class="menu-item color">-->
+                    <!--<a href="#testimonial-modal" data-toggle="modal">-->
+                    <!--<i class="fa fa-comment-o"></i>-->
+                    <!--<p>Testimonial</p>-->
+                    <!--</a>-->
+                    <!--</div>-->
+
+                    <div class="menu-item blue">
+                        <a href="#news-modal" ng-click="openModal('news-modal.html')">
+                            <i class="fa fa-mortar-board"></i>
+                            <p>اخرین اخبار سایت</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Main Body Section -->
+
+
+
+    <!--<button type="button" class="btn btn-default" ng-click="open()">Open me!</button>-->
+    <!--<button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>-->
+    <!--<button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>-->
+    <!--<button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>-->
+    <!--<div ng-show="selected">Selection from a modal: {{ selected }}</div>-->
+</div>
+
+
+<!---->
+<script type="text/ng-template" id="feature-modal.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-left team-head">امکانات</h3>
+    </div>
+    <div class="modal-body text-center">
+        <img src="%%url_for('static',filename='content/images/under.gif')%%">
+    </div>
+    <div class="modal-footer">
+
+        <button class="btn " type="button" ng-click="cancel()">بستن</button>
+    </div>
+</script>
+<!---->
+<!--aboutus-modal.html-->
+<script type="text/ng-template" id="about-modal.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-left team-head">در باره ما</h3>
+    </div>
+    <div class="modal-content text-center team">
+        <p>جنیو یک سایت نیست، یک سامانه نظر سنجی نیست…</br>
+            جنیو یک حرکت دانشجویی است، حرکتی برای ساخت هرچه بهتر فرادی خودمان.</br>
+            ییییینیننینییننینی Student matters این شعار ماست.
+            شعاری که تنها با گردهمایی تمامیه ما برو بچه های دانشجو به واقعیت خواهد پیوست.
+            امروز از یک سایت شروع به کار کرده ایم و فردا به هر ستاره های که لازم باشد دست می اندازیم.</br>
+            GeNew Job, GeNew Sport, GeNew Restaurants, GeNew Concerts …</br>
+            در حال حاضر حرکت خود را با سامانه نظر سنجی اساتید شروع کردهایم تا کمک حالی برای انتخاب واحد باشد چرا که ظرفیت اصلی حرکتمان در مرحله پیش رو بهبود امور آموزشی میباشد و اما خبر خوش…
+            در تمامی این مراحل هدف ما ایجاد سرگرمی و ایجاد روحیه مضاعف برای ادامه است پس شک نکنید فضایی را خواهیم ساخت که همه آرزوی بودن در آن را داشته باشند.
+            دنیا بچههای دانشجو را به GeNew خواهد شناخت.
+          </p>
+    </div>
+    <div class="modal-footer">
+
+        <button class="btn btn-warning" type="button" ng-click="cancel()">بستن</button>
+    </div>
+
+</script>
+<!--aboutus-modal.html-->
+<!--service-modal.html-->
+<script type="text/ng-template" id="service-modal.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-left team-head">خدمات</h3>
+    </div>
+    <div class="modal-body text-center">
+        <img src="%%url_for('static',filename='content/images/under.gif')%%">
+    </div>
+    <div class="modal-footer">
+
+        <button class="btn " type="button" ng-click="cancel()">بستن</button>
+    </div>
+
+</script>
+<!--service-modal.html-->
+<!--team-modal.html-->
+<script type="text/ng-template" id="team-modal.html">
+
+    <div class="modal-header text-left team-head">
+        <h3 class="modal-title ">همكارى با ما</h3>
+    </div>
+    <div class="modal-content text-center">
+        <div class="row team">
+            <p>دنیایی که جنیو نوید ساخت آن را میدهد به فراخی رویای تک تک ماست…
+            شک نکنید برای ساخت فردایی چنین روشن به همکاری یکایک شما نیازمندیم، با هر توان و هر مهارتی.</br>
+            آسمان شهر فردا تاب پرواز همگیمان را دارد، کافیست دست یکدیگر را بگیریم.</br>
+            لطفا اطلاعات کامل خود را همراه با زمینه که در آن توان و علاقه به فعالیت دارید به ایمیل زیر ارسال کنید.
+        </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+
+        <button class="btn " type="button" ng-click="cancel()">بستن</button>
+    </div>
+
+</script>
+<!--team-modal.html-->
+<!--contact-modal.html-->
+<script type="text/ng-template" id="contact-modal.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-left team-head">تماس با ما</h3>
+    </div>
+    <div class="modal-body text-center">
+        <div class="row team">
+            <div class="col-md-12"><p> GeNew روزی خواهد درخشید که بر فراز دستان یکایکمان بلند باشد.
+                    شکی نیست برای ساخت این موج دست سازم مهم ترین کمک اندیشه و نظر گرم شما عزیزان است.
+                    تلاش ما بر آن است در کوتاه ترین زمان ممکن پاسخ گوی شما باشیم.</p>
+            </div>
+
+        </div>
+        <div class="row contact" >
+            <div class="col-md-6 text-right ">
+                <p>ایمیل ما</p>
+            </div>
+            <div class="col-md-6 text-left">
+                <a target="_blank">????@????.????</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static',filename='content/images/instagram.png')%%"  width="60px" height="60px"></a>
+                <a href="https://telegram.me/genew_ir"target="_blank"><img src="%%url_for('static',filename='content/images/Telegram_logo.svg.png')%%"  width="60px" height="60px"></a>
+                <a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static',filename='content/images/twitter-logo.png')%%"  width="60px" height="60px"></a>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+
+        <button class="btn " type="button" ng-click="cancel()">بستن</button>
+    </div>
+
+</script>
+<!--contcact-modal.html-->
+<!--news-modal.html-->
+<script type="text/ng-template" id="news-modal.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-left team-head">اخبار</h3>
+    </div>
+    <div class="modal-body text-center">
+        <img src="%%url_for('static',filename='content/images/under.gif')%%">
+    </div>
+    <div class="modal-footer">
+
+        <button class="btn " type="button" ng-click="cancel()">بستن</button>
+    </div>
+
+</script>
+<!--news-modal.html-->
+</body>
+</html>
