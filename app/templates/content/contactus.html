@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>About us</title>
+        <title>Talk to us</title>
 
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.css')%%" >
@@ -29,22 +29,41 @@
 
         <!-- Template js -->
         <script language='javascript' type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/js/bootstrap.min.js')%%/"></script>
-        <script language='javascript' type='text/javascript'  src="%%url_for('static', filename='content/js/jquery.appear.js')%%"></script>
-        <script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/js/contact_me.js')%%"></script>
-        <script language='javascript' type='text/javascript'src="%%url_for('static', filename='content/js/jqBootstrapValidation.js')%%"></script>
-        <script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/js/modernizr.custom.js')%%"></script>
-        <script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/js/script.js')%%"></script>
+        <!--<script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/js/bootstrap.min.js')%%/"></script>-->
+        <script language='javascript' type='text/javascript' src="%%url_for('static', filename='bootstrap/js/bootstrap-modal.js')%%/"></script>
+        <!--<script language='javascript' type='text/javascript'  src="%%url_for('static', filename='content/js/jquery.appear.js')%%"></script>-->
+        <!--<script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/js/contact_me.js')%%"></script>-->
+        <!--<script language='javascript' type='text/javascript'src="%%url_for('static', filename='content/js/jqBootstrapValidation.js')%%"></script>-->
+        <!--<script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/js/modernizr.custom.js')%%"></script>-->
+        <!--<script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/js/script.js')%%"></script>-->
 
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
     </head>
     
     <body>
-        
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
         <!-- Start Logo Section -->
         <section id="logo-section" class="text-center">
             <div class="container">
@@ -69,7 +88,7 @@
                     <div class="col-md-3">
                         
                         <div class="menu-item blue">
-                            <a href="#feature-modal" data-toggle="modal">
+                            <a href="#feature-modal" ng-click="toggleModal()">
                                 <i class="fa fa-magic"></i>
                                 <p>امکانات</p>
                             </a>
@@ -177,7 +196,7 @@
         
         
         <!-- Start Feature Section -->
-        <div class="section-modal modal fade" id="feature-modal" tabindex="-1" role="dialog" aria-hidden="true" style="opacity: 1;">
+        <modal class="section-modal modal fade" id="feature-modal" tabindex="-1" role="dialog" aria-hidden="true" >
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
                     <div class="lr">
@@ -235,7 +254,7 @@
                 </div>
                 
             </div>
-        </div>
+        </modal>
         <!-- End Feature Section -->
 
         
@@ -934,7 +953,11 @@
         </div>
         <!-- End Contact Section -->
         
-
+    <script  type='text/javascript'>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })
+    </script>
     </body>
     
 </html>

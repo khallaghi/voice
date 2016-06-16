@@ -942,7 +942,7 @@ a.reporting {
     padding-right: 10px;
     background-color: #D32F2F;
     color: #9acfea;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     text-decoration: blink;
 }
