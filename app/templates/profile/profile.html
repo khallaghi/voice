@@ -405,10 +405,13 @@
                             </div>
                             <br>
                         </div>
-                        <div class="col-md-10 cm32" style=" word-wrap: break-word; padding-right: 30px;direction: rtl;">
+                        <div class="col-md-10 cm32" style="padding-top:10px;word-wrap: break-word; padding-right: 30px;direction: rtl;">
                             <p>{{ cmt.body }}</p>
+
                         </div>
-                      <a ng-click="report_cmt(cmt.id);">report</a>
+                        <div class="col-md-10 " style="padding-top: 20px;">
+                            <a class="reporting" ng-click="report_cmt(cmt.id);">report</a>
+                        </div>
                     </div>
                 </div>
                 <br>

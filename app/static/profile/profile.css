@@ -60,7 +60,7 @@ body{
     margin-top: 30px;
     padding: 0;
 }
-.navbar-brand span { color: #48cfad }
+.navbar-brand span { color: #00BCD4 }
 .head-section .navbar-collapse  ul.navbar-nav {
     /*float: left;*/
     /*margin-right: 0;*/
@@ -184,7 +184,8 @@ ul.dropdown-menu { border: none }
 
 .bg{
     /*background-color: rgba(33, 150, 243, 0.77);*/
-    background-image: url("back.jpg") ;
+    background-image: url("back.jpg")  ;
+    background-attachment:fixed ;
 }
 .box{
     background-color: #EEEEEE;
@@ -441,6 +442,7 @@ ul.dropdown-menu { border: none }
     /*bottom: 0;*/
     right: 0;
     padding-bottom: 5%;
+
     font-size: 18px;
 }
 .cmclass{
@@ -499,7 +501,7 @@ ul.dropdown-menu { border: none }
     margin-left: 5%;
     /*float: right;*/
 }
-.rate-form label{
+.label{
     /*font-size: 15px;*/
     margin-left: 10px;
     /*float:right;*/
@@ -934,7 +936,16 @@ span.showBodyOfDisplayOnHover {
         bottom: 10px;
     }
 }
-
+a.reporting {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #D32F2F;
+    color: #9acfea;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: blink;
+}
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px)  {
     .navbar-collapse{
         width: 80%;
@@ -969,6 +980,11 @@ span.showBodyOfDisplayOnHover {
     }
     .tags{
         line-height: 40px;
+
+    }
+    .label{
+        padding: 8px;
+        display: inline-block;
     }
     .progress-bar{
         font-size: 8px;
