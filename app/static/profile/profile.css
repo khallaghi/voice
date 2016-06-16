@@ -186,6 +186,7 @@ ul.dropdown-menu { border: none }
     /*background-color: rgba(33, 150, 243, 0.77);*/
     background-image: url("back.jpg")  ;
     background-attachment:fixed ;
+    background-size: 100%;
 }
 .box{
     background-color: #EEEEEE;
@@ -937,12 +938,12 @@ span.showBodyOfDisplayOnHover {
     }
 }
 a.reporting {
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #D32F2F;
-    color: #9acfea;
-    border-radius: 5px;
+    /*padding: 5px;*/
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
+    /*background-color: #D32F2F;*/
+    color: #6d6d6d;
+    /*border-radius: 5px;*/
     cursor: pointer;
     text-decoration: blink;
 }

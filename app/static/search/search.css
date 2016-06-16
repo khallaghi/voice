@@ -331,6 +331,9 @@ body{
         width: 70%;
         height: 20%;
     }
+    .insearch{
+        padding-top: 20px;
+    }
     .topbuttum{
         font-size: 40px;
         color: #9C1A1C;
