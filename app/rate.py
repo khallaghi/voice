@@ -6,6 +6,7 @@ from app.forms import SearchForm
 from mongoengine import Q
 from flask_restful import reqparse
 import json
+from app.auth import requires_auth
 LEN_TOO_MUCH = 1
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
@@ -182,7 +183,7 @@ rate.add_url_rule('/report/<prof_id>/<cmt_id>',
 					view_func=ReportComment.as_view('reportComment'))
 
 class ShowReportedComments(MethodView):
-
+	decorators = [requires_auth]
 	def get_prof_irell_comments(self, prof):
 		for cmt in prof.comments:
 			if cmt.reported:
@@ -205,6 +206,7 @@ rate.add_url_rule('/report/list',
 					view_func=ShowReportedComments.as_view('showReportedComments'))
 
 class DeleteComment(MethodView):
+	decorators = [requires_auth]
 	def get(self, prof_id, cmt_id):
 		print "POOOOOOOST"
 		print id
@@ -221,6 +223,7 @@ rate.add_url_rule('/report/delete/<prof_id>/<cmt_id>',
 					view_func=DeleteComment.as_view('delete_comment'))
 
 class RestoreComment(MethodView):
+	decorators = [requires_auth]
 	def get(slef, prof_id, cmt_id):
 		prof = Professor.objects(id=prof_id).first()
 		if prof:
