@@ -96,7 +96,7 @@ class ProfProfile(MethodView):
 					sel_tag = tag
 				elif sel_tag.count < tag.count :
 					sel_tag = tag
-			print sel_tag
+			# print sel_tag
 			if sel_tag != None:
 				del tags[tags.index(sel_tag)]
 				selected_tags.append(sel_tag)
@@ -151,8 +151,8 @@ class ProfResult(MethodView):
 	
 	def get(self, id):
 		result = self.get_context(id)
-		print "GEEETTTT PROFRESULTs"
-		print result
+		# print "GEEETTTT PROFRESULTs"
+		# print result
 		return jsonify(**result) 
 
 class FacProfile(MethodView):
