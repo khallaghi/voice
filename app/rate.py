@@ -6,6 +6,7 @@ from app.forms import SearchForm
 from mongoengine import Q
 from flask_restful import reqparse
 import json
+from app.auth import requires_auth
 LEN_TOO_MUCH = 1
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
@@ -172,9 +173,66 @@ class ReportComment(MethodView):
 			print cmt
 			if cmt:
 				cmt.reported = 1
+				prof.reported_comments += 1
 				print "BEFORE SAVE"
 				prof.save()
 				print "IN THE REPORT COMMENT"
 				return "True"
 		return "False"
-rate.add_url_rule('/report/<prof_id>/<cmt_id>', view_func=ReportComment.as_view('reportComment'))
+rate.add_url_rule('/report/<prof_id>/<cmt_id>', 
+					view_func=ReportComment.as_view('reportComment'))
+
+class ShowReportedComments(MethodView):
+	decorators = [requires_auth]
+	def get_prof_irell_comments(self, prof):
+		for cmt in prof.comments:
+			if cmt.reported:
+				yield {
+					"body":cmt.body,
+					"id":cmt.id
+				}
+	def get_reported_comments(self):
+		profs = Professor.objects(reported_comments__gt = 0)
+		for prof in profs:
+			cmts = self.get_prof_irell_comments(prof)
+			yield {
+				"prof":prof,
+				"comments":cmts
+			}
+	def get(self):
+		return render_template('report/reported.html',
+								records=self.get_reported_comments())
+rate.add_url_rule('/report/list', 
+					view_func=ShowReportedComments.as_view('showReportedComments'))
+
+class DeleteComment(MethodView):
+	decorators = [requires_auth]
+	def get(self, prof_id, cmt_id):
+		print "POOOOOOOST"
+		print id
+		print cmt_id
+		prof = Professor.objects(id=prof_id).first()
+		if prof:
+			cmt = find_cmt(prof, cmt_id)
+			if cmt:
+				prof.comments.remove(cmt)
+				prof.reported_comments -= 1
+				prof.save()
+		return redirect(url_for('rate.showReportedComments'));
+rate.add_url_rule('/report/delete/<prof_id>/<cmt_id>', 
+					view_func=DeleteComment.as_view('delete_comment'))
+
+class RestoreComment(MethodView):
+	decorators = [requires_auth]
+	def get(slef, prof_id, cmt_id):
+		prof = Professor.objects(id=prof_id).first()
+		if prof:
+			cmt = find_cmt(prof, cmt_id)
+			if cmt:
+				cmt.reported = 0
+				prof.reported_comments -= 1
+				prof.save()
+		return redirect(url_for('rate.showReportedComments'))
+rate.add_url_rule('/report/restore/<prof_id>/<cmt_id>', 
+					view_func=RestoreComment.as_view('restore_comment'))
+

@@ -38,6 +38,9 @@ class Professor(db.Document):
     coolness = db.IntField(default=0)
     coolness_count = db.IntField(default=0)
 
+    ''' settings '''
+    reported_comments = db.IntField(default = 0)
+
     ''' Studies '''
     studies = db.EmbeddedDocumentListField('Study')
 
