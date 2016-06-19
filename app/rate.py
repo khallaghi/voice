@@ -8,10 +8,29 @@ from flask_restful import reqparse
 import json
 from app.auth import requires_auth
 from app import app
+import requests
 LEN_TOO_MUCH = 1
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
 parser = reqparse.RequestParser()
+def verify_user(ip, response):
+	print "verify_user"
+	RECAPTCHA_SECRET_KEY = '6LeGZh4TAAAAAEf9XWVeDVXgXVKv6iBOw15lkWfW'
+	url = "https://www.google.com/recaptcha/api/siteverify"
+	obj = {
+		'secret':RECAPTCHA_SECRET_KEY,
+		'response':response,
+		'remoteip':ip.split('.')[-1]
+	}
+	r = requests.post(url,obj)
+	# app.logger.warning(r.status_code)
+	# app.logger.warning(r.json())
+	data = r.json()
+	return {
+		'success': data['success'],
+		'timestamp': data['challenge_ts']
+		}
+
 class ProfessorRate(MethodView):
 	def average_rate(self, old_av, count, score):
 		print old_av, count, score
@@ -144,18 +163,26 @@ class ProfessorRate(MethodView):
 		return False
 
 	def post(self):
+
+		# app.logger.warning(request.remote_addr)
 		data = json.loads(request.data)
-		print data
-		prof = Professor.objects(id=data['id']).first()
-		if not self.validate(prof, data):
-			return "invalid data -- 404"
-		if not self.apply_course(prof, data):
-			return "invalid course -- 404"
-		print "before apply_Rate"
-		self.apply_rate(prof, data)
-		self.apply_tags(prof, data)
-		self.apply_comment(prof, data)
-		return "salam"
+		# print data
+		response = verify_user(request.remote_addr, data['response'])
+		# if check_multiple_vote(request.remote_addr, )
+		if response['success']:
+			# app.logger.warning(data.g-recaptcha-response)
+			prof = Professor.objects(id=data['id']).first()
+			if not self.validate(prof, data):
+				return "invalid data -- 404"
+			if not self.apply_course(prof, data):
+				return "invalid course -- 404"
+			print "before apply_Rate"
+			self.apply_rate(prof, data)
+			self.apply_tags(prof, data)
+			self.apply_comment(prof, data)
+			return "salam"
+		else:
+			return "YOU ARE ROBOT"
 
 rate.add_url_rule('/rate', view_func=ProfessorRate.as_view('professorRate'))
 

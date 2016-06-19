@@ -1,5 +1,5 @@
   
-var app = angular.module('profile', []);
+var app = angular.module('profile', ['vcRecaptcha']);
 app.controller('rating', function(){
     var el = document.querySelector('#el');
 
@@ -248,7 +248,9 @@ app.controller('TagCtrl', function(Scopes, $scope){
         return num;
     }
 });
-app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $http, $controller) {
+app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaService' ,function($scope, $http, $controller, vcRecaptchaService) {
+    $scope.resopnse = null;
+    // $scope.gRecaptchaResponse = null;
     $scope.init = function(id){
         $scope.id = id;
     };
@@ -443,6 +445,9 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
        
         return true;
     };
+    $scope.setResponse = function(response){
+        $scope.response = response;
+    };
 
     $scope.submitRate = function(cmt, course_name, selected_course){
         $scope.applyComment(cmt);
@@ -452,6 +457,10 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
             $scope.showModal = true;
             return false;
         }
+        console.log("KEY");
+        // console.log();
+        console.log("RESPONSE");
+        console.log($scope.response);
         var rateData = {
             'id':$scope.id,
             'helpfulness':$scope.helpfulness,
@@ -464,7 +473,9 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
             'tags':getTags(),
             'findCourse':$scope.findCourse,
             'courseName':course_name,
-            'selectedCourse':selected_course
+            'selectedCourse':selected_course,
+            'response':$scope.response
+            
         };
         console.log("RATE DATA");
         console.log(rateData);
