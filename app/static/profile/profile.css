@@ -959,6 +959,9 @@ a.reporting {
     text-decoration: blink;
     /*visibility: hidden;*/
 }
+a.reporting:hover{
+    color: #9C1A1C;
+}
 .hide {
     position: absolute !important;
     top: -9999px !important;
@@ -1077,7 +1080,7 @@ a.reporting {
         width: 2px;
     }
     .box{
-        height: 450px;
+        height: 480px;
         margin-bottom: 10px;
     }
     .h1{
