@@ -77,9 +77,12 @@
                     <!--&lt;!&ndash;<p></p>&ndash;&gt;-->
                     <!--</div>-->
                     <!--</div>-->
-
                     <div class="avatarcontainer">
-                        <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
+                      <% if prof.website%>
+                         <img src="%%prof.profile_pic%%"  href="%% prof.website %%" alt="avatar" class="avatar">
+                        <% else %>
+                          <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
+                        <% endif %>
                         <div class="hover">
                             <div class="icon-twitter"></div>
                         </div>
@@ -395,10 +398,7 @@
                                 قابل فهمه
                             </div>
                         </div>
-
-
                         </p>
-
                     </div>
 
                     <div class="col-md-8 cm3" >
@@ -424,7 +424,7 @@
 
                         </div>
                         <div class="col-md-12 text-right" id="report" style="padding-top: 20px;">
-                            <a class="reporting" ng-click="report_cmt(cmt.id);">گزارش تخلف</a>
+                            <a class="reporting" ng-click="report_cmt(cmt.id);"> گزارش تخلف <span class="glyphicon glyphicon-exclamation-sign"></span></a>
                         </div>
                     </div>
                 </div>

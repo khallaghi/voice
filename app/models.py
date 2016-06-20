@@ -43,7 +43,7 @@ class Professor(db.Document):
 
     ''' Studies '''
     studies = db.EmbeddedDocumentListField('Study')
-
+    recent_voters = db.EmbeddedDocumentListField('Voter')
     ''' comments '''
     comments = db.EmbeddedDocumentListField('Comment')
 
@@ -59,7 +59,10 @@ class Professor(db.Document):
             return "/static/img/uploaded_images/default.png"
          
     
-
+class Voter(db.EmbeddedDocument):
+    ip = db.StringField()
+    timestamp = db.DateTimeField()
+    
 class Study(db.EmbeddedDocument):
     ''' default attributes '''
     name = db.StringField(max_length=300) 

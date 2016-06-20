@@ -74,7 +74,13 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 text: '',
             },
             xAxis: {
-                categories: ['قابل فهمه', 'آسون میگیره', 'هوا تو داره'],
+                categories: ['clarity', 'easiness', 'helpfulness'],
+                labels: {
+                    formatter: function(){
+                        return '<div class = "container"><b>' + this.value + '</b></div>';
+                    }
+                },
+                
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
@@ -107,15 +113,14 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             credits: {
                 enabled: false
             },
-            tooltip: { enabled: false },
+            tooltip: { 
+                 formatter: function() {
+                    return '<b>' + this.y + '</b>';
+                  }
+                // enabled: true 
+            },
             series: [{    
-                data: [{
-                        
-                        y: result.main_result.helpfulness.value,
-                        // y: 9,
-                        name: "Helpfulness",
-                        color: result.main_result.helpfulness.color
-                    }, {
+                data: [ {
                         
                         y: result.main_result.easiness.value,
                         // y: 8,
@@ -127,7 +132,14 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                         // y: 7,
                         name: "clarity",
                         color: result.main_result.clarity.color
-                    }]
+                    },{
+                        
+                        y: result.main_result.helpfulness.value,
+                        // y: 9,
+                        name: "Helpfulness",
+                        color: result.main_result.helpfulness.color
+                    }
+                    ]
             }]
         });
     };
@@ -144,14 +156,23 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 backgroundColor:'rgba(255, 255, 255, 0)'
             },
             title: {
+                formatter: function(){
+                    return '<b>' + this.value + '</b>'
+                },
                 enabled: false,
                 text: result.name,
             },
             xAxis: {
-                 categories: ['قابل فهمه', 'آسون میگیره', 'هوا تو داره'],
+                 categories: ['clarity', 'easiness', 'helpfulness'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
+            },
+             tooltip: { 
+                 formatter: function() {
+                    return '<b>' + this.y + '</b>';
+                  }
+                // enabled: true 
             },
             yAxis: {
                 min: 0,
@@ -181,9 +202,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             credits: {
                 enabled: false
             },
-            tooltip: {
-                enabled: false
-            },
+           
             legend:{
                 enabled: false,
             },
@@ -192,12 +211,6 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             },
             series: [{    
                 data: [{
-                        
-                        y: result.helpfulness.value,
-                        // y: 9,
-                        name: "Helpfulness",
-                        color: result.helpfulness.color
-                    }, {
                         
                         y: result.easiness.value,
                         // y: 8,
@@ -209,7 +222,14 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                         // y: 7,
                         name: "clarity",
                         color: result.clarity.color
-                    }]
+                    },{
+                        
+                        y: result.helpfulness.value,
+                        // y: 9,
+                        name: "Helpfulness",
+                        color: result.helpfulness.color
+                    }
+                    ]
             }]
         });  
     };
@@ -457,10 +477,6 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
             $scope.showModal = true;
             return false;
         }
-        console.log("KEY");
-        // console.log();
-        console.log("RESPONSE");
-        console.log($scope.response);
         var rateData = {
             'id':$scope.id,
             'helpfulness':$scope.helpfulness,
