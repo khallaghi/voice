@@ -29,13 +29,13 @@ class Professor(db.Document):
     image_name = db.StringField()
     
     ''' Personality rate '''
-    helpfulness = db.IntField(default=0)
+    helpfulness = db.FloatField(default=0)
     helpfulness_count = db.IntField(default=0)
-    easiness = db.IntField(default=0)
+    easiness = db.FloatField(default=0)
     easiness_count = db.IntField(default=0)
-    clarity = db.IntField(default=0)
+    clarity = db.FloatField(default=0)
     clarity_count = db.IntField(default=0)
-    coolness = db.IntField(default=0)
+    coolness = db.FloatField(default=0)
     coolness_count = db.IntField(default=0)
 
     ''' settings '''
@@ -43,7 +43,7 @@ class Professor(db.Document):
 
     ''' Studies '''
     studies = db.EmbeddedDocumentListField('Study')
-
+    recent_voters = db.EmbeddedDocumentListField('Voter')
     ''' comments '''
     comments = db.EmbeddedDocumentListField('Comment')
 
@@ -59,7 +59,10 @@ class Professor(db.Document):
             return "/static/img/uploaded_images/default.png"
          
     
-
+class Voter(db.EmbeddedDocument):
+    ip = db.StringField()
+    timestamp = db.DateTimeField()
+    
 class Study(db.EmbeddedDocument):
     ''' default attributes '''
     name = db.StringField(max_length=300) 
@@ -67,11 +70,11 @@ class Study(db.EmbeddedDocument):
     term = db.IntField()
 
     ''' rating options '''
-    helpfulness = db.IntField(default=0)
+    helpfulness = db.FloatField(default=0)
     helpfulness_count = db.IntField(default=0)
-    easiness = db.IntField(default=0)
+    easiness = db.FloatField(default=0)
     easiness_count = db.IntField(default=0)
-    clarity = db.IntField(default=0)
+    clarity = db.FloatField(default=0)
     clarity_count = db.IntField(default=0)
 
 class Tag(db.EmbeddedDocument):

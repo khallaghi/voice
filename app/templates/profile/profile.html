@@ -18,7 +18,11 @@
     <link rel="stylesheet" href="%% url_for('static', filename='profile/profile.css') %%">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script
+  src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit"
+  async defer
+></script>
+<script type="text/javascript" src="%% url_for('static', filename='profile/angular-recaptcha-master/release/angular-recaptcha.js')%%"></script>
     <title>%% prof.name %%</title>
 
 </head>
@@ -74,9 +78,12 @@
                     <!--&lt;!&ndash;<p></p>&ndash;&gt;-->
                     <!--</div>-->
                     <!--</div>-->
-
                     <div class="avatarcontainer">
-                        <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
+                      <% if prof.website%>
+                         <img src="%%prof.profile_pic%%"  href="%% prof.website %%" alt="avatar" class="avatar">
+                        <% else %>
+                          <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
+                        <% endif %>
                         <div class="hover">
                             <div class="icon-twitter"></div>
                         </div>
@@ -249,15 +256,28 @@
 
                                 </div>
                                     <div class="row text-left">
-                                        <div class="col-md-3 text-left mdb " style=" width: 280px; -webkit-transform: scale(0.7);-moz-transform: scale(0.7);-ms-transform: scale(0.7);-o-transform: scale(0.7);transform: scale(0.7);">
-                                            <div class="g-recaptcha" data-sitekey="6LeGZh4TAAAAANYkyuRY6igDkuCmySCpbigjyFcR"></div>
-                                        </div>
-                                     <div class="col-md-5 text-right" style="padding-top: 40px;font-size: 13px;">
-                                        <div class="form-group mdb" >
-                                            <label>(: مرسی که سوال‌ها رو جواب دادی </label>
-                                        </div>
-                                     </div>
+<!--<<<<<<< HEAD-->
+                                        <!--<div class="col-md-3 text-left mdb " style=" width: 280px; -webkit-transform: scale(0.7);-moz-transform: scale(0.7);-ms-transform: scale(0.7);-o-transform: scale(0.7);transform: scale(0.7);">-->
+                                            <!--<div class="g-recaptcha" data-sitekey="6LeGZh4TAAAAANYkyuRY6igDkuCmySCpbigjyFcR"></div>-->
+                                        <!--</div>-->
+                                     <!--<div class="col-md-5 text-right" style="padding-top: 40px;font-size: 13px;">-->
+                                        <!--<div class="form-group mdb" >-->
+                                            <!--<label>(: مرسی که سوال‌ها رو جواب دادی </label>-->
+                                        <!--</div>-->
+                                     <!--</div>-->
+<!--=======-->
+                                    <!--  <div class="g-recaptcha" data-sitekey="6LeGZh4TAAAAANYkyuRY6igDkuCmySCpbigjyFcR"></div> -->
+                                     <div
+                                          vc-recaptcha
+                                          ng-model="gRecaptchaResponse"
+                                          on-success="setResponse(response)"
+                                          key="'6LeGZh4TAAAAANYkyuRY6igDkuCmySCpbigjyFcR'"
+                                      ></div>
+                                     <div class="form-group mdb" style="text-align: left;" >
+                                        <label>(: مرسی که سوال‌ها رو جواب دادی </label>
                                     </div>
+<!--&gt;>>>>>> fca18504547e96b905efffbbd0ef599679f1ae8a-->
+                                    </div>22
                                 <div class="row">
                                     <div class="submit-score" id="with-border">
 
@@ -393,10 +413,7 @@
                                 قابل فهمه
                             </div>
                         </div>
-
-
                         </p>
-
                     </div>
 
                     <div class="col-md-8 cm3" >
@@ -422,7 +439,7 @@
 
                         </div>
                         <div class="col-md-12 text-right" id="report" style="padding-top: 20px;">
-                            <a class="reporting" ng-click="report_cmt(cmt.id);">گزارش تخلف</a>
+                            <a class="reporting" ng-click="report_cmt(cmt.id);"> گزارش تخلف <span class="glyphicon glyphicon-exclamation-sign"></span></a>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, render_template, url_for
 from flask.views import MethodView
-from app.models import University, Professor, Faculty, Tag, Comment, Study
+from app.models import University, Professor, Faculty, Tag, Comment, Study, Voter
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import SearchForm
 from mongoengine import Q
@@ -8,10 +8,56 @@ from flask_restful import reqparse
 import json
 from app.auth import requires_auth
 from app import app
+import requests
+from flask import jsonify
+import datetime
+
 LEN_TOO_MUCH = 1
+TEST = True
+MAX_LEN = 20
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
 parser = reqparse.RequestParser()
+
+def verify_user(ip, response):
+	RECAPTCHA_SECRET_KEY = '6LeGZh4TAAAAAEf9XWVeDVXgXVKv6iBOw15lkWfW'
+	url = "https://www.google.com/recaptcha/api/siteverify"
+	obj = {
+		'secret':RECAPTCHA_SECRET_KEY,
+		'response':response,
+		'remoteip':ip.split('.')[-1]
+	}
+	r = requests.post(url,obj)
+	data = r.json()
+	return data['success']
+		
+
+def check_delta(now, timestamp):
+	TIME_DELTA = datetime.timedelta(hours = 2)
+	return now - timestamp < TIME_DELTA
+
+def check_multiple_vote(prof, ip):
+	if TEST:
+		return False
+	now = datetime.datetime.now()
+	for voter in prof.recent_voters:
+		if voter.ip == ip:
+			if check_delta(now, voter.timestamp):
+				voter.timestamp = now
+				prof.save()
+				return True
+			voter.timestamp = now
+			prof.save()
+			return False
+	if len(prof.recent_voters) > MAX_LEN and len(prof.recent_voters) != 0:
+		prof.recent_voters.pop(0)
+	prof.recent_voters.append(Voter(
+								ip = ip,
+								timestamp = now 
+								))
+	prof.save()
+	return False
+
 class ProfessorRate(MethodView):
 	def average_rate(self, old_av, count, score):
 		print old_av, count, score
@@ -19,14 +65,29 @@ class ProfessorRate(MethodView):
 
 	def apply_rate(self, prof, data):
 		prof.helpfulness_count += 1
-
-		prof.helpfulness = self.average_rate(prof.helpfulness, prof.helpfulness_count, data['helpfulness'])
+		prof.helpfulness = self.average_rate(
+												prof.helpfulness,
+												prof.helpfulness_count,
+												data['helpfulness']
+											)
 		prof.easiness_count += 1
-		prof.easiness = self.average_rate(prof.easiness, prof.easiness_count, data['easiness'])
+		prof.easiness = self.average_rate(
+											prof.easiness,
+											prof.easiness_count,
+											data['easiness']
+										)
 		prof.clarity_count += 1
-		prof.clarity = self.average_rate(prof.clarity, prof.clarity_count, data['clarity'])
+		prof.clarity = self.average_rate(
+											prof.clarity,
+											prof.clarity_count,
+											data['clarity']
+										)
 		prof.coolness_count += 1
-		prof.coolness = self.average_rate(prof.coolness, prof.coolness_count, data['coolness'])
+		prof.coolness = self.average_rate(
+											prof.coolness,
+											prof.coolness_count,
+											data['coolness']
+										)
 		prof.save()
 
 	def apply_tags(self, prof, data):
@@ -61,6 +122,7 @@ class ProfessorRate(MethodView):
 			cmt.id = i
 			i += 1
 		prof.save()
+
 	def apply_comment(self, prof, data):
 		if not 'comment' in data:
 			print "comment is empty"
@@ -78,14 +140,11 @@ class ProfessorRate(MethodView):
 		cmt.attendance = data['attendance']
 		cmt.study = prof.studies[-1]
 
-		print "FIRST"
 		print cmt.personal_tags
 		self.append_tags(cmt, data)
-		print "SECOND"
 		print cmt.personal_tags
 		if len(prof.comments)>= 1:
 			if prof.comments[-1].id == -1 or prof.comments[-1] == None:
-				print "OVERRIDE ID OF COMMENT"
 				self.set_id_for_comments(prof)
 			cmt.id = prof.comments[-1].id + 1
 		else:
@@ -95,8 +154,7 @@ class ProfessorRate(MethodView):
 		prof.comments.append(cmt)
 		prof.save()
 
-	# def apply_class(self, prof, data):
-	# 	if data['study'] != None:
+
 	def update_course(self, study, data):
 		study.helpfulness_count += 1
 		study.helpfulness = self.average_rate(study.helpfulness, 
@@ -144,20 +202,44 @@ class ProfessorRate(MethodView):
 		return False
 
 	def post(self):
-		data = json.loads(request.data)
-		print data
-		prof = Professor.objects(id=data['id']).first()
-		if not self.validate(prof, data):
-			return "invalid data -- 404"
-		if not self.apply_course(prof, data):
-			return "invalid course -- 404"
-		print "before apply_Rate"
-		self.apply_rate(prof, data)
-		self.apply_tags(prof, data)
-		self.apply_comment(prof, data)
-		return "salam"
+		try:
+			data = json.loads(request.data)
+			prof = Professor.objects(id=data['id']).first()
+			if prof == None:
+				raise "PROF NOT FOUND"
+				
+			if not 'response' in data.keys():
+				raise "FORGET RECAPTCHA"
+					
+			if check_multiple_vote(prof, request.remote_addr):
+				raise "MULTIPLE VOTE"
+				
+			if not verify_user(request.remote_addr, data['response']):
+				raise "YOU ARE ROBOT"
 
-rate.add_url_rule('/rate', view_func=ProfessorRate.as_view('professorRate'))
+			prof = Professor.objects(id=data['id']).first()
+			if not self.validate(prof, data):
+				raise "INVALID DATA"
+				
+			if not self.apply_course(prof, data):
+				raise "INVALID COURSE"
+				
+			self.apply_rate(prof, data)
+			self.apply_tags(prof, data)
+			self.apply_comment(prof, data)
+
+			return jsonify(
+				success = True,
+				message = "DONE"
+			)
+			
+		except msg:
+			return jsonify(
+				success = False,
+				message = msg
+			)
+rate.add_url_rule('/rate', 
+					view_func=ProfessorRate.as_view('professorRate'))
 
 def find_cmt(prof, id):
 	for cmt in prof.comments:

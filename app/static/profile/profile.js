@@ -1,5 +1,5 @@
   
-var app = angular.module('profile', []);
+var app = angular.module('profile', ['vcRecaptcha']);
 app.controller('rating', function(){
     var el = document.querySelector('#el');
 
@@ -74,7 +74,13 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 text: '',
             },
             xAxis: {
-                categories: ['قابل فهمه', 'آسون میگیره', 'هوا تو داره'],
+                categories: ['clarity', 'easiness', 'helpfulness'],
+                labels: {
+                    formatter: function(){
+                        return '<div class = "container"><b>' + this.value + '</b></div>';
+                    }
+                },
+                
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
@@ -107,15 +113,14 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             credits: {
                 enabled: false
             },
-            tooltip: { enabled: false },
+            tooltip: { 
+                 formatter: function() {
+                    return '<b>' + this.y + '</b>';
+                  }
+                // enabled: true 
+            },
             series: [{    
-                data: [{
-                        
-                        y: result.main_result.helpfulness.value,
-                        // y: 9,
-                        name: "Helpfulness",
-                        color: result.main_result.helpfulness.color
-                    }, {
+                data: [ {
                         
                         y: result.main_result.easiness.value,
                         // y: 8,
@@ -127,7 +132,14 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                         // y: 7,
                         name: "clarity",
                         color: result.main_result.clarity.color
-                    }]
+                    },{
+                        
+                        y: result.main_result.helpfulness.value,
+                        // y: 9,
+                        name: "Helpfulness",
+                        color: result.main_result.helpfulness.color
+                    }
+                    ]
             }]
         });
     };
@@ -144,14 +156,23 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 backgroundColor:'rgba(255, 255, 255, 0)'
             },
             title: {
+                formatter: function(){
+                    return '<b>' + this.value + '</b>'
+                },
                 enabled: false,
                 text: result.name,
             },
             xAxis: {
-                 categories: ['قابل فهمه', 'آسون میگیره', 'هوا تو داره'],
+                 categories: ['clarity', 'easiness', 'helpfulness'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
+            },
+             tooltip: { 
+                 formatter: function() {
+                    return '<b>' + this.y + '</b>';
+                  }
+                // enabled: true 
             },
             yAxis: {
                 min: 0,
@@ -181,9 +202,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             credits: {
                 enabled: false
             },
-            tooltip: {
-                enabled: false
-            },
+           
             legend:{
                 enabled: false,
             },
@@ -192,12 +211,6 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             },
             series: [{    
                 data: [{
-                        
-                        y: result.helpfulness.value,
-                        // y: 9,
-                        name: "Helpfulness",
-                        color: result.helpfulness.color
-                    }, {
                         
                         y: result.easiness.value,
                         // y: 8,
@@ -209,7 +222,14 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                         // y: 7,
                         name: "clarity",
                         color: result.clarity.color
-                    }]
+                    },{
+                        
+                        y: result.helpfulness.value,
+                        // y: 9,
+                        name: "Helpfulness",
+                        color: result.helpfulness.color
+                    }
+                    ]
             }]
         });  
     };
@@ -248,7 +268,9 @@ app.controller('TagCtrl', function(Scopes, $scope){
         return num;
     }
 });
-app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $http, $controller) {
+app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaService' ,function($scope, $http, $controller, vcRecaptchaService) {
+    $scope.resopnse = null;
+    // $scope.gRecaptchaResponse = null;
     $scope.init = function(id){
         $scope.id = id;
     };
@@ -443,6 +465,9 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
        
         return true;
     };
+    $scope.setResponse = function(response){
+        $scope.response = response;
+    };
 
     $scope.submitRate = function(cmt, course_name, selected_course){
         $scope.applyComment(cmt);
@@ -464,17 +489,24 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller' ,function($scope, $
             'tags':getTags(),
             'findCourse':$scope.findCourse,
             'courseName':course_name,
-            'selectedCourse':selected_course
+            'selectedCourse':selected_course,
+            'response':$scope.response
+            
         };
         console.log("RATE DATA");
         console.log(rateData);
         $http.post("/rate", rateData).success(function(data){
             $scope.submit = true;
+            console.log("RESPONSE OF DATA");
+            console.log(data);
+            if(data.success){
+                var main_result = $scope.$new();
+                $controller('mainResult',{$scope : main_result });
+                main_result.init($scope.id);
+                console.log('after recieving data');
+            }
         });
-        var main_result = $scope.$new();
-
-        $controller('mainResult',{$scope : main_result });
-        main_result.init($scope.id);
+        
         return true;
     }
 
