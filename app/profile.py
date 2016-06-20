@@ -16,16 +16,18 @@ def get_color(range):
 	# code = str(hex(color))
 	# code = "#" + code[2:]
 	# return code
-	if(range<=1):
-		return "#B71C1C"
-	if(range<=2):
-		return "#FDD835"
-	if(range<=3):
-		return "#CDDC39"
-	if(range<=4):
-		return "#8BC34A"
-	if(range<=5):
-		return "#4CAF50"
+	if(range<1):
+		return "#D50000"
+	if(range<2):
+		return "#D50000"
+	if(range<3):
+		return "#FFAB00"
+	if(range<4):
+		return "#AEEA00"
+	if(range<5):
+		return "#00C853"
+	if(range==5):
+		return "#1B5E20"
 def get_val(attr):
 	return float("{0:.2f}".format(attr))
 def get_studies_result(prof):
@@ -151,8 +153,6 @@ class ProfResult(MethodView):
 	
 	def get(self, id):
 		result = self.get_context(id)
-		# print "GEEETTTT PROFRESULTs"
-		# print result
 		return jsonify(**result) 
 
 class FacProfile(MethodView):
