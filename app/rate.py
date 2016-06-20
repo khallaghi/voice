@@ -13,7 +13,7 @@ from flask import jsonify
 import datetime
 
 LEN_TOO_MUCH = 1
-TEST = True
+TEST = False
 MAX_LEN = 20
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
@@ -198,7 +198,6 @@ class ProfessorRate(MethodView):
 		else:
 			if 'courseName' in data.keys() and data['courseName'] != None:
 				return self.create_course(prof, data)
-					
 		return None
 
 	def post(self):
@@ -323,3 +322,25 @@ class RestoreComment(MethodView):
 rate.add_url_rule('/report/restore/<prof_id>/<cmt_id>', 
 					view_func=RestoreComment.as_view('restore_comment'))
 
+class ResetService(MethodView):
+	decorators = [requires_auth]
+	def get(self):
+		profs = Professor.objects.all()
+		for prof in profs:
+			del prof.helpfulness 
+			del prof.helpfulness_count 
+			del prof.easiness 
+			del prof.easiness_count 
+			del prof.clarity 
+			del prof.clarity_count 
+			del prof.coolness 
+			del prof.coolness_count 
+			del prof.reported_comments 
+			del prof.studies
+			del prof.recent_voters
+			del prof.comments
+			del prof.personal_tags
+			prof.save()
+		return "EVERY THING REMOVED"
+rate.add_url_rule('/reset', 
+					view_func=ResetService.as_view('reset'))
