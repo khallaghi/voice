@@ -497,11 +497,16 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
         console.log(rateData);
         $http.post("/rate", rateData).success(function(data){
             $scope.submit = true;
+            console.log("RESPONSE OF DATA");
+            console.log(data);
+            if(data.success){
+                var main_result = $scope.$new();
+                $controller('mainResult',{$scope : main_result });
+                main_result.init($scope.id);
+                console.log('after recieving data');
+            }
         });
-        var main_result = $scope.$new();
-
-        $controller('mainResult',{$scope : main_result });
-        main_result.init($scope.id);
+        
         return true;
     }
 
