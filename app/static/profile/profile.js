@@ -121,17 +121,17 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             },
             series: [{    
                 data: [ {
-                        
-                        y: result.main_result.easiness.value,
-                        // y: 8,
-                        name: "Easiness",
-                        color: result.main_result.easiness.color
-                    },{
                        
                         y: result.main_result.clarity.value,
                         // y: 7,
                         name: "clarity",
                         color: result.main_result.clarity.color
+                    },{
+                        
+                        y: result.main_result.easiness.value,
+                        // y: 8,
+                        name: "Easiness",
+                        color: result.main_result.easiness.color
                     },{
                         
                         y: result.main_result.helpfulness.value,
@@ -163,7 +163,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 text: result.name,
             },
             xAxis: {
-                 categories: ['clarity', 'easiness', 'helpfulness'],
+                categories: ['clarity', 'easiness', 'helpfulness'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
@@ -211,17 +211,17 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             },
             series: [{    
                 data: [{
-                        
-                        y: result.easiness.value,
-                        // y: 8,
-                        name: "Easiness",
-                        color: result.easiness.color
-                    },{
                        
                         y: result.clarity.value,
                         // y: 7,
                         name: "clarity",
                         color: result.clarity.color
+                    },{
+                        
+                        y: result.easiness.value,
+                        // y: 8,
+                        name: "Easiness",
+                        color: result.easiness.color
                     },{
                         
                         y: result.helpfulness.value,
