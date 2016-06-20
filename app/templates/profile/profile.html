@@ -256,27 +256,21 @@
 
                                 </div>
                                     <div class="row text-left">
-<!--<<<<<<< HEAD-->
-                                        <!--<div class="col-md-3 text-left mdb " style=" width: 280px; -webkit-transform: scale(0.7);-moz-transform: scale(0.7);-ms-transform: scale(0.7);-o-transform: scale(0.7);transform: scale(0.7);">-->
-                                            <!--<div class="g-recaptcha" data-sitekey="6LeGZh4TAAAAANYkyuRY6igDkuCmySCpbigjyFcR"></div>-->
-                                        <!--</div>-->
-                                     <!--<div class="col-md-5 text-right" style="padding-top: 40px;font-size: 13px;">-->
-                                        <!--<div class="form-group mdb" >-->
-                                            <!--<label>(: مرسی که سوال‌ها رو جواب دادی </label>-->
-                                        <!--</div>-->
-                                     <!--</div>-->
-<!--=======-->
-                                    <!--  <div class="g-recaptcha" data-sitekey="6LeGZh4TAAAAANYkyuRY6igDkuCmySCpbigjyFcR"></div> -->
+
                                      <div
                                           vc-recaptcha
                                           ng-model="gRecaptchaResponse"
                                           on-success="setResponse(response)"
                                           key="'6LeGZh4TAAAAANYkyuRY6igDkuCmySCpbigjyFcR'"
-                                      ></div>
-                                     <div class="form-group mdb" style="text-align: left;" >
-                                        <label>(: مرسی که سوال‌ها رو جواب دادی </label>
-                                    </div>
-<!--&gt;>>>>>> fca18504547e96b905efffbbd0ef599679f1ae8a-->
+                                          class="col-md-3 text-left mda " style=" width: 280px; -webkit-transform: scale(0.7);-moz-transform: scale(0.7);-ms-transform: scale(0.7);-o-transform: scale(0.7);transform: scale(0.7);"
+                                      >
+                                     </div>
+                                        <div class="col-md-5 text-right" style="padding-top: 40px;font-size: 13px;">
+                                            <div class="form-group mdb" >
+                                                    <label>(: مرسی که سوال‌ها رو جواب دادی </label>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 <div class="row">
                                     <div class="submit-score" id="with-border">
@@ -456,15 +450,21 @@
                 <div class="col-md-2 f1">
                     <a  style="padding-top:10px;padding-left:20px;float: right;"  class="headlogo" href="%% url_for('content.contactus')%%" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
                 </div>
+
                 <!--logo-->
                 <!--qouets-->
                 <!--<div class="col-md-6">-->
                 <!--<a class="navbar-brand headqouets"  href="?????">This is the other side of our <span> freedom</span>!</a>-->
                 <!--</div>-->
-                <div class="col-md-10 text-left f2">
+                <div class="col-md-8 text-left f2">
                     <a href="%%url_for('search.search')%%"  class="action-button" style="text-decoration: none;font-size:15px;">بازگشت</a>
                     <!--<a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>-->
                     <a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">تماس با ما</a>
+                </div>
+                <div class="col-md-2 f3" style="top:10px;">
+                    <a class="logo" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
+                    <a class="logo" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
+                    <a class="logo" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
                 </div>
                 <!--qouets-->
                 <!--search box-->

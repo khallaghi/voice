@@ -317,6 +317,16 @@ body{
 
     direction: rtl;
 }
+.logo{
+
+    background-color: #90A4AE;
+    border-radius: 50px;
+    padding: 5px;
+    margin-top: 10px;
+}
+.logo:hover{
+    background-color: #455A64;
+}
 @media only screen and (max-device-width: 414px) and (max-device-height: 736px){
     body {
         /* The file size of this background image is 93% smaller
