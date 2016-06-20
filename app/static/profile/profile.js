@@ -338,11 +338,11 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
                             status: 0
                         },
                         {
-                            name:'غیر قابل پیش بینی', 
+                            name:'غیر قابل پیش بینی',
                             status: 0
                         },
                         {
-                            name:'به فکر پیشرفت و دلسوز', 
+                            name:'كلاس هاى جذاب',
                             status: 0
                         },
                         {

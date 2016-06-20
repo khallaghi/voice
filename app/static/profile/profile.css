@@ -868,8 +868,10 @@ span.showBodyOfDisplayOnHover {
     padding-right: 62%;
 }
 .f2{
-    padding-right: 65%;
+    padding-right: 48%;
+    left: -35px;
 }
+
 .fot{
 
 }
@@ -966,6 +968,16 @@ a.reporting {
 .this-will-not-be-read {
     display: none !important;
 }
+.logo img{
+    width: 45px;
+    height: 45px;
+
+    /*background-color: #90A4AE;*/
+    /*border-radius: 50px;*/
+    /*padding: 5px;*/
+    /*margin-top: 10px;*/
+}
+
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px)  {
     .navbar-collapse{
         width: 80%;
@@ -1028,7 +1040,7 @@ a.reporting {
         font-size:18px;
     }
     .bg-gray{
-        height: 200px;
+        height: 100%;
     }
     .mda{
         width:50%;
