@@ -13,7 +13,7 @@ from flask import jsonify
 import datetime
 
 LEN_TOO_MUCH = 1
-TEST = True
+TEST = False
 MAX_LEN = 20
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
@@ -123,7 +123,7 @@ class ProfessorRate(MethodView):
 			i += 1
 		prof.save()
 
-	def apply_comment(self, prof, data):
+	def apply_comment(self, prof, data, study):
 		if not 'comment' in data:
 			print "comment is empty"
 			return
@@ -138,7 +138,7 @@ class ProfessorRate(MethodView):
 		cmt.coolness = data['coolness']
 		cmt.use_textbook = data['useTextbook']
 		cmt.attendance = data['attendance']
-		cmt.study = prof.studies[-1]
+		cmt.study = study
 
 		print cmt.personal_tags
 		self.append_tags(cmt, data)
@@ -178,8 +178,8 @@ class ProfessorRate(MethodView):
 				app.logger.warning(data['selectedCourse'].encode('utf-8'))
 				self.update_course(study, data)
 				prof.save()
-				return True
-		return False
+				return study
+		return None
 
 	def create_course(self, prof, data):
 		study = Study()
@@ -188,18 +188,17 @@ class ProfessorRate(MethodView):
 		self.update_course(study, data)
 		prof.studies.append(study)
 		prof.save()
-		return True
+		return study
 
 	def apply_course(self, prof, data):
 		if data['findCourse']:
 			if 'selectedCourse' in data.keys() and data['selectedCourse'] != None:
-				if self.find_and_update_course(prof, data):
-					return True
+				return self.find_and_update_course(prof, data)
+					
 		else:
 			if 'courseName' in data.keys() and data['courseName'] != None:
-				if self.create_course(prof, data):
-					return True
-		return False
+				return self.create_course(prof, data)
+		return None
 
 	def post(self):
 		try:
@@ -221,12 +220,13 @@ class ProfessorRate(MethodView):
 			if not self.validate(prof, data):
 				raise "INVALID DATA"
 				
-			if not self.apply_course(prof, data):
+			study = self.apply_course(prof, data)
+			if not study:
 				raise "INVALID COURSE"
 				
 			self.apply_rate(prof, data)
 			self.apply_tags(prof, data)
-			self.apply_comment(prof, data)
+			self.apply_comment(prof, data, study)
 
 			return jsonify(
 				success = True,
@@ -322,3 +322,25 @@ class RestoreComment(MethodView):
 rate.add_url_rule('/report/restore/<prof_id>/<cmt_id>', 
 					view_func=RestoreComment.as_view('restore_comment'))
 
+class ResetService(MethodView):
+	decorators = [requires_auth]
+	def get(self):
+		profs = Professor.objects.all()
+		for prof in profs:
+			del prof.helpfulness 
+			del prof.helpfulness_count 
+			del prof.easiness 
+			del prof.easiness_count 
+			del prof.clarity 
+			del prof.clarity_count 
+			del prof.coolness 
+			del prof.coolness_count 
+			del prof.reported_comments 
+			del prof.studies
+			del prof.recent_voters
+			del prof.comments
+			del prof.personal_tags
+			prof.save()
+		return "EVERY THING REMOVED"
+rate.add_url_rule('/reset', 
+					view_func=ResetService.as_view('reset'))
