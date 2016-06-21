@@ -304,7 +304,9 @@
                     <div ng-controller="TagCtrl"  class="col-md-5 tags x1-row5" style="padding-top: 20px;padding-left: 20px;">
                         <div  class="linebetwaen"></div>
                         
-
+                         <!--FIRST PERSON-->
+                         <!--  <div ng-hide="" style="padding-right:10px;padding-top:5%;font-family: IRANSansWeb;font-size: 98px;z-index:9999999;color:#9E9E9E;">!اولین نفر باش که نظر می‌ده</div> -->
+                          <!--FIRST PERSON-->
                         <div ng-repeat="tag in get_personal_tags()" class="label label-success" id="tag">
                             <!-- <span > -->
                             <span class="badge" >{{(tag.count)}}</span>
@@ -361,7 +363,7 @@
 
                
                
-                <div class="row bg-gray box2" id="each-comment" ng-hide="cmt.reported == 1">
+                <div class="row bg-gray box2" id="each-comment" >
                   
                     <!--<div class="col-md-1 ">-->
                     <!--<div style="width: 2px;background-color: rgba(79, 91, 102, 0.14);height: 100%;left: 10px;right: 10px; position: absolute;"></div>-->
