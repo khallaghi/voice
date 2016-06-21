@@ -296,13 +296,16 @@ body{
     color: #0f0f0f;
     font-family: IRANSansWeb;
     src: url(../font/IRANSansWeb.ttf);
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 100;
     line-height: 30px;
     margin-top: 30px;
     padding: 0;
     z-index: -1;
     position: relative;
+}
+.ftxt ,p{
+    font-size: 20px;
 }
 .find span {
     color: #034F84;
@@ -403,6 +406,10 @@ body{
     .find{
         font-size: 70px;
         line-height: 80px;
+    }
+    .ftxt,p{
+        text-align: center;
+        font-size: 45px;
     }
 }
 
