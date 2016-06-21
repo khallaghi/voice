@@ -905,3 +905,13 @@ and (max-width : 991px) {
     padding: 20px;
     color: #fff;
 }
+
+
+/*featuredd*/
+.featuredd,h4{
+    font-size: 15px;
+    line-height: 30px;
+    padding: 20px;
+    text-align: justify;
+    direction: rtl;
+}

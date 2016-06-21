@@ -22,7 +22,25 @@
 ></script>
 <script type="text/javascript" src="%% url_for('static', filename='profile/angular-recaptcha-master/release/angular-recaptcha.js')%%"></script>
     <title>%% prof.name %%</title>
-
+    <link rel="apple-touch-icon" sizes="57x57" href="%%url_for('static',filename='icon/apple-touch-icon-57x57.png')%%">
+    <link rel="apple-touch-icon" sizes="60x60" href="%%url_for('static',filename='icon/apple-touch-icon-60x60.png')%%">
+    <link rel="apple-touch-icon" sizes="72x72" href="%%url_for('static',filename='icon/apple-touch-icon-72x72.png')%%">
+    <link rel="apple-touch-icon" sizes="76x76" href="%%url_for('static',filename='icon/apple-touch-icon-76x76.png')%%">
+    <link rel="apple-touch-icon" sizes="114x114" href="%%url_for('static',filename='icon/apple-touch-icon-114x114.png')%%">
+    <link rel="apple-touch-icon" sizes="120x120" href="%%url_for('static',filename='icon/apple-touch-icon-120x120.png')%%">
+    <link rel="apple-touch-icon" sizes="144x144" href="%%url_for('static',filename='icon/apple-touch-icon-144x144.png')%%">
+    <link rel="apple-touch-icon" sizes="152x152" href="%%url_for('static',filename='icon/apple-touch-icon-152x152.png')%%">
+    <link rel="apple-touch-icon" sizes="180x180" href="%%url_for('static',filename='icon/apple-touch-icon-180x180.png')%%">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-32x32.png')%%" sizes="32x32">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-194x194.png')%%" sizes="194x194">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-96x96.png')%%" sizes="96x96">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/android-chrome-192x192.png')%%" sizes="192x192">
+    <link rel="icon" type="image/png" href="%%url_for('static', filename='icon/favicon-16x16.png')%%" sizes="16x16">
+    <link rel="manifest" href="%%url_for('static',filename='icon/manifest.json')%%">
+    <link rel="mask-icon" href="%%url_for('static',filename='icon/safari-pinned-tab.svg')%%" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 
@@ -88,12 +106,16 @@
                     <div class="avatarcontainer">
                       <% if prof.website%>
                          <img src="%%prof.profile_pic%%"  href="%% prof.website %%" alt="avatar" class="avatar">
+                        <div class="hover" href="%% prof.website %%">
+                            <div class="icon-twitter"></div>
+                        </div>
                         <% else %>
                           <img src="%%prof.profile_pic%%"  alt="avatar" class="avatar">
-                        <% endif %>
                         <div class="hover">
                             <div class="icon-twitter"></div>
                         </div>
+                        <% endif %>
+
                     </div>
 
                 </div>
@@ -148,11 +170,11 @@
                                     <div class="col-md-6 mdb">
                                         <div id="yes-or-no">
                                             <div class="input" id="score">
-                                                <a href="#" title="خدا صبر بده"  ng-click="setHelpfulness(1)" id="sel1" ng-class="{'active':helpfulness===1}">۱</a>
-                                                <a href="#" title="این کاره نیست" ng-click="setHelpfulness(2)" id="sel2" ng-class="{'active':helpfulness===2}">۲</a>
-                                                <a href="#" title="بدک نیست" ng-click="setHelpfulness(3)" id="sel3" ng-class="{'active':helpfulness===3}">۳</a>
-                                                <a href="#" title="خوبه" ng-click="setHelpfulness(4)" id="sel4" ng-class="{'active':helpfulness===4}">۴</a>
-                                                <a href="#" title="عالیه" ng-click="setHelpfulness(5)" id="sel5" ng-class="{'active':helpfulness===5}">۵</a>
+                                                <a href="#" title="اهلش نیست"  ng-click="setHelpfulness(1)" id="sel1" ng-class="{'active':helpfulness===1}">۱</a>
+                                                <a href="#" title=" کاری به کارت نداره" ng-click="setHelpfulness(2)" id="sel2" ng-class="{'active':helpfulness===2}">۲</a>
+                                                <a href="#" title="تا حدودی" ng-click="setHelpfulness(3)" id="sel3" ng-class="{'active':helpfulness===3}">۳</a>
+                                                <a href="#" title="هواتو داره" ng-click="setHelpfulness(4)" id="sel4" ng-class="{'active':helpfulness===4}">۴</a>
+                                                <a href="#" title="از مامانت هم دلسوز تره" ng-click="setHelpfulness(5)" id="sel5" ng-class="{'active':helpfulness===5}">۵</a>
                                             </div>
                                         </div>
                                     </div>
@@ -164,11 +186,11 @@
                                     <div class="col-md-6 mdb">
                                         <div id="yes-or-no">
                                             <div class="input" id="score">
-                                                <a href="#" title="خدا صبر بده"  ng-click="setEasiness(1)" id="sel1" ng-class="{'active':easiness===1}">۱</a>
-                                                <a href="#" title="این کاره نیست" ng-click="setEasiness(2)" id="sel2" ng-class="{'active':easiness===2}">۲</a>
-                                                <a href="#" title="بدک نیست" ng-click="setEasiness(3)" id="sel3" ng-class="{'active':easiness===3}">۳</a>
-                                                <a href="#" title="خوبه" ng-click="setEasiness(4)" id="sel4" ng-class="{'active':easiness===4}">۴</a>
-                                                <a href="#" title="عالیه" ng-click="setEasiness(5)" id="sel5" ng-class="{'active':easiness===5}">۵</a>
+                                                <a href="#" title="فاتحه"  ng-click="setEasiness(1)" id="sel1" ng-class="{'active':easiness===1}">۱</a>
+                                                <a href="#" title=" له شدم له نشی" ng-click="setEasiness(2)" id="sel2" ng-class="{'active':easiness===2}">۲</a>
+                                                <a href="#" title="یه جورایی نه سخته نه آسون" ng-click="setEasiness(3)" id="sel3" ng-class="{'active':easiness===3}">۳</a>
+                                                <a href="#" title="سون میگیره" ng-click="setEasiness(4)" id="sel4" ng-class="{'active':easiness===4}">۴</a>
+                                                <a href="#" title="دمش گرم" ng-click="setEasiness(5)" id="sel5" ng-class="{'active':easiness===5}">۵</a>
                                             </div>
                                         </div>
                                     </div>
@@ -180,11 +202,11 @@
                                     <div class="col-md-6 mdb">
                                         <div class="form-group" id="yes-or-no">
                                             <div class="input" id="score">
-                                                <a href="#" title="خدا صبر بده" ng-click="setClarity(1)" id="sel1" ng-class="{'active':clarity===1}">۱</a>
-                                                <a href="#" title="این کاره نیست" ng-click="setClarity(2)" id="sel2" ng-class="{'active':clarity===2}">۲</a>
-                                                <a href="#" title="بدک نیست" ng-click="setClarity(3)" id="sel3" ng-class="{'active':clarity===3}">۳</a>
-                                                <a href="#"  title="خوبه" ng-click="setClarity(4)" id="sel4" ng-class="{'active':clarity===4}">۴</a>
-                                                <a href="#" title="عالیه" ng-click="setClarity(5)" id="sel5" ng-class="{'active':clarity===5}">۵</a>
+                                                <a href="#" title="زور نزن! چیزی نمیشه فهمید" ng-click="setClarity(1)" id="sel1" ng-class="{'active':clarity===1}">۱</a>
+                                                <a href="#" title="زور بزن شاید فرجی شد" ng-click="setClarity(2)" id="sel2" ng-class="{'active':clarity===2}">۲</a>
+                                                <a href="#" title="یه چیزایی میشه فهمید" ng-click="setClarity(3)" id="sel3" ng-class="{'active':clarity===3}">۳</a>
+                                                <a href="#"  title="قابل فهم" ng-click="setClarity(4)" id="sel4" ng-class="{'active':clarity===4}">۴</a>
+                                                <a href="#" title="مناسب حتی برای کودکان" ng-click="setClarity(5)" id="sel5" ng-class="{'active':clarity===5}">۵</a>
                                             </div>
                                         </div>
                                     </div>
@@ -250,6 +272,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                 <div class="form-group" id="yes-or-no">
                                     <div class="col-md-12">
