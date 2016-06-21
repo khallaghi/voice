@@ -13,7 +13,7 @@ from flask import jsonify
 import datetime
 
 LEN_TOO_MUCH = 1
-TEST = False
+TEST = True
 MAX_LEN = 20
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
