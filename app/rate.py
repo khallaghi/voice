@@ -13,7 +13,7 @@ from flask import jsonify
 import datetime
 
 LEN_TOO_MUCH = 1
-TEST = False
+TEST = True
 MAX_LEN = 20
 
 rate = Blueprint('rate', __name__, template_folder='templates/rate')
@@ -208,21 +208,21 @@ class ProfessorRate(MethodView):
 				raise "PROF NOT FOUND"
 				
 			if not 'response' in data.keys():
-				raise "FORGET RECAPTCHA"
+				raise Exception("FORGET RECAPTCHA")
 					
 			if check_multiple_vote(prof, request.remote_addr):
-				raise "MULTIPLE VOTE"
+				raise Exception("MULTIPLE VOTE")
 				
 			if not verify_user(request.remote_addr, data['response']):
-				raise "YOU ARE ROBOT"
+				raise Exception("YOU ARE ROBOT")
 
 			prof = Professor.objects(id=data['id']).first()
 			if not self.validate(prof, data):
-				raise "INVALID DATA"
+				raise Exception("INVALID DATA")
 				
 			study = self.apply_course(prof, data)
 			if not study:
-				raise "INVALID COURSE"
+				raise Exception("INVALID COURSE")
 				
 			self.apply_rate(prof, data)
 			self.apply_tags(prof, data)
@@ -233,10 +233,11 @@ class ProfessorRate(MethodView):
 				message = "DONE"
 			)
 			
-		except msg:
+		except Exception as msg:
+			app.logger.error(msg)
 			return jsonify(
 				success = False,
-				message = msg
+				message = msg.args[0]
 			)
 rate.add_url_rule('/rate', 
 					view_func=ProfessorRate.as_view('professorRate'))
