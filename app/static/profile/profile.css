@@ -980,7 +980,10 @@ a.reporting:hover{
     /*padding: 5px;*/
     /*margin-top: 10px;*/
 }
-
+.f3{
+    width: 12%;
+    left: -55px;
+}
 @media only screen and (max-device-width: 443px) and (max-device-height: 773px)  {
     .navbar-collapse{
         width: 80%;
