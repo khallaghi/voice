@@ -1006,6 +1006,9 @@ a.reporting:hover{
         width: 55%;
         height: 300px;
     }
+    .btn-primary{
+        font-size: 25px;
+    }
     .mainchart{
         height: 380px;
         padding-left: 25px;
@@ -1048,10 +1051,20 @@ a.reporting:hover{
     .mda{
         width:50%;
         float:right;
+        font-size: 20px;
     }
     .mdb{
         width:50%;
         float:left;
+        font-size: 20px;
+    }
+    .mdb,a{
+        font-size: 20px;
+    }
+    .mdc{
+        /*width:50%;*/
+        /*float:left;*/
+        font-size: 20px;
     }
     .cm1{
         width:20%;
