@@ -247,10 +247,20 @@ and (max-width : 1199px) {
     .menu-item a p {
         font-size: 16px;
     }
-    
+
 }
 
-
+@media only screen and (max-device-width: 443px) and (max-device-height: 773px)  {
+    /*countact us*/
+    .t1{
+        float: none;
+        text-align: center;
+    }
+    .t2{
+        float: none;
+        text-align: center;
+    }
+}
 .home-slider img {
     width: 100%;
     height: auto;
