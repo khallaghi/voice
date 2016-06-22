@@ -345,3 +345,20 @@ class ResetService(MethodView):
 		return "EVERY THING REMOVED"
 rate.add_url_rule('/reset', 
 					view_func=ResetService.as_view('reset'))
+
+class CommentsCount(MethodView):
+	decorators = [requires_auth]
+	def get(self):
+		profs = Professor.objects.all()
+		print profs.count()
+		cmt_count = 0
+		all_count = 0
+		study_count = 0
+		for prof in profs:
+			all_count += prof.clarity_count
+			cmt_count += len(prof.comments)
+			study_count += len(prof.studies)
+		print all_count, cmt_count, study_count
+		return render_template('admin/stat.html',all = all_count, cmt = cmt_count, study = study_count)
+rate.add_url_rule('/stat', 
+					view_func=CommentsCount.as_view('stat'))
