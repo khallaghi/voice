@@ -359,6 +359,17 @@ class CommentsCount(MethodView):
 			cmt_count += len(prof.comments)
 			study_count += len(prof.studies)
 		print all_count, cmt_count, study_count
-		return render_template('admin/stat.html',all = all_count, cmt = cmt_count, study = study_count)
+
+		result = []
+		for fac in Faculty.objects.all():
+			count = 0
+			for prof in fac.professors:
+				print prof.id
+				prof_obj = Professor.objects(id=prof.id).first()
+				if prof_obj:
+					count += prof_obj.comments_count()
+			result.append((fac.name, count))
+		print result
+		return render_template('admin/stat.html',result= result, all = all_count, cmt = cmt_count, study = study_count)
 rate.add_url_rule('/stat', 
 					view_func=CommentsCount.as_view('stat'))

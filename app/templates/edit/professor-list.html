@@ -19,6 +19,7 @@
           <th>#</th>
           <th>name</th>
           <th>photo</th>
+          <th>votes</th>
           <th>faculty</th>
           <th>uni</th>
           <th>edit</th>
@@ -32,11 +33,13 @@
           <td>%% count %%</td>
           <% set count = count + 1%>
           <td><a href="%%url_for('profile.prof', id=prof.id)%%">%% prof.name %%</a></td>
+
           <% if prof.image_name %>
           <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
           <%else %>
           <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
           <% endif %>
+          <td>%% prof.comments_count() %%</td>
           <% if prof.faculty %>
           <td>%% prof.faculty.name %%</td>
           <% if prof.faculty.uni %>
