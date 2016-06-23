@@ -15,6 +15,8 @@ class Faculty(db.Document):
     def prof_count(self):
         return len(self.professors)
 
+    
+    
 class Professor(db.Document):   
     ''' Personal Attributes '''
     name = db.StringField(max_length=500, required=True)
@@ -57,7 +59,10 @@ class Professor(db.Document):
             return "/static/img/uploaded_images/%s" % self.image_name
         else:
             return "/static/img/uploaded_images/default.png"
-         
+    # @property
+    def comments_count(self):
+        return len(self.comments)
+    
     
 class Voter(db.EmbeddedDocument):
     ip = db.StringField()
