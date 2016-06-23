@@ -1131,3 +1131,146 @@ a.reporting:hover{
         /*margin-left: 2%;*/
     /*}*/
 }
+
+@media only screen and (max-device-width: 1024px) and (max-device-height: 768px) {
+    .navbar-collapse{
+        width: 80%;
+    }
+    .headlogo{
+        width: 20%;
+    }
+    .headqouets{
+        width: 80%;
+
+    }
+    #x2{
+        width: 80%;
+        margin-left: 10%;
+
+    }
+    .x1-row5{
+        width: 40%;
+        height: 80%;
+        position: absolute;
+    }
+    .x1-row6{
+        width: 55%;
+        height: 300px;
+    }
+    .btn-primary{
+        font-size: 25px;
+    }
+    .mainchart{
+        height: 380px;
+        padding-left: 25px;
+    }
+    .linebetwaen{
+        width: 0;
+    }
+    .tags{
+        line-height: 40px;
+
+    }
+    .label{
+        padding: 8px;
+        display: inline-block;
+    }
+    .progress-bar{
+        font-size: 8px;
+    }
+    #profile{
+        width: 100%;
+    }
+
+    .navbar-static-top{
+        padding-left: 1%;
+    }
+    .collapse{
+        display: table;
+    }
+    #cool img{
+        width: 100px;
+        height: 100px;
+
+    }
+    .tag{
+        font-size:18px;
+    }
+    .bg-gray{
+        height: 100%;
+    }
+    .mda{
+        width:50%;
+        float:right;
+        font-size: 20px;
+    }
+    .mdb{
+        width:50%;
+        float:left;
+        font-size: 20px;
+    }
+    .mdb,a{
+        font-size: 20px;
+    }
+    .mdc{
+        /*width:50%;*/
+        /*float:left;*/
+        font-size: 20px;
+    }
+    .cm1{
+        width:20%;
+        float:right;
+    }
+    .cm2{
+        width:20%;
+        float:right;
+    }
+    .cm3{
+        width:60%;
+        float:left;
+    }
+    .cm31{
+        width: 100%;
+        min-height: 43px;
+    }
+    .cm32{
+        width: 100%;
+    }
+    .cm41{
+        padding-right:0;
+        margin-top:40px;
+    }
+    .cm5{
+        width: 2px;
+    }
+    .box{
+        height: 480px;
+        margin-bottom: 10px;
+    }
+    .h1{
+        width: 20%;
+        float: right;
+    }
+    .h2{
+        width: 45%;
+        padding-right: 0;
+        float: left;
+    }
+    .f1{
+        width: 18%;
+        float: right;
+    }
+    .f2{
+        width: 40%;
+
+        padding-right: 0;
+        left: -40px;
+        font-size: 14px;
+        float: left;
+    }
+    .f3{
+        width: 28%;
+        padding-right: 0;
+        float: left;
+    }
+}
