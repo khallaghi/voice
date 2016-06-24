@@ -44,7 +44,7 @@
         <tr>
           <td>%% count %%</td>
           <% set count = count + 1%>
-          <td><a href="%%url_for('profile.prof', id=prof.id)%%">%% prof.name %%</a></td>
+          <td><a href="%%url_for('profile.prof', id=prof.id)%%" target="_blank">%% prof.name %%</a></td>
 
           <% if prof.image_name %>
           <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
