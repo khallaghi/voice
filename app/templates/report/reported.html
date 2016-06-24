@@ -52,12 +52,12 @@
         <% for cmt in record.comments %>
         <tr>
           <td class="fnt cmd">%% cmt.body %%</td>
-          <td>
+          <td  class="fnt cmd">
             <a method="post" href="%% url_for('rate.delete_comment', prof_id=record.prof.id, cmt_id=cmt.id)%%">
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </a>
           </td>
-          <td>
+          <td  class="fnt cmd">
             <a href="%% url_for('rate.restore_comment', prof_id=record.prof.id, cmt_id=cmt.id)%%">
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </a>
