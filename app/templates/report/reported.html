@@ -3,23 +3,43 @@
   <head>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
           rel="stylesheet">
-          <title>list of professors</title>
+          <title>صفحه گزارشات تخلف</title>
+    <style type="text/css">
+      @font-face {
+        font-family: IRANSansWeb;
+        src: url(../font/IRANSansWeb.ttf);
+      }
+
+      body{
+        font-family: IRANSansWeb;
+        background-color: #607D8B;
+        direction: rtl;
+      }
+      .fnt{
+        font-family: IRANSansWeb;
+      }
+      .profname{
+        padding: 10px;
+        background-color: #167abd;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
+    <div class="container fnt">
       <div class="header">
-        <h3 class="text-muted">List of reported comments</h3>
+        <h3 class="text-muted">لیست گزارش های تخلف استاد</h3>
 
       </div>
       <hr/>
       <% for record in records%>
-      <div>%% record.prof.name %%</div>
+      <div class="profname">%% record.prof.name %%</div>
       <table class="table">
       <thead>
         <tr>
-          <th>body</th>
-          <th>delete</th>
-          <th>restore</th>
+          <th style="text-align: right;">متن</th>
+          <th style="text-align: right;">پاک کردن</th>
+          <th style="text-align: right;">بازگردانی</th>
         </tr>
         </thead>
         <tbody>
