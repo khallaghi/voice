@@ -16,7 +16,7 @@
     <script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
     <script src="%%url_for('static', filename='profile/profile.js')%%"></script>
     <link rel="stylesheet" href="%% url_for('static', filename='profile/profile.css') %%">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+    <link  href="%%url_for('static', filename='css/css/select2.min.css')%%"  rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit"  async defer
 ></script>
@@ -144,7 +144,7 @@
                                         <div class="text" > چه درسی باهاش داشتی؟ </div>
                                     </div>
                                     <div class="col-md-6 mdb" >
-                                        <select id="js-example-data-array"  style="width: 150px;direction: rtl;" ng-model="selected_course">
+                                        <select id="js-example-data-array"  style="width: 230px;direction: rtl;" ng-model="selected_course">
                                         </select>
                                     </div>
                                 </div>
