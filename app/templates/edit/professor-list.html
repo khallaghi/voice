@@ -52,10 +52,10 @@
           <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
           <% endif %>
           <td>%% prof.comments_count() %%</td>
-          <% if prof.faculty %>
-          <td>%% prof.faculty.name %%</td>
           <% if prof.faculty.uni %>
           <td>%% prof.faculty.uni.name %%</td>
+          <% if prof.faculty %>
+          <td>%% prof.faculty.name %%</td>
           <% else %>
             <td>NONE</td>
           <% endif %>
