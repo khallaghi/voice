@@ -14,6 +14,7 @@
         font-family: IRANSansWeb;
         direction: rtl;
         background-color: #86989B;
+
       }
       a{
         font-family: IRANSansWeb;
@@ -47,7 +48,7 @@
         <tr>
           <td>%% count %%</td>
           <% set count = count + 1%>
-          <td><a href="%%url_for('profile.prof', id=prof.id)%%" target="_blank">%% prof.name %%</a></td>
+          <td><a href="%%url_for('profile.prof', id=prof.id)%%" target="_blank" style="color: #0f0f0f;text-decoration: none;">%% prof.name %%</a></td>
 
           <% if prof.image_name %>
           <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
