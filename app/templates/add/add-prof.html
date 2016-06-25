@@ -46,18 +46,20 @@
 		}
 	</style>
 </head>
-<body>
+<body >
+
 <% import '_forms.html' as forms %>
 
-	<p> number of professors: %%profs.count()%%
-	<h2>Add a comment</h2>
-	<form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data">
+	<p> number of professors: %%profs.count()%%</p>
+	<h2>اضافه کردن استاد جدید</h2>
+	<form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data" style="text-align: center">
      %% forms.render(form)%%
 	 
 	  <div class="actions">
 	    <input  type="submit" class="btn primary" value="submit">
 	  </div>
 	</form>
+
 <% for prof in profs %>
 	<div class="profname">
 		%%prof.name+" "%%
