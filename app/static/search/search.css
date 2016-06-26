@@ -94,9 +94,7 @@ body{
     -webkit-animation: rotx 10s linear infinite; /* Chrome, Safari, Opera */
     animation: rotx 10s linear infinite;
 }
-.moving{
-    visibility: hidden;
-}
+
 .orng{
     position: absolute;
     top:75%;
@@ -497,6 +495,9 @@ body{
     .ftxt,p{
         text-align: center;
         font-size: 45px;
+    }
+    .moving{
+        visibility: hidden;
     }
 }
 
