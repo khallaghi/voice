@@ -22,25 +22,25 @@ body{
 /*}*/
 .topleftblue{
     position: absolute;
-    left: 35%;
+    left: 52%;
     top: 2%;
     width: 0;
     height: 0;
     border-bottom: 50px solid #01B7D3;
     border-left: 50px solid transparent;
-    -webkit-animation: lefttoright 10s linear infinite; /* Chrome, Safari, Opera */
-    animation: lefttoright 10s linear infinite;
+    -webkit-animation: rot 10s linear infinite; /* Chrome, Safari, Opera */
+    animation: rot 10s linear infinite;
 }
 .downleftred{
     position: absolute;
-    left: 35%;
+    left: 39%;
     bottom: 2%;
     width: 0;
     height: 0;
     border-top: 50px solid #ED1647;
     border-right: 50px solid transparent;
-    -webkit-animation: lefttoright 10s linear infinite; /* Chrome, Safari, Opera */
-    animation: lefttoright 10s linear infinite;
+    -webkit-animation: rotx 10s linear infinite; /* Chrome, Safari, Opera */
+    animation: rotx 10s linear infinite;
 }
 .gry{
     position: absolute;
@@ -105,6 +105,17 @@ body{
     border-left: 50px solid transparent;
     -webkit-animation: rot 5s linear infinite; /* Chrome, Safari, Opera */
     animation: rot 5s linear infinite;
+}
+.orng1{
+    position: absolute;
+    top:65%;
+    right: 48%;
+    width: 0;
+    height: 0;
+    border-bottom: 80px solid #F36E25;
+    border-left: 80px solid transparent;
+    -webkit-animation: rot 16s linear infinite; /* Chrome, Safari, Opera */
+    animation: rot 16s linear infinite;
 }
 .topbuttum{
     float: right;
