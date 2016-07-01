@@ -37,13 +37,13 @@ app.controller('searchBox',function($scope, $http, $timeout){
 });
 
 	function nextpage() {
-		$("#logo").hide();
-		$("#search-place").hide();
-
-		$("#search-box").animate({"top":'-=60%'},1000);
-		$("#arrow-down").hide();
-		$("#head").delay(800).fadeIn();
-		$("#detail").delay(800).fadeIn();
-		$("#tiser").play();
+		// $("#logo").hide();
+		// $("#search-place").hide();
+        //
+		// $("#search-box").animate({"top":'-=60%'},1000);
+		// $("#arrow-down").hide();
+		// $("#head").delay(800).fadeIn();
+		// $("#detail").delay(800).fadeIn();
+		// $("#tiser").play();
 
 	}

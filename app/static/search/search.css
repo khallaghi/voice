@@ -394,6 +394,19 @@ footer{
         width: 20%;
         float: left;
     }
+    .f1{
+        width: 20%;
+        float: right;
+    }
+    .f2{
+        width: 30%;
+        float: none;
+        margin-right: 0;
+        position: relative;
+    }
+    .f3{
+        display: none;
+    }
 }
 
 @media (min-width: 321px) and (max-width: 480px) {
