@@ -38,6 +38,7 @@ border-radius:20px;
 
 }
 #search-place{
+    height: 160px;
     margin-top: 20px;
 }
 .each-result{
@@ -399,9 +400,7 @@ footer{
     #search-box{
         padding-top: 30%;
     }
-    .right-search{
-        display: none;
-    }
+
     .centersearch{
         width: 80%;
         left: -35px;
@@ -418,9 +417,7 @@ footer{
     #search-box{
         padding-top: 30%;
     }
-    .right-search{
-        display: none;
-    }
+
     .centersearch{
         width: 80%;
         left: -35px;
