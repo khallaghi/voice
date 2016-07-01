@@ -376,7 +376,11 @@ footer{
 }
 
 
-
+@media  (min-width: 321px) and (max-width: 480px){
+    #search-box{
+        padding-top: 30%;
+    }
+}
 
 
 
