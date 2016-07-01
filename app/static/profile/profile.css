@@ -163,7 +163,7 @@ ul.dropdown-menu { border: none }
     transition: all .3s ease;
     border: 1px solid #fff;
     box-shadow: none;
-    background: url("search-icon.jpg") no-repeat 10px 8px;
+    background: url("search-icon.png") no-repeat 10px 8px;
     padding: 0 5px 0 35px;
     color: #fff;
     margin-left: 10px;
@@ -198,7 +198,7 @@ ul.dropdown-menu { border: none }
     box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;
 }
 .linebetwaen{
-   width: 2px;
+    width: 2px;
     background-color:rgba(79, 91, 102, 0.24);
     height: 300px;
     left: 10px;
@@ -322,24 +322,24 @@ ul.dropdown-menu { border: none }
     /*margin-top: 60px;*/
 }
 /*.data {*/
-    /*margin-top: .6em;*/
-    /*color: #81878b; }*/
+/*margin-top: .6em;*/
+/*color: #81878b; }*/
 /*.data li {*/
-    /*width: 32%;*/
-    /*text-align: center;*/
-    /*display: inline-block;*/
-    /*font-size: 1.5em;*/
-    /*font-family: 'Lato';*/
-    /*border-right: solid 1px #bdc3c7; }*/
+/*width: 32%;*/
+/*text-align: center;*/
+/*display: inline-block;*/
+/*font-size: 1.5em;*/
+/*font-family: 'Lato';*/
+/*border-right: solid 1px #bdc3c7; }*/
 /*.data li:last-child {*/
-    /*border: none; }*/
+/*border: none; }*/
 /*.data li span {*/
-    /*display: block;*/
-    /*text-transform: uppercase;*/
-    /*font-family: 'Quicksand';*/
-    /*font-size: .5em;*/
-    /*margin-top: .6em;*/
-    /*font-weight:700;*/
+/*display: block;*/
+/*text-transform: uppercase;*/
+/*font-family: 'Quicksand';*/
+/*font-size: .5em;*/
+/*margin-top: .6em;*/
+/*font-weight:700;*/
 /*}*/
 
 .desc {
@@ -863,7 +863,7 @@ span.showBodyOfDisplayOnHover {
     margin-bottom: 50px;
 }
 .cm41{
- word-wrap: break-word; padding-right: 30px;   
+    word-wrap: break-word; padding-right: 30px;
 }
 .h2{
     padding-right: 62%;
@@ -1034,7 +1034,7 @@ a.reporting:hover{
     #profile{
         width: 100%;
     }
-    
+
     .navbar-static-top{
         padding-left: 1%;
     }
@@ -1127,8 +1127,8 @@ a.reporting:hover{
         float: left;
     }
     /*.fot{*/
-        /*width: 96%;*/
-        /*margin-left: 2%;*/
+    /*width: 96%;*/
+    /*margin-left: 2%;*/
     /*}*/
 }
 
@@ -1274,3 +1274,12 @@ a.reporting:hover{
         float: left;
     }
 }
+
+
+
+
+
+
+
+
+
