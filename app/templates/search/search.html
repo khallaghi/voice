@@ -68,11 +68,6 @@
 					</div>
 
 					<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
-						<div ng-if="!search_result.data.profs.length">
-							<p  class="no-result">
-								نتیجه‌ای یافت نشد.
-							</p>
-						</div>
 					<!-- <p>Professors:</p> -->
 						<ul class="results-place"  ng-repeat="prof in search_result.data.profs" >
 							<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
