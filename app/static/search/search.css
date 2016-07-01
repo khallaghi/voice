@@ -376,9 +376,60 @@ footer{
 }
 
 
-@media  (min-width: 321px) and (max-width: 480px){
+@media (min-width: 481px) and (max-width: 768px) {
     #search-box{
         padding-top: 30%;
+    }
+    .right-search{
+        display: none;
+    }
+    .centersearch{
+        width: 80%;
+        left: -35px;
+        margin-left: 0;
+        float: right;
+    }
+    .left-search{
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+    #search-box{
+        padding-top: 30%;
+    }
+    .right-search{
+        display: none;
+    }
+    .centersearch{
+        width: 80%;
+        left: -35px;
+        margin-left: 0;
+        float: right;
+    }
+    .left-search{
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (max-width: 320px) {
+    #search-box{
+        padding-top: 30%;
+    }
+    .right-search{
+        display: none;
+    }
+    .centersearch{
+        width: 80%;
+        left: -35px;
+        margin-left: 0;
+        float: right;
+    }
+    .left-search{
+        width: 20%;
+        float: left;
     }
 }
 
