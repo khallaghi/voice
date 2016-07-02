@@ -37,13 +37,20 @@ app.controller('searchBox',function($scope, $http, $timeout){
 });
 
 	function nextpage() {
-		// $("#logo").hide();
-		// $("#search-place").hide();
-        //
-		// $("#search-box").animate({"top":'-=60%'},1000);
-		// $("#arrow-down").hide();
-		// $("#head").delay(800).fadeIn();
-		// $("#detail").delay(800).fadeIn();
-		// $("#tiser").play();
+        $(".main2").fadeIn();
+		$(".main1").hide();
+		$("#minisearch").hide().removeClass("col-md-6").appendTo(".h11").show();
+        $(".centersearch").removeClass("centersearch").addClass('centersearch2');
+        $(".insearch").removeClass("insearch").addClass('minisearchdesign1');
+        // $("#search-place").fadeIn('slow');
+        $(".m1").delay(2000).fadeIn();
+        $(".m2").delay(2000).fadeIn();
+        $(".m3").delay(2000).fadeIn();
+        $(".h1").delay(2000).fadeIn();
+        $(".h2").delay(2000).fadeIn();
+        $("#right-search").removeClass('col-md-3');
+		$("#back").animate({"top":'-=70%'},2000);
+		$("#arrow-down").hide();
+		$(".head2").fadeIn();
 
 	}

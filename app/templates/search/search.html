@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=0.7, maximum-scale=0.7" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<title>search!</title>
+	<title>صفحه نخست</title>
 	<script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
 	<script src="%% url_for('static', filename='search/search.js')%%"></script>
 	<link rel="stylesheet" href="%%url_for('static', filename='search/search.css')%%">
@@ -37,154 +37,185 @@
 
 
 <body>
-	<div class="fill">
-		<div class="row" id="search-box">
-			<div class="col-md-12" id="logo">
-				<img src="%%url_for('static',filename='search/logo.png')%%">
+	<div id="back"></div>
+	<div class="container-fluid fill">
+
+		<div class="row main1">
+			<div class="row" >
+				<div class="col-md-12" id="logo">
+					<img src="%%url_for('static',filename='search/logo.png')%%">
+				</div>
 			</div>
-			<div class="col-md-12 " id="search-place">
-				<div class="col-md-3 right-search" style="width: 21%;"></div>
-				<div class="col-md-6 centersearch"  ng-app="search" ng-controller="searchBox as box">
-					<input class="insearch" type="search" id="search"
-					placeholder="نام استاد رو وارد کن ..."
-					ng-model="keyword"
-					ng-change="search()"
-					ng-focus="box.setFocusTrue()"
-					/>
-					<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
-						<div ng-if="!search_result.data.profs.length">
-							<p  class="no-result">
-								نتیجه‌ای یافت نشد.
-							</p>
-						</div>
-					</div>
-					<div class="one-result wait" ng-hide="search_result || !keyword">
-						<div id="search" ng-if="keyword.length < 3">
-							<p >  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>
-						</div>
-						<div id="search" ng-if="keyword.length >= 3">
-							<p style="font-size: 15px; flow:left;direction: rtl;">
-								در حال جستجوی {{keyword}}
-								<img src="http://www.bba-reman.com/images/fbloader.gif" />
-							</p>
+			<div class="row">
+				<div class="col-md-12 " id="search-place">
+					<div class="col-md-3 " id="right-search" style="width: 21%;"></div>
+
+					<div id="minisearch" class="col-md-6 centersearch"  ng-app="search" ng-controller="searchBox as box">
+						<input class="insearch" type="search" id="search"
+							   placeholder="نام استاد رو وارد کن ..."
+							   ng-model="keyword"
+							   ng-change="search()"
+							   ng-focus="box.setFocusTrue()"
+						/>
+						<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
+							<div ng-if="!search_result.data.profs.length">
+								<p  class="no-result">
+									نتیجه‌ای یافت نشد.
+								</p>
 							</div>
+						</div>
+						<div class="one-result wait" ng-hide="search_result || !keyword">
+							<div id="search" ng-if="keyword.length < 3">
+								<p >  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>
+							</div>
+							<div id="search" ng-if="keyword.length >= 3">
+								<p style="font-size: 15px; flow:left;direction: rtl;">
+									در حال جستجوی {{keyword}}
+									<img src="http://www.bba-reman.com/images/fbloader.gif" />
+								</p>
+							</div>
+						</div>
+
+						<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
+							<!-- <p>Professors:</p> -->
+							<ul class="results-place"  ng-repeat="prof in search_result.data.profs" >
+								<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
+									<li class="each-result">
+										<p style=" padding-top: 10px;">{{prof.name}}</p>
+										<p >{{prof.faculty}} - {{prof.uni}}</p>
+									</li>
+								</a>
+							</ul>
+						</div>
 					</div>
 
-					<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
-					<!-- <p>Professors:</p> -->
-						<ul class="results-place"  ng-repeat="prof in search_result.data.profs" >
-							<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
-								<li class="each-result">
-									<p style=" padding-top: 10px;">{{prof.name}}</p>
-									<p >{{prof.faculty}} - {{prof.uni}}</p>
-								</li>
-							</a>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-1 left-search" style="padding: 0;">
-					<img src="%%url_for('static',filename='search/search.png')%%">
-				</div>
-				<div class="col-md-2"></div>
 
+					<div class="col-md-1 left-search" style="padding: 0;">
+						<img src="%%url_for('static',filename='search/search.png')%%">
+					</div>
+					<div class="col-md-2"></div>
+
+				</div>
 			</div>
-			<div class="col-md-12">
-				<img id="arrow-down" onclick="nextpage()" src="%%url_for('static',filename='search/arrow.png')%%" 	>
+			<div class="row">
+				<div class="col-md-12">
+					<img id="arrow-down" onclick="nextpage()" src="%%url_for('static',filename='search/arrow.png')%%" 	>
+				</div>
 			</div>
 		</div>
-
-		<div class="row" id="head">
-			<div class="col-md-4"  ng-app="search1" ng-controller="searchBox as box">
-
-				<img src="%%url_for('static',filename='search/search2.png')%%">
+		<div class="row head2">
+			<div class="col-md-3 h3">
+				<img src="%%url_for('static',filename='search/logo2.png')%%">
 			</div>
-			<div class="col-md-2"></div>
+			<div class="col-md-6 h1">
+				<div class="col-md-8 h11" style="padding: 0;text-align: left;"></div>
+				<div class="col-md-2 searchpic">
+					<img src="%%url_for('static',filename='search/search2.png')%%">
+				</div>
+			</div>
 			<div class="col-md-3"></div>
-			<div class="col-md-3">
+			<div class="col-md-3 h2">
 				<img src="%%url_for('static',filename='search/logo2.png')%%">
 			</div>
 		</div>
-		<div class="row" id="detail">
-			<div class="col-md-7">
-				<div class="col-md-12 box2 " style="width: 94%;">
-					<div id="left-arrow">
-						<img src="%%url_for('static',filename='search/left.png')%%">
-					</div>
-					<div id="slides">
-						<div id="slide">
-							<img src="%%url_for('static',filename='search/sharif.png')%%">
+		<div class="row main2">
+			<div class="col-md-7 m1">
+				<div class="row">
+					<div class="col-md-12 box2 " style="width: 94%;display: inline-flex;">
+						<div id="left-arrow">
+							<!--<img src="%%url_for('static',filename='search/left.png')%%">-->
 						</div>
-						<div id="slide">
-							<img src="%%url_for('static',filename='search/shahid.png')%%">
+						<div id="slides">
+							<div id="slide">
+								<img src="%%url_for('static',filename='search/sharif.png')%%">
+							</div>
+							<div id="slide">
+								<img src="%%url_for('static',filename='search/shahid.png')%%">
+							</div>
+							<div id="slide">
+								<img src="%%url_for('static',filename='search/amir.png')%%">
+							</div>
+							<div id="slide">
+								<img src="%%url_for('static',filename='search/ut.png')%%">
+							</div>
 						</div>
-						<div id="slide">
-							<img src="%%url_for('static',filename='search/amir.png')%%">
-						</div>
-						<div id="slide">
-							<img src="%%url_for('static',filename='search/ut.png')%%">
-						</div>
-					</div>
-					<div id="right-arrow">
-						<img src="%%url_for('static',filename='search/right.png')%%">
-					</div>
-				</div>
-				<div class="col-md-3 box2" id="nextevent">
-					<div class="row">
-						<div class="col-md-12 back-detail">
-							اتفاق بعدی
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 nexteventdetail">
-							اضافه شدن دانشگاه امیر کبیر
+						<div id="right-arrow">
+							<!--<img src="%%url_for('static',filename='search/right.png')%%">-->
 						</div>
 					</div>
 				</div>
-				<div class="col-md-8 box2">
-					<div class="col-md-6">
-						<div class="col-md-12 back-detail">افراد شرکت کننده</div>
-						<div class="col-md-12 seenum">۱۳۱۰</div>
-					</div>
-					<div class="col-md-6">
-						<div class="col-md-12">
-							<div class="col-md-12 back-detail">تعداد اساتید</div>
-							<div class="col-md-12 profnum">۵۳۰ </div>
+				<div class="row m12" ">
+						<div class="col-md-3 box2" id="nextevent">
+							<div class="row">
+								<div class="col-md-12 back-detail">
+									اتفاق بعدی
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 nexteventdetail">
+									اضافه شدن دانشگاه امیر کبیر
+								</div>
 						</div>
-						<div class="col-md-12">
-							<div class="col-md-7 allsee">۳۳,۵۱۰</div>
-							<div class="col-md-5 back-detail" style="margin-top: 0;">بازدید کل</div>
 						</div>
+						<div class="col-md-8 box2" id="number">
+							<div class="row">
+							<div class="col-md-6">
+								<div class="col-md-12 back-detail">افراد شرکت کننده</div>
+								<div class="col-md-12 seenum">۱۳۱۰</div>
+							</div>
+							<div class="col-md-6">
+
+								<div class="col-md-12">
+									<div class="row">
+									<div class="col-md-12 back-detail">تعداد اساتید</div>
+									</div>
+									<div class="row">
+									<div class="col-md-12 profnum">۵۳۰ </div>
+								</div>
+								</div>
+
+							</div>
+							</div>
+							<div class="row" style="margin: 0 0 10 0;">
+								<div class="col-md-12" style="padding: 0;">
+									<div class="col-md-7 allsee" style="padding: 0 10 0 40;">۳۳,۵۱۰</div>
+									<div class="col-md-5 back-detail seens" style="margin-top: 0;padding: 3px;">بازدید کل</div>
+									<div class="col-md-7 allsee2" style="padding: 0 10 0 40;">۳۳,۵۱۰</div>
+								</div>
+							</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 box1">
-				<div class="col-md-12 videodetail">
-					<video controls  autoplay controls width="400" id="tiser">
-						<source src="%%url_for('static', filename='content/video/t.mp4')%%" type="video/mp4">
-						<!--<source src="mov_bbb.ogg" type="video/ogg">-->
-						Your browser does not support HTML5 video.
-					</video>
+			<div class="col-md-4 m2 box1">
+				<div class="row">
+					<div class="col-md-12 videodetail">
+						<video controls   controls width="95%" id="tiser">
+							<source src="%%url_for('static', filename='content/video/t.mp4')%%" type="video/mp4">
+							<!--<source src="mov_bbb.ogg" type="video/ogg">-->
+							Your browser does not support HTML5 video.
+						</video>
+					</div>
 				</div>
-				<div class="col-md-12" style="text-align: center;padding-top: 50px;">
-					<p>با ما همراه باشید</p>
+				<div class="row">
+					<div class="col-md-12" style="text-align: center;padding-top: 50px;">
+						<p>با ما همراه باشید</p>
+					</div>
 				</div>
 			</div>
-			<div class="col-md-2"></div>
-		</div>
-		<div class="row">
-			<footer>
-				<div class="col-md-3 text-left f1">
-					<a class="about-butom"  href="%% url_for('content.aboutus')%%">درباره ما</a>
-				</div>
-				<div class="col-md-6 social f2">
-					<a href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
-					<a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
-					<a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
-				</div>
-				<div class="col-md-3 resorve f3">
-					<img src="%%url_for('static',filename='search/resorve.png')%%">
-				</div>
-			</footer>
+			<div class="col-md-2 m3"></div>
+			</div>
+		<div class="row foot">
+			<div class="col-md-3 text-left f1">
+				<a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
+			</div>
+			<div class="col-md-6 social f2">
+				<a href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
+				<a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
+				<a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
+			</div>
+			<div class="col-md-3 resorve f3">
+				<img src="%%url_for('static',filename='search/resorve.png')%%">
+			</div>
 		</div>
 	</div>
 <script>
