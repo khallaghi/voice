@@ -1,7 +1,7 @@
 from __future__ import division
 from flask import Blueprint, request, redirect, render_template, url_for
 from flask.views import MethodView
-from app.models import University, Professor, Faculty
+from app.models import University, Professor, Faculty, Post
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import SearchForm
 from mongoengine import Q
@@ -57,8 +57,10 @@ def get_tags(tags):
 		comment_list.append(tag_dict)
 	return comment_list
 
+
 def get_comments(prof):
-	for cmt in prof.comments:
+	posts = Post.objects(prof = prof, deleted = False)
+	for cmt in posts:
 		comment_dict = {}
 		comment_dict['body'] = cmt.body
 		comment_dict['helpfulness'] = cmt.helpfulness
@@ -72,11 +74,11 @@ def get_comments(prof):
 			comment_dict['study'] = ""
 
 		# comment_dict['study'] = cmt.study.name
-		comment_dict['coolness'] = cmt.coolness
-		comment_dict['use_textbook'] = cmt.use_textbook
-		comment_dict['attendance'] = cmt.attendance
-		comment_dict['id'] = cmt.id
-		comment_dict['reported'] = cmt.reported
+		comment_dict['coolness'] = cmt.attrs['coolness']
+		comment_dict['use_textbook'] = cmt.attrs['use_textbook']
+		comment_dict['attendance'] = cmt.attrs['attendance']
+		comment_dict['id'] = str(cmt.id)
+		# comment_dict['reported'] = cmt.reported
 		yield comment_dict
 class ProfProfile(MethodView):
 
@@ -171,6 +173,6 @@ class UniProfile(MethodView):
 		uni = get_context(id)
 		return render_template('profile/uni.html', uni=uni)
 profile.add_url_rule('/prof/<id>', view_func=ProfProfile.as_view('prof'))
-profile.add_url_rule('/fac/<id>', view_func=FacProfile.as_view('faculty profile'))
-profile.add_url_rule('/uni/<id>', view_func=UniProfile.as_view('uni profile'))
+profile.add_url_rule('/fac/<id>', view_func=FacProfile.as_view('faculty'))
+profile.add_url_rule('/uni/<id>', view_func=UniProfile.as_view('uni'))
 profile.add_url_rule('/prof/getResults/<id>', view_func=ProfResult.as_view('prof result'))

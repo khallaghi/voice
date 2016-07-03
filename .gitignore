@@ -2,3 +2,4 @@ vevn
 *.pyc
 app/*.pyc
 uploaded_images
+app/manage.py

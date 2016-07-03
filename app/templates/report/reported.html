@@ -12,27 +12,24 @@
 
       </div>
       <hr/>
-      <% for record in records%>
-      <div>%% record.prof.name %%</div>
+      
       <table class="table">
       <thead>
         <tr>
           <th>body</th>
-          <th>delete</th>
-          <th>restore</th>
+          <th>operations</th>
         </tr>
         </thead>
         <tbody>
-        <% for cmt in record.comments %>
+        <% for post in posts %>
         <tr>
-          <td>%% cmt.body %%</td>
+          <td>%% post.body %%</td>
           <td>
-            <a method="post" href="%% url_for('rate.delete_comment', prof_id=record.prof.id, cmt_id=cmt.id)%%">
+            <a method="post" href="%% url_for('report.DeletePost', post_id=post.id)%%">
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </a>
-          </td>
-          <td>
-            <a href="%% url_for('rate.restore_comment', prof_id=record.prof.id, cmt_id=cmt.id)%%">
+          
+            <a href="%% url_for('report.RestorePost', post_id=post.id)%%">
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </a>
           </td>
@@ -40,7 +37,6 @@
         <% endfor %>
         </tbody>
       </table>
-     <% endfor %>
     </div>
   </body>
 </html>

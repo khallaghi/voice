@@ -17,6 +17,18 @@ from app import app
 # app.debug = True
 
 
-app.config['DEBUG'] = True
+# app.config['DEBUG'] = True
+# if __name__ == "__main__":
+#     app.run()
+
+manager = Manager(app)
+
+# Turn on debugger by default and reloader
+manager.add_command("runserver", Server(
+    use_debugger=True,
+    use_reloader=True,
+    host='0.0.0.0')
+)
+
 if __name__ == "__main__":
-    app.run()
+    manager.run()

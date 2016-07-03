@@ -37,9 +37,9 @@ app.controller('Comment', function(reportComment, Scopes, $scope){
         return dict[key][id.toString()];
     };
     $scope.report_cmt = function(cmt_id){
-        prof_id = Scopes.get("prof_id");
-        reportComment.async(prof_id, cmt_id).then(function(d){
-            if(d == "True")
+        // prof_id = Scopes.get("prof_id");
+        reportComment.async(cmt_id).then(function(d){
+            if(d.success == true)
                 alert("درخواست شما با موفقیت ثبت شد");
             else
                 alert("ثبت درخواست شما با مشکل روبرو شد");
@@ -597,9 +597,9 @@ app.factory('myService', function($http) {
 
 app.factory('reportComment', function($http) {
   var reportComment = {
-    async: function(prof_id, cmt_id) {
+    async: function(cmt_id) {
       // $http returns a promise, which has a then function, which also returns a promise
-      var promise = $http.get('/report/' + prof_id + '/' + cmt_id).then(function (response) {
+      var promise = $http.get('/report/' + cmt_id + '/').then(function (response) {
         // The then function here is an opportunity to modify the response
         
         // The return value gets picked up by the then in the controller.

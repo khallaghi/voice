@@ -48,6 +48,10 @@ def register_blueprints(app):
 
 	from app.content import content
 	app.register_blueprint(content)
+
+	from app.report import report
+	app.register_blueprint(report)
+	
 	# app.register_blueprint(admin)
 
 

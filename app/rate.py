@@ -1,6 +1,6 @@
 from flask import Blueprint, request, redirect, render_template, url_for
 from flask.views import MethodView
-from app.models import University, Professor, Faculty, Tag, Comment, Study, Voter
+from app.models import University, Professor, Faculty, Tag, Comment, Study, Voter, Post
 from flask.ext.mongoengine.wtf import model_form
 from app.forms import SearchForm
 from mongoengine import Q
@@ -124,35 +124,32 @@ class ProfessorRate(MethodView):
 		prof.save()
 
 	def apply_comment(self, prof, data, study):
-		if not 'comment' in data:
-			print "comment is empty"
-			return
+		if not 'comment' in data.keys():
+			raise Exception("COMMENT IS EMPTY")
 		if len(data['comment']) > 1000:
-			return LEN_TOO_MUCH
-		# validate comment for informal comments
-		cmt = Comment()
-		cmt.body = data['comment']
-		cmt.clarity = data['clarity']
-		cmt.helpfulness = data['helpfulness']
-		cmt.easiness = data['easiness']
-		cmt.coolness = data['coolness']
-		cmt.use_textbook = data['useTextbook']
-		cmt.attendance = data['attendance']
-		cmt.study = study
+			raise Exception("LEN IS TOO MUCH")
 
-		print cmt.personal_tags
-		self.append_tags(cmt, data)
-		print cmt.personal_tags
-		if len(prof.comments)>= 1:
-			if prof.comments[-1].id == -1 or prof.comments[-1] == None:
-				self.set_id_for_comments(prof)
-			cmt.id = prof.comments[-1].id + 1
-		else:
-			cmt.id = 0
-		print "CMT ID"
-		print cmt.id
-		prof.comments.append(cmt)
-		prof.save()
+		post = Post()
+		post.body = data['comment']
+		post.clarity = data['clarity']
+		post.helpfulness = data['helpfulness']
+		post.easiness = data['easiness']
+		post.attrs['coolness'] = data['coolness']
+		post.attrs['use_textbook'] = data['useTextbook']
+		post.attrs['attendance'] = data['attendance']
+		post.study = study
+		self.append_tags(post, data)
+		post.save()
+
+		# if len(prof.comments)>= 1:
+		# 	if prof.comments[-1].id == -1 or prof.comments[-1] == None:
+		# 		self.set_id_for_comments(prof)
+		# 	cmt.id = prof.comments[-1].id + 1
+		# else:
+		# 	cmt.id = 0
+		# print "CMT ID"
+		# prof.comments.append(cmt)
+		# prof.save()
 
 
 	def update_course(self, study, data):
@@ -205,7 +202,7 @@ class ProfessorRate(MethodView):
 			data = json.loads(request.data)
 			prof = Professor.objects(id=data['id']).first()
 			if prof == None:
-				raise "PROF NOT FOUND"
+				raise Exception("PROF NOT FOUND")
 				
 			if not 'response' in data.keys():
 				raise Exception("FORGET RECAPTCHA")
@@ -242,109 +239,111 @@ class ProfessorRate(MethodView):
 rate.add_url_rule('/rate', 
 					view_func=ProfessorRate.as_view('professorRate'))
 
-def find_cmt(prof, id):
-	for cmt in prof.comments:
-		print "ID"
-		print id
-		print cmt.id
-		if str(cmt.id) == id:
-			return cmt
+# def find_cmt(prof, id):
+# 	for cmt in prof.comments:
+# 		print "ID"
+# 		print id
+# 		print cmt.id
+# 		if str(cmt.id) == id:
+# 			return cmt
 
-class ReportComment(MethodView):
-	def get(self, prof_id, cmt_id):
-		prof = Professor.objects(id = prof_id).first()
-		if prof:
-			print "BEFORE find_cmt"
-			cmt = find_cmt(prof, cmt_id)
-			print "ATER CMT"
-			print cmt
-			if cmt:
-				cmt.reported = 1
-				prof.reported_comments += 1
-				print "BEFORE SAVE"
-				prof.save()
-				print "IN THE REPORT COMMENT"
-				return "True"
-		return "False"
-rate.add_url_rule('/report/<prof_id>/<cmt_id>', 
-					view_func=ReportComment.as_view('reportComment'))
 
-class ShowReportedComments(MethodView):
-	decorators = [requires_auth]
-	def get_prof_irell_comments(self, prof):
-		for cmt in prof.comments:
-			if cmt.reported:
-				yield {
-					"body":cmt.body,
-					"id":cmt.id
-				}
-	def get_reported_comments(self):
-		profs = Professor.objects(reported_comments__gt = 0)
-		for prof in profs:
-			cmts = self.get_prof_irell_comments(prof)
-			yield {
-				"prof":prof,
-				"comments":cmts
-			}
-	def get(self):
-		return render_template('report/reported.html',
-								records=self.get_reported_comments())
-rate.add_url_rule('/report/list', 
-					view_func=ShowReportedComments.as_view('showReportedComments'))
+# class ReportComment(MethodView):
+# 	def get(self, prof_id, cmt_id):
+# 		prof = Professor.objects(id = prof_id).first()
+# 		if prof:
+# 			print "BEFORE find_cmt"
+# 			cmt = find_cmt(prof, cmt_id)
+# 			print "ATER CMT"
+# 			print cmt
+# 			if cmt:
+# 				cmt.reported = 1
+# 				prof.reported_comments += 1
+# 				print "BEFORE SAVE"
+# 				prof.save()
+# 				print "IN THE REPORT COMMENT"
+# 				return "True"
+# 		return "False"
+# rate.add_url_rule('/report/<prof_id>/<cmt_id>', 
+# 					view_func=ReportComment.as_view('reportComment'))
 
-class DeleteComment(MethodView):
-	decorators = [requires_auth]
-	def get(self, prof_id, cmt_id):
-		print "POOOOOOOST"
-		print id
-		print cmt_id
-		prof = Professor.objects(id=prof_id).first()
-		if prof:
-			cmt = find_cmt(prof, cmt_id)
-			if cmt:
-				prof.comments.remove(cmt)
-				prof.reported_comments -= 1
-				prof.save()
-		return redirect(url_for('rate.showReportedComments'));
-rate.add_url_rule('/report/delete/<prof_id>/<cmt_id>', 
-					view_func=DeleteComment.as_view('delete_comment'))
 
-class RestoreComment(MethodView):
-	decorators = [requires_auth]
-	def get(slef, prof_id, cmt_id):
-		prof = Professor.objects(id=prof_id).first()
-		if prof:
-			cmt = find_cmt(prof, cmt_id)
-			if cmt:
-				cmt.reported = 0
-				prof.reported_comments -= 1
-				prof.save()
-		return redirect(url_for('rate.showReportedComments'))
-rate.add_url_rule('/report/restore/<prof_id>/<cmt_id>', 
-					view_func=RestoreComment.as_view('restore_comment'))
+# class ShowReportedComments(MethodView):
+# 	decorators = [requires_auth]
+# 	def get_prof_irell_comments(self, prof):
+# 		for cmt in prof.comments:
+# 			if cmt.reported:
+# 				yield {
+# 					"body":cmt.body,
+# 					"id":cmt.id
+# 				}
+# 	def get_reported_comments(self):
+# 		profs = Professor.objects(reported_comments__gt = 0)
+# 		for prof in profs:
+# 			cmts = self.get_prof_irell_comments(prof)
+# 			yield {
+# 				"prof":prof,
+# 				"comments":cmts
+# 			}
+# 	def get(self):
+# 		return render_template('report/reported.html',
+# 								records=self.get_reported_comments())
+# rate.add_url_rule('/report/list', 
+# 					view_func=ShowReportedComments.as_view('showReportedComments'))
 
-class ResetService(MethodView):
-	decorators = [requires_auth]
-	def get(self):
-		profs = Professor.objects.all()
-		for prof in profs:
-			del prof.helpfulness 
-			del prof.helpfulness_count 
-			del prof.easiness 
-			del prof.easiness_count 
-			del prof.clarity 
-			del prof.clarity_count 
-			del prof.coolness 
-			del prof.coolness_count 
-			del prof.reported_comments 
-			del prof.studies
-			del prof.recent_voters
-			del prof.comments
-			del prof.personal_tags
-			prof.save()
-		return "EVERY THING REMOVED"
-rate.add_url_rule('/reset', 
-					view_func=ResetService.as_view('reset'))
+# class DeleteComment(MethodView):
+# 	decorators = [requires_auth]
+# 	def get(self, prof_id, cmt_id):
+# 		print "POOOOOOOST"
+# 		print id
+# 		print cmt_id
+# 		prof = Professor.objects(id=prof_id).first()
+# 		if prof:
+# 			cmt = find_cmt(prof, cmt_id)
+# 			if cmt:
+# 				prof.comments.remove(cmt)
+# 				prof.reported_comments -= 1
+# 				prof.save()
+# 		return redirect(url_for('rate.showReportedComments'));
+# rate.add_url_rule('/report/delete/<prof_id>/<cmt_id>', 
+# 					view_func=DeleteComment.as_view('delete_comment'))
+
+# class RestoreComment(MethodView):
+# 	decorators = [requires_auth]
+# 	def get(slef, prof_id, cmt_id):
+# 		prof = Professor.objects(id=prof_id).first()
+# 		if prof:
+# 			cmt = find_cmt(prof, cmt_id)
+# 			if cmt:
+# 				cmt.reported = 0
+# 				prof.reported_comments -= 1
+# 				prof.save()
+# 		return redirect(url_for('rate.showReportedComments'))
+# rate.add_url_rule('/report/restore/<prof_id>/<cmt_id>', 
+# 					view_func=RestoreComment.as_view('restore_comment'))
+
+# class ResetService(MethodView):
+# 	decorators = [requires_auth]
+# 	def get(self):
+# 		profs = Professor.objects.all()
+# 		for prof in profs:
+# 			del prof.helpfulness 
+# 			del prof.helpfulness_count 
+# 			del prof.easiness 
+# 			del prof.easiness_count 
+# 			del prof.clarity 
+# 			del prof.clarity_count 
+# 			del prof.coolness 
+# 			del prof.coolness_count 
+# 			del prof.reported_comments 
+# 			del prof.studies
+# 			del prof.recent_voters
+# 			del prof.comments
+# 			del prof.personal_tags
+# 			prof.save()
+# 		return "EVERY THING REMOVED"
+# rate.add_url_rule('/reset', 
+# 					view_func=ResetService.as_view('reset'))
 
 class CommentsCount(MethodView):
 	decorators = [requires_auth]
@@ -367,9 +366,38 @@ class CommentsCount(MethodView):
 				print prof.id
 				prof_obj = Professor.objects(id=prof.id).first()
 				if prof_obj:
-					count += prof_obj.comments_count()
+					count += prof_obj.comments_count
 			result.append((fac.name, count))
 		print result
 		return render_template('admin/stat.html',result= result, all = all_count, cmt = cmt_count, study = study_count)
 rate.add_url_rule('/stat', 
 					view_func=CommentsCount.as_view('stat'))
+
+
+class MigrateToPost(MethodView):
+	def get(self):
+		# decorators = [requires_auth]
+		profs = Professor.objects()
+		count = 0
+		for prof in profs:
+			for cmt in prof.comments:
+				post = Post()
+				post.created_at = cmt.created_at
+				post.reported = cmt.reported
+				post.body = cmt.body
+				post.clarity = cmt.clarity
+				post.helpfulness = cmt.helpfulness
+				post.easiness = cmt.easiness
+				post.attrs['coolness'] = cmt.coolness
+				post.attrs['use_textbook'] = cmt.use_textbook
+				post.attrs['attendance'] = cmt.attendance
+				post.study = cmt.study
+				post.personal_tags = cmt.personal_tags
+				post.prof = prof
+				post.save()
+				count += 1
+		print count
+		return str(count)
+
+rate.add_url_rule('/migrate-to-post', 
+	view_func = MigrateToPost.as_view("MigrateToPost"))
