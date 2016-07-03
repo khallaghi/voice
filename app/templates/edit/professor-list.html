@@ -4,11 +4,27 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
           rel="stylesheet">
           <title>list of professors</title>
+    <style>
+      @font-face {
+        font-family: IRANSansWeb;
+        src: url(../static/font/IRANSansWeb.ttf);
+      }
+
+      body{
+        font-family: IRANSansWeb;
+        direction: rtl;
+        background-color: #86989B;
+
+      }
+      a{
+        font-family: IRANSansWeb;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <div class="header">
-        <h3 class="text-muted">List of %% profs.count()%% professors</h3>
+        <h3 class="text-muted">تعداد اساتید :%% profs.count()%%</h3>
 
       </div>
       <hr/>
@@ -16,14 +32,14 @@
       <table class="table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>name</th>
-          <th>photo</th>
-          <th>votes</th>
-          <th>faculty</th>
-          <th>uni</th>
-          <th>edit</th>
-          <th>delete</th>
+          <th style="text-align: right;">#</th>
+          <th style="text-align: right;">اسم</th>
+          <th style="text-align: right;">عکس دارد؟</th>
+          <th style="text-align: right;">تعداد نظر</th>
+          <th style="text-align: right;">دانشگاه</th>
+          <th style="text-align: right;">دانشکده</th>
+          <th style="text-align: right;">ویرایش</th>
+          <th style="text-align: right;">پاک کردن</th>
         </tr>
         </thead>
         <tbody>
@@ -32,7 +48,7 @@
         <tr>
           <td>%% count %%</td>
           <% set count = count + 1%>
-          <td><a href="%%url_for('profile.prof', id=prof.id)%%">%% prof.name %%</a></td>
+          <td><a href="%%url_for('profile.prof', id=prof.id)%%" target="_blank" style="color: #0f0f0f;text-decoration: none;">%% prof.name %%</a></td>
 
           <% if prof.image_name %>
           <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
@@ -40,10 +56,10 @@
           <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
           <% endif %>
           <td>%% prof.comments_count() %%</td>
-          <% if prof.faculty %>
-          <td>%% prof.faculty.name %%</td>
           <% if prof.faculty.uni %>
           <td>%% prof.faculty.uni.name %%</td>
+          <% if prof.faculty %>
+          <td>%% prof.faculty.name %%</td>
           <% else %>
             <td>NONE</td>
           <% endif %>
@@ -51,8 +67,8 @@
           <td>NONE</td>
           <td>NONE</td>
           <% endif %>
-          <td><a class="btn btn-primary" href="%%url_for('edit.edit_professor', id=prof.id)%%">edit</a></td>
-          <td><a class="btn btn-danger" href="%%url_for('edit.delete_professor', id=prof.id)%%">delete</a></td>
+          <td><a class="btn btn-primary" href="%%url_for('edit.edit_professor', id=prof.id)%%">ویرایش</a></td>
+          <td><a class="btn btn-danger" href="%%url_for('edit.delete_professor', id=prof.id)%%">پاک کردن</a></td>
 
           
           

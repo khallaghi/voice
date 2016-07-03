@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
-          rel="stylesheet">
-          <title>صفحه گزارشات تخلف</title>
+<head>
+    <meta charset="UTF-8">
+    <title>search!</title>
+    <script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
+    <script src="%% url_for('static', filename='search/search.js')%%"></script>
+    <link rel="stylesheet" href="%%url_for('static', filename='fac/fac.css')%%">
+    <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <title>دانشکده</title>
     <link rel="apple-touch-icon" sizes="57x57" href="%%url_for('static',filename='icon/apple-touch-icon-57x57.png')%%">
     <link rel="apple-touch-icon" sizes="60x60" href="%%url_for('static',filename='icon/apple-touch-icon-60x60.png')%%">
     <link rel="apple-touch-icon" sizes="72x72" href="%%url_for('static',filename='icon/apple-touch-icon-72x72.png')%%">
@@ -17,78 +22,14 @@
     <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-194x194.png')%%" sizes="194x194">
     <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-96x96.png')%%" sizes="96x96">
     <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/android-chrome-192x192.png')%%" sizes="192x192">
-    <link rel="icon" type="image/png" href="%%url_for('static', filename='icon/favicon-16x16.png')%%" sizes="16x16">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-16x16.png')%%" sizes="16x16">
     <link rel="manifest" href="%%url_for('static',filename='icon/manifest.json')%%">
     <link rel="mask-icon" href="%%url_for('static',filename='icon/safari-pinned-tab.svg')%%" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
     <meta name="theme-color" content="#ffffff">
-    <style type="text/css">
-      @font-face {
-        font-family: IRANSansWeb;
-        src: url(../static/font/IRANSansWeb.ttf);
-      }
+</head>
+<body>
 
-      body{
-        font-family: IRANSansWeb;
-        background-color: #607D8B;
-        direction: rtl;
-      }
-      .fnt{
-        font-family: IRANSansWeb;
-      }
-      .profname{
-        padding: 10px;
-        background-color: #167abd;
-        border-radius: 5px;
-        font-size: 18px;
-      }
-      .cmd{
-        padding: 10px;
-        background-color: seashell;
-        font-size: 15px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container fnt">
-      <div class="header">
-        <h3 class="text-muted">لیست گزارش های تخلف استاد</h3>
-
-      </div>
-      <hr/>
-
-     
-      <table class="table fnt">
-      <thead>
-        <tr>
-          <th style="text-align: right;">متن</th>
-          <th style="text-align: right;">عملیات</th>
-          
-        </tr>
-        </thead>
-        <tbody>
-        <% for post in posts %>
-        <tr>
-
-          <td class="fnt cmd">%% cmt.body %%</td>
-          <td  class="fnt cmd">
-            <a method="post" href="%% url_for('report.DeletePost', post_id=post.id)%%">
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            
-            </a>
-          </td>
-          <td  class="fnt cmd">
-            <a href="%% url_for('report.RestorePost', post_id=post.id)%%">
-
-              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </a>
-          </td>
-        </tr>
-        <% endfor %>
-        </tbody>
-      </table>
-    </div>
-  </body>
+</body>
 </html>
- 

@@ -163,7 +163,7 @@ ul.dropdown-menu { border: none }
     transition: all .3s ease;
     border: 1px solid #fff;
     box-shadow: none;
-    background: url("search-icon.jpg") no-repeat 10px 8px;
+    background: url("search-icon.png") no-repeat 10px 8px;
     padding: 0 5px 0 35px;
     color: #fff;
     margin-left: 10px;
@@ -198,7 +198,7 @@ ul.dropdown-menu { border: none }
     box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;
 }
 .linebetwaen{
-   width: 2px;
+    width: 2px;
     background-color:rgba(79, 91, 102, 0.24);
     height: 300px;
     left: 10px;
@@ -322,24 +322,24 @@ ul.dropdown-menu { border: none }
     /*margin-top: 60px;*/
 }
 /*.data {*/
-    /*margin-top: .6em;*/
-    /*color: #81878b; }*/
+/*margin-top: .6em;*/
+/*color: #81878b; }*/
 /*.data li {*/
-    /*width: 32%;*/
-    /*text-align: center;*/
-    /*display: inline-block;*/
-    /*font-size: 1.5em;*/
-    /*font-family: 'Lato';*/
-    /*border-right: solid 1px #bdc3c7; }*/
+/*width: 32%;*/
+/*text-align: center;*/
+/*display: inline-block;*/
+/*font-size: 1.5em;*/
+/*font-family: 'Lato';*/
+/*border-right: solid 1px #bdc3c7; }*/
 /*.data li:last-child {*/
-    /*border: none; }*/
+/*border: none; }*/
 /*.data li span {*/
-    /*display: block;*/
-    /*text-transform: uppercase;*/
-    /*font-family: 'Quicksand';*/
-    /*font-size: .5em;*/
-    /*margin-top: .6em;*/
-    /*font-weight:700;*/
+/*display: block;*/
+/*text-transform: uppercase;*/
+/*font-family: 'Quicksand';*/
+/*font-size: .5em;*/
+/*margin-top: .6em;*/
+/*font-weight:700;*/
 /*}*/
 
 .desc {
@@ -863,7 +863,7 @@ span.showBodyOfDisplayOnHover {
     margin-bottom: 50px;
 }
 .cm41{
- word-wrap: break-word; padding-right: 30px;   
+    word-wrap: break-word; padding-right: 30px;
 }
 .h2{
     padding-right: 62%;
@@ -1034,7 +1034,7 @@ a.reporting:hover{
     #profile{
         width: 100%;
     }
-    
+
     .navbar-static-top{
         padding-left: 1%;
     }
@@ -1117,7 +1117,7 @@ a.reporting:hover{
         width: 40%;
 
         padding-right: 0;
-        left: 0;
+        left: -40px;
         font-size: 14px;
         float: left;
     }
@@ -1127,7 +1127,159 @@ a.reporting:hover{
         float: left;
     }
     /*.fot{*/
-        /*width: 96%;*/
-        /*margin-left: 2%;*/
+    /*width: 96%;*/
+    /*margin-left: 2%;*/
     /*}*/
 }
+
+@media only screen and (max-device-width: 1024px) and (max-device-height: 768px) {
+    .navbar-collapse{
+        width: 80%;
+    }
+    .headlogo{
+        width: 20%;
+    }
+    .headqouets{
+        width: 80%;
+
+    }
+    #x2{
+        width: 80%;
+        margin-left: 10%;
+
+    }
+    .x1-row5{
+        width: 40%;
+        height: 80%;
+        position: absolute;
+    }
+    .x1-row6{
+        width: 55%;
+        height: 300px;
+    }
+    .btn-primary{
+        font-size: 25px;
+    }
+    .mainchart{
+        height: 380px;
+        padding-left: 25px;
+    }
+    .linebetwaen{
+        width: 0;
+    }
+    .tags{
+        line-height: 40px;
+
+    }
+    .label{
+        padding: 8px;
+        display: inline-block;
+    }
+    .progress-bar{
+        font-size: 8px;
+    }
+    #profile{
+        width: 100%;
+    }
+
+    .navbar-static-top{
+        padding-left: 1%;
+    }
+    .collapse{
+        display: table;
+    }
+    #cool img{
+        width: 100px;
+        height: 100px;
+
+    }
+    .tag{
+        font-size:18px;
+    }
+    .bg-gray{
+        height: 100%;
+    }
+    .mda{
+        width:50%;
+        float:right;
+        font-size: 20px;
+    }
+    .mdb{
+        width:50%;
+        float:left;
+        font-size: 20px;
+    }
+    .mdb,a{
+        font-size: 20px;
+    }
+    .mdc{
+        /*width:50%;*/
+        /*float:left;*/
+        font-size: 20px;
+    }
+    .cm1{
+        width:20%;
+        float:right;
+    }
+    .cm2{
+        width:20%;
+        float:right;
+    }
+    .cm3{
+        width:60%;
+        float:left;
+    }
+    .cm31{
+        width: 100%;
+        min-height: 43px;
+    }
+    .cm32{
+        width: 100%;
+    }
+    .cm41{
+        padding-right:0;
+        margin-top:40px;
+    }
+    .cm5{
+        width: 2px;
+    }
+    .box{
+        height: 480px;
+        margin-bottom: 10px;
+    }
+    .h1{
+        width: 20%;
+        float: right;
+    }
+    .h2{
+        width: 45%;
+        padding-right: 0;
+        float: left;
+    }
+    .f1{
+        width: 18%;
+        float: right;
+    }
+    .f2{
+        width: 40%;
+
+        padding-right: 0;
+        left: -40px;
+        font-size: 14px;
+        float: left;
+    }
+    .f3{
+        width: 28%;
+        padding-right: 0;
+        float: left;
+    }
+}
+
+
+
+
+
+
+
+
+
