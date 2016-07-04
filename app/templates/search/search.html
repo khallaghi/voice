@@ -8,7 +8,7 @@
 	<script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
 	<script src="%% url_for('static', filename='search/search.js')%%"></script>
 	<link rel="stylesheet" href="%%url_for('static', filename='search/search.css')%%">
-	<link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.css')%%" >
+	<link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 	<!--<script src="https://github.com/twitter/typeahead.js"></script>-->
@@ -37,127 +37,320 @@
 
 
 <body>
-<!--triangles-->
-<div class="moving">
-<div class="topleftblue"></div>
-<div class="gry gr1"></div>
-<div class="gry gr2"></div>
-<div class="gry gr3"></div>
-<div class="prp prp1"></div>
-<div class="prp prp2"></div>
-<div class="orng"></div>
-<div class="orng1"></div>
-<div class="downleftred"></div>
-</div>
-<!--triangles End-->
-<!--buttom on top of box-->
-<div calss="row" class="topbuttum" >
-<div class="col-md-6"></div>
-<div class="col-md-3"></div>
-<div class="col-md-3 text-right">
+	<div id="back"></div>
+	<div class="container-fluid fill">
 
-<!--<a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>-->
-<a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>
+		<div class="row main1">
+			<div class="row" >
+				<div class="col-md-12" id="logo">
+					<img src="%%url_for('static',filename='search/logo.png')%%">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 " id="search-place">
+					<div class="col-md-3 " id="right-search" style="width: 21%;"></div>
 
-</div>
-</div>
-<!--buttom on top of box-->
+					<div id="minisearch" class="col-md-6 centersearch"  ng-app="search" ng-controller="searchBox as box">
+						<input class="insearch" type="search" id="search"
+							   placeholder="نام استاد رو وارد کن ..."
+							   ng-model="keyword"
+							   ng-change="search()"
+							   ng-focus="box.setFocusTrue()"
+						/>
+						<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
+							<div ng-if="!search_result.data.profs.length">
+								<p  class="no-result">
+									نتیجه‌ای یافت نشد.
+								</p>
+							</div>
+						</div>
+						<div class="one-result wait" ng-hide="search_result || !keyword">
+							<div id="search" ng-if="keyword.length < 3">
+								<p >  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>
+							</div>
+							<div id="search" ng-if="keyword.length >= 3">
+								<p style="font-size: 15px; flow:left;direction: rtl;">
+									در حال جستجوی {{keyword}}
+									<img src="http://www.bba-reman.com/images/fbloader.gif" />
+								</p>
+							</div>
+						</div>
 
-<!--logo of web site-->
-<div class="row" id="logo">
-<div class="col-md-7"></div>
-<div class="col-md-4">
-<img src="%% url_for('static', filename='search/logo.png') %%"/>
-</div>
-</div>
-<!--logo of web site-->
+						<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
+							<!-- <p>Professors:</p> -->
+							<ul class="results-place"  ng-repeat="prof in search_result.data.profs" >
+								<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
+									<li class="each-result">
+										<p style=" padding-top: 10px;">{{prof.name}}</p>
+										<p >{{prof.faculty}} - {{prof.uni}}</p>
+									</li>
+								</a>
+							</ul>
+						</div>
+					</div>
 
-<!--search box-->
-<div class="row" id="search-box" style="margin-top: 2%;">
-<div class="col-md-7"></div>
 
-<div class="col-md-4" >
-<div class="box" ng-app="search" ng-controller="searchBox as box" style="text-align: -webkit-center;">
-<div class="container-1" style="direction:rtl;">
-<!--<span	 class="glyphicon glyphicon-search"></span>-->
-<input class="insearch" type="search" id="search"
+					<div class="col-md-1 left-search" style="padding: 0;">
+						<img src="%%url_for('static',filename='search/search.png')%%">
+					</div>
+					<div class="col-md-2"></div>
 
-placeholder="نام استاد رو وارد کن ..."
-ng-model="keyword"
-ng-change="search()"
-ng-focus="box.setFocusTrue()"
-/>
-<!-- <button ng-click="se2arch()">search</button>   -->
-</div>
-<!--<div class="result" ng-hide="search_result">-->
-<!--<div class="well" id="search"> نتیجه‌ای یافت نشد</div>-->
-<!--</div>-->
-<div class="one-result wait" ng-hide="search_result || !keyword">
-<div id="search" ng-if="keyword.length < 3">
-<p >  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>
-</div>
-<div id="search" ng-if="keyword.length >= 3">
-<p style="font-size: 15px; flow:left;direction: rtl;">
-در حال جستجوی {{keyword}}
-<img src="http://www.bba-reman.com/images/fbloader.gif" />
-</p>
-</div>
-</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!--<img id="arrow-down" onclick="nextpage()" src="%%url_for('static',filename='search/arrow.png')%%" 	>-->
+				</div>
+			</div>
+		</div>
+		<div class="row head2">
+			<div class="col-md-3 h3">
+				<img src="%%url_for('static',filename='search/logo2.png')%%">
+			</div>
+			<div class="col-md-6 h1">
+				<div class="col-md-8 h11" style="padding: 0;text-align: left;"></div>
+				<div class="col-md-2 searchpic">
+					<img src="%%url_for('static',filename='search/search2.png')%%">
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3 h2">
+				<img src="%%url_for('static',filename='search/logo2.png')%%">
+			</div>
+		</div>
+		<div class="row main2">
+			<div class="col-md-7 m1">
+				<div class="row">
+					<div class="col-md-12 box2 " style="width: 94%;display: inline-flex;">
+						<div id="left-arrow">
+							<!--<img src="%%url_for('static',filename='search/left.png')%%">-->
+						</div>
+						<div id="slides">
+							<div id="slide">
+								<img src="%%url_for('static',filename='search/sharif.png')%%">
+							</div>
+							<div id="slide">
+								<img src="%%url_for('static',filename='search/shahid.png')%%">
+							</div>
+							<div id="slide">
+								<img src="%%url_for('static',filename='search/amir.png')%%">
+							</div>
+							<div id="slide">
+								<img src="%%url_for('static',filename='search/ut.png')%%">
+							</div>
+						</div>
+						<div id="right-arrow">
+							<!--<img src="%%url_for('static',filename='search/right.png')%%">-->
+						</div>
+					</div>
+				</div>
+				<div class="row m12" ">
+						<div class="col-md-3 box2" id="nextevent">
+							<div class="row">
+								<div class="col-md-12 back-detail">
+									اتفاق بعدی
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 nexteventdetail">
+									اضافه شدن دانشگاه امیر کبیر
+								</div>
+						</div>
+						</div>
+						<div class="col-md-8 box2" id="number">
+							<div class="row">
+							<div class="col-md-6">
+								<div class="col-md-12 back-detail">افراد شرکت کننده</div>
+								<div class="col-md-12 seenum">۱۳۱۰</div>
+							</div>
+							<div class="col-md-6">
 
-<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
-<div ng-if="!search_result.data.profs.length">
-<p  class="no-result">
-نتیجه‌ای یافت نشد.
-</p>
-</div>
-<!-- <p>Professors:</p> -->
-<ul class="results-place"  ng-repeat="prof in search_result.data.profs" >
-<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
-<li class="each-result">
-<p style=" padding-top: 10px;">{{prof.name}}</p>
-<p >{{prof.faculty}} - {{prof.uni}}</p>
-</li>
-</a>
-</ul>
-</div>
+								<div class="col-md-12">
+									<div class="row">
+									<div class="col-md-12 back-detail">تعداد اساتید</div>
+									</div>
+									<div class="row">
+									<div class="col-md-12 profnum">۵۳۰ </div>
+								</div>
+								</div>
 
-</div>
-</div>
-</div>
+							</div>
+							</div>
+							<div class="row" style="margin: 0 0 10 0;">
+								<div class="col-md-12" style="padding: 0;">
+									<div class="col-md-7 allsee" style="padding: 0 10 0 40;">۳۳,۵۱۰</div>
+									<div class="col-md-5 back-detail seens" style="margin-top: 0;padding: 3px;">بازدید کل</div>
+									<div class="col-md-7 allsee2" style="padding: 0 10 0 40;">۳۳,۵۱۰</div>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 m2 box1">
+				<div class="row">
+					<div class="col-md-12 videodetail">
+						<video controls   controls width="95%" id="tiser">
+							<source src="%%url_for('static', filename='content/video/t.mp4')%%" type="video/mp4">
+							<!--<source src="mov_bbb.ogg" type="video/ogg">-->
+							Your browser does not support HTML5 video.
+						</video>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12" style="text-align: center;padding-top: 50px;">
+						<p>با ما همراه باشید</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 m3"></div>
+			</div>
+		<div class="row foot">
+			<div class="col-md-3 text-left f1">
+				<a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
+			</div>
+			<div class="col-md-6 social f2">
+				<a href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
+				<a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
+				<a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
+			</div>
+			<div class="col-md-3 resorve f3">
+				<img src="%%url_for('static',filename='search/resorve.png')%%">
+			</div>
+		</div>
+	</div>
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-59775059-2', 'auto');
-ga('send', 'pageview');
+	ga('create', 'UA-59775059-2', 'auto');
+	ga('send', 'pageview');
 
 </script>
-</div>
-<!--search box-->
-<!--sentece-->
-<div class="row">
-<div class="col-md-8"></div>
-<div class="col-md-4 find ftxt" >
-<p >هر آنچه باید درباره یه <span>استاد</span> بدونید</p>
-</div>
-
-</div>
-<!--sentence end-->
-<!--logos-->
-<div style="position: fixed;right:10px;bottom: 5px;">
-
-<div  class ="logo"style="bottom: 10px;padding: 8px">
-<a href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
-</div>
-<div class ="logo" style="bottom: -20px;">
-<a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
-</div>
-<div class ="logo" style="bottom: 10px;">
-<a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
-</div>
-</div>
-<!--logos end-->
 </body>
 </html>
+
+
+<!--&lt;!&ndash;triangles&ndash;&gt;-->
+<!--<div class="moving">-->
+<!--<div class="topleftblue"></div>-->
+<!--<div class="gry gr1"></div>-->
+<!--<div class="gry gr2"></div>-->
+<!--<div class="gry gr3"></div>-->
+<!--<div class="prp prp1"></div>-->
+<!--<div class="prp prp2"></div>-->
+<!--<div class="orng"></div>-->
+<!--<div class="orng1"></div>-->
+<!--<div class="downleftred"></div>-->
+<!--</div>-->
+<!--&lt;!&ndash;triangles End&ndash;&gt;-->
+<!--&lt;!&ndash;buttom on top of box&ndash;&gt;-->
+<!--<div calss="row" class="topbuttum" >-->
+<!--<div class="col-md-6"></div>-->
+<!--<div class="col-md-3"></div>-->
+<!--<div class="col-md-3 text-right">-->
+
+<!--&lt;!&ndash;<a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>&ndash;&gt;-->
+<!--<a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;buttom on top of box&ndash;&gt;-->
+
+<!--&lt;!&ndash;logo of web site&ndash;&gt;-->
+<!--<div class="row" id="logo">-->
+<!--<div class="col-md-7"></div>-->
+<!--<div class="col-md-4">-->
+<!--<img src="%% url_for('static', filename='search/logo.png') %%"/>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;logo of web site&ndash;&gt;-->
+
+<!--&lt;!&ndash;search box&ndash;&gt;-->
+<!--<div class="row" id="search-box" style="margin-top: 2%;">-->
+<!--<div class="col-md-7"></div>-->
+
+<!--<div class="col-md-4" >-->
+<!--<div class="box" ng-app="search" ng-controller="searchBox as box" style="text-align: -webkit-center;">-->
+<!--<div class="container-1" style="direction:rtl;">-->
+<!--&lt;!&ndash;<span	 class="glyphicon glyphicon-search"></span>&ndash;&gt;-->
+<!--<input class="insearch" type="search" id="search"-->
+
+<!--placeholder="نام استاد رو وارد کن ..."-->
+<!--ng-model="keyword"-->
+<!--ng-change="search()"-->
+<!--ng-focus="box.setFocusTrue()"-->
+<!--/>-->
+<!--&lt;!&ndash; <button ng-click="se2arch()">search</button>   &ndash;&gt;-->
+<!--</div>-->
+<!--&lt;!&ndash;<div class="result" ng-hide="search_result">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="well" id="search"> نتیجه‌ای یافت نشد</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<div class="one-result wait" ng-hide="search_result || !keyword">-->
+<!--<div id="search" ng-if="keyword.length < 3">-->
+<!--<p >  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>-->
+<!--</div>-->
+<!--<div id="search" ng-if="keyword.length >= 3">-->
+<!--<p style="font-size: 15px; flow:left;direction: rtl;">-->
+<!--در حال جستجوی {{keyword}}-->
+<!--<img src="http://www.bba-reman.com/images/fbloader.gif" />-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!---->
+<!--<div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">-->
+<!--<div ng-if="!search_result.data.profs.length">-->
+<!--<p  class="no-result">-->
+<!--نتیجه‌ای یافت نشد.-->
+<!--</p>-->
+<!--</div>-->
+<!--&lt;!&ndash; <p>Professors:</p> &ndash;&gt;-->
+<!--<ul class="results-place"  ng-repeat="prof in search_result.data.profs" >-->
+<!--<a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">-->
+<!--<li class="each-result">-->
+<!--<p style=" padding-top: 10px;">{{prof.name}}</p>-->
+<!--<p >{{prof.faculty}} - {{prof.uni}}</p>-->
+<!--</li>-->
+<!--</a>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<script>-->
+<!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+<!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+<!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+<!--})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');-->
+
+<!--ga('create', 'UA-59775059-2', 'auto');-->
+<!--ga('send', 'pageview');-->
+
+<!--</script>-->
+<!--</div>-->
+<!--&lt;!&ndash;search box&ndash;&gt;-->
+<!--&lt;!&ndash;sentece&ndash;&gt;-->
+<!--<div class="row">-->
+<!--<div class="col-md-8"></div>-->
+<!--<div class="col-md-4 find ftxt" >-->
+<!--<p >هر آنچه باید درباره یه <span>استاد</span> بدونید</p>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--&lt;!&ndash;sentence end&ndash;&gt;-->
+<!--&lt;!&ndash;logos&ndash;&gt;-->
+<!--<div style="position: fixed;right:10px;bottom: 5px;">-->
+
+<!--<div  class ="logo"style="bottom: 10px;padding: 8px">-->
+<!--<a href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>-->
+<!--</div>-->
+<!--<div class ="logo" style="bottom: -20px;">-->
+<!--<a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>-->
+<!--</div>-->
+<!--<div class ="logo" style="bottom: 10px;">-->
+<!--<a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;logos end&ndash;&gt;-->
