@@ -11,6 +11,7 @@ from app import app
 import requests
 from flask import jsonify
 import datetime
+from app.utils import replace_ye
 
 LEN_TOO_MUCH = 1
 TEST = True
@@ -401,3 +402,18 @@ class MigrateToPost(MethodView):
 
 rate.add_url_rule('/migrate-to-post', 
 	view_func = MigrateToPost.as_view("MigrateToPost"))
+
+class FixAllYe(MethodView):
+	def get(self):
+		for uni in University.objects.all():
+			uni.name = replace_ye(uni.name)
+			uni.save()
+		for fac in Faculty.objects.all():
+			fac.name = replace_ye(fac.name)
+			fac.save()
+		for prof in Professor.objects.all():
+			prof.name = replace_ye(prof.name)
+			prof.save()
+		return "DONE"
+rate.add_url_rule('/fix-all-ye', 
+	view_func = FixAllYe.as_view("FixAllYe"))

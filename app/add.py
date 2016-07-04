@@ -13,6 +13,8 @@ import os
 import tempfile
 # from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
 # import file
+from app.utils import replace_ye
+
 add = Blueprint('add', __name__, template_folder='templates/add')
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
@@ -71,7 +73,7 @@ class AddFaculty(MethodView):
 		if form.validate:
 			msg = "every thing done successfully"
 			faculty = Faculty()
-			faculty.name = form.name.data
+			faculty.name = replace_ye(form.name.data)
 			print 
 			print "in of UNI"
 			# print form.uni
@@ -112,7 +114,7 @@ class AddProf(MethodView):
 			print "TRUE"
 			# print form.faculty.data
 			prof = Professor()
-			prof.name = form.name.data
+			prof.name = replace_ye(form.name.data)
 			# prof.family = form.family.data
 			prof.email = form.email.data
 			prof.website = form.website.data

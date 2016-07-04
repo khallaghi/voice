@@ -51,8 +51,9 @@ def register_blueprints(app):
 
 	from app.report import report
 	app.register_blueprint(report)
-	
-	# app.register_blueprint(admin)
+
+	from app.admin import admin
+	app.register_blueprint(admin)
 
 
 register_blueprints(app)

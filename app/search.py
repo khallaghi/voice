@@ -6,6 +6,7 @@ from app.forms import SearchForm
 from mongoengine import Q
 from flask import jsonify
 
+
 # from app.forms import FacultyForm, ProfessorForm
 def ret_prof(profs):
 	
@@ -38,7 +39,12 @@ def ret_uni(unis):
 search = Blueprint('search', __name__, template_folder='templates/search')
 class Asghar(MethodView):
 	def search_result(self,keyword):
-		profs = Professor.objects(Q(name__icontains=keyword))
+		# profs = Professor.objects(Q(name__icontains=keyword))
+		keyword = keyword.replace(u'\u064a', u'\u06cc')
+		profs = Professor.objects.filter(
+								(Q(name__icontains = keyword)) &
+								(Q(faculty__in = Faculty.objects(uni__in = University.objects(name__icontains = u'\u0634\u0631\u06cc\u0641'))))
+								)
 		faculties = Faculty.objects(name__icontains=keyword)
 		unis = University.objects(name__icontains=keyword)
 		
