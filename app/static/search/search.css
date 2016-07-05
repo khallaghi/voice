@@ -352,8 +352,6 @@ width: 10%;
 
 
 
-
-
 ::-webkit-scrollbar {
 width: 12px;
 }
@@ -390,7 +388,7 @@ text-decoration: none;
 }
 .adv span {
 color: #9E9E9E ;
-text-decoration: none;ss
+text-decoration: none;
 }
 .find{
 color: #0f0f0f;
@@ -457,10 +455,6 @@ height: 50%;
 }
 .container-1{
 height:150px;
-
-
-
-
 }
 .container-1 input#search{
 height: 110px;
@@ -512,6 +506,7 @@ font-size: 45px;
 .moving{
 visibility: hidden;
 }
+}
 
 
 @keyframes lefttoright{
@@ -544,6 +539,7 @@ transform:  translate(33%,0px)  rotate(360deg) ;
 transform:  translate(33%,0px)  rotate(360deg) ;
 }
 
+
 100% {
 transform:  translate(33%,0px)  rotate(0deg) ;
 }
@@ -562,18 +558,18 @@ left: 59%;-moz-transform:  translate(33%,10%)  rotate(90deg) ;
 }
 
 @-webkit-keyframes lefttoright {
-    0% {
-        -webkit-transform: translate(33%, 0px) rotate(0deg);
-    }
-    50% {
-        left: 59%;
-        -webkit-transform: translate(33%, 10%) rotate(90deg);
-    }
-    100% {
-        -webkit-transform: translate(33%, 0px) rotate(0deg);
-    }
-
+0% {
+-webkit-transform:  translate(33%,0px)  rotate(0deg) ;
 }
+50% {
+left: 59%;-webkit-transform:  translate(33%,10%)  rotate(90deg) ;
+}
+100% {
+-webkit-transform:  translate(33%,0px)  rotate(0deg) ;
+}
+}
+
+
 /*@-webkit-keyframes lefttoright {*/
 /*0%   { left: 0px; background: red;}*/
 /*25%  {left: 100px; background: blue;rotation: 45deg;}*/

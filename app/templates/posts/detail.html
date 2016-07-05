@@ -1,29 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style >
+
+    @font-face {
+      font-family: IRANSansWeb;
+      src: url(../font/IRANSansWeb.ttf);
+    }
+    body{
+      background: #00695C;
+      font-family: IRANSansWeb;
+    }
+
+  </style>
+</head>
+<body>
+
 {% extends "base.html" %}
 {% import "_forms.html" as forms %}
 {% block page_header %}
   <div class="page-header">
     <h1>{{ post.title }}</h1>
   </div>
-{% endblock %}
+  {% endblock %}
 
-{% block content %}
-  <p>{{ post.body }}<p>
-  <p>{{ post.created_at.strftime('%H:%M %Y-%m-%d') }}</p>
-  <hr>
-  <h2>Comments</h2>
-  {% if post.comments %}
-    {% for comment in post.comments %}
-       <p>{{ comment.body }}</p>
-       <p><strong>{{ comment.author }}</strong> <small>on {{ comment.created_at.strftime('%H:%M %Y-%m-%d') }}</small></p>
-      {{ comment.text }}
+    {% block content %}
+    <p>{{ post.body }}<p>
+    <p>{{ post.created_at.strftime('%H:%M %Y-%m-%d') }}</p>
+    <hr>
+    <h2>Comments</h2>
+    {% if post.comments %}
+      {% for comment in post.comments %}
+      <p>{{ comment.body }}</p>
+      <p><strong>{{ comment.author }}</strong> <small>on {{ comment.created_at.strftime('%H:%M %Y-%m-%d') }}</small></p>
+    {{ comment.text }}
     {% endfor %}
-  {% endif %}
-  <hr>
-  <h2>Add a comment</h2>
-<form action="." method="post">
-  {{ forms.render(form) }}
-  <div class="actions">
-    <input type="submit" class="btn primary" value="comment">
-  </div>
-</form>
-{% endblock %}
+    {% endif %}
+    <hr>
+    <h2>Add a comment</h2>
+    <form action="." method="post">
+    {{ forms.render(form) }}
+    <div class="actions">
+      <input type="submit" class="btn primary" value="comment">
+    </div>
+    </form>
+  {% endblock %}
+</body>
+</html>
+
+
+
+
