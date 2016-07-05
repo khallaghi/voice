@@ -375,45 +375,45 @@ rate.add_url_rule('/stat',
 					view_func=CommentsCount.as_view('stat'))
 
 
-class MigrateToPost(MethodView):
-	def get(self):
-		# decorators = [requires_auth]
-		profs = Professor.objects()
-		count = 0
-		for prof in profs:
-			for cmt in prof.comments:
-				post = Post()
-				post.created_at = cmt.created_at
-				post.reported = cmt.reported
-				post.body = cmt.body
-				post.clarity = cmt.clarity
-				post.helpfulness = cmt.helpfulness
-				post.easiness = cmt.easiness
-				post.attrs['coolness'] = cmt.coolness
-				post.attrs['use_textbook'] = cmt.use_textbook
-				post.attrs['attendance'] = cmt.attendance
-				post.study = cmt.study
-				post.personal_tags = cmt.personal_tags
-				post.prof = prof
-				post.save()
-				count += 1
-		print count
-		return str(count)
+# class MigrateToPost(MethodView):
+# 	def get(self):
+# 		# decorators = [requires_auth]
+# 		profs = Professor.objects()
+# 		count = 0
+# 		for prof in profs:
+# 			for cmt in prof.comments:
+# 				post = Post()
+# 				post.created_at = cmt.created_at
+# 				post.reported = cmt.reported
+# 				post.body = cmt.body
+# 				post.clarity = cmt.clarity
+# 				post.helpfulness = cmt.helpfulness
+# 				post.easiness = cmt.easiness
+# 				post.attrs['coolness'] = cmt.coolness
+# 				post.attrs['use_textbook'] = cmt.use_textbook
+# 				post.attrs['attendance'] = cmt.attendance
+# 				post.study = cmt.study
+# 				post.personal_tags = cmt.personal_tags
+# 				post.prof = prof
+# 				post.save()
+# 				count += 1
+# 		print count
+# 		return str(count)
 
-rate.add_url_rule('/migrate-to-post', 
-	view_func = MigrateToPost.as_view("MigrateToPost"))
+# rate.add_url_rule('/migrate-to-post', 
+# 	view_func = MigrateToPost.as_view("MigrateToPost"))
 
-class FixAllYe(MethodView):
-	def get(self):
-		for uni in University.objects.all():
-			uni.name = replace_ye(uni.name)
-			uni.save()
-		for fac in Faculty.objects.all():
-			fac.name = replace_ye(fac.name)
-			fac.save()
-		for prof in Professor.objects.all():
-			prof.name = replace_ye(prof.name)
-			prof.save()
-		return "DONE"
-rate.add_url_rule('/fix-all-ye', 
-	view_func = FixAllYe.as_view("FixAllYe"))
+# class FixAllYe(MethodView):
+# 	def get(self):
+# 		for uni in University.objects.all():
+# 			uni.name = replace_ye(uni.name)
+# 			uni.save()
+# 		for fac in Faculty.objects.all():
+# 			fac.name = replace_ye(fac.name)
+# 			fac.save()
+# 		for prof in Professor.objects.all():
+# 			prof.name = replace_ye(prof.name)
+# 			prof.save()
+# 		return "DONE"
+# rate.add_url_rule('/fix-all-ye', 
+# 	view_func = FixAllYe.as_view("FixAllYe"))
