@@ -43,11 +43,11 @@
 	  			%% post.body %%
 	  		</td>
 	  		<td>
-	  			<a href="%% url_for('report.DeletePost', post_id=post.id)%%">
+	  			<a href="%% url_for('report.DeletePost', post_id=post.id, page='all')%%">
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </a>
           
-            <a href="%% url_for('report.RestorePost', post_id=post.id)%%">
+            <a href="%% url_for('report.RestorePost', post_id=post.id, page='all')%%">
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </a>
 	  		</td>
