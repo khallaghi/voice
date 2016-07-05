@@ -576,7 +576,7 @@ left: 59%;-webkit-transform:  translate(33%,10%)  rotate(90deg) ;
 /*100% {left: 0px; background: red;}*/
 /*}*/
 
-/*/* Standard syntax */*/
+/*!* Standard syntax *!*/
 /*@keyframes lefttoright {*/
 /*0% {*/
 /*-ms-transform:  translate(-301px,2px)  rotate(0deg) ;*/
@@ -584,9 +584,9 @@ left: 59%;-webkit-transform:  translate(33%,10%)  rotate(90deg) ;
 /*100% {*/
 /*-ms-transform:  translate(200px,0px)  rotate(180deg) ;*/
 /*}*/
-/*/*0%   {left: 34%;rotation: 0deg;}*/*/
-/*/*25%  {left: 54%;rotation: 45deg;}*/*/
+/*!*0%   {left: 34%;rotation: 0deg;}*!*/
+/*!*25%  {left: 54%;rotation: 45deg;}*!*/
 
 
-/*/*100% {left: 34%;rotation: 90deg;}*/*/
+/*!*100% {left: 34%;rotation: 90deg;}*!*/
 /*}*/
