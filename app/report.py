@@ -99,7 +99,7 @@ report.add_url_rule('/report/delete/<page>/<post_id>/',
 
 class RestorePost(MethodView):
 	decorators = [requires_auth]
-	def get(self, post_id):
+	def get(self, post_id, page):
 		try:
 
 			post = Post.objects.get(id = post_id)
