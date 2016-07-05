@@ -1,0 +1,608 @@
+@font-face {
+    font-family: IRANSansWeb;
+    src: url(../font/IRANSansWeb.ttf);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius:20px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+#back{
+    background: url("background.png");
+    background-size: 100% 109%;
+    position: absolute;
+    width: 100%;
+    height: 88.5%;
+    top: 0;
+}
+.searchhead{
+    right: 0;
+    top: -20px;
+    width: 70%;
+    position: absolute;
+
+}
+.fill {
+    height: 100%;
+    background-color: #FFFFFF;
+    font-family: IRANSansWeb;
+}
+.main1{
+    height: 90%;
+    text-align: center;
+    padding-top: 10%;
+}
+#search-place{
+    /*height: 160px;*/
+    margin-top: 3%;
+}
+.centersearch{
+    height: 60px;
+    padding: 0;
+    left: -5%;
+}
+.centersearch2{
+    height: 35px;
+    padding: 0;
+    font-family: IRANSansWeb;
+}
+.insearch{
+    width: 100%;
+    height: 100%;
+    direction: rtl;
+    padding: 5px;
+    padding-right: 15px;
+    font-size: 19px;
+    border-color:none ;
+}
+.insearch:hover{
+    background-color: #E0E0E0;
+}
+.left-search{
+    width: 25%;
+    padding-right: 0;
+}
+#arrow-down{
+    padding-top: 8%;
+    cursor: pointer;
+}
+
+.head2{
+    height: 20%;
+    /*padding-top: 10px;*/
+    display: none;
+}
+.main2{
+    height: 65%;
+    padding-top: 5%;
+    display: none;
+}
+.box1{
+    background-color: #EEEEEE;
+    height: 94%;
+}
+.box2{
+    background-color: #EEEEEE;
+}
+#slides{
+    display: inline-flex;
+    text-align: center;
+    padding: 10px;
+}
+#slide img{
+    height:120px;
+    padding: 0 10 0 10;
+}
+.back-detail{
+    background-color: #6d6d6d;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+#nextevent{
+    margin-left: 15px;
+    height: 100%;
+}
+.nexteventdetail{
+    font-size: 15px;
+    padding: 20px;
+    text-align: center;
+}
+#number{
+    height: 100%;
+}
+.seenum{
+    font-size: 75px;
+    text-align: center;
+}
+.m1{
+    display: none;
+}
+.m2{
+    display: none;
+}
+.m3{
+    display: none;
+}
+.h1{
+    /*height: 100%;*/
+    display: none;
+}
+.h11{
+    /*display: -webkit-inline-box;*/
+}
+.minisearchdesign1{
+    height: 100%;
+    width: 90%;
+    margin-left: 27px;
+    direction: rtl;
+    font-size: 18px;
+    font-family: IRANSansWeb;
+
+}
+.minisearchdesign1:hover{
+    background-color: #E0E0E0;
+}
+.searchpic{
+    margin-right: -13%;
+}
+.searchpic img{
+    height: 35px;
+}
+.h2{
+    display: none;
+}
+.h3{
+    display: none;
+}
+.allsee{
+    padding:   5 0 10 0;
+    font-size: 25px;
+}
+.allsee2{
+    padding:   5 0 10 0;
+    font-size: 45px;
+    display: none;
+}
+.profnum{
+    text-align: center;
+    font-size: 28px;
+    margin: 10px;
+}
+.videodetail{
+    text-align: center;
+    padding-top: 20px;
+}
+.foot{
+    height: 10%;
+    padding-top: 1%;
+}
+.social{
+    text-align: center;
+}
+.about-butom{
+    background-color: #757575;
+    color: #FFFFFF;
+    padding: 5 10 5 10;
+    border-radius: 10px;
+}
+.m12{
+    margin-top: 20px;
+    height: 53%;
+}
+/*result place*/
+.each-result{
+    /*margin-bottom: 3px;*/
+    display: block;
+    /*background-color: #2196F3;*/
+    padding-right: 6%;
+    height: 80px;
+    /*border-bottom: 1px solid #BDBDBD;*/
+
+}
+.each-result:hover{
+    background-color:#0277BD;
+    height: 75px;
+    color: white;
+    border-radius: 7px;
+}
+.no-result{
+    direction: rtl;
+    height: 60px;
+    padding-top: 5%;
+    padding-right: 2%;
+}
+.no-result:hover{
+    background-color:#9C1A1C;
+    height: 60px;
+    color: white;
+    border-radius: 10px;
+}
+.results-place{
+    line-height: 20px;
+    padding-top: 2%;
+    padding-right: 5px;
+    height: 80px;
+    min-height: 70px;
+    /*margin-top: 5px;*/
+}
+.result ,li ,ul{
+    padding: 0;
+    list-style: none;
+    color:black;
+}
+.one-result{
+    /*font: 20px BYekan, Tahoma, Geneva, sans-serif;*/
+    font-family: IRANSansWeb;
+    box-sizing: border-box;
+    /*padding-right: 20px;*/
+    opacity: 0.85;
+    display: block;
+    font-size: 18px;
+    clear: both;
+    /*width: 90%;*/
+    height: 50px;
+    padding-top: 20px;
+    padding-right: 10px;
+    max-height: 350%;
+    overflow: auto;
+    background-color: #FAFAFA;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    /*box-shadow: 5px 5px 15px #888888;*/
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    /*box-shadow: 0px 0px 37px 1px rgba(0, 0, 0, 0.75);*/
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-align: right;
+    direction: rtl;
+}
+.result {
+    font-family: IRANSansWeb;
+    src: url(../font/IRANSansWeb.ttf);
+    /*font: 20px BYekan, Tahoma, Geneva, sans-serif;*/
+    /*margin: auto auto auto auto;*/
+    box-sizing: border-box;
+    /*padding-right: 20px;*/
+    opacity: 0.85;
+    display: block;
+    font-size: 15px;
+    clear: both;
+    /*float: right;*/
+    max-height: 350%;
+    overflow: auto;
+    background-color: #FAFAFA;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    /*box-shadow: 5px 5px 15px #888888;*/
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    /*box-shadow: 0px 0px 37px 1px rgba(0, 0, 0, 0.75);*/
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-align: right;
+    padding-left:2%;
+    /*margin-right: 45px;*/
+}
+
+
+.result,p{
+    font-size: 20px;
+}
+/*result place*/
+/*media part*/
+@media (min-width: 481px) and (max-width: 768px) {
+    .main1{
+        padding-top: 40%;
+    }
+    #logo img{
+        width: 80%;
+    }
+    #minisearch{
+        width: 73%;
+        float: right;
+    }
+    .left-search{
+        width: 27%;
+        float: left;
+    }
+    .f1{
+        width: 30%;
+        float: right;
+    }
+    .f2{
+        width: 30%;
+    }
+    .f3{
+        display: none;
+    }
+    .main2{
+        position: relative;
+        height: 1300px;
+    }
+    .h2 img{
+        height: 0px;
+        width: 0px;
+    }
+    .h3{
+        display: block;
+        text-align: center;
+    }
+    .h1{
+        text-align: center;
+    }
+    .centersearch2{
+        padding-right: 80px;
+    }
+    .minisearchdesign1{
+        margin-left: 0;
+    }
+    .searchpic{
+        width: 35%;
+        text-align: right;
+    }
+    .box2{
+        width: 90%;
+    }
+    .m1{
+        height: 800px;
+    }
+    #slides{
+        width: 100%;
+    }
+    #slide img{
+        width: 100px;
+        height: 100px;
+    }
+    .m12{
+        height: 100px;
+    }
+    #nextevent{
+        height: 150px;
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    #number{
+        height: 450px;
+        margin-left: 10px;
+        font-size: 25px;
+    }
+    .nexteventdetail{
+        font-size: 30px;
+    }
+    .seens{
+        width: 88%;
+        margin-left: 25px;
+        font-size: 30px;
+    }
+    .allsee{
+        display: none;
+    }
+    .allsee2{
+        display: block;
+        text-align: center;
+    }
+    .m2{
+        height: 400px;
+        margin-top: 10px;
+    }
+    .m3{
+        height: 0;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 480px) {
+    .main1{
+        padding-top: 40%;
+    }
+    #logo img{
+        width: 80%;
+    }
+    #minisearch{
+        width: 73%;
+        float: right;
+    }
+    .left-search{
+        width: 27%;
+        float: left;
+    }
+    .f1{
+        width: 30%;
+        float: right;
+    }
+    .f2{
+        width: 30%;
+    }
+    .f3{
+        display: none;
+    }
+    .main2{
+        position: relative;
+        height: 1300px;
+    }
+    .h2 img{
+        height: 0px;
+        width: 0px;
+    }
+    .h3{
+        display: block;
+        text-align: center;
+    }
+    .h1{
+        text-align: center;
+    }
+    .centersearch2{
+        padding-right: 80px;
+    }
+    .minisearchdesign1{
+        margin-left: 0;
+    }
+    .searchpic{
+        width: 35%;
+        text-align: right;
+    }
+    .box2{
+        width: 90%;
+    }
+    .m1{
+        height: 800px;
+    }
+    #slides{
+        width: 100%;
+    }
+    #slide img{
+        width: 100px;
+        height: 100px;
+    }
+    .m12{
+        height: 100px;
+    }
+    #nextevent{
+        height: 150px;
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    #number{
+        height: 450px;
+        margin-left: 10px;
+        font-size: 25px;
+    }
+    .nexteventdetail{
+        font-size: 30px;
+    }
+    .seens{
+        width: 88%;
+        margin-left: 25px;
+        font-size: 30px;
+    }
+    .allsee{
+        display: none;
+    }
+    .allsee2{
+        display: block;
+        text-align: center;
+    }
+    .m2{
+        height: 400px;
+        margin-top: 10px;
+    }
+    .m3{
+        height: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .main1{
+        padding-top: 40%;
+    }
+    #logo img{
+        width: 80%;
+    }
+    #minisearch{
+        width: 73%;
+        float: right;
+    }
+    .left-search{
+        width: 27%;
+        float: left;
+    }
+    .f1{
+        width: 30%;
+        float: right;
+    }
+    .f2{
+        width: 30%;
+    }
+    .f3{
+        display: none;
+    }
+    .main2{
+        position: relative;
+        height: 1300px;
+    }
+    .h2 img{
+        height: 0px;
+        width: 0px;
+    }
+    .h3{
+        display: block;
+        text-align: center;
+    }
+    .h1{
+        text-align: center;
+    }
+    .centersearch2{
+        padding-right: 80px;
+    }
+    .minisearchdesign1{
+        margin-left: 0;
+    }
+    .searchpic{
+        width: 35%;
+        text-align: right;
+    }
+    .box2{
+        width: 90%;
+    }
+    .m1{
+        height: 800px;
+    }
+    #slides{
+        width: 100%;
+    }
+    #slide img{
+        width: 100px;
+        height: 100px;
+    }
+    .m12{
+        height: 100px;
+    }
+    #nextevent{
+        height: 150px;
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    #number{
+        height: 450px;
+        margin-left: 10px;
+        font-size: 25px;
+    }
+    .nexteventdetail{
+        font-size: 30px;
+    }
+    .seens{
+        width: 88%;
+        margin-left: 25px;
+        font-size: 30px;
+    }
+    .allsee{
+        display: none;
+    }
+    .allsee2{
+        display: block;
+        text-align: center;
+    }
+    .m2{
+        height: 400px;
+        margin-top: 10px;
+    }
+    .m3{
+        height: 0;
+    }
+}
+
