@@ -42,8 +42,9 @@ class Asghar(MethodView):
 		# profs = Professor.objects(Q(name__icontains=keyword))
 		keyword = keyword.replace(u'\u064a', u'\u06cc')
 		profs = Professor.objects.filter(
-								(Q(name__icontains = keyword)) &
-								(Q(faculty__in = Faculty.objects(uni__in = University.objects(name__icontains = u'\u0634\u0631\u06cc\u0641'))))
+								(Q(name__icontains = keyword) &
+								Q(faculty__in = Faculty.objects(uni__in = University.objects(name__icontains = u'\u0634\u0631\u06cc\u0641')))) |
+								Q(studies__name__icontains = keyword)
 								)
 		faculties = Faculty.objects(name__icontains=keyword)
 		unis = University.objects(name__icontains=keyword)
