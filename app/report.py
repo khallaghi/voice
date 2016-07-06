@@ -26,6 +26,7 @@ class ReportPost(MethodView):
 				post.reporting_ip.append(request.remote_addr)
 			else:
 				post.reporting_ip.append(request.remote_addr)
+			post.save()
 			return jsonify(
 					success = True,
 					message = "DONE"
@@ -51,7 +52,7 @@ class ShowAllPosts(MethodView):
 	decorators = [requires_auth]
 	def get(self, page):
 		page = int(page)
-		posts = Post.objects.order_by('-created_at')
+		posts = Post.objects(deleted = False).order_by('-created_at')
 		page_count = int(posts.count()/100)+1
 		posts = posts[page*100:(page+1)*100]
 		return render_template('/admin/posts.html', posts = posts, page_count = page_count)
@@ -61,7 +62,7 @@ report.add_url_rule('/posts/<page>/',
 class ShowReportedPosts(MethodView):
 	decorators = [requires_auth]
 	def get(self):
-		posts = Post.objects(reported__gte = 3)
+		posts = Post.objects(Q(reported__gte = 1) & Q(deleted = False)).order_by('-created_at')
 		return render_template('report/reported.html', posts = posts)
  # 'report/reported.html',
 								# records=self.get_reported_comments()
@@ -70,40 +71,56 @@ report.add_url_rule('/report/list',
 
 class DeletePost(MethodView):
 	decorators = [requires_auth]
-	def get(self, post_id):
+	def get(self, post_id, page):
 		try:
+			# print request['page']
 			post = Post.objects.get(id = post_id)
 			post.deleted = True
 			post.reported = 0
-			return jsonify(
-					success = True,
-					msg = "DONE"
-				)
+			post.save()
+			print "after delete"
+			
+			# return jsonify(
+			# 		success = True,
+			# 		msg = "DONE"
+			# 	)
 		except Exception as msg:
 			app.logger.error(msg)
-			return jsonify(
-				success = False,
-				message = msg.args[0]
-			)
-report.add_url_rule('/report/delete/<post_id>', 
+			# return jsonify(
+			# 	success = False,
+			# 	message = msg.args[0]
+			# )
+		if page == 'report':
+			return redirect(url_for('report.showReportedPosts'))
+		elif page == 'all':
+			return redirect(url_for('report.allPostsRedirect'))
+report.add_url_rule('/report/delete/<page>/<post_id>/', 
 	view_func = DeletePost.as_view("DeletePost"))
 
 class RestorePost(MethodView):
 	decorators = [requires_auth]
-	def get(self, post_id):
+	def get(self, post_id, page):
 		try:
+
 			post = Post.objects.get(id = post_id)
 			post.deleted = False
 			post.reported = 0
-			return jsonify(
-					success = True,
-					message = "DONE"
-				)
+			post.save()
+			# return jsonify(
+			# 		success = True,
+			# 		message = "DONE"
+			# 	)
+			
 		except Exception as msg:
 			app.logger.error(msg)
-			return jsonify(
-					success = False,
-					message = msg.args[0]
-				)
-report.add_url_rule('/report/restore/<post_id>', 
+			# return jsonify(
+			# 		success = False,
+			# 		message = msg.args[0]
+			# 	)
+		if page == 'report':
+			return redirect(url_for('report.showReportedPosts'))
+		elif page == 'all':
+			return redirect(url_for('report.allPostsRedirect'))	
+
+report.add_url_rule('/report/restore/<page>/<post_id>/', 
 	view_func = RestorePost.as_view("RestorePost"))

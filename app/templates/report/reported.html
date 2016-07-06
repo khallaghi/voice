@@ -62,6 +62,7 @@
       <table class="table fnt">
       <thead>
         <tr>
+          <th style="text-align: right;">استاد</th>
           <th style="text-align: right;">متن</th>
           <th style="text-align: right;">عملیات</th>
           
@@ -70,16 +71,17 @@
         <tbody>
         <% for post in posts %>
         <tr>
+          <td class="fnt cmd"><a href="%% url_for('profile.prof', id = post.prof.id)%%">%% post.prof.name %%</td>
 
-          <td class="fnt cmd">%% cmt.body %%</td>
+          <td class="fnt cmd">%% post.body %%</td>
           <td  class="fnt cmd">
-            <a method="post" href="%% url_for('report.DeletePost', post_id=post.id)%%">
+            <a method="post" href="%% url_for('report.DeletePost', post_id=post.id, page='report')%%">
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             
             </a>
           </td>
           <td  class="fnt cmd">
-            <a href="%% url_for('report.RestorePost', post_id=post.id)%%">
+            <a href="%% url_for('report.RestorePost', post_id=post.id, page='report')%%">
 
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </a>
