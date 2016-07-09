@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="%% url_for('static', filename='five-star-rating/css/rating.min.css')%%">
     <script type="text/javascript" src="%% url_for('static', filename='five-star-rating/js/src/rating.js') %%"></script>
     <script src="%%url_for('static', filename='bootstrap/js/bootstrap.min.js')%%"></script>
+    <script src="%%url_for('static', filename='bootstrap/js/2.js')%%"></script>
+    <!--<script src="%%url_for('static', filename='bootstrap/js/bootstrap-modal.js')%%"></script>-->
+    <script src="%%url_for('static', filename='js/bootbox.min.js')%%"></script>
     <script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
     <script src="%%url_for('static', filename='profile/profile.js')%%"></script>
     <link rel="stylesheet" href="%% url_for('static', filename='profile/profile.css') %%">
@@ -60,9 +63,26 @@
 <!-- URL: http://genew.ir -->
 
 <!-- /PersianStat -->
-<!--header start-->
+<!-- sometime later, probably inside your on load event callback -->
+<script>
+    bootbox.dialog({
+        message: '<div class="row" style="text-align: justify;direction: rtl;font-size: 18px;">'+
+            '<div class="col-md-12">'+
+            '<p>           دوستان از آنکه شما انتقادات و تعریفات خود را از اساتید با ادب و احترام مطرح می کنید سپاس گزاریم.    </p>'+
+    '</div>'+
+    '</div>',
+        buttons: {
+            success: {
+                label: "متوجه شدم",
+                className: "btn-success",
+                callback: function() {
+                    console.log("callback");
+                }
+            },
+        }
+    });
+</script>
 
-<!--header end-->
 <div class="container">
     <header class="head-section" style="margin-bottom: 1.5%;">
         <div class="navbar navbar-default navbar-static-top" style="padding-left: 1%;padding-right:1%; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
@@ -81,9 +101,9 @@
                     <!--<a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>-->
                     <a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">تماس با ما</a>
                     <!--<ul class="nav navbar-nav">-->
-                        <!--<li style="height: 70%;">-->
-                            <!--<input class="form-control search" style="direction: rtl;" placeholder=" جست و جو" type="text">-->
-                        <!--</li>-->
+                    <!--<li style="height: 70%;">-->
+                    <!--<input class="form-control search" style="direction: rtl;" placeholder=" جست و جو" type="text">-->
+                    <!--</li>-->
                     <!--</ul>-->
                 </div>
                 <!--qouets-->
@@ -553,3 +573,5 @@
 
 </body>
 </html>
+
+

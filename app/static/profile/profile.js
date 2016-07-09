@@ -668,31 +668,6 @@ jQuery(document).ready(function($){
             }, scroll_top_duration
         );
     });
-    
-    // var $box   = $('#part3'),
-    //     $text = $('#report'),
-    //     visible = true;
-    // $(box).click(function () {
-    //     alert("sdnfnsdnf");
-    // });
-    // $box.mouseover(function(){
-    //     if ( visible ) {
-    //         $text.slideUp('fast',function(){
-    //             $text.addClass('hide')
-    //                 .slideDown(0);
-    //         });
-    //     } else {
-    //         $text.slideUp(0,function(){
-    //             $text.removeClass('hide')
-    //                 .slideDown('fast');
-    //         });
-    //     }
-    //     visible = ! visible;
-    // });
 });
-
-
-
-
 
 
