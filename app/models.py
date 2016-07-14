@@ -134,3 +134,7 @@ class Post(db.Document):
     dislike = db.IntField()
     likers = db.ListField(db.StringField())
     deleted = db.BooleanField(default = False, required = True)
+
+# class ProfView(db.Document):
+#     profs = db.ListField(db.ReferenceField())
+

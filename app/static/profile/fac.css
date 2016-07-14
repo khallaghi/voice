@@ -33,13 +33,27 @@ body{
 .selpart{
     height: 20%;
 }
-.sel{
+.unis {
     direction: rtl;
     cursor: pointer;
     height: 70%;
     width: 100%;
     padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 
+}
+.faculties{
+  direction: rtl;
+  cursor: pointer;
+  height: 70%;
+  width: 100%;
+  padding: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.btn .primary{
+  direction: rtl;
 }
 .each-result{
     background-color: #E0E0E0;

@@ -1,4 +1,4 @@
-  
+
 var app = angular.module('profile', ['vcRecaptcha']);
 app.controller('rating', function(){
     var el = document.querySelector('#el');
@@ -80,7 +80,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                         return '<div class = "container"><b>' + this.value + '</b></div>';
                     }
                 },
-                
+
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
@@ -113,27 +113,27 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             credits: {
                 enabled: false
             },
-            tooltip: { 
+            tooltip: {
                  formatter: function() {
                     return '<b>' + this.y + '</b>';
                   }
-                // enabled: true 
+                // enabled: true
             },
-            series: [{    
+            series: [{
                 data: [ {
-                       
+
                         y: result.main_result.clarity.value,
                         // y: 7,
                         name: "clarity",
                         color: result.main_result.clarity.color
                     },{
-                        
+
                         y: result.main_result.easiness.value,
                         // y: 8,
                         name: "Easiness",
                         color: result.main_result.easiness.color
                     },{
-                        
+
                         y: result.main_result.helpfulness.value,
                         // y: 9,
                         name: "Helpfulness",
@@ -168,11 +168,11 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
             },
-             tooltip: { 
+             tooltip: {
                  formatter: function() {
                     return '<b>' + this.y + '</b>';
                   }
-                // enabled: true 
+                // enabled: true
             },
             yAxis: {
                 min: 0,
@@ -202,28 +202,28 @@ app.controller('mainResult', function(myService, Scopes, $scope){
             credits: {
                 enabled: false
             },
-           
+
             legend:{
                 enabled: false,
             },
             credits: {
                 enabled: false
             },
-            series: [{    
+            series: [{
                 data: [{
-                       
+
                         y: result.clarity.value,
                         // y: 7,
                         name: "clarity",
                         color: result.clarity.color
                     },{
-                        
+
                         y: result.easiness.value,
                         // y: 8,
                         name: "Easiness",
                         color: result.easiness.color
                     },{
-                        
+
                         y: result.helpfulness.value,
                         // y: 9,
                         name: "Helpfulness",
@@ -231,9 +231,9 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                     }
                     ]
             }]
-        });  
+        });
     };
-        
+
 
     $scope.init = function(id){
         this.id = id;
@@ -321,16 +321,16 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
         }
     };
     $scope.selectedTagsCount = 0;
-    $scope.allTags = [{ 
+    $scope.allTags = [{
                             name:'انگیزه‌دهنده',
                             status: 0
                         },
-                        {   
-                            name:'ایده‌پرداز' , 
+                        {
+                            name:'ایده‌پرداز' ,
                             status: 0
                         },
                         {
-                            name:'تدریس کاربردی', 
+                            name:'تدریس کاربردی',
                             status: 0
                         },
                         {
@@ -346,31 +346,31 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
                             status: 0
                         },
                         {
-                            name:'دو بار وردار تا پاس شی', 
+                            name:'دو بار وردار تا پاس شی',
                             status: 0
                         },
                         {
-                            name:'سخت نمره میده', 
+                            name:'سخت نمره میده',
                             status: 0
                         },
                         {
-                            name:'کوییزهای رگباری', 
+                            name:'کوییزهای رگباری',
                             status: 0
                         },
                         {
-                            name:'سر کلاس نری افتادی', 
+                            name:'سر کلاس نری افتادی',
                             status: 0
                         },
                         {
-                            name:'کم حجم و مقوی', 
+                            name:'کم حجم و مقوی',
                             status: 0
                         },
                         {
-                            name:'انتظار مشارکت در کلاس دارد', 
+                            name:'انتظار مشارکت در کلاس دارد',
                             status: 0
                         },
                         {
-                            name:'کلاس‌های بلند', 
+                            name:'کلاس‌های بلند',
                             status: 0
                         },];
     // $scope.selectedTags = {};
@@ -462,7 +462,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
             pushCustomAlert("کامنت شما بیش از هزار کلمه است \n یکم کمتر بنویس لطفا :)");
             return false;
         }
-       
+
         return true;
     };
     $scope.setResponse = function(response){
@@ -472,7 +472,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
     $scope.submitRate = function(cmt, course_name, selected_course){
         $scope.applyComment(cmt);
         if($scope.submit === false){
-            
+
         if(!checkErrors(course_name, selected_course)){
             $scope.showModal = true;
             return false;
@@ -491,7 +491,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
             'courseName':course_name,
             'selectedCourse':selected_course,
             'response':$scope.response
-            
+
         };
         console.log("RATE DATA");
         console.log(rateData);
@@ -506,7 +506,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
                 console.log('after recieving data');
             }
         });
-        
+
         return true;
     }
 
@@ -526,16 +526,16 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
 
 app.directive('modal', function () {
     return {
-      template: '<div class="modal fade">' + 
-          '<div class="modal-dialog">' + 
-            '<div class="modal-content">' + 
-              '<div class="modal-header">' + 
-                '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
-                '<h4 class="modal-title">{{ title }}</h4>' + 
-              '</div>' + 
-              '<div class="modal-body" ng-transclude></div>' + 
-            '</div>' + 
-          '</div>' + 
+      template: '<div class="modal fade">' +
+          '<div class="modal-dialog">' +
+            '<div class="modal-content">' +
+              '<div class="modal-header">' +
+                '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
+                '<h4 class="modal-title">{{ title }}</h4>' +
+              '</div>' +
+              '<div class="modal-body" ng-transclude></div>' +
+            '</div>' +
+          '</div>' +
         '</div>',
       restrict: 'E',
       transclude: true,
@@ -568,7 +568,7 @@ app.directive('modal', function () {
 
 app.factory('Scopes', function ($rootScope) {
     var mem = {};
- 
+
     return {
         store: function (key, value) {
             mem[key] = value;
@@ -601,7 +601,7 @@ app.factory('reportComment', function($http) {
       // $http returns a promise, which has a then function, which also returns a promise
       var promise = $http.get('/report/' + cmt_id + '/').then(function (response) {
         // The then function here is an opportunity to modify the response
-        
+
         // The return value gets picked up by the then in the controller.
         return response.data;
       });
@@ -624,12 +624,13 @@ var getCourses = function(data){
     $("#js-example-data-array").select2({
         // placeholder: "Select a state",
         placeholder: "انتخاب کنید",
-        allowClear: true,
         // allowClear: true,
+        // allowClear: true,
+        dir: "rtl",
         data: select2_data
     });
 };
-  
+
 
 // target element
 
@@ -669,5 +670,3 @@ jQuery(document).ready(function($){
         );
     });
 });
-
-
