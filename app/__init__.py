@@ -29,9 +29,10 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 db = MongoEngine(app)
 def register_blueprints(app):
 	# Prevents circular imports
-	from app.views import category
+	# from app.views import category
 	# from app.admin import admin
-	app.register_blueprint(category)
+	# app.register_blueprint(category)
+	
 	from app.add import add
 	app.register_blueprint(add)
 	from app.search import search
@@ -55,6 +56,8 @@ def register_blueprints(app):
 	from app.admin import admin
 	app.register_blueprint(admin)
 
+	from app.category.view import category
+	app.register_blueprint(category)
 
 register_blueprints(app)
 if __name__ == '__main__':
