@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="%% url_for('static', filename='five-star-rating/css/rating.min.css')%%">
     <script type="text/javascript" src="%% url_for('static', filename='five-star-rating/js/src/rating.js') %%"></script>
     <script src="%%url_for('static', filename='bootstrap/js/bootstrap.min.js')%%"></script>
-    <script src="%%url_for('static', filename='bootstrap/js/2.js')%%"></script>
     <!--<script src="%%url_for('static', filename='bootstrap/js/bootstrap-modal.js')%%"></script>-->
-    <script src="%%url_for('static', filename='js/bootbox.min.js')%%"></script>
     <script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
     <script src="%%url_for('static', filename='profile/profile.js')%%"></script>
     <link rel="stylesheet" href="%% url_for('static', filename='profile/profile.css') %%">
@@ -59,30 +57,6 @@
     ga('send', 'pageview');
 
 </script>
-<!-- PersianStat -->
-<!-- URL: http://genew.ir -->
-
-<!-- /PersianStat -->
-<!-- sometime later, probably inside your on load event callback -->
-<script>
-    bootbox.dialog({
-        message: '<div class="row" style="text-align: justify;direction: rtl;font-size: 18px;">'+
-            '<div class="col-md-12">'+
-            '<p>           دوستان از آنکه شما انتقادات و تعریفات خود را از اساتید با ادب و احترام مطرح می کنید سپاس گزاریم.    </p>'+
-    '</div>'+
-    '</div>',
-        buttons: {
-            success: {
-                label: "متوجه شدم",
-                className: "btn-success",
-                callback: function() {
-                    console.log("callback");
-                }
-            },
-        }
-    });
-</script>
-
 <div class="container">
     <header class="head-section" style="margin-bottom: 1.5%;">
         <div class="navbar navbar-default navbar-static-top" style="padding-left: 1%;padding-right:1%; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
@@ -161,6 +135,23 @@
 
                         <modal title="امتیاز به %% prof.name%%" visible="showModal">
                             <div class="rate-form ">
+                                <div class="row " style="background-color: #BDBDBD; padding-top: 10px; text-align: justify;direction: rtl;border-top-right-radius: 10px;border-top-left-radius: 10px;">
+                                    <div class="col-md-6 col-xs-6 col-lg-6 col-sd-6">
+                                        <h style="font-weight: bold;">بایدها</h>
+                                        <p>سعی کنید بیشتر پیرامون توانمندی‌های استاد شامل نحوه تدریس، توان انتقال مطالب، موارد اجباری و غیر اجباری کلاس صحبت کنید.</p>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6 col-lg-6 col-sd-6">
+                                        <h style="font-weight: bold;">گوشزد</h>
+                                        <p>نظرهایی غیر سازنده و بی‌اثر شامل  توهین و ... حذف خواهند شد.</p>
+                                    </div>
+                                </div>
+                                <div class="row " style="background-color: #BDBDBD;margin-bottom: 20px;text-align: justify;direction: rtl;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
+                                    <div class="col-md-12 col-xs-12 col-lg-12 col-sd-12">
+                                        <h style="font-weight: bold;">نبایدها</h>
+                                        <p>از توهین به استادها به طور کامل پرهیز کنید.
+                                            سامانه نظرسنجی در وحله اول برای کمک به دانشجویان برای انتخاب واحد میباشد و وظیفه بعدی آن سامانه‌ای برای برگرداندن نظرات شما عزیزان به اساتید محترم میباشد تا از کیفیت آموزیشی بالاتری بهرهمند شویم</p>
+                                    </div>
+                                </div>
                                 <div  class="row" style="direction: rtl; margin-bottom: 10px;">
                                     <div class="col-md-6 mda" >
                                         <div class="text" > چه درسی باهاش داشتی؟ </div>
@@ -302,7 +293,7 @@
                                         </div>
                                         <div class="col-md-12 mdc">
                                             <div class="text" style="padding-right: 30px;">
-                                                <textarea id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
+                                                <textarea style="font-size: 15px;" id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
                                             </div>
                                         </div>
 
@@ -498,7 +489,7 @@
         </div>
     </div>
     <footer class="head-section ">
-        <div class="navbar navbar-default navbar-static-top" style="padding-left: 1%;padding-right:1%;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+        <div class="navbar navbar-default " style="padding-left: 1%;padding-right:1%;border-top-left-radius: 10px;border-top-right-radius: 10px;">
             <div class="navbar-collapse collapse row" >
                 <!--logo-->
                 <div class="col-md-2 f1">
