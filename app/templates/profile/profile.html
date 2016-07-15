@@ -60,37 +60,31 @@
     ga('send', 'pageview');
 
 </script>
-<!-- PersianStat -->
-<!-- URL: http://genew.ir -->
-
-<!-- /PersianStat -->
-<!-- sometime later, probably inside your on load event callback -->
-
 
 <div class="container">
     <header class="head-section" style="margin-bottom: 1.5%;">
         <div class="navbar navbar-default navbar-static-top" style="padding-left: 1%;padding-right:1%; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
             <div class="navbar-collapse collapse row" >
                 <!--logo-->
-                <div class="col-md-2 h1">
+                <div class="col-md-2 col-xs-2 h1">
                     <a  style="padding-left:20px;float: right;"  class="headlogo" href="%%url_for('search.search')%%" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
                 </div>
                 <!--logo-->
                 <!--qouets-->
-                <!--<div class="col-md-6">-->
-                <!--<a class="navbar-brand headqouets"  href="?????">This is the other side of our <span> freedom</span>!</a>-->
-                <!--</div>-->
-                <div class=" text-left h2" >
-                    <!-- <a href="%%url_for('search.search')%%"  class="action-button" style="text-decoration: none;font-size:15px;">صفحه نخست</a> -->
-                    <!--<a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>-->
-                   <!--  <a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">تماس با ما</a> -->
-                    <ul class="nav navbar-nav">
-                        <li style="height: 70%;">
-                            <div id="remote">
-                                <input class="typeahead" type="text" placeholder="جستجو">
-                            </div>
-                        </li>
-                    </ul>
+                <div class="col-md-7 col-xs-1">
+                <!--&lt;!&ndash;<a class="navbar-brand headqouets"  href="?????">This is the other side of our <span> freedom</span>!</a>&ndash;&gt;-->
+                </div>
+                <div class=" col-md-3 col-xs-6 h2" >
+                     <a href="%%url_for('search.search')%%"  class="action-button" style="text-decoration: none;font-size:15px;">صفحه نخست</a>
+                    <a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>
+                     <!--<a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">تماس با ما</a>-->
+                    <!--<ul class="nav navbar-nav">-->
+                        <!--<li style="height: 70%;">-->
+                            <!--<div id="remote">-->
+                                <!--<input class="typeahead" type="text" placeholder="جستجو">-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
                 </div>
                 <!--qouets-->
                 <!--search box-->
@@ -147,6 +141,23 @@
 
                         <modal title="امتیاز به %% prof.name%%" visible="showModal">
                             <div class="rate-form ">
+                                <div class="row " style="background-color: #F5F5F5; padding-top: 10px; text-align: justify;direction: rtl;border-top-right-radius: 10px;border-top-left-radius: 10px;color: #9E9E9E;">
+                                    <div class="col-md-6 col-xs-6 col-lg-6 col-sd-6">
+                                        <h style="font-weight: bold;">بایدها</h>
+                                        <p>سعی کنید بیشتر پیرامون توانمندی‌های استاد شامل نحوه تدریس، توان انتقال مطالب، موارد اجباری و غیر اجباری کلاس صحبت کنید.</p>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6 col-lg-6 col-sd-6">
+                                        <h style="font-weight: bold;">گوشزد</h>
+                                        <p>نظرهایی غیر سازنده و بی‌اثر شامل  توهین و ... حذف خواهند شد.</p>
+                                    </div>
+                                </div>
+                                <div class="row " style="background-color: #F5F5F5;margin-bottom: 40px;text-align: justify;direction: rtl;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;color: #9E9E9E;">
+                                    <div class="col-md-12 col-xs-12 col-lg-12 col-sd-12">
+                                        <h style="font-weight: bold;">نبایدها</h>
+                                        <p>از توهین به استادها به طور کامل پرهیز کنید.
+                                            سامانه نظرسنجی در وحله اول برای کمک به دانشجویان برای انتخاب واحد میباشد و وظیفه بعدی آن سامانه‌ای برای برگرداندن نظرات شما عزیزان به اساتید محترم میباشد تا از کیفیت آموزیشی بالاتری بهرهمند شویم</p>
+                                    </div>
+                                </div>
                                 <div  class="row" style="direction: rtl; margin-bottom: 10px;">
                                     <div class="col-md-6 mda" >
                                         <div class="text" > چه درسی باهاش داشتی؟ </div>
@@ -290,7 +301,7 @@
                                         </div>
                                         <div class="col-md-12 mdc">
                                             <div class="text" style="padding-right: 30px;">
-                                                <textarea id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
+                                                <textarea style="font-size: 15px;" id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
                                             </div>
                                         </div>
 
@@ -486,19 +497,19 @@
         </div>
     </div>
     <footer class="head-section ">
-        <div class="navbar navbar-default navbar-static-top" style="padding-left: 1%;padding-right:1%;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+        <div class="navbar navbar-default " style="padding-left: 1%;padding-right:1%;border-top-left-radius: 10px;border-top-right-radius: 10px;">
             <div class="navbar-collapse collapse row" >
                 <!--logo-->
-                <div class="col-md-2 f1">
+                <div class="col-md-2  col-xs-2 f1">
                     <a  style="padding-top:10px;padding-left:20px;float: right;"  class="headlogo" href="%% url_for('content.aboutus')%%" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
                 </div>
 
-                <div class="col-md-8 text-left f2">
+                <div class="col-md-8 col-xs-8text-left f2">
                     <a href="%%url_for('search.search')%%"  class="action-button" style="text-decoration: none;font-size:15px;">بازگشت</a>
                     <!--<a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>-->
                     <a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">تماس با ما</a>
                 </div>
-                <div class="col-md-2 f3" style="top:15px;">
+                <div class="col-md-2 col-xs-2 f3" style="top:15px;">
                     <a class="logo" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
                     <a class="logo" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
                     <a class="logo" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
