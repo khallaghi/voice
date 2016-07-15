@@ -73,7 +73,7 @@
     padding-right: 0;
 }
 #arrow-down{
-    padding-top: 8%;
+    padding-top: 5%;
     cursor: pointer;
 }
 
@@ -83,7 +83,7 @@
     display: none;
 }
 .main2{
-    height: 65%;
+    height: 70%;
     padding-top: 5%;
     display: none;
 }
