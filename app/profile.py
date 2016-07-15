@@ -59,7 +59,7 @@ def get_tags(tags):
 
 
 def get_comments(prof):
-	posts = Post.objects(prof = prof, deleted = False)
+	posts = Post.objects(prof = prof, deleted = False).order_by("created_at")
 	for cmt in posts:
 		comment_dict = {}
 		comment_dict['body'] = cmt.body

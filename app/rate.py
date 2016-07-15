@@ -131,6 +131,7 @@ class ProfessorRate(MethodView):
 			raise Exception("LEN IS TOO MUCH")
 
 		post = Post()
+		post.prof = prof
 		post.body = data['comment']
 		post.clarity = data['clarity']
 		post.helpfulness = data['helpfulness']
@@ -141,6 +142,8 @@ class ProfessorRate(MethodView):
 		post.study = study
 		self.append_tags(post, data)
 		post.save()
+		print "ID"
+		print post.id
 
 		# if len(prof.comments)>= 1:
 		# 	if prof.comments[-1].id == -1 or prof.comments[-1] == None:
@@ -205,14 +208,14 @@ class ProfessorRate(MethodView):
 			if prof == None:
 				raise Exception("PROF NOT FOUND")
 				
-			if not 'response' in data.keys():
-				raise Exception("FORGET RECAPTCHA")
+			# if not 'response' in data.keys():
+			# 	raise Exception("FORGET RECAPTCHA")
 					
 			if check_multiple_vote(prof, request.remote_addr):
 				raise Exception("MULTIPLE VOTE")
 				
-			if not verify_user(request.remote_addr, data['response']):
-				raise Exception("YOU ARE ROBOT")
+			# if not verify_user(request.remote_addr, data['response']):
+			# 	raise Exception("YOU ARE ROBOT")
 
 			prof = Professor.objects(id=data['id']).first()
 			if not self.validate(prof, data):
@@ -226,6 +229,7 @@ class ProfessorRate(MethodView):
 			self.apply_tags(prof, data)
 			self.apply_comment(prof, data, study)
 
+			print "EVERY THING IS ALRIGHT"
 			return jsonify(
 				success = True,
 				message = "DONE"
