@@ -81,3 +81,9 @@ class Search(MethodView):
 		results = self.search_result(form.search.data)
 		return render_template('search/search.html', form = form , **results)
 search.add_url_rule('/search', view_func=Search.as_view('search'))
+
+
+class TestSearch(MethodView):
+	def get(self):
+		return render_template('search/new.html')
+search.add_url_rule('/test', view_func=TestSearch.as_view("testSearch"))
