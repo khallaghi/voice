@@ -1,9 +1,11 @@
 $(document).ready(function(){
   $(".unis").select2({
-    dir: "rtl"
+    dir: "rtl",
+    placeholder:"دانشکده را انتخاب کنید"
+
   });
-  // $(".faculties").select2();
-  $(".faculties").hide();
+  $(".faculties").select2();
+  // $(".faculties").hide();
   var $uniSelect = $(".unis");
   $uniSelect.on("select2:select", function(e){
     var select2Data = [];

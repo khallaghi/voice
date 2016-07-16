@@ -13,25 +13,34 @@ category = Blueprint('category', __name__, template_folder='templates/profile')
 class CategoryView(MethodView):
 	def get(self, fac_id):
 		if not fac_id:
-			return render_template('profile/fac.html', unis = University.objects(), profs = [])
-
+			return render_template('profile/fac.html', 
+									unis = University.objects(),
+									profs = [])
 		fac = Faculty.objects(id = fac_id).first()
 		if fac:
 			profs = Professor.objects(faculty = fac)
 		else:
 			prof = []
-		return render_template('profile/fac.html', unis = University.objects(), profs = profs)
-
-	def post(self, fac_id):
+		return render_template('profile/fac.html',
+								 unis = University.objects(),
+								 profs = profs)
+class GetFaculty(MethodView):
+	def post(self):
 		print request.form.get("uni")
 		print request.form.get("faculty")
 		uni = University.objects(id = request.form.get("uni")).first()
 		fac = Faculty.objects(uni = uni, id = request.form.get("faculty")).first()
-		return redirect(url_for("category.faculty", fac_id = fac.id))
+		return redirect(url_for("category.faculty_view", fac_id = fac.id))
 
 class FacultyView(MethodView):
 	def get(self):
-		return redirect(url_for("category.category", fac_id = '0'))
+		return render_template('/profile/fac.html', unis = University.objects.all())
+	def post(self):
+		print request.form.get("uni")
+		print request.form.get("faculty")
+		uni = University.objects(id = request.form.get("uni")).first()
+		fac = Faculty.objects(uni = uni, id = request.form.get("faculty")).first()
+		return redirect(url_for("category.faculty_view", fac_id = fac.id))
 
 class FacultySearch(MethodView):
 	def post(self):
@@ -43,5 +52,7 @@ class FacultySearch(MethodView):
 		return jsonify({"faculties": [{"id":str(fac.id), "text":fac.name} for fac in faculties]})
 
 category.add_url_rule('/faculty/search', view_func = FacultySearch.as_view('facultySearch'))
-category.add_url_rule('/category/<fac_id>', view_func=CategoryView.as_view('category'))
-category.add_url_rule('/category/', view_func = CategoryView.as_view('faculty'))
+category.add_url_rule('/faculty_view/<fac_id>', view_func=CategoryView.as_view('faculty_view'))
+category.add_url_rule('/get_faculty', view_func=GetFaculty.as_view('get_faculty'))
+
+category.add_url_rule('/category/', view_func = FacultyView.as_view('faculty'))
