@@ -25,7 +25,8 @@
 
 #back{
     background: url("background.png");
-    background-size: 1400px 107%;
+    background-size: 1400px 630px;
+    background-repeat: no-repeat;
     position: absolute;
     width: 100%;
     height: 88.5%;
@@ -370,6 +371,10 @@
 /*footer back end*/
 /*media part*/
 @media (min-width: 481px) and (max-width: 768px) {
+    #back{
+        background: url("mobile2.png");
+        background-repeat: no-repeat ;
+    }
     .main1{
         padding-top: 40%;
     }
