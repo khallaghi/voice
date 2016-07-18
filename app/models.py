@@ -41,6 +41,7 @@ class Professor(db.Document):
 
     ''' settings '''
     reported_comments = db.IntField(default = 0)
+    published = db.BooleanField(default = True, required = True)
 
     ''' Studies '''
     studies = db.EmbeddedDocumentListField('Study')

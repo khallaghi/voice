@@ -3,7 +3,7 @@ send_from_directory
 from flask.views import MethodView
 from app.models import University, Professor, Faculty
 from flask.ext.mongoengine.wtf import model_form
-from app.forms import FacultyForm, ProfessorForm
+from app.forms import FacultyForm, ProfForm
 from app.auth import requires_auth
 # from PIL import Image
 from werkzeug import secure_filename
@@ -90,9 +90,27 @@ add.add_url_rule('/add/fac', view_func=AddFaculty.as_view('addfac'))
 
 class AddProf(MethodView):
 	decorators = [requires_auth]
+	def validation(self, form):
+		if form.faculty.data == u'None':
+			form.faculty.errors.append("not valid choice")
+			return False
+		# if form.name.data == "":
+		# 	form.name.errors.append("not a valid choice")
+		# 	return False
+		# if form.email.data == "":
+		# 	return form.email.errors.append("not valid choice"), False
+		# if form.website.data == "":
+		# 	return form.website.errors.append("not valid choice"), False
+		# if form.uni.data == None:
+		# 	return form.uni.errors.append("not valid choice"), False
+		return True
 	def get_context(self):
-		form = ProfessorForm(request.form)      
-		form.faculty.choices = [(str(f.id), f.name +" -- " + f.uni.name) for f in Faculty.objects.all()]
+		form = ProfForm(request.form)      
+		# form.faculty.choices = [(str(f.id), f.name +" -- " + f.uni.name) for f in Faculty.objects.all()]
+		# form.faculty.choices = []
+		form.uni.choices = [(str(u.id), u.name)for u in University.objects.all()]
+		# form.faculty.choices = [(str(f.id), f.name)for f in Faculty.objects.all()]
+
 		form.rank.choices = [('ostadYar','ostadYar'), ('daneshYar','daneshYar'),
 		 ('ostad tamam','ostad tamam'), ('ostad madov','ostad madov'),
 		  ('bazneshaste','bazneshaste'), ('sayer','sayer')]
@@ -108,8 +126,13 @@ class AddProf(MethodView):
 	def post(self):
 		context = self.get_context()
 		form = context.get('form')
-		# form = ProfessorForm(request.form)
-		print form.faculty.data
+		profs = context.get('profs')
+		# profs = Professor.objects.all()
+		# form = ProfForm(request.form)
+		# form = ProfForm(request.form)
+		# validate = self.validation(form)
+		# if form.validate():
+		print request.form.get('faculty')
 		if form.validate():
 			print "TRUE"
 			# print form.faculty.data
@@ -118,7 +141,7 @@ class AddProf(MethodView):
 			# prof.family = form.family.data
 			prof.email = form.email.data
 			prof.website = form.website.data
-			faculty = Faculty.objects(id=form.faculty.data).first()
+			faculty = Faculty.objects(id=request.form.get('faculty')).first()
 			prof.faculty = faculty
 			prof.save()
 			save_image(request, prof)
@@ -126,7 +149,7 @@ class AddProf(MethodView):
 			faculty.professors.append(prof)
 			faculty.save()
 			return redirect(url_for('add.addprof'))
-		return render_template('add/add-prof.html', **context)
+		return render_template('add/add-prof.html', profs = profs, form = form )
 add.add_url_rule('/add/prof', view_func=AddProf.as_view('addprof'))
 
 

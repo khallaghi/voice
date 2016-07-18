@@ -3,8 +3,7 @@ send_from_directory
 from flask.views import MethodView
 from app.models import University, Professor, Faculty
 from flask.ext.mongoengine.wtf import model_form
-from app.forms import FacultyForm, ProfessorForm, \
-									EditProfessorForm
+from app.forms import FacultyForm, EditProfessorForm
 from app.auth import requires_auth
 # from PIL import Image
 from werkzeug import secure_filename
@@ -27,7 +26,7 @@ def save_image(request, prof):
 			print "before saving file"
 			filename = str(prof.id) + '.' + filename.split('.')[-1]
 			print filename
-			app.config['UPLOAD_FOLDER'] = "/root/rate/app/static/img/uploaded_images/"
+			app.config['UPLOAD_FOLDER'] = "/home/mohammad/rate/app/static/img/uploaded_images/"
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename ))
 			filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 			print "filepath is : "
