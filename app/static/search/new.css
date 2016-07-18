@@ -2,7 +2,13 @@
     font-family: IRANSansWeb;
     src: url(../font/IRANSansWeb.ttf);
 }
-
+@font-face {
+    font-family: 'BRoya';
+    src: url('../font/BRoya/BRoya.ttf') format('truetype');
+}
+.count{
+    font-family: BRoya,'BRoya',tahoma;
+}
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -19,7 +25,7 @@
 
 #back{
     background: url("background.png");
-    background-size: 100% 108%;
+    background-size: 1400px 107%;
     position: absolute;
     width: 100%;
     height: 88.5%;
@@ -30,12 +36,12 @@
     top: -20px;
     width: 70%;
     position: absolute;
-
 }
 .fill {
     height: 100%;
     background-color: #FFFFFF;
     font-family: IRANSansWeb;
+
 }
 .main1{
     height: 90%;
@@ -84,7 +90,7 @@
 }
 .main2{
     height: 70%;
-    padding-top: 5%;
+    padding-top: 1%;
     display: none;
 }
 .box1{
@@ -111,20 +117,13 @@
     margin-top: 10px;
     text-align: center;
 }
-#nextevent{
-    margin-left: 15px;
-    height: 100%;
-}
 .nexteventdetail{
     font-size: 15px;
-    padding: 20px;
+    padding-top: 10px;
     text-align: center;
 }
-#number{
-    height: 100%;
-}
 .seenum{
-    font-size: 75px;
+    font-size: 60px;
     text-align: center;
 }
 .m1{
@@ -178,16 +177,17 @@
 }
 .profnum{
     text-align: center;
-    font-size: 28px;
-    margin: 10px;
+    font-size: 24px;
+    /*margin: 10px;*/
 }
 .videodetail{
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 .foot{
     height: 10%;
     padding-top: 1%;
+    z-index: 100;
 }
 .social{
     text-align: center;
@@ -299,8 +299,75 @@
     padding-left:2%;
     /*margin-right: 45px;*/
 }
-
 /*result place*/
+
+
+
+
+
+
+/*main2 css*/
+/*box design*/
+    .box{
+        background-color: #EEEEEE;
+    }
+/*box design end*/
+/*qouets css*/
+    .quets{
+        /*text-align: center;*/
+    }
+    .quets img{
+        width: 60%;
+        /*height: 80%;*/
+    }
+    .quet{
+        display: none;
+    }
+/*qouets css end*/
+/*data*/
+    .data{
+        display: none;
+        height: 73%;
+        padding: 20px 5% 0 5%;
+    }
+/*data end*/
+/*slide show box*/
+    .slider{
+        height: 50%;
+        margin-bottom: 4%;
+        text-align: center;
+    }
+/*slide show box end*/
+/*detail*/
+    .detail{
+        height: 40%;
+    }
+    .detail2{
+        height: 100%;
+        padding-right: 10%;
+    }
+    .detail1{
+        height: 100%;
+    }
+/*detail end*/
+/*video part */
+    .videopart{
+        height: 100%;
+    }
+/*video part end*/
+/*footer back*/
+    #footer-back{
+        display: none;
+        height: 10%;
+        width: 100%;
+        background: url("footer.png");
+        background-size: 1400px;
+        /*background-repeat: no-repeat;*/
+        left: 0;
+        bottom: 0;
+        position: absolute;
+    }
+/*footer back end*/
 /*media part*/
 @media (min-width: 481px) and (max-width: 768px) {
     .main1{
@@ -310,26 +377,15 @@
         width: 80%;
     }
     #minisearch{
-        width: 73%;
+        width: 80%;
         float: right;
     }
     .left-search{
         width: 27%;
         float: left;
     }
-    .f1{
-        width: 30%;
-        float: right;
-    }
-    .f2{
-        width: 30%;
-    }
-    .f3{
-        display: none;
-    }
-    .main2{
-        position: relative;
-        height: 1300px;
+    .h2{
+        height: 0;
     }
     .h2 img{
         height: 0px;
@@ -337,9 +393,6 @@
     }
     .h3{
         display: block;
-        text-align: center;
-    }
-    .h1{
         text-align: center;
     }
     .centersearch{
@@ -350,58 +403,42 @@
     }
     .minisearchdesign1{
         margin-left: 0;
+        width: 100%;
     }
     .searchpic{
         width: 35%;
         text-align: right;
     }
-    .box2{
-        width: 90%;
+    .main2{
+        margin-bottom: 100px;
+        padding-top: 2%;
     }
-    .m1{
-        height: 800px;
+    .quet{
+        text-align: center;
     }
-    #slides{
-        width: 100%;
+    .slider{
+        height: 25%;
     }
     #slide img{
         width: 100px;
         height: 100px;
     }
-    .m12{
-        height: 100px;
+    .detail{
+        height: 53%;
+        margin-bottom: 20px;
     }
-    #nextevent{
-        height: 150px;
-        font-size: 25px;
-        margin-bottom: 30px;
+    .detail2{
+        padding-left: 0;
     }
-    #number{
-        height: 450px;
-        margin-left: 10px;
-        font-size: 25px;
+    .videopart{
+        height: 70%;
+        margin-bottom: 20px;
     }
-    .nexteventdetail{
-        font-size: 30px;
-    }
-    .seens{
-        width: 88%;
-        margin-left: 25px;
-        font-size: 30px;
-    }
-    .allsee{
+    .resorve{
         display: none;
     }
-    .allsee2{
-        display: block;
-        text-align: center;
-    }
-    .m2{
-        height: 400px;
-        margin-top: 10px;
-    }
-    .m3{
-        height: 0;
+    #footer-back{
+        height: 0px;
     }
 }
 
@@ -470,16 +507,6 @@
     }
     .m12{
         height: 100px;
-    }
-    #nextevent{
-        height: 150px;
-        font-size: 25px;
-        margin-bottom: 30px;
-    }
-    #number{
-        height: 450px;
-        margin-left: 10px;
-        font-size: 25px;
     }
     .nexteventdetail{
         font-size: 30px;
@@ -571,16 +598,7 @@
     .m12{
         height: 100px;
     }
-    #nextevent{
-        height: 150px;
-        font-size: 25px;
-        margin-bottom: 30px;
-    }
-    #number{
-        height: 450px;
-        margin-left: 10px;
-        font-size: 25px;
-    }
+
     .nexteventdetail{
         font-size: 30px;
     }

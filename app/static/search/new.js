@@ -43,14 +43,28 @@ function nextpage() {
     $(".centersearch").removeClass("centersearch").addClass('centersearch2');
     $(".insearch").removeClass("insearch").addClass('minisearchdesign1');
     // $("#search-place").fadeIn('slow');
-    $(".m1").delay(2000).fadeIn();
-    $(".m2").delay(2000).fadeIn();
-    $(".m3").delay(2000).fadeIn();
+    // $(".m1").delay(2000).fadeIn();
+    // $(".m2").delay(2000).fadeIn();
+    // $(".m3").delay(2000).fadeIn();
     $(".h1").delay(2000).fadeIn();
     $(".h2").delay(2000).fadeIn();
+    $(".quet").delay(2000).fadeIn();
+    $(".data").delay(2000).fadeIn();
+    $("#footer-back").delay(2000).fadeIn();
     $("#right-search").removeClass('col-md-3');
-    $("#back").animate({"top":'-=70%'},2000);
+    $("#back").animate({"top":'-=65%'},2000);
     $("#arrow-down").hide();
     $(".head2").fadeIn();
+    $('.count').delay(2000).each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 8000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
 
 }
