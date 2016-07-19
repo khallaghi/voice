@@ -373,7 +373,7 @@
 @media (min-width: 481px) and (max-width: 768px) {
     #back{
         background: url("mobile2.png");
-        background-repeat: no-repeat ;
+        background-repeat: no-repeat;
     }
     .main1{
         padding-top: 40%;
