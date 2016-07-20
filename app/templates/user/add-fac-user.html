@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>صفحه گزارشات تخلف</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="%% url_for('static', filename='add/add-prof.js') %%"></script>
+    <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" > -->
+
+	<link rel="apple-touch-icon" sizes="57x57" href="%%url_for('static',filename='icon/apple-touch-icon-57x57.png')%%">
+	<link rel="apple-touch-icon" sizes="60x60" href="%%url_for('static',filename='icon/apple-touch-icon-60x60.png')%%">
+	<link rel="apple-touch-icon" sizes="72x72" href="%%url_for('static',filename='icon/apple-touch-icon-72x72.png')%%">
+	<link rel="apple-touch-icon" sizes="76x76" href="%%url_for('static',filename='icon/apple-touch-icon-76x76.png')%%">
+	<link rel="apple-touch-icon" sizes="114x114" href="%%url_for('static',filename='icon/apple-touch-icon-114x114.png')%%">
+	<link rel="apple-touch-icon" sizes="120x120" href="%%url_for('static',filename='icon/apple-touch-icon-120x120.png')%%">
+	<link rel="apple-touch-icon" sizes="144x144" href="%%url_for('static',filename='icon/apple-touch-icon-144x144.png')%%">
+	<link rel="apple-touch-icon" sizes="152x152" href="%%url_for('static',filename='icon/apple-touch-icon-152x152.png')%%">
+	<link rel="apple-touch-icon" sizes="180x180" href="%%url_for('static',filename='icon/apple-touch-icon-180x180.png')%%">
+	<link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-32x32.png')%%" sizes="32x32">
+	<link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-194x194.png')%%" sizes="194x194">
+	<link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-96x96.png')%%" sizes="96x96">
+	<link rel="icon" type="image/png" href="%%url_for('static',filename='icon/android-chrome-192x192.png')%%" sizes="192x192">
+	<link rel="icon" type="image/png" href="%%url_for('static', filename='icon/favicon-16x16.png')%%" sizes="16x16">
+	<link rel="manifest" href="%%url_for('static',filename='icon/manifest.json')%%">
+	<link rel="mask-icon" href="%%url_for('static',filename='icon/safari-pinned-tab.svg')%%" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
+	<meta name="theme-color" content="#ffffff">
+	<style type="text/css">
+		@font-face {
+			font-family: IRANSansWeb;
+			src: url(../static/font/IRANSansWeb.ttf);
+		}
+
+		body{
+			font-family: IRANSansWeb;
+			background-color: #607D8B;
+			direction: rtl;
+		}
+		.fnt{
+			font-family: IRANSansWeb;
+		}
+		.profname{
+			display: inline-flex;
+			width: 165px;
+			margin-bottom: 10px;
+			padding: 10px;
+			background-color: #90A4AE;
+			color: #0f0f0f;
+			border-radius: 5px;
+			font-size: 15px;
+		}
+	</style>
+</head>
+<body >
+
+<% import '_forms.html' as forms %>
+<% import '_funcs.html' as func %>
+%% func.resolve_msg(msg) %%
+	
+	
+	<h2>اضافه کردن دانشکده‌ی جدید</h2>
+	<form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data" >
+	<label>دانشگاه</label>
+     %% forms.render_field(form.uni) %%
+	<label>دانشکده</label>
+
+	<label>نام دانشکده <br></label>
+     %% forms.render_field(form.name) %%
+
+	  <div class="actions">
+	    <input  type="submit" class="btn primary" value="submit">
+	  </div>
+	</form>
+
+</body>
+</html>
