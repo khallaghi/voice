@@ -52,7 +52,7 @@
 
                 <div id="minisearch" class="col-md-6 centersearch"  ng-app="search" ng-controller="searchBox as box">
                     <input class="insearch" type="search" id="search"
-                        placeholder="استـــــاد و یا درس مورد نظر خود را وارد کنید ..."
+                        placeholder="استـــــاد مورد نظر خود را وارد کنید ..."
                            ng-model="keyword"
                            ng-change="search()"
                            ng-focus="box.setFocusTrue()"
@@ -120,13 +120,13 @@
     </div>
     <div class="row main2">
         <div class="row quet ">
-            <div class="col-md-4 col-xs-12 quets" style="text-align:left;">
+            <div class="col-md-4 col-xs-4 quets" style="text-align:left;">
                 <img src="%%url_for('static',filename='search/d1.png')%%">
             </div>
-            <div class="col-md-4 col-xs-12 quets"style="text-align: center;">
+            <div class="col-md-4 col-xs-4 quets"style="text-align: center;">
                 <img src="%%url_for('static',filename='search/d2.png')%%">
             </div>
-            <div class="col-md-4 col-xs-12 quets" style="text-align: right;">
+            <div class="col-md-4 col-xs-4 quets" style="text-align: right;">
                 <img src="%%url_for('static',filename='search/d3.png')%%">
             </div>
         </div>
@@ -134,10 +134,10 @@
             <div class="col-md-8 col-xs-12">
                 <div class="row">
                     <div class="box slider col-md-12 col-xs-12">
-                        <div id="left-arrow">
-                            <!--<img src="%%url_for('static',filename='search/left.png')%%">-->
-                        </div>
-                        <div id="slides">
+                        <!--<div id="left-arrow">-->
+                            <!--&lt;!&ndash;<img src="%%url_for('static',filename='search/left.png')%%">&ndash;&gt;-->
+                        <!--</div>-->
+                        <!--<div id="slides">-->
                             <div id="slide">
                                 <img src="%%url_for('static',filename='search/sharif.png')%%">
                             </div>
@@ -150,10 +150,10 @@
                             <div id="slide">
                                 <img src="%%url_for('static',filename='search/ut.png')%%">
                             </div>
-                        </div>
-                        <div id="right-arrow">
+                        <!--</div>-->
+                        <!--<div id="right-arrow">-->
                             <!--<img src="%%url_for('static',filename='search/right.png')%%">-->
-                        </div>
+                        <!--</div>-->
                     </div>
                 </div>
                 <div class="row detail">
@@ -226,19 +226,21 @@
         </div>
     </div>
     <div class="row foot">
-        <div class="col-md-3 text-left col-xs-9">
+        <div class="col-md-3 text-left col-xs-3">
             <a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
+            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">لیست اساتید</a>
         </div>
-        <div class="col-md-6 social f2 col-xs-3">
-            <a href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
-            <a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
-            <a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
+        <div class="col-md-6 social f2 col-xs-6">
+            <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
         </div>
-        <div class="col-md-3 resorve col-xs-0">
+        <div class="col-md-3 resorve col-xs-3">
             <img src="%%url_for('static',filename='search/resorve.png')%%">
         </div>
     </div>
-    <div id="footer-back"></div>
 </div>
 
 <script>

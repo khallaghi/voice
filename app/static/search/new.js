@@ -50,11 +50,12 @@ function nextpage() {
     $(".h2").delay(2000).fadeIn();
     $(".quet").delay(2000).fadeIn();
     $(".data").delay(2000).fadeIn();
-    $("#footer-back").delay(2000).fadeIn();
     $("#right-search").removeClass('col-md-3');
     $("#back").animate({"top":'-=65%'},2000);
     $("#arrow-down").hide();
     $(".head2").fadeIn();
+    $(".foot").animate({"margin-left":'-=15px'},1);
+    $(".foot").delay(3000).addClass('foot2');
     $('.count').delay(2000).each(function () {
         $(this).prop('Counter',0).animate({
             Counter: $(this).text()

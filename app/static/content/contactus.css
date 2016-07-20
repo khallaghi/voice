@@ -1,0 +1,124 @@
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius:20px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+@font-face {
+    font-family: IRANSansWeb;
+    src: url(../font/IRANSansWeb.ttf);
+}
+body{
+    font-family: IRANSansWeb;
+}
+html, body, .container-fluid {
+    height:100%;
+    width: 100%;
+
+}
+.container-fluid{
+    padding: 0px;
+    direction: rtl;
+}
+header{
+    height: 20%;
+    background: url("header.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.texts{
+    padding: 10px 20px 0px 20px;
+}
+.texts>h1{
+    font-size: 20px;
+    color: #e33764;
+    font-weight: bold;
+}
+.texts>p{
+    text-align: justify;
+}
+footer{
+    height: 15%;
+    padding-top: 30px;
+    background: url("footer.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.about-butom{
+    background-color: #757575;
+    color: #FFFFFF;
+    padding: 5px 10px 5px 10px;
+    /*border-radius: 10px;*/
+}
+/*social desig */
+.social{
+    text-align: center;
+}
+.flogo{
+    padding: 8px 10px 5px 10px;
+    border-radius: 50%;
+}
+.tel{
+    background-color: #019ec7;
+}
+.insta{
+    background-color: #b82071;
+}
+.twit{
+    background-color: #009dc6;
+}
+.aparat{
+    background-color: #ed145b;
+}
+.face{
+    background-color: #015ab6;
+}
+/*social desig end*/
+/*logo*/
+.logo img{
+
+}
+@media (min-width: 481px) and (max-width: 768px) {
+    header{
+        height: 15%;
+    }
+    .logo img{
+        width: 100%;
+    }
+    .name{
+        margin-left: 20px;
+    }
+    footer{
+        height: 10%;
+    }
+}
+@media (min-width: 321px) and (max-width: 480px) {
+    header{
+        height: 15%;
+    }
+    .logo img{
+        width: 100%;
+    }
+    footer{
+        height: 10%;
+    }
+}
+@media (max-width: 320px) {
+    header{
+        height: 15%;
+    }
+    .logo img{
+        width: 100%;
+    }
+    footer{
+        height: 10%;
+    }
+}

@@ -101,7 +101,7 @@
 .box2{
     background-color: #EEEEEE;
 }
-#slides{
+#slides{col-xs-12
     display: inline-flex;
     text-align: center;
     padding: 10px;
@@ -111,7 +111,7 @@
     padding: 0 10 0 10;
 }
 .back-detail{
-    background-color: #6d6d6d;
+    background-color: #3b3b3b;
     color: #FFFFFF;
     /*border-radius: 5px;*/
     padding: 10px;
@@ -187,7 +187,7 @@
 }
 .foot{
     height: 10%;
-    padding-top: 1%;
+    padding-top: 1.5%;
     z-index: 100;
 }
 .social{
@@ -337,6 +337,8 @@
         height: 50%;
         margin-bottom: 4%;
         text-align: center;
+        display: inline-flex;
+        padding-top: 20px;
     }
 /*slide show box end*/
 /*detail*/
@@ -357,6 +359,10 @@
     }
 /*video part end*/
 /*footer back*/
+    .foot2{
+        background: url("footer.png");
+        width: 102.25%;
+    }
     #footer-back{
         display: none;
         height: 10%;
@@ -368,15 +374,48 @@
         bottom: 0;
         position: absolute;
     }
+    .flogo{
+        padding: 8px 10px 5px 10px;
+        border-radius: 50%;
+    }
+    .tel{
+        background-color: #019ec7;
+    }
+    .insta{
+        background-color: #b82071;
+    }
+    .twit{
+        background-color: #009dc6;
+    }
+    .aparat{
+        background-color: #ed145b;
+    }
+    .face{
+        background-color: #015ab6;
+    }
+/*social desig end*/
 /*footer back end*/
 /*media part*/
+/* Small devices (tablets, 768px and up) */
 @media (min-width: 481px) and (max-width: 768px) {
     #back{
-        background: url("mobile2.png");
+        /*background: url("mobile2.png");*/
         background-repeat: no-repeat;
+        background-size: 100% 108%;
+    }
+    .quet{
+        padding-top: 30px;
+        height: 100px;
+    }
+    .quets img{
+        height: 90%;
+        width: 100%;
     }
     .main1{
         padding-top: 40%;
+    }
+    .main2{
+        min-height: 1300px;
     }
     #logo img{
         width: 80%;
@@ -436,45 +475,50 @@
         padding-left: 0;
     }
     .videopart{
-        height: 70%;
+        height: 50%;
         margin-bottom: 20px;
     }
-    .resorve{
-        display: none;
+    .resorve img{
+        width: 100%;
     }
-    #footer-back{
-        height: 0px;
+    .foot{
+        padding-top: 7%;
     }
 }
 
 @media (min-width: 321px) and (max-width: 480px) {
+    #back{
+        /*background: url("mobile2.png");*/
+        background-repeat: no-repeat;
+        background-size: 100% 108%;
+    }
+    .quet{
+        padding-top: 30px;
+        height: 100px;
+    }
+    .quets img{
+        height: 90%;
+        width: 100%;
+    }
     .main1{
         padding-top: 40%;
+    }
+    .main2{
+        min-height: 1300px;
     }
     #logo img{
         width: 80%;
     }
     #minisearch{
-        width: 73%;
+        width: 80%;
         float: right;
     }
     .left-search{
         width: 27%;
         float: left;
     }
-    .f1{
-        width: 30%;
-        float: right;
-    }
-    .f2{
-        width: 30%;
-    }
-    .f3{
-        display: none;
-    }
-    .main2{
-        position: relative;
-        height: 1300px;
+    .h2{
+        height: 0;
     }
     .h2 img{
         height: 0px;
@@ -484,87 +528,86 @@
         display: block;
         text-align: center;
     }
-    .h1{
-        text-align: center;
+    .centersearch{
+        margin-left: -4%;
     }
     .centersearch2{
         padding-right: 80px;
     }
     .minisearchdesign1{
         margin-left: 0;
+        width: 100%;
     }
     .searchpic{
         width: 35%;
         text-align: right;
     }
-    .box2{
-        width: 90%;
+    .main2{
+        margin-bottom: 100px;
+        padding-top: 2%;
     }
-    .m1{
-        height: 800px;
+    .quet{
+        text-align: center;
     }
-    #slides{
-        width: 100%;
+    .slider{
+        height: 25%;
     }
     #slide img{
         width: 100px;
         height: 100px;
     }
-    .m12{
-        height: 100px;
+    .detail{
+        height: 53%;
+        margin-bottom: 20px;
     }
-    .nexteventdetail{
-        font-size: 30px;
+    .detail2{
+        padding-left: 0;
     }
-    .seens{
-        width: 88%;
-        margin-left: 25px;
-        font-size: 30px;
+    .videopart{
+        height: 50%;
+        margin-bottom: 20px;
     }
-    .allsee{
-        display: none;
+    .resorve img{
+        width: 100%;
     }
-    .allsee2{
-        display: block;
-        text-align: center;
-    }
-    .m2{
-        height: 400px;
-        margin-top: 10px;
-    }
-    .m3{
-        height: 0;
+    .foot{
+        padding-top: 7%;
     }
 }
 
 @media (max-width: 320px) {
+    #back{
+        /*background: url("mobile2.png");*/
+        background-repeat: no-repeat;
+        background-size: 100% 108%;
+    }
+    .quet{
+        padding-top: 30px;
+        height: 100px;
+    }
+    .quets img{
+        height: 90%;
+        width: 100%;
+    }
     .main1{
         padding-top: 40%;
+    }
+    .main2{
+        min-height: 1300px;
     }
     #logo img{
         width: 80%;
     }
     #minisearch{
-        width: 73%;
+        width: 80%;
         float: right;
     }
     .left-search{
         width: 27%;
         float: left;
     }
-    .f1{
-        width: 30%;
-        float: right;
-    }
-    .f2{
-        width: 30%;
-    }
-    .f3{
-        display: none;
-    }
-    .main2{
-        position: relative;
-        height: 1300px;
+    .h2{
+        height: 0;
     }
     .h2 img{
         height: 0px;
@@ -574,56 +617,49 @@
         display: block;
         text-align: center;
     }
-    .h1{
-        text-align: center;
+    .centersearch{
+        margin-left: -4%;
     }
     .centersearch2{
         padding-right: 80px;
     }
     .minisearchdesign1{
         margin-left: 0;
+        width: 100%;
     }
     .searchpic{
         width: 35%;
         text-align: right;
     }
-    .box2{
-        width: 90%;
+    .main2{
+        margin-bottom: 100px;
+        padding-top: 2%;
     }
-    .m1{
-        height: 800px;
+    .quet{
+        text-align: center;
     }
-    #slides{
-        width: 100%;
+    .slider{
+        height: 25%;
     }
     #slide img{
         width: 100px;
         height: 100px;
     }
-    .m12{
-        height: 100px;
+    .detail{
+        height: 53%;
+        margin-bottom: 20px;
     }
-
-    .nexteventdetail{
-        font-size: 30px;
+    .detail2{
+        padding-left: 0;
     }
-    .seens{
-        width: 88%;
-        margin-left: 25px;
-        font-size: 30px;
+    .videopart{
+        height: 50%;
+        margin-bottom: 20px;
     }
-    .allsee{
-        display: none;
+    .resorve img{
+        width: 100%;
     }
-    .allsee2{
-        display: block;
-        text-align: center;
-    }
-    .m2{
-        height: 400px;
-        margin-top: 10px;
-    }
-    .m3{
-        height: 0;
+    .foot{
+        padding-top: 7%;
     }
 }
