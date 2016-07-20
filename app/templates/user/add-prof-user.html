@@ -6,6 +6,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="%% url_for('static', filename='add/add-prof.js') %%"></script>
+    <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <!-- <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" > -->
 
 	<link rel="apple-touch-icon" sizes="57x57" href="%%url_for('static',filename='icon/apple-touch-icon-57x57.png')%%">
@@ -56,21 +59,31 @@
 <body >
 
 <% import '_forms.html' as forms %>
-
+<% import '_funcs.html' as func %>
+%% func.resolve_msg(msg) %%
 	<p> number of professors: %%profs.count()%%</p>
 	<% if msg %>
 		<p> %% msg %%</p>
 	<% endif %>
 	<h2>اضافه کردن استاد جدید</h2>
 	<form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data" >
+	<label>دانشگاه</label>
      %% forms.render_field(form.uni) %%
+	<label>دانشکده</label>
+
 	<select id="faculty" name='faculty'>
 	</select>
+	<label>نام و نام خانوادگی <br></label>
      %% forms.render_field(form.name) %%
+	<label>ایمیل<br></label>
      %% forms.render_field(form.email) %%
+	<label>وب‌سایت<br></label>
      %% forms.render_field(form.website) %%
+	<label>شماره‌ی دفتر<br></label>
 	 %% forms.render_field(form.room_no) %%
+	<label>مرتبه‌ي آموزشی<br></label>
 	 %% forms.render_field(form.rank) %%
+	<label>تصویر<br></label>
 	 %% forms.render_field(form.pic) %%
 	  <div class="actions">
 	    <input  type="submit" class="btn primary" value="submit">

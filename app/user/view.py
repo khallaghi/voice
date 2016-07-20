@@ -34,7 +34,8 @@ class UserAddProfessor(MethodView):
 		profs = Professor.objects.all()
 		return {
 			"profs": profs,
-			"form" : form
+			"form" : form,
+			"msg" : request.args.get("msg")
 		}
 	def get_pure_form(self):
 		form = ProfForm()      
@@ -74,9 +75,9 @@ class UserAddProfessor(MethodView):
 			faculty.save()
 			msg = "you registered Professor " + prof.name + " successfully"
 			form = self.get_pure_form()
-			# return redirect(url_for('user.user_add_prof'))
+			return redirect(url_for('user.user_add_prof', msg="successful"))
 
-		return render_template('user/add-prof-user.html', profs = profs, form = form, msg=msg )
+		return render_template('user/add-prof-user.html', profs = profs, form = form, msg="fail" )
 	
 user.add_url_rule('/user/add/prof', view_func = UserAddProfessor.as_view('user_add_prof'))
 

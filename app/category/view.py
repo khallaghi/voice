@@ -52,7 +52,7 @@ class FacultySearch(MethodView):
 		faculties = Faculty.objects(uni = uni)
 
 		# print [{"id":fac.id, "name":fac.name} for fac in faculties]
-		return jsonify({"faculties": [{"id":str(fac.id), "text":fac.name} for fac in faculties]})
+		return jsonify({"faculties": [{"id":str(fac.id), "text":fac.name + " - " + fac.uni.name} for fac in faculties]})
 
 category.add_url_rule('/faculty/search', view_func = FacultySearch.as_view('facultySearch'))
 category.add_url_rule('/faculty_view/<fac_id>', view_func=CategoryView.as_view('faculty_view'))
