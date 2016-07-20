@@ -78,6 +78,9 @@
                     <a href="%%url_for('search.search')%%"  class="action-button" style="text-decoration: none;font-size:15px;">صفحه نخست</a>
                     <a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>
                      <!--<a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">تماس با ما</a>-->
+                    <!--<select class="js-data-example-ajax">-->
+                        <!--<option value="3620194" selected="selected">select2/select2</option>-->
+                    <!--</select>-->
                     <!--<ul class="nav navbar-nav">-->
                         <!--<li style="height: 70%;">-->
                             <!--<div id="remote">-->
@@ -357,7 +360,7 @@
                         <!--FIRST PERSON-->
                         <div ng-repeat="tag in get_personal_tags()" class="label label-success" id="tag">
                             <!-- <span > -->
-                            <span class="badge" >{{(tag.count)}}</span>
+                            <span class="badge number" >{{(tag.count)}}</span>
                             {{tag.name}}
                             <!-- </span> -->
                         </div>
@@ -570,3 +573,4 @@
 
 </body>
 </html>
+

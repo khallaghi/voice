@@ -77,10 +77,12 @@
               <div class="col-md-2 col-xs-6">
                   <div class="each-result">
                       <div class="prof-img">
-                          <a href=%%url_for("profile.prof", id = prof.id)%%> <img class="avatar" src="%%prof.profile_pic%%"></a>
+                          <a href=%%url_for("profile.prof", id = prof.id)%% target="_blank">
+                              <img class="avatar" src="%%prof.profile_pic%%" style="height: 100%;">
+                          </a>
                       </div>
                       <div class="prof-detail">
-                          <h3><a href=%%url_for("profile.prof", id = prof.id)%%> %% prof.name %%</a></h3>
+                          <h3><a href=%%url_for("profile.prof", id = prof.id)%% target="_blank"> %% prof.name %%</a></h3>
                           <p>%% prof.email%%</p>
                       </div>
                   </div>
@@ -88,6 +90,7 @@
             <% endfor %>
         </div>
     </div>
+    <!--<a href="#0" class="cd-top">Top</a>-->
     <div class="row foot">
         <div class="col-md-2 col-xs-2 text-left f1">
             <a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
@@ -99,6 +102,7 @@
             <a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
         </div>
     </div>
+
 </div>
 </body>
 </html>
