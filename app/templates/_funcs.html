@@ -1,10 +1,25 @@
 <% macro resolve_msg(msg) -%>
 	<% if msg == "successful"%>
+	<div class="alert alert-success alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<p>درخواست شما با موفقیت ثبت شد</p>
+		</div>
 	<% elif msg == 'repeatitive' %>
+	<div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<p>این استاد در دیتابیس سیستم وجود دارد</p>
+		</div>
 	<% elif msg == 'fail' %>
+	<div class="alert alert-danger alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<p> ثبت درخواست شما با مشکلی مواجه شد <br>
 		لطفا یک‌بار دیگر تلاش بکنید</p>
+		</div>
 	<% endif %>
+<% endmacro %>
+
+<% macro msg_type(msg) -%>
+	<% if msg == "successful"%>success
+	<% elif msg == "repeatitive"%>warning
+	<% elif msg == "fail"%>danger<%endif%>
 <% endmacro %>
