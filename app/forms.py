@@ -18,6 +18,16 @@ class ProfForm(Form):
 	rank = SelectField('rank')
 	pic = FileField('Image File')
 
+class ProfForFacForm(Form):
+	name = TextField('Professor name', validators=[DataRequired()])
+	email = TextField('Email address', validators=[DataRequired()])
+	website = TextField('website')
+	room_no = TextField('room number')
+	rank = SelectField('rank', choices = [('ostadYar','ostadYar'), ('daneshYar','daneshYar'),
+		 ('ostad tamam','ostad tamam'), ('ostad madov','ostad madov'),
+		  ('bazneshaste','bazneshaste'), ('sayer','sayer')])
+	pic = FileField('Image File')
+
 class EditProfessorForm(Form):
 	name = TextField('Professor name', [validators.Length(min=2, max=400)])
 	email = TextField('email', [validators.Length(min=2, max=400)])

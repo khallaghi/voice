@@ -3,7 +3,7 @@ from flask import Blueprint, request, redirect, render_template, url_for
 from flask.views import MethodView
 from app.models import University, Professor, Faculty, Post
 from flask.ext.mongoengine.wtf import model_form
-from app.forms import SearchForm
+from app.forms import ProfForFacForm
 from mongoengine import Q
 from flask import jsonify
 
@@ -12,18 +12,21 @@ category = Blueprint('category', __name__, template_folder='templates/profile')
 
 class CategoryView(MethodView):
 	def get(self, fac_id):
-		if not fac_id:
-			return render_template('profile/fac.html', 
-									unis = University.objects(),
-									profs = [])
 		fac = Faculty.objects(id = fac_id).first()
 		if fac:
-			profs = Professor.objects(faculty = fac)
+			profs = Professor.objects(faculty = fac, published = True)
 		else:
 			prof = []
-		return render_template('profile/fac.html',
+		form = ProfForFacForm()
+		print 
+		return render_template('category/faculty-view.html',
 								 unis = University.objects(),
-								 profs = profs)
+								 profs = profs,
+								 form = form,
+								 faculty = fac,
+								 msg = request.args.get('msg')
+								 )
+
 class GetFaculty(MethodView):
 	def post(self):
 		print request.form.get("uni")
@@ -34,7 +37,7 @@ class GetFaculty(MethodView):
 
 class FacultyView(MethodView):
 	def get(self):
-		return render_template('/profile/fac.html', unis = University.objects.all())
+		return render_template('/profile/category-view.html', unis = University.objects.all())
 	def post(self):
 		print request.form.get("uni")
 		print request.form.get("faculty")

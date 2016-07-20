@@ -5,16 +5,22 @@ import datetime
 class University(db.Document):
     name = db.StringField(max_length=300, required=True)
     faculties = db.ListField(db.ReferenceField('Faculty'))
+    published = db.BooleanField(default = True, required = True)
 
 class Faculty(db.Document):
     name = db.StringField(max_length=300, required=True)
     uni = db.ReferenceField('University')
     professors = db.ListField(db.ReferenceField('Professor'))
+    published = db.BooleanField(default = True, required = True)
 
     # @prof_count:
     def prof_count(self):
         return len(self.professors)
 
+    @property
+    def get_professors(self):
+        return Professor.objects(faculty = self)
+    
 
 class Professor(db.Document):
     ''' Personal Attributes '''

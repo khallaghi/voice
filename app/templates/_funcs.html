@@ -1,0 +1,10 @@
+<% macro resolve_msg(msg) -%>
+	<% if msg == "successful"%>
+		<p>درخواست شما با موفقیت ثبت شد</p>
+	<% elif msg == 'repeatitive' %>
+		<p>این استاد در دیتابیس سیستم وجود دارد</p>
+	<% elif msg == 'fail' %>
+		<p> ثبت درخواست شما با مشکلی مواجه شد <br>
+		لطفا یک‌بار دیگر تلاش بکنید</p>
+	<% endif %>
+<% endmacro %>

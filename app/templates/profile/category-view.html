@@ -35,8 +35,6 @@
 </head>
 <body>
 <% import '_forms.html' as forms %>
-<% from '_funcs.html' import resolve_msg %>
-
 <div class="back"></div>
 <div class="container-fluid fill">
     <div class="row head">
@@ -81,41 +79,7 @@
        <!--  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
 
         <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">اضافه کردن استاد به دانشکده‌ی %% faculty.name%% در دانشگاه %%faculty.uni.name%%</h4>
-              </div>
-              <div class="modal-body">
-              <form action="%% url_for('user.user_add_prof_to_fac', fac_id=faculty.id) %%" method="POST" enctype="multipart/form-data" >
-                %% forms.render_field(form.name) %%
-                %% forms.render_field(form.email) %%
-                %% forms.render_field(form.website) %%
-                %% forms.render_field(form.room_no) %%
-                %% forms.render_field(form.rank) %%
-                %% forms.render_field(form.pic) %%
-              <div class="modal-footer">
-              
-                  <input  type="submit" class="btn btn-primary" value="submit" >
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-              </form>
-              
-                
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="alert alert-warning alert-dismissible" role="alert">
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		   %% resolve_msg(msg) %%
-		</div>
-        
+       
         <div class="row" style="margin-top: 20px;">
             <% for prof in profs %>
               <div class="col-md-2 col-xs-6">

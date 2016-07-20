@@ -59,6 +59,12 @@ def register_blueprints(app):
 	from app.category.view import category
 	app.register_blueprint(category)
 
+	from app.user.view import user
+	app.register_blueprint(user)
+
+	from app.config import config
+	app.register_blueprint(config)
+
 register_blueprints(app)
 if __name__ == '__main__':
 	app.run()
