@@ -23,3 +23,11 @@
 	<% elif msg == "repeatitive"%>warning
 	<% elif msg == "fail"%>danger<%endif%>
 <% endmacro %>
+
+<% macro twitter_card(title, desc, image_url) -%>
+	<meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@genew_ir" />
+    <meta name="twitter:title" content="%% title %%" />
+    <meta name="twitter:description" content="%% desc %%" />
+    <meta name="twitter:image" content="%% image_url %%" />
+<% endmacro%>
