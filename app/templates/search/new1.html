@@ -1,0 +1,256 @@
+%%  JSGlue.include() %%
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=0.7, maximum-scale=0.7" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Genew-جنیو</title>
+    <script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
+    <script src="%% url_for('static', filename='search/new.js')%%"></script>
+    <link rel="stylesheet" href="%%url_for('static', filename='search/new.css')%%">
+    <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!--<script src="https://github.com/twitter/typeahead.js"></script>-->
+
+    <!-- <script src="http://ajax.goog8leapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+    <link rel="apple-touch-icon" sizes="57x57" href="%%url_for('static',filename='icon/apple-touch-icon-57x57.png')%%">
+    <link rel="apple-touch-icon" sizes="60x60" href="%%url_for('static',filename='icon/apple-touch-icon-60x60.png')%%">
+    <link rel="apple-touch-icon" sizes="72x72" href="%%url_for('static',filename='icon/apple-touch-icon-72x72.png')%%">
+    <link rel="apple-touch-icon" sizes="76x76" href="%%url_for('static',filename='icon/apple-touch-icon-76x76.png')%%">
+    <link rel="apple-touch-icon" sizes="114x114" href="%%url_for('static',filename='icon/apple-touch-icon-114x114.png')%%">
+    <link rel="apple-touch-icon" sizes="120x120" href="%%url_for('static',filename='icon/apple-touch-icon-120x120.png')%%">
+    <link rel="apple-touch-icon" sizes="144x144" href="%%url_for('static',filename='icon/apple-touch-icon-144x144.png')%%">
+    <link rel="apple-touch-icon" sizes="152x152" href="%%url_for('static',filename='icon/apple-touch-icon-152x152.png')%%">
+    <link rel="apple-touch-icon" sizes="180x180" href="%%url_for('static',filename='icon/apple-touch-icon-180x180.png')%%">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-32x32.png')%%" sizes="32x32">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-194x194.png')%%" sizes="194x194">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-96x96.png')%%" sizes="96x96">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/android-chrome-192x192.png')%%" sizes="192x192">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-16x16.png')%%" sizes="16x16">
+    <link rel="manifest" href="%%url_for('static',filename='icon/manifest.json')%%">
+    <link rel="mask-icon" href="%%url_for('static',filename='icon/safari-pinned-tab.svg')%%" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+
+<body>
+<div id="back"></div>
+<div class="container-fluid fill">
+
+    <div class="row main1">
+        <div class="row" >
+            <div class="col-md-12" id="logo">
+                <img src="%%url_for('static',filename='search/logo1.png')%%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 " id="search-place">
+                <div class="col-md-3 " id="right-search" style="width: 21%;"></div>
+
+                <div id="minisearch" class="col-md-6 centersearch"  ng-app="search" ng-controller="searchBox as box">
+                    <input class="insearch" type="search" id="search"
+                        placeholder="استـــــاد مورد نظر خود را وارد کنید ..."
+                           ng-model="keyword"
+                           ng-change="search()"
+                           ng-focus="box.setFocusTrue()"
+                    />
+                    <div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
+                        <div ng-if="!search_result.data.profs.length">
+                            <p  class="no-result">
+                                نتیجه‌ای یافت نشد.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="one-result wait" ng-hide="search_result || !keyword">
+                        <div id="search" ng-if="keyword.length < 3">
+                            <p >  {{3 - keyword.length}}حرف دیگر تایپ کنید</p>
+                        </div>
+                        <div id="search" ng-if="keyword.length >= 3">
+                            <p style="font-size: 15px; flow:left;direction: rtl;">
+                                در حال جستجوی {{keyword}}
+                                <img src="http://www.bba-reman.com/images/fbloader.gif" />
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="result " ng-show="search_result && box.focus" style="position: relative; z-index: 1000;">
+                        <!-- <p>Professors:</p> -->
+                        <ul class="results-place"  ng-repeat="prof in search_result.data.profs" >
+                            <a href="{{ box.prof_url_for(prof.id)}}" style="color: antiquewhite;text-decoration: none;">
+                                <li class="each-result">
+                                    <p style=" padding-top: 10px;">{{prof.name}}</p>
+                                    <p >{{prof.faculty}} - {{prof.uni}}</p>
+                                </li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-md-1  col-xs-2 left-search" style="padding: 0;">
+                    <img src="%%url_for('static',filename='search/search.png')%%">
+                </div>
+                <div class="col-md-2"></div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img id="arrow-down" onclick="nextpage()" src="%%url_for('static',filename='search/arrow.png')%%" 	>
+            </div>
+        </div>
+    </div>
+    <div class="row head2">
+        <div class="col-md-3 col-xs-12 h3">
+            <img src="%%url_for('static',filename='search/logo2.png')%%">
+        </div>
+        <div class="col-md-6 col-xs-12 h1">
+            <div class="col-md-8 h11" style="padding: 0;text-align: left;"></div>
+            <div class="col-md-2 searchpic">
+                <img src="%%url_for('static',filename='search/search2.png')%%">
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-2 h2">
+            <img src="%%url_for('static',filename='search/logo2.png')%%">
+        </div>
+    </div>
+    <div class="row main2">
+        <div class="row quet ">
+            <div class="col-md-4 col-xs-4 quets" style="text-align:left;">
+                <img src="%%url_for('static',filename='search/d1.png')%%">
+            </div>
+            <div class="col-md-4 col-xs-4 quets"style="text-align: center;">
+                <img src="%%url_for('static',filename='search/d2.png')%%">
+            </div>
+            <div class="col-md-4 col-xs-4 quets" style="text-align: right;">
+                <img src="%%url_for('static',filename='search/d3.png')%%">
+            </div>
+        </div>
+        <div class="row data ">
+            <div class="col-md-8 col-xs-12">
+                <div class="row">
+                    <div class="box slider col-md-12 col-xs-12">
+                        <!--<div id="left-arrow">-->
+                            <!--&lt;!&ndash;<img src="%%url_for('static',filename='search/left.png')%%">&ndash;&gt;-->
+                        <!--</div>-->
+                        <!--<div id="slides">-->
+                            <div id="slide">
+                                <img src="%%url_for('static',filename='search/sharif.png')%%">
+                            </div>
+                            <div id="slide">
+                                <img src="%%url_for('static',filename='search/shahid.png')%%">
+                            </div>
+                            <div id="slide">
+                                <img src="%%url_for('static',filename='search/amir.png')%%">
+                            </div>
+                            <div id="slide">
+                                <img src="%%url_for('static',filename='search/ut.png')%%">
+                            </div>
+                        <!--</div>-->
+                        <!--<div id="right-arrow">-->
+                            <!--<img src="%%url_for('static',filename='search/right.png')%%">-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="row detail">
+                    <div class="box col-md-3 col-xs-4 detail1">
+                        <div class="row">
+                            <div class="col-md-12 back-detail">
+                                اتفاق بعدی
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 nexteventdetail">
+                                اضافه شدن دانشگاه امیر کبیر
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-xs-8 detail2" style="padding-left: 0px;">
+                        <div class="box detail1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-12 back-detail">افراد شرکت کننده</div>
+                                    <div class="col-md-12 seenum count">1310</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12 back-detail">تعداد اساتید</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 profnum"><span class="count">1530</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-left: 5%;">
+                                        <div class="col-md-12" style="padding: 0;">
+                                            <div class="col-md-7 col-xs-7 allsee count" style="padding: 0 10 0 40;">38510</div>
+                                            <div class="col-md-5 col-xs-5 back-detail seens" style="margin-top: 0;padding: 3px;">بازدید کل</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="box videopart">
+                    <div class="row">
+                        <div class=" col-md-12 col-xs-12 videodetail">
+                            <video controls   controls width="95%" id="tiser">
+                                <source src="%%url_for('static', filename='content/video/t.mp4')%%" type="video/mp4">
+                                <!--<source src="mov_bbb.ogg" type="video/ogg">-->
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="row" style="direction: rtl;padding-top: 10px;padding-right: 10px;padding-left: 10px;">
+                        <div class=" col-md-12 col-xs-12 text-left">
+                            <p>فیلم هفته:</p>
+                        </div>
+                        <div class=" col-md-12 col-xs-12" style="text-align: center;font-size: 20px;">
+                            <p>تیزر دانشگاه تهران</p>
+                        </div>
+                        <div class=" col-md-12 col-xs-12 text-right" style="font-size: 18px;color: #F44336;">
+                            <p>اتفاقی نو در راه است!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row foot">
+        <div class="col-md-3 text-left col-xs-3">
+            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
+            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">لیست اساتید</a>
+        </div>
+        <div class="col-md-6 social f2 col-xs-6">
+            <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
+        </div>
+        <div class="col-md-3 resorve col-xs-3">
+            <img src="%%url_for('static',filename='search/resorve.png')%%">
+        </div>
+    </div>
+</div>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59775059-2', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
