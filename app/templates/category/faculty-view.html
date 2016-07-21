@@ -12,7 +12,7 @@
 
 
     <!--<script type="text/javascript" src="%% url_for('static', filename='profile/angular-recaptcha-master/release/angular-recaptcha.js')%%"></script>-->
-    <title>گشت گذار</title>
+    <title>%% faculty.name %% - %% faculty.uni.name%%</title>
     <link rel="apple-touch-icon" sizes="57x57" href="%%url_for('static',filename='icon/apple-touch-icon-57x57.png')%%">
     <link rel="apple-touch-icon" sizes="60x60" href="%%url_for('static',filename='icon/apple-touch-icon-60x60.png')%%">
     <link rel="apple-touch-icon" sizes="72x72" href="%%url_for('static',filename='icon/apple-touch-icon-72x72.png')%%">
@@ -35,7 +35,7 @@
 </head>
 <body>
 <% import '_forms.html' as forms %>
-<% from '_funcs.html' import resolve_msg %>
+<% import '_funcs.html' as func %>
 
 <div class="back"></div>
 <div class="container-fluid fill">
@@ -47,13 +47,17 @@
         </div>
     </div>
     <div class="row main row-centerd">
+    <div class="jumbotron">
+				<h3 style="direction: rtl;">   دانشکده‌ی %% faculty.name %% دانشگاه  %% faculty.uni.name %%</h3>
+			</div>
         <div class="row selpart" >
           <form action="%% url_for('category.get_faculty') %%" method="POST" enctype="multipart/form-data">
             <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3"  style="text-align: right;">
+
                 <select class="unis" name="uni" >
-                    <option disabled="disabled" selected="selected">دانشگاه رو انتخاب کن</option>
+                    <option disabled="disabled" selected="selected">دانشگاه را انتخاب کنید</option>
                     <% for uni in unis %>
-                      <option value="%% uni.id %%">%%uni.name%%</option>
+                      <option value="%% uni.id %%">دانشگاه %%uni.name%%</option>
                     <% endfor %>
                 </select>
             </div>
@@ -92,16 +96,22 @@
               </div>
               <div class="modal-body">
               <form action="%% url_for('user.user_add_prof_to_fac', fac_id=faculty.id) %%" method="POST" enctype="multipart/form-data" >
+              	<label>*نام</label>
                 %% forms.render_field(form.name) %%
+                <label>*ایمیل</label>
                 %% forms.render_field(form.email) %%
+                <label>وب‌سایت</label>
                 %% forms.render_field(form.website) %%
+                <label>شماره‌ی دفتر</label>
                 %% forms.render_field(form.room_no) %%
+                <label>مرتبه‌ی آموزشی</label>
                 %% forms.render_field(form.rank) %%
+                <label>عکس</label>
                 %% forms.render_field(form.pic) %%
               <div class="modal-footer">
               
-                  <input  type="submit" class="btn btn-primary" value="submit" >
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <input  type="submit" class="btn btn-primary" value="ثبت استاد" >
+              <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
               </div>
               </form>
               
@@ -111,10 +121,8 @@
 
           </div>
         </div>
-        <div class="alert alert-warning alert-dismissible" role="alert">
-		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		   %% resolve_msg(msg) %%
-		</div>
+        
+		   %% func.resolve_msg(msg) %%
         
         <div class="row" style="margin-top: 20px;">
             <% for prof in profs %>

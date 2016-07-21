@@ -3,8 +3,11 @@ RadioField,validators, IntegerField
 from flask_wtf.file import FileField
 from wtforms.validators import DataRequired
 # from flaskext.uploads import UploadSet, IMAGES
+class UniversityForm(Form):
+	name = TextField('University name', validators=[DataRequired()])
+	
 class FacultyForm(Form):
-	name = TextField('Faculty name', [validators.Length(min=4, max=25)])
+	name = TextField('Faculty name', validators=[DataRequired()])
 	uni = SelectField('University')
 	# pic = FileField('ImageField')
 

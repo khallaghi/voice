@@ -61,30 +61,14 @@
 <% import '_forms.html' as forms %>
 <% import '_funcs.html' as func %>
 %% func.resolve_msg(msg) %%
-	<p> number of professors: %%profs.count()%%</p>
-	<% if msg %>
-		<p> %% msg %%</p>
-	<% endif %>
-	<h2>اضافه کردن استاد جدید</h2>
+	
+	
+	<h2>اضافه کردن دانشکده‌ی جدید</h2>
 	<form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data" >
-	<label>دانشگاه</label>
-     %% forms.render_field(form.uni) %%
-	<label>دانشکده</label>
 
-	<select id="faculty" name='faculty'>
-	</select>
-	<label>نام و نام خانوادگی <br></label>
+	<label>نام دانشگاه <br></label>
      %% forms.render_field(form.name) %%
-	<label>ایمیل<br></label>
-     %% forms.render_field(form.email) %%
-	<label>وب‌سایت<br></label>
-     %% forms.render_field(form.website) %%
-	<label>شماره‌ی دفتر<br></label>
-	 %% forms.render_field(form.room_no) %%
-	<label>مرتبه‌ي آموزشی<br></label>
-	 %% forms.render_field(form.rank) %%
-	<label>تصویر<br></label>
-	 %% forms.render_field(form.pic) %%
+
 	  <div class="actions">
 	    <input  type="submit" class="btn primary" value="submit">
 	  </div>
