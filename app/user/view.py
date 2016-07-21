@@ -7,14 +7,11 @@ from app.forms import ProfForFacForm, ProfForm, FacultyForm, UniversityForm
 from mongoengine import Q
 from flask import jsonify
 from app.auth import requires_auth
-# from PIL import Image
 from werkzeug import secure_filename
 from app import app
 from app.edit import save_image
 import os
 import tempfile
-# from flask.ext.uploads import UploadSet, configure_uploads, IMAGES
-# import file
 from app.utils import replace_ye
 
 
@@ -47,6 +44,14 @@ class UserAddProfessor(MethodView):
 		  ('bazneshaste','bazneshaste'), ('sayer','sayer')]
 		return form
 
+	def repeat_prof(self, form):
+		if Professor.objects(email__contains = form.email.data).first() != None:
+			return True
+		tmp_prof =  Professor.objects(name__contains = replace_ye(form.name.data),
+								faculty__id = form.faculty.data).first() 
+		if tmp_prof != None:
+			return True
+		return False
 	def get(self):
 		context = self.get_context()
 		return render_template('user/add-prof-user.html', **context)
@@ -58,8 +63,8 @@ class UserAddProfessor(MethodView):
 		profs = context.get('profs')
 		print request.form.get('faculty')
 		if form.validate():
-			print "TRUE"
-			# print form.faculty.data
+			if self.repeat_prof(form):
+				return redirect(url_for('user.user_add_prof', msg="repeatitive"))
 			prof = Professor()
 			prof.name = replace_ye(form.name.data)
 			# prof.family = form.family.data
@@ -73,7 +78,7 @@ class UserAddProfessor(MethodView):
 			prof.save()
 			faculty.professors.append(prof) 
 			faculty.save()
-			msg = "you registered Professor " + prof.name + " successfully"
+			# msg = "you registered Professor " + prof.name + " successfully"
 			form = self.get_pure_form()
 			return redirect(url_for('user.user_add_prof', msg="successful"))
 
@@ -100,7 +105,7 @@ class UserAddFaculty(MethodView):
 					return redirect(url_for("user.user_add_faculty", msg="repeatitive"))
 
 				fac = Faculty()
-				fac.name = form.name.data
+				fac.name = replace_ye(form.name.data)
 				fac.uni = University.objects(id = form.uni.data).first()
 				fac.published = False
 				fac.save()
@@ -120,7 +125,7 @@ class UserAddUni(MethodView):
 		if form.validate():
 			if University.objects(name__contains = form.name.data).first() != None:
 				return redirect(url_for("user.user_add_uni", msg="repeatitive"))
-			University(name = form.name.data, published = False).save()
+			University(name = replace_ye(form.name.data), published = False).save()
 			return redirect(url_for("user.user_add_uni", msg="successful"))
 		return render_template("user/add-uni-user.html", form=form, msg="fail")
 user.add_url_rule("/user/add/uni", view_func=UserAddUni.as_view("user_add_uni"))
