@@ -47,11 +47,8 @@
     <meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
     <meta name="theme-color" content="#ffffff">
 
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@genew_ir" />
-    <meta name="twitter:title" content="%% prof.name %%" />
-    <meta name="twitter:description" content="جنیو یک سرویس نظرسنجی اساتید سراسر کشور است. با استفاده از جنیو به اساتید خود رای دهید و درمورد اساتید دیگر اطلاعات کسب کنید" />
-    <meta name="twitter:image" content="http://genew.ir%% prof.profile_pic%%" />
+    <% from '_funcs.html' import twitter_card %>
+    %% twitter_card('به prof.name رای بدهید! - جنیو', 'جنیو یک سرویس نظرسنجی اساتید سراسر کشور است. با استفاده از جنیو به اساتید خود رای دهید و درمورد اساتید دیگر اطلاعات کسب کنید', prof.profile_pic)) %%
 </head>
 
 

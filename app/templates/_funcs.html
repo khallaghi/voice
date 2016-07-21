@@ -25,6 +25,12 @@
 <% endmacro %>
 
 <% macro twitter_card(title, desc, image_url) -%>
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="%% title %%"/>
+	<meta property="og:description" content="%% desc %%"/>
+	<meta property="og:url" content="http://postober.com/general/top-10-countries-that-watch-the-most-porn/"/>
+	<meta property="og:site_name" content="Genew"/>
+	<meta property="og:image" content="http://genew.ir%%image_url%%"/>
 	<meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@genew_ir" />
     <meta name="twitter:title" content="%% title %%" />
