@@ -33,7 +33,7 @@
     <meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
     <meta name="theme-color" content="#ffffff">
     <% from '_funcs.html' import twitter_card %>
-	%% twitter_card("جنیو - دانشکده‌ی" + faculty.name + "دانشگاه" + faculty.uni.name, 'لیست تمام اساتید دانشکده‌ی ' + faculty.name + " دانشگاه " + faculty.uni.name + ' در اینجا مشاهده کنید <br> جنیو یک سرویس نظرسنجی اساتید سراسر کشور است. <br>با استفاده از جنیو به اساتید خود رای دهید و درمورد اساتید دیگر اطلاعات کسب کنید', "genew.ir"+url_for('static', filename="icon/android-chrome-192x192.png")) %%
+	%% twitter_card("جنیو - دانشکده‌ی" + faculty.name + "دانشگاه" + faculty.uni.name, 'لیست تمام اساتید دانشکده‌ی ' + faculty.name + " دانشگاه " + faculty.uni.name + ' در اینجا مشاهده کنید <br> جنیو یک سرویس نظرسنجی اساتید سراسر کشور است. <br>با استفاده از جنیو به اساتید خود رای دهید و درمورد اساتید دیگر اطلاعات کسب کنید',url_for('static', filename="icon/android-chrome-192x192.png")) %%
 </head>
 <body>
 <% import '_forms.html' as forms %>
