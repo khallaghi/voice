@@ -45,8 +45,8 @@ header{
     text-align: justify;
 }
 footer{
-    height: 15%;
-    padding-top: 30px;
+    height: 12%;
+    padding-top: 20px;
     background: url("footer.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
