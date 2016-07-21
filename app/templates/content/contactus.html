@@ -43,7 +43,7 @@
                 <div class="col-md-4 col-xs-4 "></div>
                 <div class="col-md-4 col-xs-4 "></div>
                 <div class="col-md-4 col-xs-4 text-right logo">
-                    <img src="%%url_for('static',filename='search/logo2.png')%%">
+                    <a  href="%%url_for('search.search')%%" ><img src="%%url_for('static',filename='search/logo2.png')%%"></a>
                 </div>
             </div>
         </header>
@@ -87,10 +87,10 @@
                     </div>
                     <div class="row">
                         <div class="row">
-                            <div class="col-md-6 col-xs-4 name" >
+                            <div class="col-md-6 col-xs-6 name" >
                                 <input placeholder="نام" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; ">
                             </div>
-                            <div class="col-md-6 col-xs-4 ">
+                            <div class="col-md-6 col-xs-6 ">
                                 <input placeholder="موضوع" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; ">
                             </div>
                         </div>
@@ -113,8 +113,8 @@
         </div>
         <footer>
             <div class="col-md-3 text-left col-xs-3">
-
-                <a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">لیست اساتید</a>
+                <a class="about-butom"  style="text-decoration: none;" href="%% url_for('search.search')%%">بازگشت</a>
+                <a class="about-butom"  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>
             </div>
             <div class="col-md-6 social f2 col-xs-6">
                 <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>

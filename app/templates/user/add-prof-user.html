@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>صفحه گزارشات تخلف</title>
+	<title>اضافه کردن استاد</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -8,7 +8,7 @@
     <script src="%% url_for('static', filename='add/add-prof.js') %%"></script>
     <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+	<link rel="stylesheet" href="%%url_for('static', filename='user/add-prof-user.css')%%" >
     <!-- <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" > -->
 
 	<link rel="apple-touch-icon" sizes="57x57" href="%%url_for('static',filename='icon/apple-touch-icon-57x57.png')%%">
@@ -30,65 +30,80 @@
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
 	<meta name="theme-color" content="#ffffff">
-	<style type="text/css">
-		@font-face {
-			font-family: IRANSansWeb;
-			src: url(../static/font/IRANSansWeb.ttf);
-		}
 
-		body{
-			font-family: IRANSansWeb;
-			background-color: #607D8B;
-			direction: rtl;
-		}
-		.fnt{
-			font-family: IRANSansWeb;
-		}
-		.profname{
-			display: inline-flex;
-			width: 165px;
-			margin-bottom: 10px;
-			padding: 10px;
-			background-color: #90A4AE;
-			color: #0f0f0f;
-			border-radius: 5px;
-			font-size: 15px;
-		}
-	</style>
 </head>
 <body >
 
 <% import '_forms.html' as forms %>
 <% import '_funcs.html' as func %>
 %% func.resolve_msg(msg) %%
-	<p> number of professors: %%profs.count()%%</p>
-	<% if msg %>
-		<p> %% msg %%</p>
-	<% endif %>
-	<h2>اضافه کردن استاد جدید</h2>
-	<form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data" >
-	<label>دانشگاه</label>
-     %% forms.render_field(form.uni) %%
-	<label>دانشکده</label>
-
-	<select id="faculty" name='faculty'>
-	</select>
-	<label>نام و نام خانوادگی <br></label>
-     %% forms.render_field(form.name) %%
-	<label>ایمیل<br></label>
-     %% forms.render_field(form.email) %%
-	<label>وب‌سایت<br></label>
-     %% forms.render_field(form.website) %%
-	<label>شماره‌ی دفتر<br></label>
-	 %% forms.render_field(form.room_no) %%
-	<label>مرتبه‌ي آموزشی<br></label>
-	 %% forms.render_field(form.rank) %%
-	<label>تصویر<br></label>
-	 %% forms.render_field(form.pic) %%
-	  <div class="actions">
-	    <input  type="submit" class="btn primary" value="submit">
-	  </div>
-	</form>
-
+<div class="container-fluid">
+	<header>
+		<div class="row" style="padding-top: 2%;">
+			<div class="col-md-4 col-xs-4 "></div>
+			<div class="col-md-4 col-xs-4 "></div>
+			<div class="col-md-4 col-xs-4 text-right logo">
+				<a  href="%%url_for('search.search')%%" ><img src="%%url_for('static',filename='search/logo2.png')%%"></a>
+			</div>
+		</div>
+	</header>
+	<div class="main row">
+			<!--<p> number of professors: %%profs.count()%%</p>-->
+			<% if msg %>
+				<p> %% msg %%</p>
+			<% endif %>
+			<h2>اضافه کردن استاد جدید</h2>
+			<form action="?%% request.query_string %%" method="POST" enctype="multipart/form-data" >
+			<div class="col-md-12"style="margin: 10px 0 10px 0;">
+				<label>دانشگاه</label>
+				 %% forms.render_field(form.uni) %%
+			</div>
+			<div class="col-md-12"style="margin: 10px 0 10px 0;">
+				<label>دانشکده</label>
+				<select id="faculty" name='faculty'>
+				</select>
+			</div>
+			<div class="col-md-12"style="margin: 10px 0 10px 0;">
+				<label>نام و نام خانوادگی <br></label>
+				 %% forms.render_field(form.name) %%
+			</div>
+				<label>ایمیل<br></label>
+				 %% forms.render_field(form.email) %%
+			<label>وب‌سایت<br></label>
+			 %% forms.render_field(form.website) %%
+			<label>شماره‌ی دفتر<br></label>
+			 %% forms.render_field(form.room_no) %%
+			<div class="col-md-12">
+				<label>مرتبه‌ي آموزشی<br></label>
+				 %% forms.render_field(form.rank) %%
+			</div>
+			<div class="col-md-12" style="margin: 10px 0 10px 0;">
+				<label>عکس استاد<br></label>
+				 <div style="text-align: center;padding-right: 45%;">%% forms.render_field(form.pic) %%</div>
+			</div>
+			<div class="col-md-12" style="margin-top: 10px;margin-bottom: 10px;">
+				  <div class="actions">
+					<input  type="submit" class="btn primary" value="ثبت">
+				  </div>
+			</div>
+			</form>
+	</div>
+	<footer>
+		<div class="col-md-3 text-left col-xs-3">
+			<a class="about-butom"  style="text-decoration: none;" href="%% url_for('search.search')%%">بازگشت</a>
+			<a class="about-butom"  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>
+		</div>
+		<div class="col-md-6 social f2 col-xs-6">
+			<a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+			<a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+			<a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+			<a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+			<a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
+		</div>
+		<div class="col-md-3 resorve text-right col-xs-3 logo">
+			<img src="%%url_for('static',filename='search/resorve.png')%%">
+		</div>
+	</footer>
+</div>
 </body>
 </html>

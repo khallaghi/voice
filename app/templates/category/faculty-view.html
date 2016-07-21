@@ -36,20 +36,17 @@
 <body>
 <% import '_forms.html' as forms %>
 <% import '_funcs.html' as func %>
-
-<div class="back"></div>
 <div class="container-fluid fill">
-    <div class="row head">
-        <div class="col-md-3 col-xs-3 head"></div>
-        <div class="col-md-6 col-xs-6 head"></div>
-        <div class="col-md-3 col-xs-3 head">
-            <a href="%%url_for('search.search')%%"><img src="%%url_for('static',filename='profile/logo2.png')%%"></a>
+    <header>
+        <div class="row" style="padding-top: 2%;">
+            <div class="col-md-4 col-xs-4 "></div>
+            <div class="col-md-4 col-xs-4 "></div>
+            <div class="col-md-4 col-xs-4 text-right logo">
+                <a  href="%%url_for('search.search')%%" ><img src="%%url_for('static',filename='search/logo2.png')%%"></a>
+            </div>
         </div>
-    </div>
+    </header>
     <div class="row main row-centerd">
-    <div class="jumbotron">
-				<h3 style="direction: rtl;">   دانشکده‌ی %% faculty.name %% دانشگاه  %% faculty.uni.name %%</h3>
-			</div>
         <div class="row selpart" >
           <form action="%% url_for('category.get_faculty') %%" method="POST" enctype="multipart/form-data">
             <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3"  style="text-align: right;">
@@ -66,26 +63,26 @@
                     <option disabled="disabled">دانشکده را انتخاب کنید</option>
                 </select>
             </div>
-              <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3" style="text-align: right;">
+              <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3 " style="text-align: right;">
 
-              </div>
-              <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3" style="text-align: right;">
-                  
-                  <input class="about-butom" type="submit" class="btn primary" value="جست و جو">
+                  <input class="about-butom1" type="submit" class="btn primary" value="جست و جو">
               </div>
 
           </form>
-          <button class="about-butom"  data-toggle="modal" data-target="#myModal" style="text-decoration: none;">پیشنهاد استاد</button>
+          <button class="about-butom1"  data-toggle="modal" data-target="#myModal" style="text-decoration: none;">پیشنهاد استاد</button>
             <!--<div class="col-md-3">-->
             <!--<select id="???" title="نام استاد" style="width: 230px;direction: rtl;" ng-model="???">-->
             <!--</select>-->
             <!--</div>-->
+            <div class="jumbotron" style="height: 100px;padding: 10px 10px 0 0;margin-top: 20px;">
+                <h3 style="direction: rtl;">   دانشکده‌ی %% faculty.name %% دانشگاه  %% faculty.uni.name %%</h3>
+            </div>
         </div>
         <!-- Trigger the modal with a button -->
        <!--  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
 
         <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="myModal" class="modal fade" role="dialog" style="text-align: center;">
           <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -107,7 +104,9 @@
                 <label>مرتبه‌ی آموزشی</label>
                 %% forms.render_field(form.rank) %%
                 <label>عکس</label>
-                %% forms.render_field(form.pic) %%
+                <div style="padding-right: 40%">
+                  %% forms.render_field(form.pic) %%
+                </div>
               <div class="modal-footer">
               
                   <input  type="submit" class="btn btn-primary" value="ثبت استاد" >
@@ -140,17 +139,22 @@
             <% endfor %>
         </div>
     </div>
-    <div class="row foot">
-        <div class="col-md-2 col-xs-2 text-left f1">
-            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
+    <footer>
+        <div class="col-md-3 text-left col-xs-3">
+            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('search.search')%%">بازگشت</a>
+            <!--<a class="about-butom"  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>-->
         </div>
-        <div class="col-md-7 col-xs-7"></div>
-        <div class="col-md-3 col-xs-3 social f2">
-            <a href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
-            <a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
-            <a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
+        <div class="col-md-6 social f2 col-xs-6">
+            <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
         </div>
-    </div>
+        <div class="col-md-3 resorve text-right col-xs-3 logo">
+            <img src="%%url_for('static',filename='search/resorve.png')%%">
+        </div>
+    </footer>
 </div>
 </body>
 </html>

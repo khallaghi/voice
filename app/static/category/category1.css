@@ -1,0 +1,97 @@
+
+@font-face {
+    font-family: IRANSansWeb;
+    src: url(../font/IRANSansWeb.ttf);
+}
+body{
+    font-family: IRANSansWeb;
+}
+html, body, .container-fluid {
+    height:100%;
+    width: 100%;
+
+}
+.container-fluid{
+    padding: 0px;
+    direction: rtl;
+}
+header{
+    height: 20%;
+    background: url("../user/header.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.main{
+    min-height: 68%;
+    padding-top: 100px;
+    text-align: center;
+}
+.unis {
+    direction: rtl;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+.faculties{
+    direction: rtl;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.btn .primary{
+    direction: rtl;
+}
+footer{
+    height: 12%;
+    padding-top: 20px;
+    background: url("../user/footer.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.about-butom1{
+    padding: 5px 10px 5px 10px;
+    background-color: #E0E0E0;
+    color: #000000;
+    /*border-radius: 10px;*/
+}
+.about-butom{
+    background-color: #757575;
+    color: #FFFFFF;
+    padding: 5px 10px 5px 10px;
+    /*border-radius: 10px;*/
+}
+/*social desig */
+.social{
+    text-align: center;
+}
+.flogo{
+    padding: 8px 10px 5px 10px;
+    border-radius: 50%;
+}
+.tel{
+    background-color: #019ec7;
+}
+.insta{
+    background-color: #b82071;
+}
+.twit{
+    background-color: #009dc6;
+}
+.aparat{
+    background-color: #ed145b;
+}
+.face{
+    background-color: #015ab6;
+}
+/*social desig end*/
+/*logo*/
+.logo img{
+
+}

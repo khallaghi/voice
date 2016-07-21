@@ -2,19 +2,23 @@
     font-family: IRANSansWeb;
     src: url(../font/IRANSansWeb.ttf);
 }
-html,body{height:100%;}
+html, body, .container-fluid {
+    height:100%;
+    width: 100%;
+
+}
+.container-fluid{
+    padding: 0px;
+    direction: rtl;
+}
 body{
     font-family: IRANSansWeb;
 }
-.back{
-    background: url("head.png");
+header{
+    height: 20%;
+    background: url("../user/header.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    position: absolute;
-    width: 100%;
-    height: 20%;
-    top: 0;
-    z-index: -100;
 }
 .fill {
     height: 100%;
@@ -22,10 +26,7 @@ body{
     /*background-color: #FFFFFF;*/
     font-family: IRANSansWeb;
 }
-.head{
-    height: 20%;
-    padding-top: 5px;
-}
+
 .main{
     padding-top: 30px;
     min-height: 70%;
@@ -95,16 +96,51 @@ body{
     height: 10%;
     padding-top: 20px   ;
 }
-.about-butom{
+footer{
+    height: 12%;
+    padding-top: 20px;
+    background: url("../user/footer.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.about-butom1{
     padding: 5px 10px 5px 10px;
-    background-color: #9E9E9E;
-    color: #f5f5f5;
-    border-radius: 10px;
+    background-color: #E0E0E0;
+    color: #000000;
+    /*border-radius: 10px;*/
 }
-.row-centered {
-
+.about-butom{
+    background-color: #757575;
+    color: #FFFFFF;
+    padding: 5px 10px 5px 10px;
+    /*border-radius: 10px;*/
 }
-.col-centered {
+/*social desig */
+.social{
+    text-align: center;
+}
+.flogo{
+    padding: 8px 10px 5px 10px;
+    border-radius: 50%;
+}
+.tel{
+    background-color: #019ec7;
+}
+.insta{
+    background-color: #b82071;
+}
+.twit{
+    background-color: #009dc6;
+}
+.aparat{
+    background-color: #ed145b;
+}
+.face{
+    background-color: #015ab6;
+}
+/*social desig end*/
+/*logo*/
+.logo img{
 
 }
 @media (min-width: 481px) and (max-width: 768px) {

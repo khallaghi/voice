@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>دانشکده ها</title>
     <meta name=viewport content='width=700'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="%% url_for('static', filename='profile/fac.js') %%"></script>
     <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
-    <link rel="stylesheet" href="%% url_for('static', filename='profile/fac.css') %%">
+    <!--<link rel="stylesheet" href="%% url_for('static', filename='profile/fac.css') %%">-->
+    <link rel="stylesheet" href="%% url_for('static', filename='category/category1.css') %%">
      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
@@ -37,16 +39,19 @@
 <% import '_forms.html' as forms %>
 <div class="back"></div>
 <div class="container-fluid fill">
-    <div class="row head">
-        <div class="col-md-3 col-xs-3 head"></div>
-        <div class="col-md-6 col-xs-6 head"></div>
-        <div class="col-md-3 col-xs-3 head">
-            <a href="%%url_for('search.search')%%"><img src="%%url_for('static',filename='profile/logo2.png')%%"></a>
+    <header>
+        <div class="row" style="padding-top: 2%;">
+            <div class="col-md-4 col-xs-4 "></div>
+            <div class="col-md-4 col-xs-4 "></div>
+            <div class="col-md-4 col-xs-4 text-right logo">
+                <a  href="%%url_for('search.search')%%" ><img src="%%url_for('static',filename='search/logo2.png')%%"></a>
+            </div>
         </div>
-    </div>
+    </header>
     <div class="row main row-centerd">
         <div class="row selpart" >
           <form action="%% url_for('category.get_faculty') %%" method="POST" enctype="multipart/form-data">
+              <div class="col-md-2"></div>
             <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3"  style="text-align: right;">
                 <select class="unis" name="uni" >
                     <option disabled="disabled" selected="selected">دانشگاه رو انتخاب کن</option>
@@ -60,16 +65,14 @@
                     <option disabled="disabled">دانشکده را انتخاب کنید</option>
                 </select>
             </div>
-              <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3" style="text-align: right;">
+              <!--<div class="col-md-3 col-xs-6 col-sm-3 col-lg-3" style="text-align: right;">-->
 
+              <!--</div>-->
+              <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3" style="text-align: right;margin-right: 10px;3">
+                  <input class="about-butom1" type="submit" class="btn primary" value="جست و جو">
               </div>
-              <div class="col-md-3 col-xs-6 col-sm-3 col-lg-3" style="text-align: right;">
-                  
-                  <input class="about-butom" type="submit" class="btn primary" value="جست و جو">
-              </div>
-
           </form>
-          <button class="about-butom"  data-toggle="modal" data-target="#myModal" style="text-decoration: none;">پیشنهاد استاد</button>
+            <!--<button class="about-butom"  data-toggle="modal" data-target="#myModal" style="text-decoration: none;">پیشنهاد استاد</button>-->
             <!--<div class="col-md-3">-->
             <!--<select id="???" title="نام استاد" style="width: 230px;direction: rtl;" ng-model="???">-->
             <!--</select>-->
@@ -96,17 +99,22 @@
             <% endfor %>
         </div>
     </div>
-    <div class="row foot">
-        <div class="col-md-2 col-xs-2 text-left f1">
-            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
+    <footer>
+        <div class="col-md-3 text-left col-xs-3">
+            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('search.search')%%">بازگشت</a>
+            <!--<a class="about-butom"  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>-->
         </div>
-        <div class="col-md-7 col-xs-7"></div>
-        <div class="col-md-3 col-xs-3 social f2">
-            <a href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
-            <a href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
-            <a href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
+        <div class="col-md-6 social f2 col-xs-6">
+            <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
         </div>
-    </div>
+        <div class="col-md-3 resorve text-right col-xs-3 logo">
+            <img src="%%url_for('static',filename='search/resorve.png')%%">
+        </div>
+    </footer>
 </div>
 </body>
 </html>
