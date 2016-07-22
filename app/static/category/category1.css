@@ -18,7 +18,7 @@ html, body, .container-fluid {
 header{
     height: 20%;
     background: url("../user/header.png");
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .main{
@@ -53,7 +53,8 @@ footer{
     padding-top: 20px;
     background: url("../user/footer.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
 }
 .about-butom1{
     padding: 5px 10px 5px 10px;

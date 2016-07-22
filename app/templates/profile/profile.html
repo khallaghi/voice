@@ -513,20 +513,23 @@
         <div class="navbar navbar-default " style="padding-left: 1%;padding-right:1%;border-top-left-radius: 10px;border-top-right-radius: 10px;">
             <div class="navbar-collapse collapse row" >
                 <!--logo-->
-                <div class="col-md-2  col-xs-2 f1">
+                <div class="col-md-2  col-xs-2 ">
                     <a  style="padding-top:10px;padding-left:20px;float: right;"  class="headlogo" href="%% url_for('content.aboutus')%%" ><img src="%%url_for('static', filename='profile/logo.png')%%" style="height: 100%;width: 120px;"  ></a>
                 </div>
-
-                <div class="col-md-8 col-xs-8text-left f2">
+                <div class="col-md-6 col-xs-6 text-center" style="top:15px;">
+                    <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+                    <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+                    <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+                    <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+                    <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
+                </div>
+                <div class="col-md-4 col-xs-3 text-left" style="text-align: left;">
                     <a href="%%url_for('search.search')%%"  class="action-button" style="text-decoration: none;font-size:15px;">بازگشت</a>
                     <!--<a href="%%url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">درباره ما</a>-->
+                    <a  class="action-button" style="text-decoration: none;font-size:15px;" href="%% url_for('category.faculty')%%">لیست اساتید</a>
                     <a href="%% url_for('content.aboutus')%%"  class="action-button" style="text-decoration: none;font-size:15px;">تماس با ما</a>
                 </div>
-                <div class="col-md-2 col-xs-2 f3" style="top:15px;">
-                    <a class="logo" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="28px" height="28px"/></a>
-                    <a class="logo" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/Insta.png')%%" width="35px" height="35px"/></a>
-                    <a class="logo" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="35px" height="35px"/></a>
-                </div>
+
                 <!--qouets-->
                 <!--search box-->
                 <!--<div class="col-md-4 ">-->

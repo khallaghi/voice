@@ -38,7 +38,30 @@ body{
     color: #0f0f0f;
     /*text-decoration: none;*/
 }
-
+/*social desig */
+.social{
+    text-align: center;
+}
+.flogo{
+    padding: 8px 10px 5px 10px;
+    border-radius: 50%;
+}
+.tel{
+    background-color: #019ec7;
+}
+.insta{
+    background-color: #b82071;
+}
+.twit{
+    background-color: #009dc6;
+}
+.aparat{
+    background-color: #ed145b;
+}
+.face{
+    background-color: #015ab6;
+}
+/*social desig end*/
 .gray
 {
     background-color: #E1BEE7;
@@ -242,7 +265,7 @@ ul.dropdown-menu { border: none }
     -webkit-border-top-right-radius: 8px;
     border-top-right-radius: 8px;
 }
-.profile-top,img{
+.profile-top img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     width: 100%;
