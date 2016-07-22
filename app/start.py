@@ -10,3 +10,9 @@ class HomePage(MethodView):
 	def get(self):
 		return redirect(url_for('search.search'))
 home.add_url_rule('/home', view_func=HomePage.as_view('home'))
+
+
+class ManifestPage(MethodView):
+	def get(self):
+		return render_template("home/manifest.html")
+home.add_url_rule("/manifest", view_func=ManifestPage.as_view('manifest'))
