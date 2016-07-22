@@ -295,7 +295,7 @@ fieldset[disabled] .btn-primary.active {
 .btn {
     font-family: IRANSansWeb;;
     border: none;
-    border-radius: 300px;
+    /*border-radius: 300px;*/
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -493,6 +493,7 @@ body {
     font-size: 19px;
     border-color:none ;
     color: #0b0b0b;
+    border: none;
     /*position: relative;*/
 }
 .insearch:hover{
@@ -554,4 +555,7 @@ header .header-content ::-webkit-scrollbar-thumb {
 }
 @media (min-width: 768px) {
 
+}
+.btn{
+    border-radius: 0px;
 }
