@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+    <title> درباره‌‌ی ما</title>
     <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>-->
     <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>-->
     <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>-->
@@ -34,6 +35,8 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
     <meta name="theme-color" content="#ffffff">
+    <% from '_funcs.html' import twitter_card %>
+    %% twitter_card('جنیو | درباره‌‌ی ما', 'جنیو یک سرویس نظرسنجی اساتید سراسر کشور است. با استفاده از جنیو به اساتید خود رای دهید و درمورد اساتید دیگر اطلاعات کسب کنید', url_for('static', filename="icon/android-chrome-192x192.png")) %%
 </head>
 <body>
 
@@ -52,7 +55,7 @@
         <div class="row" style="margin-bottom: 20px;">
             <div class="col-md-8 col-xs-12">
                 <div class="texts">
-                    <h1>درباره ما</h1>
+                    <h1>درباره‌ی ما</h1>
                     <p>جنیو یک سایت نیست، یک سامانه نظر سنجی نیست…</br>
                         جنیو یک حرکت دانشجویی است، حرکتی برای ساخت هرچه بهتر فردای خودمان.</br>
                         استیودنت مترز، این شعار ماست. شعاری که تنها با گردهمایی تمامی ما برو بچه های دانشجو به واقعیت خواهد پیوست. امروز از یک سایت شروع به کار کرده ایم و فردا به هر ستاره‌ای که لازم باشد دست می اندازیم.
