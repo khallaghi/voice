@@ -45,11 +45,7 @@ h5,
 h6 {
     font-family: IRANSansWeb;
 }
-p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
+
 .bg-primary {
     background-color: #FFFFFF;
 }
@@ -99,19 +95,14 @@ header .header-content .header-content-inner h1 {
 header .header-content .header-content-inner hr {
     margin: 30px auto;
 }
-header .header-content .header-content-inner p {
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-    margin-bottom: 50px;
-}
+
 @media (min-width: 768px) {
     header {
         min-height: 100%;
     }
     header .header-content {
         position: absolute;
-        top: 50%;
+        top: 40%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -124,12 +115,6 @@ header .header-content .header-content-inner p {
     }
     header .header-content .header-content-inner h1 {
         font-size: 50px;
-    }
-    header .header-content .header-content-inner p {
-        font-size: 18px;
-        max-width: 80%;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 .section-heading {
@@ -340,7 +325,7 @@ body {
 }
 
 .quets img{
-    width: 100%;
+    width: 80%;
     /*height: 80%;*/
 }
 .seabtn{
@@ -394,8 +379,8 @@ body {
 }
 /*social desig end*/
 /*logo*/
-.logo img{
-
+#logo img{
+    /*width: 100%;*/
 }
 
 
@@ -470,7 +455,7 @@ body {
 }
 .result {
     font-family: IRANSansWeb;
-    src: url(../font/IRANSansWeb.ttf);
+    width: 100%;
     /*font: 20px BYekan, Tahoma, Geneva, sans-serif;*/
     /*margin: auto auto auto auto;*/
     box-sizing: border-box;
@@ -485,7 +470,7 @@ body {
     background-color: #FAFAFA;
     vertical-align: middle;
     white-space: nowrap;
-    position: relative;
+    position: absolute;
     /*box-shadow: 5px 5px 15px #888888;*/
     /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
     /*box-shadow: 0px 0px 37px 1px rgba(0, 0, 0, 0.75);*/
@@ -498,33 +483,7 @@ body {
 }
 /*result place*/
 
-.minisearchdesign1{
-    height: 100%;
-    width: 90%;
-    margin-left: 27px;
-    direction: rtl;
-    font-size: 18px;
-    font-family: IRANSansWeb;
 
-}
-.minisearchdesign1:hover{
-    background-color: #E0E0E0;
-}
-
-#search-place{
-    /*height: 160px;*/
-    margin-top: 3%;
-}
-.centersearch{
-    height: 60px;
-    padding: 0;
-    left: -2.5%;
-}
-.centersearch2{
-    height: 35px;
-    padding: 0;
-    font-family: IRANSansWeb;
-}
 .insearch{
     width: 100%;
     height: 100%;
@@ -533,6 +492,8 @@ body {
     padding-right: 15px;
     font-size: 19px;
     border-color:none ;
+    color: #0b0b0b;
+    /*position: relative;*/
 }
 .insearch:hover{
     background-color: #E0E0E0;
@@ -541,20 +502,56 @@ body {
     width: 25%;
     padding-right: 0;
 }
-
 ::-webkit-scrollbar {
+    width: 0px;
+}
+header .header-content ::-webkit-scrollbar {
     width: 12px;
 }
 
-::-webkit-scrollbar-track {
+header .header-content ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 20px;
 }
 
-::-webkit-scrollbar-thumb {
+header .header-content ::-webkit-scrollbar-thumb {
     border-radius:20px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 .container{
     margin: 0;
+}
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+    #logo img{
+        width: 90%;
+    }
+    header{
+        min-height: 100%;
+    }
+    header .header-content{
+        padding-top: 50%;
+    }
+    .f1{
+        text-align: center;
+    }
+    .f1 p{
+        font-size: 25px;
+
+        margin-bottom: 10px;
+    }
+    .social{
+        margin-top: 40px;
+    }
+    .resorve{
+        margin-top: 40px;
+        text-align: center;
+    }
+    .resorve img{
+        width: 50%;
+    }
+}
+@media (min-width: 768px) {
+
 }
