@@ -640,20 +640,63 @@ var getCourses = function(data){
 
 
 jQuery(document).ready(function($){
+     function formatRepo (repo) {
+      if (repo.loading) return repo.text;
+
+       
+      var markup ="<div class='select2-result-repository clearfix'>" +
+        "<div class='select2-result-repository__meta'>" +
+          "<div class='select2-result-repository__title'>" + repo.name + "</div>";
+
+      
+        markup += "<div class='select2-result-repository__description'>" + repo.faculty + "</div>";
+      
+
+      markup +=  "<div class='select2-result-repository__description'><i class='fa fa-flash'></i> " + repo.uni + "</div>" +
+
+     
+      "</div></div>";
+
+      return markup;
+    }
+    function formatRepoSelection (repo) {
+      return repo.name;
+    }
+
     $("#search").select2({
         dir: "rtl",
-        minimumInputLength: 2,
-        delay: 250,
+        minimumInputLength: 3,
+        maximumSelectionSize: 1,
+        placeholder: "  جستجو میان اساتید ...",
         ajax: {
-            minimumInputLength: 3,
+            delay: 200,
             url: "/search/akbar/",
             dataType: 'json',
-            results: function (p) {
-                return {results: p};
+            data: function(params){
+                return {
+                    q: params.term
+                };
             },
+            processResults: function(data, params){
+                return{
+                    results: data.profs
+                };
+            },
+            cache: true
         },
+        escapeMarkup: function(markup){ return markup; },
+        templateResult: formatRepo,
+        templateSelection: formatRepoSelection
         // formatResult: formatValues
     });
+    var $searchbox = $("#search");
+    $searchbox.on("select2:select", function(e){
+        console.log(e.params.data.id);
+        window.location.assign(Flask.url_for("profile.prof", {"id": e.params.data.id}));
+
+    });
+
+
     
 
     // browser window scroll (in pixels) after which the "back to top" link is shown

@@ -20,6 +20,7 @@ def ret_prof(profs):
 			ret_prof['faculty'] = prof.faculty.name
 		if prof.faculty and prof.faculty.uni:
 			ret_prof['uni'] = prof.faculty.uni.name
+		ret_prof['img'] = prof.profile_pic
 		yield ret_prof
 
 def ret_faculty(faculties):
@@ -66,10 +67,9 @@ search.add_url_rule('/search/asghar/<keyword>', view_func=Asghar.as_view('Asghar
 class Akbar(MethodView):
 	
 	def get(self):
-		print "AKBAR"
+		# print "AKBAR"
 		keyword = request.args.get('q')
-		print keyword
-		print request.args.get('term')
+		# print keyword
 		results = search_result(keyword)
 		return jsonify(**results)
 
