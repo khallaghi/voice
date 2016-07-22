@@ -1,16 +1,42 @@
 var app = angular.module('search', []);
-app.controller('searchBox',function($scope, $http, $timeout){
+app.controller('searchBox',function($scope, $http, $timeout, $element){
     // $scope.search_result = null;
     $scope.keyword = null;
     this.focus = false;
-    this.setFocusTrue = function(){
+    this.onResult = false;
+    this.counter = 0;
+    this.setOnResult = function(){
+        console.log("onResult");
+        this.onResult = true;
         this.focus = true;
+        console.log("	onResutl: " + this.onResult);
+        console.log("	focus: " + this.focus);
+    }
+    this.setFocusTrue = function(){
+        // console.log(this.focus);
+        console.log("trueeee");
+        if(this.counter != 0)
+            this.onResult = false;
+        this.counter = 1;
+        this.focus = true;
+        console.log("	onResutl: " + this.onResult);
+        console.log("	focus: " + this.focus);
         // alert("true");
     };
     this.setFocusFalse = function(){
+        // console.log(this.focus);
+        // console.log(item);
+        // console.log(angular.element(item)[0].data('id'));
+        console.log("falseeeee");
         this.focus = false;
+        console.log("	onResutl: " + this.onResult);
+        console.log("	focus: " + this.focus);
         // alert("false");
     };
+
+    this.flipFocus = function(){
+        this.focus = !this.focus;
+    }
     this.prof_url_for = function(id){
         // console.log("id"+id);
         return Flask.url_for("profile.prof", {"id":id});
@@ -36,38 +62,6 @@ app.controller('searchBox',function($scope, $http, $timeout){
     // console.log("akbar is dirty");
 });
 
-function nextpage() {
-    // $(".main2").fadeIn();
-    // $(".main1").hide();
-    // $("#minisearch").hide().removeClass("col-md-6").appendTo(".h11").show();
-    // $(".centersearch").removeClass("centersearch").addClass('centersearch2');
-    // $(".insearch").removeClass("insearch").addClass('minisearchdesign1');
-    // // $("#search-place").fadeIn('slow');
-    // // $(".m1").delay(2000).fadeIn();
-    // // $(".m2").delay(2000).fadeIn();
-    // // $(".m3").delay(2000).fadeIn();
-    // $(".h1").delay(2000).fadeIn();
-    // $(".h2").delay(2000).fadeIn();
-    // $(".quet").delay(2000).fadeIn();
-    // $(".data").delay(2000).fadeIn();
-    // $("#right-search").removeClass('col-md-3');
-    // $("#back").animate({"top":'-=65%'},2000);
-    // $("#arrow-down").hide();
-    // $(".head2").fadeIn();
-    // $(".foot").animate({"margin-left":'-=15px'},1);
-    // $(".foot").delay(3000).addClass('foot2');
-    // $('.count').delay(2000).each(function () {
-    //     $(this).prop('Counter',0).animate({
-    //         Counter: $(this).text()
-    //     }, {
-    //         duration: 8000,
-    //         easing: 'swing',
-    //         step: function (now) {
-    //             $(this).text(Math.ceil(now));
-    //         }
-    //     });
-    // });
-}
 function hideit() {
     $(".footup").fadeOut();
 }
