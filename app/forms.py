@@ -13,7 +13,7 @@ class FacultyForm(Form):
 
 class ProfForm(Form):
 	name = TextField('Professor name', validators=[DataRequired()])
-	email = TextField('Email address', validators=[DataRequired()])
+	email = TextField('Email address')
 	website = TextField('website')
 	uni = SelectField('university', coerce=unicode, choices = [])
 	# faculty = SelectField('faculty', choices = [] )
@@ -23,7 +23,7 @@ class ProfForm(Form):
 
 class ProfForFacForm(Form):
 	name = TextField('Professor name', validators=[DataRequired()])
-	email = TextField('Email address', validators=[DataRequired()])
+	email = TextField('Email address')
 	website = TextField('website')
 	room_no = TextField('room number')
 	rank = SelectField('rank', choices = [('ostadYar','ostadYar'), ('daneshYar','daneshYar'),
