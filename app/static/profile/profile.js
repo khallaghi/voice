@@ -670,7 +670,7 @@ jQuery(document).ready(function($){
         maximumSelectionSize: 1,
         placeholder: "  جستجو میان اساتید ...",
         ajax: {
-            
+            delay: 10000,
             url: "/search/akbar/",
             dataType: 'json',
             data: function(params){
