@@ -154,7 +154,7 @@
                         <p style="color: #0b0b0b;z-index: 100;position: absolute;font-size:20px;right: 32%;top: 30px;">
                            بهبود روند کاری اساتید با</br>
                             بهره گیری از بازخورد</br>
-                            دانشچویان خود
+                            دانشجویان خود
                         </p>
                     </div>
                     <div class="col-lg-4  col-md-4 quets1">
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top: 20px;">
-                    <a href="#page-top" class="page-scroll btn btn-default btn-xl sr-button seabtn">!استــــاد خود را پیدا کن</a>
+                    <a href="%% url_for('category.faculty')%%" class="page-scroll btn btn-default btn-xl sr-button seabtn">!استــــاد خود را پیدا کن</a>
                 </div>
             </div>
         </div>
@@ -190,7 +190,7 @@
                         <input placeholder="ایمیل خود را وارد کنید" style="width: 75%;margin-right: 5px;">
                     </div>
                     <div class="col-md-12 col-xs-12" style="margin-right: 5px;">
-                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
+                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.contactus')%%">درباره ما</a>
                         <a class="about-butom "  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>
                         <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">مرامنامه</a>
                     </div>
@@ -204,7 +204,11 @@
                 <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
             </div>
             <div class="col-md-3 resorve col-sm-3 col-xs-12 text-right">
-                <img src="%%url_for('static',filename='search/resorve.png')%%">
+                <div >
+                    <img src="%%url_for('static',filename='search/resorve.png')%%" >
+                    <p style="display: inline-flex;">حقوق این سایت متعلق به دانشجویان است </p>
+                    <p>ALLRIGHTRESERVED 2015</p>
+                </div>
             </div>
         </div>
     </div>
