@@ -107,13 +107,31 @@
                     </div>
                 </div>
                 <div class="col-md-1 col-xs-1 no-padding text-left">
-                    <img src="%%url_for('static',filename='search/search.png')%%" style="width: 50px;">
+                    <a style="text-decoration: none;" href="%% url_for('category.faculty')%%"><img src="%%url_for('static',filename='search/search.png')%%" style="width: 50px;box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;"></a>
                 </div>
                 <div class="col-md-1 col-xs-1">
 
                 </div>
             </div>
-            <a href="#about" class="btn btn-primary btn-xl page-scroll seabtn" style="color: #0b0b0b;">بیشتر بدانید</a>
+            <div style="height: 80px;"></div>
+            <a href="#about" class="page-scroll"  style="color: #0b0b0b;margin-top: 20px;">
+                <img id="arrow-down" onclick="hideit()" src="%%url_for('static',filename='search/arrow.png')%%" 	>
+            </a>
+        </div>
+            <div class="row footup" style="margin-top: 140px;">
+                <div class="col-md-3 col-sm-3 text-left col-xs-12 f1">
+                </div>
+                <div class="col-md-6 col-sm-6 social f2 col-xs-12">
+                    <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+                    <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+                    <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+                    <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+                    <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
+                </div>
+                <div class="col-md-3 resorve col-sm-3 col-xs-12 text-right">
+
+                </div>
+            </div>
         </div>
     </div>
 </header>
@@ -123,14 +141,28 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="row">
-                    <div class ="col-lg-4  col-md-4 text-center quets">
-                        <img src="%%url_for('static',filename='search/d1.png')%%">
+                    <div class ="col-lg-4  col-md-4 text-center quets1">
+                        <img src="%%url_for('static',filename='search/img/d1.png')%%"style="right: 0px;top: 0px;z-index: 0;">
+                        <p style="color: #0b0b0b;z-index: 100;position: absolute;font-size:20px;right: 32%;top: 30px;">
+                            گردهایی تجربه هزاران </br>
+                            دانشجو در قالب سرویس</br>
+                            نظرسنجی جنیو
+                        </p>
                     </div>
-                    <div class="col-lg-4  col-md-4 text-center quets">
-                        <img src="%%url_for('static',filename='search/d2.png')%%">
+                    <div class="col-lg-4  col-md-4 text-center quets1">
+                        <img src="%%url_for('static',filename='search/img/d2.png')%%"style="right: 0px;top: 0px;z-index: 0;">
+                        <p style="color: #0b0b0b;z-index: 100;position: absolute;font-size:20px;right: 32%;top: 30px;">
+                           بهبود روند کاری اساتید با</br>
+                            بهره گیری از بازخورد</br>
+                            دانشچویان خود
+                        </p>
                     </div>
-                    <div class="col-lg-4  col-md-4 text-center quets">
-                        <img src="%%url_for('static',filename='search/d3.png')%%">
+                    <div class="col-lg-4  col-md-4 quets1">
+                        <img src="%%url_for('static',filename='search/img/d3.png')%%"style="right: 0px;top: 0px;z-index: 0;">
+                        <p style="color: #0b0b0b;z-index: 100;position: absolute;font-size:20px;right: 32%;top: 30px;">سرویس نظر سنجی جزئی</br>
+                            کوچک از حرکتی بزرگ</br>
+                            است
+                        </p>
                     </div>
                 </div>
                 <div class="row" style="margin-top: 20px;">
@@ -159,7 +191,7 @@
                     </div>
                     <div class="col-md-12 col-xs-12" style="margin-right: 5px;">
                         <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">درباره ما</a>
-                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">لیست اساتید</a>
+                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>
                         <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">مرامنامه</a>
                     </div>
                 </div>

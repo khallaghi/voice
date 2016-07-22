@@ -102,7 +102,7 @@ header .header-content .header-content-inner hr {
     }
     header .header-content {
         position: absolute;
-        top: 40%;
+        top: 55%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -328,6 +328,13 @@ body {
     width: 80%;
     /*height: 80%;*/
 }
+.quets1{
+    text-align: right;
+}
+.quets1 img{
+    width: 50%;
+    /*height: 80%;*/
+}
 .seabtn{
     background-color: #EEEEEE;
 }
@@ -494,6 +501,7 @@ body {
     border-color:none ;
     color: #0b0b0b;
     border: none;
+    box-shadow:rgba(10, 16, 21, 0.43) 0 4px 2px;
     /*position: relative;*/
 }
 .insearch:hover{
@@ -523,7 +531,12 @@ header .header-content ::-webkit-scrollbar-thumb {
     margin: 0;
 }
 
-
+#logo img{
+    width: 50%;
+}
+.resorve img{
+    width: 70%;
+}
 @media (min-width: 481px) and (max-width: 768px) {
     #logo img{
         width: 90%;
@@ -551,6 +564,9 @@ header .header-content ::-webkit-scrollbar-thumb {
     }
     .resorve img{
         width: 50%;
+    }
+    .quets1{
+        margin-bottom: 10px;
     }
 }
 @media (min-width: 768px) {
