@@ -644,20 +644,22 @@ var getCourses = function(data){
 
 
 jQuery(document).ready(function($){
-    $("#js-data-example-ajax").select2({
+    $("#search").select2({
+        dir: "rtl",
+        minimumInputLength: 2,
+        delay: 250,
         ajax: {
             minimumInputLength: 3,
-            url: "/search/asghar/",
+            url: "/search/akbar/",
             dataType: 'json',
             results: function (p) {
                 return {results: p};
             },
         },
-        formatResult: formatValues
+        // formatResult: formatValues
     });
-    function formatValues(data) {
-        return data;
-    }
+    
+
     // browser window scroll (in pixels) after which the "back to top" link is shown
     var offset = 300,
     //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
