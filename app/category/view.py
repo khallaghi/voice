@@ -18,9 +18,9 @@ class CategoryView(MethodView):
 		else:
 			prof = []
 		form = ProfForFacForm()
-		print 
+		
 		return render_template('category/faculty-view.html',
-								 unis = University.objects(),
+								 unis = University.objects(published = True),
 								 profs = profs,
 								 form = form,
 								 faculty = fac,
@@ -37,7 +37,7 @@ class GetFaculty(MethodView):
 
 class FacultyView(MethodView):
 	def get(self):
-		return render_template('/profile/category-view.html', unis = University.objects.all())
+		return render_template('/profile/category-view.html', unis = University.objects(published = True))
 	def post(self):
 		print request.form.get("uni")
 		print request.form.get("faculty")
