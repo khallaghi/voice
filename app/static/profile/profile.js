@@ -322,11 +322,11 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
     };
     $scope.selectedTagsCount = 0;
     $scope.allTags = [{
-                            name:'انگیزه‌دهنده',
+                            name:'زياد كار ميكشه',
                             status: 0
                         },
                         {
-                            name:'ایده‌پرداز' ,
+                            name:'كلاس هاى خواب آور' ,
                             status: 0
                         },
                         {
@@ -339,10 +339,6 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
                         },
                         {
                             name:'غیر قابل پیش بینی',
-                            status: 0
-                        },
-                        {
-                            name:'كلاس هاى جذاب',
                             status: 0
                         },
                         {
