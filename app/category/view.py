@@ -29,15 +29,18 @@ class CategoryView(MethodView):
 
 class GetFaculty(MethodView):
 	def post(self):
-		print request.form.get("uni")
-		print request.form.get("faculty")
+		
 		uni = University.objects(id = request.form.get("uni")).first()
 		fac = Faculty.objects(uni = uni, id = request.form.get("faculty")).first()
+		print unicode(uni.name, "utf-8") + " -- " + unicode(fac.name, "utf-8")
 		return redirect(url_for("category.faculty_view", fac_id = fac.id))
 
 class FacultyView(MethodView):
 	def get(self):
-		return render_template('/profile/category-view.html', unis = University.objects(published = True))
+		return render_template(
+			'/profile/category-view.html',
+		 	unis = University.objects(published = True)
+		 )
 	def post(self):
 		print request.form.get("uni")
 		print request.form.get("faculty")
