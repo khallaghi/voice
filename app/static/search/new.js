@@ -62,6 +62,6 @@ app.controller('searchBox',function($scope, $http, $timeout, $element){
     // console.log("akbar is dirty");
 });
 
-function hideit() {
-    $(".footup").fadeOut();
-}
+// function hideit() {
+//     $(".footup").fadeOut();
+// }

@@ -60,6 +60,13 @@ app.controller('mainResult', function(myService, Scopes, $scope){
     };
 
 	$scope.chart = function(result){
+        Highcharts.setOptions({
+            chart: {
+                style: {
+                    fontFamily: 'IRANSansWeb'
+                }
+            }
+        });
             Highcharts.chart('main-result', {
     	    chart: {
                 type: 'column',
@@ -74,7 +81,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 text: '',
             },
             xAxis: {
-                categories: ['clarity', 'easiness', 'helpfulness'],
+                categories: ['سادگى', 'دلسوزى', 'انتقال مطلب'],
                 labels: {
                     formatter: function(){
                         return '<div class = "container"><b>' + this.value + '</b></div>';
@@ -144,6 +151,13 @@ app.controller('mainResult', function(myService, Scopes, $scope){
         });
     };
     $scope.study_chart = function(result,i){
+        Highcharts.setOptions({
+            chart: {
+                style: {
+                    fontFamily: 'IRANSansWeb'
+                }
+            }
+        });
       Highcharts.chart('study-result-'+i.toString(), {
             chart: {
                 // type: 'solidgauge',
@@ -163,7 +177,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 text: result.name,
             },
             xAxis: {
-                categories: ['clarity', 'easiness', 'helpfulness'],
+                categories:  ['سادگى', 'دلسوزى', 'انتقال مطلب'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
