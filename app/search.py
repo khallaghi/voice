@@ -41,7 +41,9 @@ def search_result(keyword):
 	# profs = Professor.objects(Q(name__icontains=keyword))
 	keyword = keyword.replace(u'\u064a', u'\u06cc')
 	profs = Professor.objects.filter(
-							(Q(name__icontains = keyword) | Q(studies__name__icontains = keyword))
+							(Q(name__icontains = keyword) | Q(studies__name__icontains = keyword)) &
+							(Q(faculty__in = Faculty.objects(uni__in = University.objects(published = True)))) 
+
 							)
 	faculties = Faculty.objects(name__icontains=keyword)
 	unis = University.objects(name__icontains=keyword)
