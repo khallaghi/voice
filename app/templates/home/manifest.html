@@ -1,1 +1,137 @@
-COPY MANIFEST HTML CODE HERE
+<!doctype html>
+<html>
+<head>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>-->
+    <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>-->
+    <meta name="viewport" content="width=device-width, minimum-scale=0.7, maximum-scale=0.7" />
+    <script language='javascript' type='text/javascript' src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
+    <script language='javascript' type='text/javascript' src="%%url_for('static', filename='content/conent.js')%%"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-animate.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>-->
+    <link rel="stylesheet" href="%%url_for('static', filename='bootstrap/css/bootstrap.min.rtl.css')%%" >
+    <!-- Custom CSS -->
+    <!--<link rel="stylesheet" href="%%url_for('static', filename='content/animate.css')%%" >-->
+<title>مرامنامه</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="%%url_for('static', filename='content/contactus.css')%%" >
+    <link rel="apple-touch-icon" sizes="57x57" href="%%url_for('static',filename='icon/apple-touch-icon-57x57.png')%%">
+    <link rel="apple-touch-icon" sizes="60x60" href="%%url_for('static',filename='icon/apple-touch-icon-60x60.png')%%">
+    <link rel="apple-touch-icon" sizes="72x72" href="%%url_for('static',filename='icon/apple-touch-icon-72x72.png')%%">
+    <link rel="apple-touch-icon" sizes="76x76" href="%%url_for('static',filename='icon/apple-touch-icon-76x76.png')%%">
+    <link rel="apple-touch-icon" sizes="114x114" href="%%url_for('static',filename='icon/apple-touch-icon-114x114.png')%%">
+    <link rel="apple-touch-icon" sizes="120x120" href="%%url_for('static',filename='icon/apple-touch-icon-120x120.png')%%">
+    <link rel="apple-touch-icon" sizes="144x144" href="%%url_for('static',filename='icon/apple-touch-icon-144x144.png')%%">
+    <link rel="apple-touch-icon" sizes="152x152" href="%%url_for('static',filename='icon/apple-touch-icon-152x152.png')%%">
+    <link rel="apple-touch-icon" sizes="180x180" href="%%url_for('static',filename='icon/apple-touch-icon-180x180.png')%%">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-32x32.png')%%" sizes="32x32">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-194x194.png')%%" sizes="194x194">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-96x96.png')%%" sizes="96x96">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/android-chrome-192x192.png')%%" sizes="192x192">
+    <link rel="icon" type="image/png" href="%%url_for('static',filename='icon/favicon-16x16.png')%%" sizes="16x16">
+    <link rel="manifest" href="%%url_for('static',filename='icon/manifest.json')%%">
+    <link rel="mask-icon" href="%%url_for('static',filename='icon/safari-pinned-tab.svg')%%" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="%%url_for('static',filename='icon/mstile-144x144.png')%%">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+<div class="container-fluid">
+    <header>
+        <div class="row" style="padding-top: 2%;">
+            <div class="col-md-4 col-xs-4 "></div>
+            <div class="col-md-4 col-xs-4 "></div>
+            <div class="col-md-4 col-xs-4 text-right logo">
+                <a  href="%%url_for('search.search')%%" ><img src="%%url_for('static',filename='search/logo2.png')%%"></a>
+            </div>
+        </div>
+    </header>
+    <div class="row" style="margin-bottom: 20px;">
+        <div class="col-md-8 col-xs-12">
+            <div class="texts">
+                <h1>بسم الله ارحمن الرحیم</h1>
+                <p style="line-height: 30px;">علی علیه السلام فرمود: «مَنْ تَواضَعَ لِلْمُتَعَلِّمینَ وَذَلَّ لِلْعُلَماءِ سادَ بِعِلْمِهِ؛ هر معلمی که بر شاگردانش تواضع و فروتنی کند و در برابر دانشمندان خود را کوچک و پایین دست به حساب آورد، با دانش خود به آقایی می رسد.»</br>
+                    سرویس  نظر سنجی جنیو بر آن است تا بتواند حرکتی هرچند اندک در راستای بهبود مسائل آموزشی در سرتاسر کشور عزیرمان به راه بیندازد.</br>
+                    این مهم جز با تلاش شما دانشجویان عزیز در جمع آوری اطلاعات و تلاش اساتید بزرگوار برای بهبود مسائل پیرامون تدریس، محقق نمی گردد.</br>
+                    فلذا تاکید می‌کنیم که این سرویس برای خراب کردن اساتید و یا خالی کردن احساسات به هر نحو ممکن نمی‌باشد بلکه با آن مخالف است؛ چرا که طبق سخنان بزرگواران داریم:</br>
+                    امام سجّاد ( علیه السّلام ) فرمودند</br>
+                    حَقُّ سائِسِكَ بِالعِلمِ ، التَّعظيمُ لَهُ و التَّوقيرُ لِمَجلِسِهِ و حُسنُ الاِستِماعِ إلَيهِ ؛                   </br>
+                    حق استاد تو اين است كه بزرگش دارى و محضرش را محترم شمارى و با دقّت به سخنانش گوش بسپارى.               </br>
+                    پس بیایید دست به دست هم دهیم تا قدمی هرچند کوچک ولی محکم و استوار، در راستای بهبود شرایط آموزشی برداریم؛ چرا که یک مسیر هزاران کیلومتری هم با یک قدم آغاز می‌شود.</br>
+                    دست شما همرامان عزیز را به گرمی می‌فشاریم.
+                    </p>
+            </div>
+
+            <div class="texts">
+                <!--<h1>در آینده</h1>-->
+                <!--<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>-->
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12" >
+            <div class="row" style="padding-top: 20px;">
+                <div class="col-md-12 col-xs-12  video">
+                    <video controls  controls width="100%">
+                        <source src="%%url_for('static', filename='content/video/t.mp4')%%" type="video/mp4">
+                        <!--<source src="mov_bbb.ogg" type="video/ogg">-->
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <div class="col-md-12 col-xs-12 text-left" >
+                    <h1 style="font-size: 25px;">با ما در تماس باشید:</h1>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6 name" >
+                            <input placeholder="نام" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; ">
+                        </div>
+                        <div class="col-md-6 col-xs-6 ">
+                            <input placeholder="موضوع" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; ">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-9 " style="margin-top: 20px;padding-left: 2px;">
+                        <input placeholder="ایمیل" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; width: 100%;">
+                    </div>
+                    <div class="col-md-12 col-xs-12" style="margin-top: 20px;padding-left: 5px;">
+                        <textarea placeholder="متن پیام" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 100px; width: 100%;font-size: 15px;" id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
+                    </div>
+                    <div class="col-md-6 col-xs-8 ">
+                        <p>ممنون که برای ما پیام گذاشتی.</p>
+                    </div>
+                    <div class="col-md-6 col-xs-4 text-right">
+                        <button type="submit"
+                                class="btn btn-primary" >ثبت پیام</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="col-md-3 text-left col-xs-3">
+            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('search.search')%%">بازگشت</a>
+            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>
+        </div>
+        <div class="col-md-6 social f2 col-xs-6">
+            <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+            <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
+        </div>
+        <div class="col-md-3 resorve text-right col-xs-3 logo">
+            <img src="%%url_for('static',filename='search/resorve.png')%%">
+        </div>
+    </footer>
+</div>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59775059-2', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>

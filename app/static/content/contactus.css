@@ -30,7 +30,7 @@ html, body, .container-fluid {
 header{
     height: 20%;
     background: url("header.png");
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .texts{
@@ -49,7 +49,7 @@ footer{
     padding-top: 20px;
     background: url("footer.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 .about-butom{
