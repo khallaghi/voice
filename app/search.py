@@ -41,9 +41,7 @@ def search_result(keyword):
 	# profs = Professor.objects(Q(name__icontains=keyword))
 	keyword = keyword.replace(u'\u064a', u'\u06cc')
 	profs = Professor.objects.filter(
-							(Q(name__icontains = keyword) | Q(studies__name__icontains = keyword)) &
-							(Q(faculty__in = Faculty.objects(uni__in = University.objects(name__icontains = u'\u0634\u0631\u06cc\u0641')))) 
-
+							(Q(name__icontains = keyword) | Q(studies__name__icontains = keyword))
 							)
 	faculties = Faculty.objects(name__icontains=keyword)
 	unis = University.objects(name__icontains=keyword)
@@ -87,12 +85,12 @@ class Search(MethodView):
 		}
 	def get(self):
 		# results = self.search_result(keyword)
-		form = SearchForm(request.form)
-		return render_template('search/search.html', form = form)
-	def post(self):
-		form = SearchForm(request.form)
-		results = self.search_result(form.search.data)
-		return render_template('search/search.html', form = form , **results)
+		# form = SearchForm(request.form)
+		return render_template('search/new.html')
+	# def post(self):
+	# 	form = SearchForm(request.form)
+	# 	results = self.search_result(form.search.data)
+	# 	return render_template('search/search.html', form = form , **results)
 search.add_url_rule('/', view_func=Search.as_view('search'))
 
 
