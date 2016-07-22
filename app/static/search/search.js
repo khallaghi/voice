@@ -1,16 +1,42 @@
 var app = angular.module('search', []);
-app.controller('searchBox',function($scope, $http, $timeout){
+app.controller('searchBox',function($scope, $http, $timeout, $element){
 	// $scope.search_result = null;
 	$scope.keyword = null;
 	this.focus = false;
-	this.setFocusTrue = function(){
+	this.onResult = false;
+	this.counter = 0;
+	this.setOnResult = function(){
+		console.log("onResult");
+		this.onResult = true;
 		this.focus = true;
+		console.log("	onResutl: " + this.onResult);
+		console.log("	focus: " + this.focus);
+	}
+	this.setFocusTrue = function(){
+		// console.log(this.focus);
+		console.log("trueeee");
+		if(this.counter != 0)
+			this.onResult = false;
+		this.counter = 1;
+		this.focus = true;
+		console.log("	onResutl: " + this.onResult);
+		console.log("	focus: " + this.focus);
 		// alert("true");
 	};
 	this.setFocusFalse = function(){
+		// console.log(this.focus);
+		// console.log(item);
+		// console.log(angular.element(item)[0].data('id'));
+		console.log("falseeeee");
 		this.focus = false;
+		console.log("	onResutl: " + this.onResult);
+		console.log("	focus: " + this.focus);
 		// alert("false");
 	};
+
+	this.flipFocus = function(){
+		this.focus = !this.focus;
+	}
 	this.prof_url_for = function(id){
 		// console.log("id"+id);
 		return Flask.url_for("profile.prof", {"id":id});
