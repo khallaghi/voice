@@ -47,6 +47,8 @@
                 </div>
             </div>
         </header>
+        <%from '_funcs.html' import resolve_msg %>
+        %% resolve_msg(msg) %%
         <div class="row" style="margin-bottom: 20px;">
             <div class="col-md-8 col-xs-12">
                 <div class="texts">
@@ -86,19 +88,20 @@
                         <h1 style="font-size: 25px;">با ما در تماس باشید:</h1>
                     </div>
                     <div class="row">
+                        <form method="post" action="%% url_for('content.contactus')%%" >
                         <div class="row">
                             <div class="col-md-6 col-xs-6 name" >
-                                <input placeholder="نام" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; ">
+                                <input name="name" placeholder="نام" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; ">
                             </div>
                             <div class="col-md-6 col-xs-6 ">
-                                <input placeholder="موضوع" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; ">
+                                <input name="subject" placeholder="موضوع" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; ">
                             </div>
                         </div>
                         <div class="col-md-12 col-xs-9 " style="margin-top: 20px;padding-left: 2px;">
-                            <input placeholder="ایمیل" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; width: 100%;">
+                            <input name="email" placeholder="ایمیل" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 40px; width: 100%;">
                         </div>
                         <div class="col-md-12 col-xs-12" style="margin-top: 20px;padding-left: 5px;">
-                            <textarea placeholder="متن پیام" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 100px; width: 100%;font-size: 15px;" id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
+                            <textarea name="body" placeholder="متن پیام" style="padding-right: 10px;background-color: #EEEEEE;border: 0px;border-color:none;height: 100px; width: 100%;font-size: 15px;" id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
                         </div>
                         <div class="col-md-6 col-xs-8 ">
                             <p>ممنون که برای ما پیام گذاشتی.</p>
@@ -107,6 +110,7 @@
                             <button type="submit"
                             class="btn btn-primary" >ثبت پیام</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
