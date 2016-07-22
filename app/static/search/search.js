@@ -39,6 +39,7 @@ app.controller('searchBox',function($scope, $http, $timeout, $element){
 	}
 	this.prof_url_for = function(id){
 		// console.log("id"+id);
+		console.log("sallllam");
 		return Flask.url_for("profile.prof", {"id":id});
 	}
 	$scope.checkResult = function(profs, faculties, unis){
