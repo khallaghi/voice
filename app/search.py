@@ -67,9 +67,9 @@ search.add_url_rule('/search/asghar/<keyword>', view_func=Asghar.as_view('Asghar
 class Akbar(MethodView):
 	
 	def get(self):
-		print "AKBAR"
+		# print "AKBAR"
 		keyword = request.args.get('q')
-		print keyword
+		# print keyword
 		results = search_result(keyword)
 		return jsonify(**results)
 
