@@ -294,7 +294,8 @@ ul.dropdown-menu { border: none }
     margin: auto;
     width: 140px;
     height: 140px;
-    display: block; }
+    display: block;
+}
 
 .avatar {
     width: 100%;
@@ -1012,7 +1013,7 @@ a.reporting:hover{
     width: 12%;
     left: -55px;
 }
-@media only screen and (max-device-width: 443px) and (max-device-height: 773px)  {
+@media (min-width: 481px) and (max-width: 768px) {
     .navbar-collapse{
         width: 80%;
     }
@@ -1136,22 +1137,18 @@ a.reporting:hover{
         padding-right: 0;
         float: left;
     }
-    .f1{
-        width: 18%;
-        float: right;
-    }
-    .f2{
-        width: 40%;
+    .ff1{
+        text-align: center;
+        margin-bottom: 20px;
 
-        padding-right: 0;
-        left: -40px;
-        font-size: 14px;
-        float: left;
     }
-    .f3{
-        width: 28%;
-        padding-right: 0;
-        float: left;
+    .ff2{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ff3{
+        text-align: center;
+        margin-bottom: 20px;
     }
     /*.fot{*/
     /*width: 96%;*/
