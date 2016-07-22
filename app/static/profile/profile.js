@@ -81,7 +81,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 text: '',
             },
             xAxis: {
-                categories: ['سادگى', 'دلسوزى', 'انتقال مطلب'],
+                categories: [ 'انتقال مطلب', 'سادگى' ,'دلسوزى'],
                 labels: {
                     formatter: function(){
                         return '<div class = "container"><b>' + this.value + '</b></div>';
@@ -177,7 +177,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
                 text: result.name,
             },
             xAxis: {
-                categories:  ['سادگى', 'دلسوزى', 'انتقال مطلب'],
+                categories:  [ 'انتقال مطلب', 'سادگى' ,'دلسوزى'],
                 lineWidth: 0,
                 minorGridLineWidth: 0,
                 lineColor: 'transparent',
