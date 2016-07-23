@@ -142,6 +142,14 @@ class Post(db.Document):
     likers = db.ListField(db.StringField())
     deleted = db.BooleanField(default = False, required = True)
 
+class Message(db.Document):
+    created_at = db.DateTimeField(default = datetime.datetime.now, required = True)
+    name = db.StringField()
+    subject = db.StringField()
+    email = db.StringField()
+    body = db.StringField()
+
+
 # class ProfView(db.Document):
 #     profs = db.ListField(db.ReferenceField())
 
