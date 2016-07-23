@@ -95,9 +95,19 @@ footer{
     }
     .name{
         margin-left: 20px;
+        margin-bottom: 20px;
     }
-    footer{
-        height: 10%;
+    .ff1{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ff2{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ff3{
+        text-align: center;
+        margin-bottom: 20px;
     }
 }
 @media (min-width: 321px) and (max-width: 480px) {
@@ -107,8 +117,21 @@ footer{
     .logo img{
         width: 100%;
     }
-    footer{
-        height: 10%;
+    .name{
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    .ff1{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ff2{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ff3{
+        text-align: center;
+        margin-bottom: 20px;
     }
 }
 @media (max-width: 320px) {
@@ -118,7 +141,20 @@ footer{
     .logo img{
         width: 100%;
     }
-    footer{
-        height: 10%;
+    .name{
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    .ff1{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ff2{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ff3{
+        text-align: center;
+        margin-bottom: 20px;
     }
 }

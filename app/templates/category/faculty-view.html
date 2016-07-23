@@ -142,21 +142,38 @@
         </div>
     </div>
     <footer>
-        <div class="col-md-3 text-left col-xs-3">
-            <a class="about-butom"  style="text-decoration: none;" href="%% url_for('search.search')%%">بازگشت</a>
-            <!--<a class="about-butom"  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>-->
-        </div>
-        <div class="col-md-6 social f2 col-xs-6">
-            <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
-            <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
-            <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
-            <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
-            <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
-        </div>
-        <div class="col-md-3 resorve text-right col-xs-3 logo">
-            <img src="%%url_for('static',filename='search/resorve.png')%%"style="width: 40%;">
-            <p style="color: #FFFFFF;">حقوق این سایت متعلق به دانشجویان سراسر کشور است</p>
-
+        <div class="row">
+            <div class="col-md-3 col-sm-3 text-left col-xs-12 f1">
+                <div class="row">
+                    <!--<div class="col-md-12 col-xs-12 text-center" style="height:30px;color: #F3F3F3;">-->
+                    <!--<p>!لذت تفاوت یک ایمیل با شما فاصله دارد</p>-->
+                    <!--</div>-->
+                    <!--<div  class="col-md-12 col-xs-12" style="margin-bottom: 10px;color: #0b0b0b;">-->
+                    <!--<a href="????"> <img src="%%url_for('static', filename='search/img/tick.png')%%" width="25px" height="25px" style="background-color: #00adee;padding: 5px;margin-right: -4px;"/>-->
+                    <!--</a>-->
+                    <!--<input placeholder="ایمیل خود را وارد کنید" style="width: 75%;margin-right: 5px;">-->
+                    <!--</div>-->
+                    <div class="col-md-12 col-xs-12" style="margin-right: 5px;">
+                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.contactus')%%">درباره ما</a>
+                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>
+                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.aboutus')%%">مرامنامه</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 social f2 col-xs-6">
+                <a class="flogo tel" href="https://telegram.me/genew_ir"target="_blank" ><img src="%%url_for('static', filename='img/logo/telegram.png')%%" width="20px" height="20px"/></a>
+                <a class="flogo insta" href="https://www.instagram.com/genew_ir/" target="_blank"><img src="%%url_for('static', filename='img/logo/insta.png')%%" width="20px" height="20px"/></a>
+                <a class="flogo twit" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/twitter.png')%%" width="20px" height="20px"/></a>
+                <a class="flogo face" href="https://twitter.com/genew_ir" target="_blank"><img src="%%url_for('static', filename='img/logo/facebook.png')%%" width="20px" height="20px"/></a>
+                <a class="flogo aparat" href="http://www.aparat.com/genew" target="_blank"><img src="%%url_for('static', filename='img/logo/aparat.png')%%" width="20px" height="20px"/></a>
+            </div>
+            <div class="col-md-3 resorve col-sm-3 col-xs-12 text-right">
+                <div >
+                    <img src="%%url_for('static',filename='search/resorve.png')%%" >
+                    <p style="display: inline-flex;">حقوق این سایت متعلق به دانشجویان سراسر کشور است</p>
+                    <!--<p>ALLRIGHTRESERVED 2015</p>-->
+                </div>
+            </div>
         </div>
     </footer>
 </div>
