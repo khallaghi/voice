@@ -109,9 +109,15 @@ class ProfProfile(MethodView):
 	def get(self,id):
 		prof = self.get_context(id)
 		tags = self.most_choosen_tags(prof)
+		all_posts = Post.objects(prof=prof).count()
+		removed_posts = Post.objects(prof=prof, deleted=True).count()
 		# rate_form = SearchForm(request.form)
 
-		return render_template('profile/profile.html',prof=prof, tags=tags)
+		return render_template('profile/profile.html',
+								prof=prof,
+								tags=tags,
+								all_posts=all_posts,
+								removed_posts=removed_posts)
 
 class ProfResult(MethodView):
 	def get_context(self, id):
