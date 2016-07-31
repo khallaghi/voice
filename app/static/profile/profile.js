@@ -456,10 +456,10 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
             pushAlert("باحالی");
             return false;
         }
-        if($scope.useTextbook == 0){
-            pushAlert("استفاده از کتاب");
-            return false;
-        }
+        // if($scope.useTextbook == 0){
+        //     pushAlert("استفاده از کتاب");
+        //     return false;
+        // }
         if($scope.attendance == 0){
             pushAlert("حضور غیاب");
             return false;
@@ -493,7 +493,7 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
             'easiness':$scope.easiness,
             'clarity':$scope.clarity,
             'coolness':$scope.coolness,
-            'useTextbook':$scope.useTextbook,
+            // 'useTextbook':$scope.useTextbook,
             'attendance':$scope.attendance,
             'comment': $scope.comment,
             'tags':getTags(),

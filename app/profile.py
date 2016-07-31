@@ -55,7 +55,8 @@ def get_tags(tags):
 		tag_dict['name'] = tag.name
 		tag_dict['count'] = tag.count
 		comment_list.append(tag_dict)
-	return comment_list
+
+	return sorted(comment_list, key=lambda comment: comment["count"], reverse=True)
 
 
 def get_comments(prof):
@@ -75,7 +76,8 @@ def get_comments(prof):
 
 		# comment_dict['study'] = cmt.study.name
 		comment_dict['coolness'] = cmt.attrs['coolness']
-		comment_dict['use_textbook'] = cmt.attrs['use_textbook']
+		if 'use_textbook' in cmt.attrs.keys():
+			comment_dict['use_textbook'] = cmt.attrs['use_textbook']
 		comment_dict['attendance'] = cmt.attrs['attendance']
 		comment_dict['id'] = str(cmt.id)
 		# comment_dict['reported'] = cmt.reported

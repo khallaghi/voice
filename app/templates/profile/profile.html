@@ -176,7 +176,7 @@
                                     </div>
                                     <div class="col-md-6 mdb" >
                                         <select id="js-example-data-array"  style="width: 230px;direction: rtl;" ng-model="selected_course">
-                                          
+
 
                                         </select>
                                     </div>
@@ -290,7 +290,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-6 mda">
                                         <div class="text">کتاب استفاده می‌کنه
                                         </div>
@@ -304,7 +304,22 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
+                                <!-- <div class="row">
+                                    <div class="col-md-6 mda">
+                                        <div class="text">کتاب استفاده می‌کنه
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mdb">
+                                        <div  id="yes-or-no">
+
+                                            <div class="input">
+                                                <a href="" id="positive" ng-click="setUseTextbook(1)" ng-class="{'active':useTextbook===1}">آره</a>
+                                                <a href="" id="positive" ng-click="setUseTextbook(2)" ng-class="{'active':useTextbook===2}">نه</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
 
                                 <div class="row">
                                     <div class="form-group" id="yes-or-no">
@@ -376,7 +391,7 @@
 
 
                     </div>
-                    
+
                     <div class="col-md-6 x1-row6" >
                         <div class="chart bg-gray" >
                             <div class="mainchart" id="main-result">Loading ...</div>
@@ -445,8 +460,10 @@
                                 {{result_gen('coolness',  cmt.coolness )}}
                             </p>
                             <p>
-                                کتاب استفاده می‌کنه:
-                                {{result_gen('useTextbook', cmt.use_textbook )}}
+                                <div ng-if="cmt.use_textbook != undefined">
+                                  کتاب استفاده می‌کنه:
+                                  {{result_gen('useTextbook', cmt.use_textbook )}}
+                                </div>
                             </p>
                         </div>
 
@@ -598,4 +615,3 @@
 
 </body>
 </html>
-

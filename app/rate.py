@@ -137,7 +137,7 @@ class ProfessorRate(MethodView):
 		post.helpfulness = data['helpfulness']
 		post.easiness = data['easiness']
 		post.attrs['coolness'] = data['coolness']
-		post.attrs['use_textbook'] = data['useTextbook']
+		# post.attrs['use_textbook'] = 
 		post.attrs['attendance'] = data['attendance']
 		post.study = study
 		self.append_tags(post, data)
