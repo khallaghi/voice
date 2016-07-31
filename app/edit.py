@@ -44,10 +44,21 @@ def allowed_file(filename):
 
 class ProfList(MethodView):
 	decorators = [requires_auth]
+	def get(self, page):
+		page_count = Professor.objects().count()/100+1
+		profs = Professor.objects.order_by("faculty")[page*100:(page+1)*100]
+		# print "count of professors: " + str(profs.count()) 
+		return render_template('edit/professor-list.html',
+								profs=profs,
+								page_count=page_count,
+								curr_page=page)
+
+class FirstProfList(MethodView):
+	decorators = [requires_auth]
 	def get(self):
 		profs = Professor.objects.order_by("faculty")
 		# print "count of professors: " + str(profs.count()) 
-		return render_template('edit/professor-list.html', profs=profs)
+		return redirect(url_for("edit.professor_list", page=0))
 
 class EditProf(MethodView):
 	decorators = [requires_auth]
@@ -97,4 +108,6 @@ class DeleteProf(MethodView):
 
 edit.add_url_rule('/prof/delete/<id>', view_func=DeleteProf.as_view('delete_professor'))
 edit.add_url_rule('/prof/edit/<id>', view_func=EditProf.as_view('edit_professor'))
-edit.add_url_rule('/prof/list', view_func=ProfList.as_view('professor_list'))
+edit.add_url_rule('/prof/list', view_func=FirstProfList.as_view('first_professor_list'))
+edit.add_url_rule('/prof/list/<int:page>', view_func=ProfList.as_view('professor_list'))
+

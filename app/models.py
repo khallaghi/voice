@@ -20,7 +20,7 @@ class Faculty(db.Document):
     @property
     def get_professors(self):
         return Professor.objects(faculty = self)
-    
+
 
 class Professor(db.Document):
     ''' Personal Attributes '''
@@ -152,4 +152,3 @@ class Message(db.Document):
 
 # class ProfView(db.Document):
 #     profs = db.ListField(db.ReferenceField())
-
