@@ -290,21 +290,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="row">
+                                <div class="row">
                                     <div class="col-md-6 mda">
-                                        <div class="text">کتاب استفاده می‌کنه
+                                        <div class="text">حاضری دوباره باهاش برداری؟
                                         </div>
                                     </div>
                                     <div class="col-md-6 mdb">
                                         <div  id="yes-or-no">
 
                                             <div class="input">
-                                                <a href="" id="positive" ng-click="setUseTextbook(1)" ng-class="{'active':useTextbook===1}">آره</a>
-                                                <a href="" id="positive" ng-click="setUseTextbook(2)" ng-class="{'active':useTextbook===2}">نه</a>
+                                                <a href="" id="positive" ng-click="setUseTakeAgain(1)" ng-class="{'active':takeAgain===1}">آره حتما</a>
+                                                <a href="" id="positive" ng-click="setUseTakeAgain(2)" ng-class="{'active':takeAgain===2}">شاید</a>
+                                                <a href="" id="positive" ng-click="setUseTakeAgain(3)" ng-class="{'active':takeAgain===3}">نه اصلا</a>
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- <div class="row">
                                     <div class="col-md-6 mda">
                                         <div class="text">کتاب استفاده می‌کنه
@@ -463,6 +464,12 @@
                                 <div ng-if="cmt.use_textbook != undefined">
                                   کتاب استفاده می‌کنه:
                                   {{result_gen('useTextbook', cmt.use_textbook )}}
+                                </div>
+                            </p>
+                            <p>
+                                <div ng-if="cmt.take_again != undefined">
+                                  دوباره باهاش برمی‌داری:
+                                  {{result_gen('takeAgain', cmt.take_again )}}
                                 </div>
                             </p>
                         </div>

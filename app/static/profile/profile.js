@@ -28,6 +28,11 @@ app.controller('Comment', function(reportComment, Scopes, $scope){
             1:"آره همیشه",
             2:"بعضی وقتا",
             3:"نه اصلا"
+        },
+        "takeAgain":{
+          1:"آره حتما",
+          2:"شاید ",
+          3:"نه اصلا"
         }
     }
     $scope.get_comments = function(){
@@ -327,6 +332,17 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
             $scope.useTextbook = score;
     };
 
+    $scope.takeAgain = 0;
+    $scope.setUseTakeAgain = function(score){
+        console.log("TAKE AGAIN");
+        console.log(score);
+
+        if(score<=3 && score>0){
+            $scope.takeAgain = score;
+        }
+        console.log($scope.takeAgain);
+    };
+
     $scope.attendance = 0;
     $scope.setAttendance = function(score){
 
@@ -460,6 +476,11 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
         //     pushAlert("استفاده از کتاب");
         //     return false;
         // }
+        if($scope.takeAgain == 0){
+          pushAlert("دوباره برداشتن");
+          return false;
+        }
+
         if($scope.attendance == 0){
             pushAlert("حضور غیاب");
             return false;
@@ -500,7 +521,8 @@ app.controller('MainCtrl', ['$scope', '$http', '$controller', 'vcRecaptchaServic
             'findCourse':$scope.findCourse,
             'courseName':course_name,
             'selectedCourse':selected_course,
-            'response':$scope.response
+            'response':$scope.response,
+            'takeAgain':$scope.takeAgain
 
         };
         console.log("RATE DATA");
@@ -657,18 +679,18 @@ jQuery(document).ready(function($){
      function formatRepo (repo) {
       if (repo.loading) return repo.text;
 
-       
+
       var markup ="<div class='select2-result-repository clearfix'>" +
         "<div class='select2-result-repository__meta'>" +
           "<div class='select2-result-repository__title'>" + repo.name + "</div>";
 
-      
+
         markup += "<div class='select2-result-repository__description'>" + repo.faculty + "</div>";
-      
+
 
       markup +=  "<div class='select2-result-repository__description'><i class='fa fa-flash'></i> " + repo.uni + "</div>" +
 
-     
+
       "</div></div>";
 
       return markup;
@@ -711,7 +733,7 @@ jQuery(document).ready(function($){
     });
 
 
-    
+
 
     // browser window scroll (in pixels) after which the "back to top" link is shown
     var offset = 300,
@@ -739,4 +761,3 @@ jQuery(document).ready(function($){
         );
     });
 });
-

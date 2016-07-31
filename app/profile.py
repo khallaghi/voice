@@ -78,6 +78,8 @@ def get_comments(prof):
 		comment_dict['coolness'] = cmt.attrs['coolness']
 		if 'use_textbook' in cmt.attrs.keys():
 			comment_dict['use_textbook'] = cmt.attrs['use_textbook']
+		if 'take_again' in cmt.attrs.keys():
+			comment_dict['take_again'] = cmt.attrs['take_again']
 		comment_dict['attendance'] = cmt.attrs['attendance']
 		comment_dict['id'] = str(cmt.id)
 		# comment_dict['reported'] = cmt.reported
@@ -160,10 +162,10 @@ class ProfResult(MethodView):
 		result['comments'] = [comment for comment in get_comments(prof)]
 		result['personal_tags'] = [tag for tag in get_tags(prof.personal_tags)]
 		return result
-	
+
 	def get(self, id):
 		result = self.get_context(id)
-		return jsonify(**result) 
+		return jsonify(**result)
 
 class FacProfile(MethodView):
 	def get_context(self,id):

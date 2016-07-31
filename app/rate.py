@@ -31,7 +31,7 @@ def verify_user(ip, response):
 	r = requests.post(url,obj)
 	data = r.json()
 	return data['success']
-		
+
 
 def check_delta(now, timestamp):
 	TIME_DELTA = datetime.timedelta(hours = 2)
@@ -54,7 +54,7 @@ def check_multiple_vote(prof, ip):
 		prof.recent_voters.pop(0)
 	prof.recent_voters.append(Voter(
 								ip = ip,
-								timestamp = now 
+								timestamp = now
 								))
 	prof.save()
 	return False
@@ -137,7 +137,8 @@ class ProfessorRate(MethodView):
 		post.helpfulness = data['helpfulness']
 		post.easiness = data['easiness']
 		post.attrs['coolness'] = data['coolness']
-		# post.attrs['use_textbook'] = 
+		# post.attrs['use_textbook'] =
+		post.attrs['take_again'] = data['takeAgain']
 		post.attrs['attendance'] = data['attendance']
 		post.study = study
 		self.append_tags(post, data)
@@ -158,7 +159,7 @@ class ProfessorRate(MethodView):
 
 	def update_course(self, study, data):
 		study.helpfulness_count += 1
-		study.helpfulness = self.average_rate(study.helpfulness, 
+		study.helpfulness = self.average_rate(study.helpfulness,
 												study.helpfulness_count,
 												data['helpfulness'])
 		study.easiness_count += 1
@@ -169,7 +170,7 @@ class ProfessorRate(MethodView):
 		study.clarity = self.average_rate(study.clarity,
 											study.clarity_count,
 											data['clarity'])
-		 
+
 
 	def find_and_update_course(self, prof, data):
 		for study in prof.studies:
@@ -195,7 +196,7 @@ class ProfessorRate(MethodView):
 		if data['findCourse']:
 			if 'selectedCourse' in data.keys() and data['selectedCourse'] != None:
 				return self.find_and_update_course(prof, data)
-					
+
 		else:
 			if 'courseName' in data.keys() and data['courseName'] != None:
 				return self.create_course(prof, data)
@@ -207,24 +208,24 @@ class ProfessorRate(MethodView):
 			prof = Professor.objects(id=data['id']).first()
 			if prof == None:
 				raise Exception("PROF NOT FOUND")
-				
+
 			# if not 'response' in data.keys():
 			# 	raise Exception("FORGET RECAPTCHA")
-					
+
 			if check_multiple_vote(prof, request.remote_addr):
 				raise Exception("MULTIPLE VOTE")
-				
+
 			# if not verify_user(request.remote_addr, data['response']):
 			# 	raise Exception("YOU ARE ROBOT")
 
 			prof = Professor.objects(id=data['id']).first()
 			if not self.validate(prof, data):
 				raise Exception("INVALID DATA")
-				
+
 			study = self.apply_course(prof, data)
 			if not study:
 				raise Exception("INVALID COURSE")
-				
+
 			self.apply_rate(prof, data)
 			self.apply_tags(prof, data)
 			self.apply_comment(prof, data, study)
@@ -234,14 +235,14 @@ class ProfessorRate(MethodView):
 				success = True,
 				message = "DONE"
 			)
-			
+
 		except Exception as msg:
 			app.logger.error(msg)
 			return jsonify(
 				success = False,
 				message = msg.args[0]
 			)
-rate.add_url_rule('/rate', 
+rate.add_url_rule('/rate',
 					view_func=ProfessorRate.as_view('professorRate'))
 
 # def find_cmt(prof, id):
@@ -269,7 +270,7 @@ rate.add_url_rule('/rate',
 # 				print "IN THE REPORT COMMENT"
 # 				return "True"
 # 		return "False"
-# rate.add_url_rule('/report/<prof_id>/<cmt_id>', 
+# rate.add_url_rule('/report/<prof_id>/<cmt_id>',
 # 					view_func=ReportComment.as_view('reportComment'))
 
 
@@ -293,7 +294,7 @@ rate.add_url_rule('/rate',
 # 	def get(self):
 # 		return render_template('report/reported.html',
 # 								records=self.get_reported_comments())
-# rate.add_url_rule('/report/list', 
+# rate.add_url_rule('/report/list',
 # 					view_func=ShowReportedComments.as_view('showReportedComments'))
 
 # class DeleteComment(MethodView):
@@ -310,7 +311,7 @@ rate.add_url_rule('/rate',
 # 				prof.reported_comments -= 1
 # 				prof.save()
 # 		return redirect(url_for('rate.showReportedComments'));
-# rate.add_url_rule('/report/delete/<prof_id>/<cmt_id>', 
+# rate.add_url_rule('/report/delete/<prof_id>/<cmt_id>',
 # 					view_func=DeleteComment.as_view('delete_comment'))
 
 # class RestoreComment(MethodView):
@@ -324,7 +325,7 @@ rate.add_url_rule('/rate',
 # 				prof.reported_comments -= 1
 # 				prof.save()
 # 		return redirect(url_for('rate.showReportedComments'))
-# rate.add_url_rule('/report/restore/<prof_id>/<cmt_id>', 
+# rate.add_url_rule('/report/restore/<prof_id>/<cmt_id>',
 # 					view_func=RestoreComment.as_view('restore_comment'))
 
 # class ResetService(MethodView):
@@ -332,22 +333,22 @@ rate.add_url_rule('/rate',
 # 	def get(self):
 # 		profs = Professor.objects.all()
 # 		for prof in profs:
-# 			del prof.helpfulness 
-# 			del prof.helpfulness_count 
-# 			del prof.easiness 
-# 			del prof.easiness_count 
-# 			del prof.clarity 
-# 			del prof.clarity_count 
-# 			del prof.coolness 
-# 			del prof.coolness_count 
-# 			del prof.reported_comments 
+# 			del prof.helpfulness
+# 			del prof.helpfulness_count
+# 			del prof.easiness
+# 			del prof.easiness_count
+# 			del prof.clarity
+# 			del prof.clarity_count
+# 			del prof.coolness
+# 			del prof.coolness_count
+# 			del prof.reported_comments
 # 			del prof.studies
 # 			del prof.recent_voters
 # 			del prof.comments
 # 			del prof.personal_tags
 # 			prof.save()
 # 		return "EVERY THING REMOVED"
-# rate.add_url_rule('/reset', 
+# rate.add_url_rule('/reset',
 # 					view_func=ResetService.as_view('reset'))
 
 class CommentsCount(MethodView):
@@ -375,7 +376,7 @@ class CommentsCount(MethodView):
 			result.append((fac.name, count))
 		print result
 		return render_template('admin/stat.html',result= result, all = all_count, cmt = cmt_count, study = study_count)
-rate.add_url_rule('/stat', 
+rate.add_url_rule('/stat',
 					view_func=CommentsCount.as_view('stat'))
 
 
@@ -404,7 +405,7 @@ rate.add_url_rule('/stat',
 # 		print count
 # 		return str(count)
 
-# rate.add_url_rule('/migrate-to-post', 
+# rate.add_url_rule('/migrate-to-post',
 # 	view_func = MigrateToPost.as_view("MigrateToPost"))
 
 # class FixAllYe(MethodView):
@@ -419,5 +420,5 @@ rate.add_url_rule('/stat',
 # 			prof.name = replace_ye(prof.name)
 # 			prof.save()
 # 		return "DONE"
-# rate.add_url_rule('/fix-all-ye', 
+# rate.add_url_rule('/fix-all-ye',
 # 	view_func = FixAllYe.as_view("FixAllYe"))
