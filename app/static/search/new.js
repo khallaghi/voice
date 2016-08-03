@@ -61,3 +61,8 @@ app.controller('searchBox',function($scope, $http, $timeout, $element){
     // $scope.fac = $scope.search_result.data.faculties != null;
     // console.log("akbar is dirty");
 });
+
+
+    // alert("lksdfl");
+
+

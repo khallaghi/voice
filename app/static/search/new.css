@@ -101,14 +101,11 @@
 .box2{
     background-color: #EEEEEE;
 }
-#slides{col-xs-12
-    display: inline-flex;
-    text-align: center;
-    padding: 10px;
+#slides{
+
 }
 #slide img{
-    height:120px;
-    padding: 0 10 0 10;
+
 }
 .back-detail{
     background-color: #3b3b3b;
@@ -302,10 +299,10 @@
 }
 /*result place*/
 
-
-
-
-
+.bx{
+    background-color: #EEEEEE;
+    height: 150px;
+}
 
 /*main2 css*/
 /*box design*/
@@ -334,12 +331,7 @@
 /*data end*/
 /*slide show box*/
     .slider{
-        height: 50%;
-        margin-bottom: 4%;
-        text-align: center;
-        display: inline-flex;
-        padding-top: 20px;
-    }
+
 /*slide show box end*/
 /*detail*/
     .detail{
@@ -461,11 +453,10 @@
         text-align: center;
     }
     .slider{
-        height: 25%;
+
     }
     #slide img{
-        width: 100px;
-        height: 100px;
+
     }
     .detail{
         height: 53%;
@@ -550,11 +541,10 @@
         text-align: center;
     }
     .slider{
-        height: 25%;
+
     }
     #slide img{
-        width: 100px;
-        height: 100px;
+
     }
     .detail{
         height: 53%;
@@ -663,3 +653,42 @@
         padding-top: 7%;
     }
 }
+/*.slider{*/
+    /*position: relative;*/
+    /*overflow: hidden;*/
+/*}*/
+/*#asd img{*/
+    /*display: none;*/
+/*}*/
+
+/*.multi-item-carousel .carousel-inner > .item {*/
+    /*-webkit-transition: 500ms ease-in-out left;*/
+    /*transition: 500ms ease-in-out left;*/
+/*}*/
+/*.multi-item-carousel .carousel-inner .active.left {*/
+    /*left: -33%;*/
+/*}*/
+/*.multi-item-carousel .carousel-inner .active.right {*/
+    /*left: 33%;*/
+/*}*/
+/*.multi-item-carousel .carousel-inner .next {*/
+    /*left: 33%;*/
+/*}*/
+/*.multi-item-carousel .carousel-inner .prev {*/
+    /*left: -33%;*/
+/*}*/
+/*@media all and (transform-3d), (-webkit-transform-3d) {*/
+    /*.multi-item-carousel .carousel-inner > .item {*/
+        /*-webkit-transition: 500ms ease-in-out all;*/
+        /*transition: 500ms ease-in-out all;*/
+        /*-webkit-backface-visibility: visible;*/
+        /*backface-visibility: visible;*/
+        /*-webkit-transform: none!important;*/
+        /*transform: none!important;*/
+    /*}*/
+/*}*/
+/*.multi-item-carousel .carouse-control.left,*/
+/*.multi-item-carousel .carouse-control.right {*/
+    /*background-image: none;*/
+/*}*/
+

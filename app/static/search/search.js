@@ -81,3 +81,6 @@ app.controller('searchBox',function($scope, $http, $timeout, $element){
 		// $(".head2").fadeIn();
 
 	}
+	function nextslide() {
+		alert("lsdjhfjk");
+	}

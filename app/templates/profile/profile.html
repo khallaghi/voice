@@ -65,7 +65,7 @@
 
 <div class="container">
     <header class="head-section" style="margin-bottom: 1.5%;">
-        <div class="navbar navbar-default navbar-static-top" style="padding-left: 1%;padding-right:1%; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;padding-top: 10px;">
+        <div class="navbar navbar-default navbar-static-top " style="padding-left: 1%;padding-right:1%; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;padding-top: 10px;">
             <div class="navbar-collapse collapse row" >
                 <!--logo-->
                 <div class="col-md-2 col-xs-2">
@@ -291,14 +291,14 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mda">
+                                    <div class="col-md-5 col-xs-5">
                                         <div class="text">حاضری دوباره باهاش برداری؟
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mdb">
+                                    <div class="col-md-7 col-xs-7">
                                         <div  id="yes-or-no">
 
-                                            <div class="input">
+                                            <div class="input" style="margin-right: 0;">
                                                 <a href="" id="positive" ng-click="setUseTakeAgain(1)" ng-class="{'active':takeAgain===1}">آره حتما</a>
                                                 <a href="" id="positive" ng-click="setUseTakeAgain(2)" ng-class="{'active':takeAgain===2}">شاید</a>
                                                 <a href="" id="positive" ng-click="setUseTakeAgain(3)" ng-class="{'active':takeAgain===3}">نه اصلا</a>
@@ -324,13 +324,26 @@
 
                                 <div class="row">
                                     <div class="form-group" id="yes-or-no">
-                                        <div class="col-md-12 mdc">
+                                        <div class="col-md-6 col-xs-6">
                                             <div class="text"> نظرت رو درموردش بگو </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6 text-right " style="padding-left: 40px;padding-bottom: 0pc;font-size: 22px;">
+                                            <div class="glyphicon glyphicon-plus-sign addguidline" onclick="showguid()" style="color: #03A9F4;cursor: pointer;"></div>
                                         </div>
                                         <div class="col-md-12 mdc">
                                             <div class="text" style="padding-right: 30px;">
                                                 <textarea style="font-size: 15px;" id="leave-comment" type="textarea" name="input" ng-model="cmt" maxlength=1200></textarea>
                                             </div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 guidline" style="direction: rtl;">
+                                            <h4>یه پیشنهاد بدیم چی بنویسی بهتره:</h4>
+                                            <ul>
+                                                <li>نحوه بارم بندى درس و اينكه نمودار ميزنند يا نه؟ </li>
+                                                <li>پروژه و تمرين و كوييزهاى درس چجوريه؟</li>
+                                                <li>چقدر بايد واسه درس وقت بذارى؟</li>
+                                                <li>امتحاناشون چجوريه؟ </li>
+                                                <li>نحوه تعامل با دانشجو؟</li>
+                                            </ul>
                                         </div>
 
                                     </div>
@@ -373,10 +386,10 @@
         <div id="x1">
             <div class="col-md-9 " style="padding-left: 0;">
                 <div class="row box" >
-                    <div>
-                        تمامی نظر‌ها:‌ %% all_posts %%
-                        نظر‌های پاک شده: %% removed_posts %%
-                    </div>
+                    <!--<div style="text-align: center;padding-top: 10px;">-->
+                        <!--تمامی نظر‌ها:‌ %% all_posts %%-->
+                        <!--نظر‌های پاک شده: %% removed_posts %%-->
+                    <!--</div>-->
                     <div ng-controller="TagCtrl"  class="col-md-5 tags x1-row5" style="padding-top: 20px;padding-left: 20px;">
                         <div  class="linebetwaen"></div>
 

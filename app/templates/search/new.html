@@ -52,6 +52,7 @@
     <!--js-->
     <script src="%%url_for('static', filename='angular/angular.min.js')%%"></script>
     <script src="%% url_for('static', filename='search/search.js')%%"></script>
+    <script src="%% url_for('static', filename='search/slideshow.js')%%"></script>
 </head>
 
 <body id="page-top">
@@ -117,7 +118,7 @@
             </div>
             <div style="height: 80px;"></div>
             <a href="#about" class="page-scroll"  style="color: #0b0b0b;margin-top: 20px;">
-                <img id="arrow-down" onclick="hideit()" src="%%url_for('static',filename='search/arrow.png')%%" 	>
+                <img id="arrow-down" onclick="nextpage()" src="%%url_for('static',filename='search/arrow.png')%%" 	>
             </a>
         </div>
             <!--<div class="row footup" style="margin-top: 140px;">-->
@@ -172,6 +173,140 @@
                 </div>
             </div>
         </div>
+        <div class="row" style="color: #0b0b0b;margin-top: 20px;">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bx">
+                            <div class="col-md-12">
+                                <div class="col-md-1"  >
+                                    <a class="right carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="unislides">
+                                        <div class="unislide col-md-4 active1">
+                                            <a href="#1"><img src="%%url_for('static',filename='search/1/sharif.png')%%" class="img-responsive"></a>
+                                        </div>
+                                        <div class="unislide col-md-4 active2">
+                                            <a href="#1"><img src="%%url_for('static',filename='search/1/ut.png')%%" class="img-responsive"></a>
+                                        </div>
+                                        <div class="unislide col-md-4 active3">
+                                            <a href="#1"><img src="%%url_for('static',filename='search/1/amir.png')%%" class="img-responsive"></a>
+                                        </div>
+                                        <div class="unislide col-md-4">
+                                            <a href="#1"><img src="%%url_for('static',filename='search/1/ut.png')%%" class="img-responsive"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1" >
+                                    <a class="left carousel-control" onclick="nextslide()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-3 ">
+                        <div class="bx">
+                            <div class="blackhead">
+                                اتفاق بعدی
+                            </div>
+                            <p style="margin-top: 20px;font-size:20px;text-align: center;">اضافه شدن دانشگاه <span style="color: #0091EA;">امیرکبیر</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-9 ">
+                        <div class="bx">
+                            <div class="col-md-6" style="padding: 0px;text-align: center;">
+                                <div class="blackhead">تعداد اساتید</div>
+                                <span class="count profnum"  data-count="2196">0</span>
+                            </div>
+                            <div class="col-md-3"style="padding: 0 5px 0  0;text-align: center;">
+                                <div class="blackhead"style="margin-bottom: 30px;">افراد شرکت کننده</div>
+                                <span class="count num"  data-count="3100">0</span>
+                            </div>
+                            <div class="col-md-3"style="padding: 0 5px 0 0;text-align: center;">
+                                <div class="blackhead" style="margin-bottom: 30px;">بازدید ها</div>
+                                <span class="count num"  data-count="30510">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="vid">
+                    <div class="vid1">
+                        <div id="14702478956279023"><script type="text/JavaScript" src="https://www.aparat.com/embed/zukGB?data[rnddiv]=14702478956279023&data[w]=480"></script></div>                    </div>
+                    <div class="vid2">
+                        <div class="row" style="direction: rtl;padding-top: 10px;padding-right: 10px;padding-left: 10px;">
+                            <div class=" col-md-12 col-xs-12 text-left">
+                                <p>فیلم هفته:</p>
+                            </div>
+                            <div class=" col-md-12 col-xs-12" style="text-align: center;font-size: 20px;">
+                                <p>تیزر دانشگاه تهران</p>
+                            </div>
+                            <div class=" col-md-12 col-xs-12 text-right" style="font-size: 18px;color: #F44336;">
+                                <p>اتفاقی نو در راه است!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">-->
+            <!--<div class="col-md-7">-->
+                <!--<div class="slides">-->
+                    <!--<div class="item">-->
+                        <!--<div class="asd col-md-3 ">-->
+                            <!--<a href="#1"><img src="%%url_for('static',filename='search/1/sharif.png')%%" class="img-responsive"></a>-->
+                        <!--</div>-->
+                        <!--<div class="asd col-md-3">-->
+                            <!--<a href="#1"><img src="%%url_for('static',filename='search/1/ut.png')%%" class="img-responsive"></a>-->
+                        <!--</div>-->
+                        <!--<div class="asd col-md-3">-->
+                            <!--<a href="#1"><img src="%%url_for('static',filename='search/1/amir.png')%%" class="img-responsive"></a>-->
+                        <!--</div>-->
+                        <!--<div id="asd" class=" col-md-3">-->
+                            <!--<a href="#1"><img src="%%url_for('static',filename='search/1/shahid.png')%%" class="img-responsive"></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="slide ">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#1"><img src="%%url_for('static',filename='search/1/iust.png')%%" class="img-responsive"></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="slide ">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#1"><img src="%%url_for('static',filename='search/1/kntu.png')%%" class="img-responsive"></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="slide ">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#1"><img src="%%url_for('static',filename='search/1/modares.png')%%" class="img-responsive"></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+                <!--<a class="left carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>-->
+                <!--<a class="right carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>-->
+                <!--&lt;!&ndash;<div class="carousel slide multi-item-carousel" id="theCarousel">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="carousel-inner">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item active">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="col-md-3 col-xs-3"><a href="#1"><img src="%%url_for('static',filename='search/1/sharif.png')%%" class="img-responsive"></a></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="col-md-3 col-xs-3"><a href="#1"><img src="%%url_for('static',filename='search/1/ut.png')%%" class="img-responsive"></a></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item ">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="col-md-3 col-xs-3"><a href="#1"><img src="%%url_for('static',filename='search/1/amir.png')%%" class="img-responsive"></a></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="col-md-3 col-xs-3"><a href="#1"><img src="%%url_for('static',filename='search/1/shahid.png')%%" class="img-responsive"></a></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="col-md-3 col-xs-3"><a href="#1"><img src="%%url_for('static',filename='search/1/sharif.png')%%" class="img-responsive"></a></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="item">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div class="col-md-3 col-xs-3"><a href="#1"><img src="%%url_for('static',filename='search/1/ut.png')%%" class="img-responsive"></a></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+        </div>
     </div>
 </section>
 
@@ -194,7 +329,7 @@
                     <div class="col-md-12 col-xs-12" style="margin-right: 5px;">
                         <a class="about-butom "  style="text-decoration: none;" href="%% url_for('content.contactus')%%">درباره ما</a>
                         <a class="about-butom "  style="text-decoration: none;" href="%% url_for('category.faculty')%%">لیست اساتید</a>
-                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('home.manifest')%%">مرام‌نامه</a>
+                        <a class="about-butom "  style="text-decoration: none;" href="%% url_for('home.manifest')%%">مرام‌‌نامه</a>
                     </div>
                 </div>
             </div>
@@ -250,7 +385,39 @@
         a.appendChild(r);
     })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
+<script>
+    $(document).ready(function(){
 
+//        alert("skdhfkjsdf");
+    });
+    $(document).ready(function(){
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 600) {
+                $('.count').each(function() {
+                    var $this = $(this),
+                            countTo = $this.attr('data-count');
+
+                    $({ countNum: $this.text()}).animate({
+                                countNum: countTo
+                            },
+
+                            {
+
+                                duration: 8000,
+                                easing:'linear',
+                                step: function() {
+                                    $this.text(Math.floor(this.countNum));
+                                },
+                                complete: function() {
+                                    $this.text(this.countNum);
+                                    // alert('finished');
+                                }
+                            });
+                });
+            }
+        });
+    });
+</script>
 
 </body>
 

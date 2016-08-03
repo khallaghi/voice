@@ -57,7 +57,7 @@ h6 {
     color: rgba(255, 255, 255, 0.7);
 }
 section {
-    padding: 100px 0;
+    padding: 0 0;
 }
 aside {
     padding: 50px 0;
@@ -574,4 +574,62 @@ header .header-content ::-webkit-scrollbar-thumb {
 }
 .btn{
     border-radius: 0px;
+}
+
+.bx{
+    height: 200px;
+    background-color: #EEEEEE;
+    padding: 20px;
+}
+.vid{
+    height: 420px;
+    background-color: #EEEEEE;
+}
+.vid1{
+    height: 70%;
+    text-align: center;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 10px;
+}
+.vid2{
+    height: 30%;
+}
+.blackhead{
+    height: 40px;
+    background-color: #3d3d3d;
+    color: #F5F5F5;
+    text-align: center;
+    padding-top: 10px;
+}
+.profnum{
+    font-size: 8.5em;
+    text-align: center;
+}
+.num{
+    font-size: 3.5em;
+    text-align: center;
+}
+.count{
+    font-family: BRoya,'BRoya',tahoma;
+}
+
+.unislides{
+
+}
+.unislide{
+    width: 30%;
+    display: none;
+
+}
+.active1{
+    display: block;
+}
+.active2{
+    display: block;
+}
+.active3{
+    display: block;
+}
+.carousel-control{
+    cursor: pointer;
 }

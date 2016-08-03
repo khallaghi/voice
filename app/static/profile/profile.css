@@ -1036,7 +1036,7 @@ a.reporting:hover{
     }
     .x1-row6{
         width: 55%;
-        height: 300px;
+        height: 330px;
     }
     .btn-primary{
         font-size: 25px;
@@ -1179,7 +1179,7 @@ a.reporting:hover{
     }
     .x1-row6{
         width: 55%;
-        height: 300px;
+        height: 330px;
     }
     .btn-primary{
         font-size: 25px;
@@ -1317,3 +1317,8 @@ a.reporting:hover{
 .select2-results__option--highlighted .select2-result-repository__title { color: white; }
 .select2-results__option--highlighted .select2-result-repository__forks, .select2-results__option--highlighted .select2-result-repository__stargazers, .select2-results__option--highlighted .select2-result-repository__description, .select2-results__option--highlighted .select2-result-repository__watchers { color: #c6dcef; }
 
+.guidline{
+    background-color: #29B6F6;
+    color: #0b0b0b;
+    display: none;
+}

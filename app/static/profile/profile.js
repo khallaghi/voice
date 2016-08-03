@@ -761,3 +761,7 @@ jQuery(document).ready(function($){
         );
     });
 });
+
+function showguid() {
+    $(".guidline").fadeToggle("fast");
+}d
