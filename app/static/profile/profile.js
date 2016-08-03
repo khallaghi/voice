@@ -68,7 +68,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
         Highcharts.setOptions({
             chart: {
                 style: {
-                    fontFamily: 'IRANSansWeb'
+                    fontFamily: 'BRoya'
                 }
             }
         });
@@ -159,7 +159,7 @@ app.controller('mainResult', function(myService, Scopes, $scope){
         Highcharts.setOptions({
             chart: {
                 style: {
-                    fontFamily: 'IRANSansWeb'
+                    fontFamily: 'BRoya'
                 }
             }
         });

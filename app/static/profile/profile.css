@@ -20,7 +20,7 @@
     src: url('../font/BRoya/BRoya.ttf') format('truetype');
 }
 .number{
-    font-family: BRoya,'BRoya',tahoma;;
+    font-family: BRoya,'BRoya',tahoma;
 }
 body{
     font-family: IRANSansWeb;
